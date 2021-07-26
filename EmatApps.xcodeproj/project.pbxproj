@@ -14,6 +14,9 @@
 		AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1926AAA5D000E79190 /* EmatApps.xcdatamodeld */; };
 		AE04AF1D26AAA5D200E79190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1C26AAA5D200E79190 /* Assets.xcassets */; };
 		AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1E26AAA5D200E79190 /* LaunchScreen.storyboard */; };
+		E0FBFC7D26AD55FB00EDCEBC /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */; };
+		E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */; };
+		E0FBFC8126AE742F00EDCEBC /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		AE04AF1C26AAA5D200E79190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE04AF1F26AAA5D200E79190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE04AF2126AAA5D200E79190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
+		E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,27 @@
 		AE04AF0F26AAA5D000E79190 /* EmatApps */ = {
 			isa = PBXGroup;
 			children = (
+				E0FBFC7926AD55AE00EDCEBC /* Reports */,
 				AE04AF1026AAA5D000E79190 /* AppDelegate.swift */,
 				AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */,
 				AE04AF1426AAA5D000E79190 /* ViewController.swift */,
 				AE04AF1626AAA5D000E79190 /* Main.storyboard */,
-				AE04AF1C26AAA5D200E79190 /* Assets.xcassets */,
 				AE04AF1E26AAA5D200E79190 /* LaunchScreen.storyboard */,
 				AE04AF2126AAA5D200E79190 /* Info.plist */,
 				AE04AF1926AAA5D000E79190 /* EmatApps.xcdatamodeld */,
+				AE04AF1C26AAA5D200E79190 /* Assets.xcassets */,
 			);
 			path = EmatApps;
+			sourceTree = "<group>";
+		};
+		E0FBFC7926AD55AE00EDCEBC /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */,
+				E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */,
+				E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */,
+			);
+			path = Reports;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0FBFC7D26AD55FB00EDCEBC /* Report.storyboard in Resources */,
 				AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */,
 				AE04AF1D26AAA5D200E79190 /* Assets.xcassets in Resources */,
 				AE04AF1826AAA5D000E79190 /* Main.storyboard in Resources */,
@@ -140,7 +158,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */,
 				AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */,
+				E0FBFC8126AE742F00EDCEBC /* ReportViewController.swift in Sources */,
 				AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
 				AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */,
