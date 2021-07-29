@@ -14,6 +14,12 @@
 		AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1926AAA5D000E79190 /* EmatApps.xcdatamodeld */; };
 		AE04AF1D26AAA5D200E79190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1C26AAA5D200E79190 /* Assets.xcassets */; };
 		AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1E26AAA5D200E79190 /* LaunchScreen.storyboard */; };
+		E02CB40C26B0CCF000A39B2C /* MonthsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */; };
+		E0B3462526B18A510076D482 /* MonthlyDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */; };
+		E0B3462726B18A6A0076D482 /* MonthlyData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */; };
+		E0B3462926B18D7A0076D482 /* MonthlyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462826B18D7A0076D482 /* MonthlyBudget.swift */; };
+		E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */; };
+		E0B3463026B284FE0076D482 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462F26B284FE0076D482 /* Model.swift */; };
 		E0FBFC7D26AD55FB00EDCEBC /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */; };
 		E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */; };
 		E0FBFC8126AE742F00EDCEBC /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */; };
@@ -29,6 +35,12 @@
 		AE04AF1C26AAA5D200E79190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE04AF1F26AAA5D200E79190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE04AF2126AAA5D200E79190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewCell.swift; sourceTree = "<group>"; };
+		E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyDataViewController.swift; sourceTree = "<group>"; };
+		E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonthlyData.storyboard; sourceTree = "<group>"; };
+		E0B3462826B18D7A0076D482 /* MonthlyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBudget.swift; sourceTree = "<group>"; };
+		E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUsageTableViewCell.swift; sourceTree = "<group>"; };
+		E0B3462F26B284FE0076D482 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 		E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +76,8 @@
 		AE04AF0F26AAA5D000E79190 /* EmatApps */ = {
 			isa = PBXGroup;
 			children = (
+				E0B3462E26B284EC0076D482 /* Model */,
+				E0B3462326B18A1A0076D482 /* Monthly Report */,
 				E0FBFC7926AD55AE00EDCEBC /* Reports */,
 				AE04AF1026AAA5D000E79190 /* AppDelegate.swift */,
 				AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */,
@@ -77,12 +91,48 @@
 			path = EmatApps;
 			sourceTree = "<group>";
 		};
+		E0B3462326B18A1A0076D482 /* Monthly Report */ = {
+			isa = PBXGroup;
+			children = (
+				E0B3462C26B284920076D482 /* Budget Progress Bar */,
+				E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */,
+				E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */,
+				E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */,
+			);
+			path = "Monthly Report";
+			sourceTree = "<group>";
+		};
+		E0B3462C26B284920076D482 /* Budget Progress Bar */ = {
+			isa = PBXGroup;
+			children = (
+				E0B3462826B18D7A0076D482 /* MonthlyBudget.swift */,
+			);
+			path = "Budget Progress Bar";
+			sourceTree = "<group>";
+		};
+		E0B3462D26B284C40076D482 /* Monthly Line Chart */ = {
+			isa = PBXGroup;
+			children = (
+				E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */,
+			);
+			path = "Monthly Line Chart";
+			sourceTree = "<group>";
+		};
+		E0B3462E26B284EC0076D482 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0B3462F26B284FE0076D482 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E0FBFC7926AD55AE00EDCEBC /* Reports */ = {
 			isa = PBXGroup;
 			children = (
+				E0B3462D26B284C40076D482 /* Monthly Line Chart */,
 				E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */,
 				E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */,
-				E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */,
+				E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -146,6 +196,7 @@
 			files = (
 				E0FBFC7D26AD55FB00EDCEBC /* Report.storyboard in Resources */,
 				AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */,
+				E0B3462726B18A6A0076D482 /* MonthlyData.storyboard in Resources */,
 				AE04AF1D26AAA5D200E79190 /* Assets.xcassets in Resources */,
 				AE04AF1826AAA5D000E79190 /* Main.storyboard in Resources */,
 			);
@@ -158,12 +209,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0B3462926B18D7A0076D482 /* MonthlyBudget.swift in Sources */,
 				E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */,
 				AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */,
 				E0FBFC8126AE742F00EDCEBC /* ReportViewController.swift in Sources */,
 				AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */,
+				E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
 				AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */,
+				E0B3463026B284FE0076D482 /* Model.swift in Sources */,
+				E0B3462526B18A510076D482 /* MonthlyDataViewController.swift in Sources */,
+				E02CB40C26B0CCF000A39B2C /* MonthsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
