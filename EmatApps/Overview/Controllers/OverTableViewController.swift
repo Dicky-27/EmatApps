@@ -1,0 +1,125 @@
+//
+//  OverTableViewController.swift
+//  EmatApps
+//
+//  Created by Dicky Buwono on 29/07/21.
+//
+
+import UIKit
+
+class OverTableViewController: UITableViewController {
+    
+    lazy var titleStackView: TitleStackView = {
+                let titleStackView = TitleStackView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44.0)))
+                titleStackView.translatesAutoresizingMaskIntoConstraints = false
+                return titleStackView
+            }()
+    
+            lazy var tableHeaderView: UIView = {
+                let tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44.0)))
+                tableHeaderView.addSubview(titleStackView)
+                titleStackView.leadingAnchor.constraint(equalTo: tableHeaderView.leadingAnchor, constant: 16.0).isActive = true
+                titleStackView.topAnchor.constraint(equalTo: tableHeaderView.topAnchor).isActive = true
+                titleStackView.trailingAnchor.constraint(equalTo: tableHeaderView.trailingAnchor, constant: -16.0).isActive = true
+                titleStackView.bottomAnchor.constraint(equalTo: tableHeaderView.bottomAnchor).isActive = true
+                return tableHeaderView
+            }()
+        
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+        self.tableView.separatorStyle = .none
+        navigationItem.title = nil
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
+        tableView.tableHeaderView = tableHeaderView
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
+
+        navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+                
+    
+    }
+    
+
+    // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let maxTitlePoint = tableView.convert(CGPoint(x: titleStackView.titleLabel.bounds.minX, y: titleStackView.titleLabel.bounds.maxY), from: titleStackView.titleLabel)
+
+        navigationItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Emat" : nil
+        tabBarItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Overview" : "Overview"
+
+     }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor(named: "Background")
+        (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor.black
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1") as! CellOneTableViewCell
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "cell2") as! CellTwoTableViewCell
+        let cell3 = tableView.dequeueReusableCell(withIdentifier: "cell3") as! CellThreeTableViewCell
+        let cell4 = tableView.dequeueReusableCell(withIdentifier: "cell4") as! CellFourTableViewCell
+        let cell5 = tableView.dequeueReusableCell(withIdentifier: "cell5") as! CellFiveTableViewCell
+        
+
+        if indexPath.section == 0 {
+        
+            cell.selectionStyle = .none
+            return cell
+            
+        }else if indexPath.section == 1 {
+          
+            
+            cell2.selectionStyle = .none
+            return cell2
+            
+        }else if indexPath.section == 2 {
+           
+
+            cell3.selectionStyle = .none
+            return cell3
+            
+        }else if indexPath.section == 3{
+            
+            
+            
+            
+            cell4.selectionStyle = .none
+            return cell4
+        }else {
+            
+            return cell5
+        }
+
+       
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 270
+        }else if indexPath.section == 1{
+            return 75
+        }else if indexPath.section == 2{
+            return 160
+        }else if indexPath.section == 3{
+            return 50
+        }else {
+            return 270
+        }
+    }
+
+
+}
