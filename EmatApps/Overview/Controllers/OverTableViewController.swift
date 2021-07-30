@@ -38,9 +38,12 @@ class OverTableViewController: UITableViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
 
-        navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        
                 
     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
     }
     
 
@@ -105,7 +108,7 @@ class OverTableViewController: UITableViewController {
         }else if indexPath.section == 3{
             
             
-            
+            cell4.buttonEst.addTarget(self, action: #selector(estButtonAction), for: .touchUpInside)
             
             cell4.selectionStyle = .none
             return cell4
@@ -131,6 +134,18 @@ class OverTableViewController: UITableViewController {
             return 270
         }
     }
-
+    
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goEst" {
+            if let nextVC = segue.destination as? EstimatedViewController {
+                
+            }
+        }
+    }
+    
+    @objc func estButtonAction() {
+        performSegue(withIdentifier: "goEst", sender: nil)
+    }
 
 }

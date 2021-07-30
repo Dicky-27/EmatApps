@@ -17,6 +17,8 @@
 		AE7074A726B29F71000255A3 /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7074A626B29F71000255A3 /* Overview.storyboard */; };
 		AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074A826B2A11A000255A3 /* OverTableViewController.swift */; };
 		AE7074AB26B2A41F000255A3 /* CellFiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */; };
+		AE7074AF26B3FB95000255A3 /* EstimatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074AE26B3FB95000255A3 /* EstimatedViewController.swift */; };
+		AE7074B326B3FBD2000255A3 /* EstCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074B226B3FBD2000255A3 /* EstCollectionViewCell.swift */; };
 		AE85AAC726AFEEDB00263786 /* GraphViewChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85AAC626AFEEDB00263786 /* GraphViewChart.swift */; };
 		AEBF610F26AEBE83002EB776 /* LineChartDepan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF610E26AEBE83002EB776 /* LineChartDepan.swift */; };
 		AEFDAADC26B2906D00E0BBDB /* CellOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */; };
@@ -82,6 +84,8 @@
 		AE7074A626B29F71000255A3 /* Overview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Overview.storyboard; sourceTree = "<group>"; };
 		AE7074A826B2A11A000255A3 /* OverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverTableViewController.swift; sourceTree = "<group>"; };
 		AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFiveTableViewCell.swift; sourceTree = "<group>"; };
+		AE7074AE26B3FB95000255A3 /* EstimatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedViewController.swift; sourceTree = "<group>"; };
+		AE7074B226B3FBD2000255A3 /* EstCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE85AAC626AFEEDB00263786 /* GraphViewChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewChart.swift; sourceTree = "<group>"; };
 		AEBF610E26AEBE83002EB776 /* LineChartDepan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDepan.swift; sourceTree = "<group>"; };
 		AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellOneTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +187,26 @@
 			path = EmatApps;
 			sourceTree = "<group>";
 		};
+		AE7074B026B3FBAB000255A3 /* Over */ = {
+			isa = PBXGroup;
+			children = (
+				AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */,
+				AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */,
+				AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */,
+				AEFDAAE126B290B000E0BBDB /* CellFourTableViewCell.swift */,
+				AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */,
+			);
+			path = Over;
+			sourceTree = "<group>";
+		};
+		AE7074B126B3FBBE000255A3 /* Est */ = {
+			isa = PBXGroup;
+			children = (
+				AE7074B226B3FBD2000255A3 /* EstCollectionViewCell.swift */,
+			);
+			path = Est;
+			sourceTree = "<group>";
+		};
 		AECC3DF726AFFBAE00EFF5EC /* Overview */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,11 +221,8 @@
 		AEFDAAD726B2902600E0BBDB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */,
-				AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */,
-				AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */,
-				AEFDAAE126B290B000E0BBDB /* CellFourTableViewCell.swift */,
-				AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */,
+				AE7074B126B3FBBE000255A3 /* Est */,
+				AE7074B026B3FBAB000255A3 /* Over */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -210,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				AE7074A826B2A11A000255A3 /* OverTableViewController.swift */,
+				AE7074AE26B3FB95000255A3 /* EstimatedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -452,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C3E24C26B3C6C3003AFC74 /* MonthlyBudgetCell.swift in Sources */,
+				AE7074B326B3FBD2000255A3 /* EstCollectionViewCell.swift in Sources */,
 				E0B3463C26B2A2C20076D482 /* SettingsCell.swift in Sources */,
 				E0B3462926B18D7A0076D482 /* MonthlyBudget.swift in Sources */,
 				E0B3463A26B291A30076D482 /* AboutUsViewController.swift in Sources */,
@@ -472,6 +495,7 @@
 				AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */,
 				AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */,
 				AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */,
+				AE7074AF26B3FB95000255A3 /* EstimatedViewController.swift in Sources */,
 				E0B3463026B284FE0076D482 /* Model.swift in Sources */,
 				E0B3462526B18A510076D482 /* MonthlyDataViewController.swift in Sources */,
 				E02CB40C26B0CCF000A39B2C /* MonthsTableViewCell.swift in Sources */,
