@@ -42,8 +42,27 @@ class OverTableViewController: UITableViewController {
                 
     
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+    }
+    
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        
+        if Core.shared.isNewUser() {
+            //show onboarding
+            
+            let vc = storyboard?.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+            
+        }
+
     }
     
 
@@ -148,4 +167,17 @@ class OverTableViewController: UITableViewController {
         performSegue(withIdentifier: "goEst", sender: nil)
     }
 
+}
+
+
+class Core {
+    static let shared = Core()
+    
+    func isNewUser() -> Bool {
+        return !UserDefaults.standard.bool(forKey: "isNewUser")
+    }
+    
+    func setIsNotNewUsert() {
+        UserDefaults.standard.set(true, forKey: "isNewUser")
+    }
 }

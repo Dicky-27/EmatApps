@@ -394,6 +394,36 @@
             </objects>
             <point key="canvasLocation" x="3957.971014492754" y="99.776785714285708"/>
         </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="tT3-gS-2SQ">
+            <objects>
+                <viewController storyboardIdentifier="onboarding" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l7P-fj-AU3" customClass="OnboardingViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Yb-uC-diU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhk-lW-LV2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fZ5-kY-pUL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fZ5-kY-pUL" firstAttribute="trailing" secondItem="Qhk-lW-LV2" secondAttribute="trailing" id="C7E-0m-7vN"/>
+                            <constraint firstItem="fZ5-kY-pUL" firstAttribute="bottom" secondItem="Qhk-lW-LV2" secondAttribute="bottom" id="Wjy-WC-9WG"/>
+                            <constraint firstItem="Qhk-lW-LV2" firstAttribute="top" secondItem="fZ5-kY-pUL" secondAttribute="top" id="hzF-2r-Qnn"/>
+                            <constraint firstItem="Qhk-lW-LV2" firstAttribute="leading" secondItem="fZ5-kY-pUL" secondAttribute="leading" id="kWW-it-2LH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="holderView" destination="Qhk-lW-LV2" id="GXU-UR-sFD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wb8-cu-AP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737" y="93"/>
+        </scene>
         <!--Overview-->
         <scene sceneID="hE5-2k-P9v">
             <objects>
@@ -433,6 +463,9 @@
         <namedColor name="White">
             <color red="0.9882352941176471" green="0.99607843137254903" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
