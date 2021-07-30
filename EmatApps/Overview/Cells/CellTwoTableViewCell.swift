@@ -11,7 +11,7 @@ class CellTwoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var leftLbl: UILabel!
     @IBOutlet weak var rightLbl: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var progressBudget: MonthlyBudget!
     
     
     
@@ -19,8 +19,8 @@ class CellTwoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        progressBar.layer.cornerRadius = 8
-        progressBar.clipsToBounds = true
+        progressBudget.progress = 0.5
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

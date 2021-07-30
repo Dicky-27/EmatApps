@@ -9,9 +9,13 @@ import UIKit
 
 class CellFiveTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var usageBg: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        usageBg.layer.cornerRadius = 8
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
