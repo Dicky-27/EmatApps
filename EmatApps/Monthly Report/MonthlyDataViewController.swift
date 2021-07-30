@@ -10,16 +10,15 @@ import UIKit
 class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var progressBudget: MonthlyBudget!
     @IBOutlet weak var monthBillLabel: UILabel!
     @IBOutlet weak var energyUsageLabel: UILabel!
     @IBOutlet weak var costperDayLabel: UILabel!
     @IBOutlet weak var dailyHighestLabel: UILabel!
     @IBOutlet weak var monthlyBudgetLabel: UILabel!
+    @IBOutlet weak var progressBudget: MonthlyBudget!
     @IBOutlet weak var dailyUsageTable: UITableView!
     
     let dayCount = ["1", "2"]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

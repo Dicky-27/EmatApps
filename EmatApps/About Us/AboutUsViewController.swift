@@ -10,8 +10,6 @@ import UIKit
 @IBDesignable
 class AboutUsViewController: UIViewController {
     
-    
-
     let label = UILabel()
     let stringValue = "Emat is an iOS app connected to IOT device that monitor, compare, and forecast electricity usage, give user reminder to save electricity and give user early warning message to prevent user from electricity bill bump."
     
@@ -33,7 +31,7 @@ class AboutUsViewController: UIViewController {
         self.view.addSubview(label)
     }
     @IBAction func aboutUs(_ sender: UIButton) {
-        
+    
     }
 }
 

@@ -1,15 +1,17 @@
 //
-//  SettingsCell.swift
+//  MonthlyBudgetCell.swift
 //  EmatApps
 //
-//  Created by Dian Dinihari on 29/07/21.
+//  Created by Dian Dinihari on 30/07/21.
 //
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
     
-    @IBOutlet weak var aboutUsLabel: UILabel!
+    @IBOutlet weak var monthlyBudgetLabel: UILabel!
+    @IBOutlet weak var rupiahLabel: UILabel!
+    @IBOutlet weak var budgetField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +23,5 @@ class SettingsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

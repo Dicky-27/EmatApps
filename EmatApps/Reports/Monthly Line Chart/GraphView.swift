@@ -36,6 +36,7 @@ class GraphView: UIView {
             byRoundingCorners: .allCorners,
             cornerRadii: Constants.cornerRadiusSize
         )
+        
         path.addClip()
         guard let context = UIGraphicsGetCurrentContext() else {
             return
@@ -83,7 +84,7 @@ class GraphView: UIView {
             return graphHeight + topBorder - yPoint
         }
         
-        // Draw the line graph
+        // setting up and show the line graph
         #colorLiteral(red: 0.3960784314, green: 0.7450980392, blue: 1, alpha: 1).setFill()
         #colorLiteral(red: 0.3960784314, green: 0.7450980392, blue: 1, alpha: 1).setStroke()
         
@@ -100,7 +101,6 @@ class GraphView: UIView {
             graphPath.addLine(to: nextPoint)
         }
         
-        // Create the clipping path for the graph gradient
         // Save the state of the context
         context.saveGState()
         
@@ -131,6 +131,7 @@ class GraphView: UIView {
          end: graphEndPoint,
          options: [])
          */
+        
         context.restoreGState()
         
         // Draw the line on top of the clipped gradient
@@ -139,7 +140,7 @@ class GraphView: UIView {
         
         // Draw the circles on top of the graph stroke
         for i in 0..<graphPoint.count {
-            #colorLiteral(red: 0.09411764706, green: 0.5137254902, blue: 0.8235294118, alpha: 1).setFill()
+            #colorLiteral(red: 0.09847373515, green: 0.512232244, blue: 0.823799789, alpha: 1).setFill()
             var point = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoint[i]))
             point.x -= Constants.circleDiameter / 2
             point.y -= Constants.circleDiameter / 2
@@ -157,13 +158,18 @@ class GraphView: UIView {
             circle.fill()
             
             // Draw vertical graph lines
-            let linePath = UIBezierPath()
+            //let linePath = UIBezierPath()
+            
+            let linePath = UIBezierPath(roundedRect: rect, cornerRadius: 10.0)
             linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder))
             linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder))
             
             let color = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             color.setStroke()
             linePath.lineWidth = 2.0
+            let dashPattern: [CGFloat] = [4.0, 2.0]
+            linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
+            
             linePath.stroke(with: .lighten, alpha: 0.5)
             currPoint += spacingPoint
         }

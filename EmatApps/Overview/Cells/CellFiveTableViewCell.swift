@@ -1,16 +1,14 @@
 //
-//  SettingsCell.swift
+//  CellFiveTableViewCell.swift
 //  EmatApps
 //
-//  Created by Dian Dinihari on 29/07/21.
+//  Created by Dicky Buwono on 29/07/21.
 //
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
-    
-    @IBOutlet weak var aboutUsLabel: UILabel!
-    
+class CellFiveTableViewCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +19,5 @@ class SettingsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

@@ -363,7 +363,7 @@
                         <outlet property="monthBillLabel" destination="A1U-G0-qdI" id="nSm-fr-hd9"/>
                         <outlet property="monthLabel" destination="2I7-hI-HDv" id="sXN-4D-TUI"/>
                         <outlet property="monthlyBudgetLabel" destination="w8Q-Vs-lPj" id="Ooo-by-2HK"/>
-                        <outlet property="progressBudget" destination="qxa-te-hcg" id="cte-6p-hwa"/>
+                        <outlet property="progressBudget" destination="qxa-te-hcg" id="Vjc-RI-Qnj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

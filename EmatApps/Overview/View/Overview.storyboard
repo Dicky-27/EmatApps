@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sye-10-3RU">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Over Table View Controller-->
+        <scene sceneID="LzU-Kd-rMk">
+            <objects>
+                <tableViewController id="Sye-10-3RU" customClass="OverTableViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ig4-yp-Wam">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="175" id="VDm-20-16u" customClass="CellOneTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="175"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VDm-20-16u" id="6J4-LZ-cAr">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpM-IV-v7V" customClass="GraphViewChart" customModule="EmatApps" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="11" width="374" height="153"/>
+                                            <color key="backgroundColor" name="Background"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zpM-IV-v7V" firstAttribute="leading" secondItem="6J4-LZ-cAr" secondAttribute="leadingMargin" id="8d5-8O-qGE"/>
+                                        <constraint firstItem="zpM-IV-v7V" firstAttribute="top" secondItem="6J4-LZ-cAr" secondAttribute="topMargin" id="G90-Te-typ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zpM-IV-v7V" secondAttribute="bottom" id="RwG-9R-7xR"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zpM-IV-v7V" secondAttribute="trailing" id="pb3-Sl-UkO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="Background"/>
+                                <connections>
+                                    <outlet property="chart" destination="zpM-IV-v7V" id="ZHL-Zo-fqH"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="78" id="DEv-hB-35m" customClass="CellTwoTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="199.5" width="414" height="78"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DEv-hB-35m" id="Njc-n5-KRt">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tiZ-Vo-JIk">
+                                            <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4y-55-WBN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 200.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzl-HW-BZb">
+                                                    <rect key="frame" x="254" y="0.0" width="120" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="fuf-Vl-YQv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="287-bN-GtE">
+                                            <rect key="frame" x="20" y="41.5" width="374" height="15"/>
+                                            <color key="tintColor" name="Primary"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="mxa-Pl-24g"/>
+                                            </constraints>
+                                        </progressView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tiZ-Vo-JIk" firstAttribute="top" secondItem="Njc-n5-KRt" secondAttribute="topMargin" id="2ms-YG-3dl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tiZ-Vo-JIk" secondAttribute="trailing" id="RIh-9n-6Si"/>
+                                        <constraint firstItem="tiZ-Vo-JIk" firstAttribute="leading" secondItem="Njc-n5-KRt" secondAttribute="leadingMargin" id="SSJ-Rg-3CE"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="287-bN-GtE" secondAttribute="trailing" id="XJJ-DP-1Ba"/>
+                                        <constraint firstItem="287-bN-GtE" firstAttribute="top" secondItem="tiZ-Vo-JIk" secondAttribute="bottom" constant="10" id="pAh-f1-QzB"/>
+                                        <constraint firstItem="287-bN-GtE" firstAttribute="leading" secondItem="Njc-n5-KRt" secondAttribute="leadingMargin" id="xkz-TL-7n9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="Background"/>
+                                <connections>
+                                    <outlet property="leftLbl" destination="J4y-55-WBN" id="Xik-Kg-B0i"/>
+                                    <outlet property="progressBar" destination="287-bN-GtE" id="GqS-ja-H6v"/>
+                                    <outlet property="rightLbl" destination="Vzl-HW-BZb" id="Pzi-ea-VQ2"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" rowHeight="185" id="fUI-el-ths" customClass="CellThreeTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="277.5" width="414" height="185"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fUI-el-ths" id="tg1-Sz-hjz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6br-1J-4UK">
+                                            <rect key="frame" x="20" y="11" width="374" height="163"/>
+                                            <color key="backgroundColor" red="0.47919201849999998" green="0.50447332860000005" blue="0.60393929479999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6br-1J-4UK" firstAttribute="top" secondItem="tg1-Sz-hjz" secondAttribute="topMargin" id="88J-AU-X2M"/>
+                                        <constraint firstItem="6br-1J-4UK" firstAttribute="leading" secondItem="tg1-Sz-hjz" secondAttribute="leadingMargin" id="OP0-0c-dh8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6br-1J-4UK" secondAttribute="trailing" id="mKt-3j-kWZ"/>
+                                        <constraint firstItem="6br-1J-4UK" firstAttribute="bottom" secondItem="tg1-Sz-hjz" secondAttribute="bottomMargin" id="wcW-N5-eHy"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="viewBg" destination="6br-1J-4UK" id="Coj-Fg-wL9"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" rowHeight="82" id="bfq-E4-gYK" customClass="CellFourTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="462.5" width="414" height="82"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfq-E4-gYK" id="qpK-Zr-rCR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewy-5r-l6v">
+                                            <rect key="frame" x="20" y="18.5" width="374" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="d80-lp-JS2"/>
+                                            </constraints>
+                                            <state key="normal" title="Estimated Your Electricity">
+                                                <color key="titleColor" name="Black"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ewy-5r-l6v" firstAttribute="centerY" secondItem="qpK-Zr-rCR" secondAttribute="centerY" id="b1N-M6-3fG"/>
+                                        <constraint firstItem="ewy-5r-l6v" firstAttribute="leading" secondItem="qpK-Zr-rCR" secondAttribute="leadingMargin" id="kxL-oK-NcX"/>
+                                        <constraint firstItem="ewy-5r-l6v" firstAttribute="centerX" secondItem="qpK-Zr-rCR" secondAttribute="centerX" id="p38-0i-Cd0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ewy-5r-l6v" secondAttribute="trailing" id="wzc-Hm-hSa"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="White"/>
+                                <connections>
+                                    <outlet property="buttonEst" destination="ewy-5r-l6v" id="b5j-dE-cjU"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell5" rowHeight="217" id="IzV-SU-vNg" customClass="CellFiveTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="544.5" width="414" height="217"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IzV-SU-vNg" id="8Sz-gj-CN2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaM-V8-1es">
+                                            <rect key="frame" x="20" y="11" width="374" height="195"/>
+                                            <color key="backgroundColor" systemColor="linkColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kaM-V8-1es" firstAttribute="leading" secondItem="8Sz-gj-CN2" secondAttribute="leadingMargin" id="F4g-je-jDn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kaM-V8-1es" secondAttribute="trailing" id="dAI-7F-0uZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kaM-V8-1es" secondAttribute="bottom" id="gHG-8q-dp0"/>
+                                        <constraint firstItem="kaM-V8-1es" firstAttribute="top" secondItem="8Sz-gj-CN2" secondAttribute="topMargin" id="hj1-fn-7tW"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="White"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Sye-10-3RU" id="dj6-4I-va1"/>
+                            <outlet property="delegate" destination="Sye-10-3RU" id="sbl-bD-NTH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xoV-cg-Dd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169.5652173913045" y="100.44642857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.8901960784313725" green="0.96862745098039216" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Black">
+            <color red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.19215686274509805" green="0.65490196078431373" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color red="0.9882352941176471" green="0.99607843137254903" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

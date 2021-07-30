@@ -45,8 +45,12 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Set up the day name labels with correct days
         for i in 0...maxDayIndex {
-            if let date = calendar.date(byAdding: .month , value: -i, to: currentMonth),
-               let label = monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
+            if let date = calendar.date(
+                byAdding: .month ,
+                value: -i,
+                to: currentMonth
+            ),
+                let label = monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
                 label.text = formatter.string(from: date)
             }
         }
