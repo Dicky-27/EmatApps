@@ -10,6 +10,9 @@ import UIKit
 class CellThreeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var viewBg: UIView!
+    @IBOutlet weak var dateNow: UILabel!
+    @IBOutlet weak var kwhNumber: UILabel!
+    @IBOutlet weak var currentSpen: UILabel!
     
     
     override func awakeFromNib() {
@@ -19,8 +22,15 @@ class CellThreeTableViewCell: UITableViewCell {
        
         viewBg.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "Primary") ?? .white)
     
-        
         viewBg.layer.cornerRadius = 8
+        
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: date)
+        dateNow.text = "\(calendar.component(.day, from: date)) \(nameOfMonth)"
         
     }
 

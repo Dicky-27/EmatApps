@@ -1,5 +1,5 @@
 //
-//  CellFourTableViewCell.swift
+//  CellTwoTableViewCell.swift
 //  EmatApps
 //
 //  Created by Dicky Buwono on 29/07/21.
@@ -7,17 +7,19 @@
 
 import UIKit
 
-class CellFourTableViewCell: UITableViewCell {
+class CellTwoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var buttonEst: UIButton!
+    @IBOutlet weak var leftLbl: UILabel!
+    @IBOutlet weak var rightLbl: UILabel!
+    @IBOutlet weak var progressBudget: MonthlyBudget!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        buttonEst.layer.cornerRadius = 5
-        buttonEst.layer.borderWidth = 2
-        buttonEst.layer.borderColor = UIColor(named: "Primary")?.cgColor
+        progressBudget.progress = 0.5
         
     }
 

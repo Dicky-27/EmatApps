@@ -20,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let firstSetupStoryBoard = UIStoryboard.init(name: "Report", bundle: nil)
         let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "report") as! ReportViewController
         */
+        
+        /*
         let firstSetupStoryBoard = UIStoryboard.init(name: "Report", bundle: nil)
         let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "report") as! ReportViewController
         
@@ -27,6 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = firstSetupViewController
         self.window?.makeKeyAndVisible()
         
+        let firstSetupStoryBoard = UIStoryboard.init(name: "Setting", bundle: nil)
+        let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "setting") as! SettingViewController
+
+        self.window?.rootViewController = firstSetupViewController
+        self.window?.makeKeyAndVisible()*/
+
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

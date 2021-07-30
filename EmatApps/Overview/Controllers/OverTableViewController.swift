@@ -22,6 +22,7 @@ class OverTableViewController: UITableViewController {
                 titleStackView.topAnchor.constraint(equalTo: tableHeaderView.topAnchor).isActive = true
                 titleStackView.trailingAnchor.constraint(equalTo: tableHeaderView.trailingAnchor, constant: -16.0).isActive = true
                 titleStackView.bottomAnchor.constraint(equalTo: tableHeaderView.bottomAnchor).isActive = true
+                
                 return tableHeaderView
             }()
         
@@ -37,9 +38,12 @@ class OverTableViewController: UITableViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
 
-        navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        
                 
     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
     }
     
 
@@ -87,14 +91,24 @@ class OverTableViewController: UITableViewController {
             
         }else if indexPath.section == 2 {
            
+            let harga:Int = 82000
+            
+            
+            let formatter = NumberFormatter()
+            formatter.locale = Locale(identifier: "id_ID")
+            formatter.groupingSeparator = "."
+            formatter.numberStyle = .decimal
+            
+            let formmaterPrice = formatter.string(from: harga as NSNumber)
 
+            cell3.currentSpen.text = "Rp \(formmaterPrice ?? "0"),00"
             cell3.selectionStyle = .none
             return cell3
             
         }else if indexPath.section == 3{
             
             
-            
+            cell4.buttonEst.addTarget(self, action: #selector(estButtonAction), for: .touchUpInside)
             
             cell4.selectionStyle = .none
             return cell4
@@ -106,7 +120,7 @@ class OverTableViewController: UITableViewController {
        
     }
     
-    
+   
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 270
@@ -120,6 +134,18 @@ class OverTableViewController: UITableViewController {
             return 270
         }
     }
-
+    
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goEst" {
+            if let nextVC = segue.destination as? EstimatedViewController {
+                
+            }
+        }
+    }
+    
+    @objc func estButtonAction() {
+        performSegue(withIdentifier: "goEst", sender: nil)
+    }
 
 }

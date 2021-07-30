@@ -28,7 +28,9 @@ class TitleStackView: UIStackView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize, weight: .light)
+       // label.font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize, weight: .light)
+        label.font = UIFont(name: "Circular Std", size: 32)
+        
         label.text = "Emat"
         label.textColor = UIColor(named: "Accent")
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
