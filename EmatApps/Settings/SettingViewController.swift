@@ -17,6 +17,10 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         // Do any additional setup after loading the view.
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -27,11 +31,11 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         let monthlyBudget   = tableView.dequeueReusableCell(withIdentifier: "monthlyBudgetCell") as! MonthlyBudgetCell
         let powerCell       = tableView.dequeueReusableCell(withIdentifier: "powerCell") as! PowerCell
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             
             return monthlyBudget
             
-        }else if indexPath.row == 1 {
+        }else if indexPath.section == 1 {
             
             return powerCell
             
