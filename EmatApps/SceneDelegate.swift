@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let firstSetupStoryBoard = UIStoryboard.init(name: "Report", bundle: nil)
         let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "report") as! ReportViewController
         */
-        let firstSetupStoryBoard = UIStoryboard.init(name: "Setting", bundle: nil)
-        let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "setting") as! SettingViewController
+        let firstSetupStoryBoard = UIStoryboard.init(name: "Report", bundle: nil)
+        let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "report") as! ReportViewController
         
         
         self.window?.rootViewController = firstSetupViewController
