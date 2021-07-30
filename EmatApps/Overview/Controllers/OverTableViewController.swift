@@ -38,7 +38,7 @@ class OverTableViewController: UITableViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
 
-        
+        titleStackView.button.addTarget(self, action: #selector(settingButton) , for: .touchUpInside)
                 
     
     }
@@ -159,12 +159,20 @@ class OverTableViewController: UITableViewController {
         if segue.identifier == "goEst" {
             if let nextVC = segue.destination as? EstimatedViewController {
                 
+            }else if segue.identifier == "goSetting" {
+                if let nextVC = segue.destination as? SettingViewController {
+                    
+                }
             }
         }
     }
     
     @objc func estButtonAction() {
         performSegue(withIdentifier: "goEst", sender: nil)
+    }
+    
+    @objc func settingButton() {
+        performSegue(withIdentifier: "goSetting", sender: nil)
     }
 
 }

@@ -24,6 +24,16 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Setting-->
+        <scene sceneID="zCN-5E-CTg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="30l-uV-dkD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0U5-kb-eSh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plj-UO-A6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="-455"/>
+        </scene>
         <!--Over Table View Controller-->
         <scene sceneID="LzU-Kd-rMk">
             <objects>
@@ -262,6 +272,7 @@
                     <navigationItem key="navigationItem" id="uob-C5-GCB"/>
                     <connections>
                         <segue destination="c7V-ZN-QQj" kind="show" identifier="goEst" id="Yj0-IB-wh7"/>
+                        <segue destination="30l-uV-dkD" kind="show" identifier="goSetting" id="qy3-W6-HAf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoV-cg-Dd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

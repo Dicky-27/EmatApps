@@ -52,7 +52,10 @@ class TitleStackView: UIStackView {
         button.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
+        
         return button
     }()
+    
+    
 }
 
