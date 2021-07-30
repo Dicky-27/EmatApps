@@ -33,15 +33,28 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.section == 0 {
             
+            monthlyBudget.selectionStyle = .none
             return monthlyBudget
             
         }else if indexPath.section == 1 {
             
+            powerCell.selectionStyle = .none
             return powerCell
             
         }else {
             
             return aboutUs
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 2 {
+            print("about us selected")
+            let aboutUsSB = UIStoryboard(name: "AboutUs", bundle: nil)
+            let aboutUsVC = aboutUsSB.instantiateViewController(withIdentifier: "aboutUs") as! AboutUsViewController
+            aboutUsVC.modalPresentationStyle = .fullScreen
+            present(aboutUsVC, animated: true, completion: nil)
         }
         
     }

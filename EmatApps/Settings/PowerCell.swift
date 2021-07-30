@@ -12,12 +12,15 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var powerLabel: UILabel!
     @IBOutlet weak var powerPicker: UIPickerView!
     
-    var pickerPower: [String] = ["450 VA", "900 VA", "1300 VA", "2200 VA", "3500 VA", "3900 VA", "4400 VA", "5500 VA", "6600 VA", "7700 VA", "10600 VA"]
+    var powerData: [String] = ["450 VA", "900 VA", "1300 VA", "2200 VA", "3500 VA", "3900 VA", "4400 VA", "5500 VA", "6600 VA", "7700 VA", "10600 VA"]
     var pickerData = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        powerPicker.delegate = self
+        powerPicker.dataSource = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,15 +34,16 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerPower.count
+        return powerData.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerPower[row]
+        return powerData[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerData = row
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -47,8 +51,8 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
         if let view = view {
             title = view as! UILabel
         }
-        title.font = UIFont.systemFont(ofSize: 14)
-        title.text = pickerPower[row]
+        title.font = UIFont.systemFont(ofSize: 16)
+        title.text = powerData[row]
         title.textColor = UIColor.systemBlue
         title.textAlignment = .center
         

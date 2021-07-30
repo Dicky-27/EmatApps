@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3D-hA-0VI">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fu8-mu-xCk">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="2350"/>
@@ -321,13 +321,6 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eDm-h6-RzU">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <items>
-                                                    <navigationItem title="Monthly Data" id="tLL-aj-zpA"/>
-                                                </items>
-                                            </navigationBar>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -355,6 +348,7 @@
                             <constraint firstItem="M3D-hA-0VI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="uo8-zn-SDB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jXL-1u-svE"/>
                     <connections>
                         <outlet property="costperDayLabel" destination="E7b-6m-nSg" id="Az4-0O-XJC"/>
                         <outlet property="dailyHighestLabel" destination="Lm1-db-Z10" id="JBz-ld-ofZ"/>
@@ -367,6 +361,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="95.260663507109001"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ae0-jC-CMI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nuY-GU-PqB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KSb-Hr-6fo">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="3aE-4T-S9D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAL-zs-QDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.76923076923077" y="95.260663507109001"/>
         </scene>

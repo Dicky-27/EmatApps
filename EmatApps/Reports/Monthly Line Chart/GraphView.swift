@@ -146,7 +146,6 @@ class GraphView: UIView {
             point.y -= Constants.circleDiameter / 2
             
             let circle = UIBezierPath(
-                
                 ovalIn: CGRect(
                     origin: point,
                     size: CGSize(
@@ -155,11 +154,9 @@ class GraphView: UIView {
                     )
                 )
             )
-            circle.fill()
             
             // Draw vertical graph lines
             //let linePath = UIBezierPath()
-            
             let linePath = UIBezierPath(roundedRect: rect, cornerRadius: 10.0)
             linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder))
             linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder))
@@ -167,11 +164,13 @@ class GraphView: UIView {
             let color = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             color.setStroke()
             linePath.lineWidth = 2.0
+            
             let dashPattern: [CGFloat] = [4.0, 2.0]
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
-            
             linePath.stroke(with: .lighten, alpha: 0.5)
             currPoint += spacingPoint
+            
+            circle.fill()
         }
         /*
          // Draw horizontal graph lines on the top of everything
@@ -186,6 +185,5 @@ class GraphView: UIView {
          linePath.lineWidth = 1.0
          linePath.stroke()
          */
-        
     }
 }

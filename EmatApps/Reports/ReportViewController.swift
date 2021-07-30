@@ -72,4 +72,16 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // clicked
+        if indexPath.section == 2 {
+        print("about us selected")
+        }
+        let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil)
+        let monthlyReportVC = monthlyReportSB.instantiateViewController(withIdentifier: "monthlyData") as! MonthlyDataViewController
+        monthlyReportVC.modalPresentationStyle = .fullScreen
+        present(monthlyReportVC, animated: true, completion: nil)
+    }
 }

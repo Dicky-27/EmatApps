@@ -42,4 +42,16 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        /* // clicked
+        if indexPath.section == 2 {
+            print("about us selected")
+            let aboutUsSB = UIStoryboard(name: "AboutUs", bundle: nil)
+            let aboutUsVC = aboutUsSB.instantiateViewController(withIdentifier: "aboutUs") as! AboutUsViewController
+            aboutUsVC.modalPresentationStyle = .fullScreen
+            present(aboutUsVC, animated: true, completion: nil)
+        }*/
+    }
+    
 }
