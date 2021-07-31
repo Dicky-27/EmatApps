@@ -9,85 +9,83 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    @IBOutlet var holderView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var pageControl: UIPageControl!
     
-    let scollView = UIScrollView()
-
+    var slides: [OnboardingSlide] = []
+    
+    var currentPage = 0 {
+        didSet {
+            pageControl.currentPage = currentPage
+            if currentPage == slides.count - 1 {
+                nextBtn.setTitle("Next", for: .normal)
+                nextBtn.isHidden = false
+            } else {
+                nextBtn.isHidden = true
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        nextBtn.isHidden = true
+        slides = [
+            OnboardingSlide(title: "Intergrated With IoT", description: "Use machine learning technology integrated with IoT, we provide the best cost you should pay", image: #imageLiteral(resourceName: "Landing_1")),
+            OnboardingSlide(title: "Clear Comparison Report", description: "provide a comparison report on your electricity usage since the last month", image: #imageLiteral(resourceName: "Landing_2")),
+            OnboardingSlide(title: "Electric Budget Planner Made Easy", description: "plan how much electricity expenses you want to spend in a month", image: #imageLiteral(resourceName: "Landing_3"))
+        ]
+        
+        pageControl.numberOfPages = slides.count
+        
+        nextBtn.layer.cornerRadius = 8
+        nextBtn.layer.borderWidth = 2
+        nextBtn.layer.borderColor = UIColor(named: "Primary")?.cgColor
     }
     
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        configure()
-    }
-    
-    
-    private func configure() {
-        scollView.frame = holderView.bounds
-        holderView.addSubview(scollView)
-        
-        let titles = ["Welcome", "Location", "All Set"]
-        
-        for x in 0..<3 {
-            let pageView = UIView(frame: CGRect(x: CGFloat(x) * (holderView.frame.size.width), y: 0, width: holderView.frame.size.width, height: holderView.frame.size.height))
-            
-            scollView.addSubview(pageView)
-            
-            
-            // title , image, button
-            let label = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.size.width-20, height: 120))
-            
-            let imageView = UIImageView(frame: CGRect(x: 10, y: 10+120+10, width: pageView.frame.size.width-20, height: pageView.frame.size.height - 60 - 130 - 15))
-            
-            let button = UIButton(frame: CGRect(x: 10, y: pageView.frame.size.height-60, width: pageView.frame.size.width-20, height: 50))
-            
-            
-            label.textAlignment = .center
-            label.font = UIFont(name: "Halvetica-Bold", size: 32)
-            pageView.addSubview(label)
-            label.text = titles[x]
-            
-            
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = UIImage(named: "Landing\(x+1)")
-            
-            pageView.addSubview(imageView)
-            
-            button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = .black
-            button.setTitle("Continue", for: .normal)
-            
-            if x == 2 {
-                button.setTitle("Get Started", for: .normal)
-            }
-            
-            button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-            button.tag = x+1
-            pageView.addSubview(button)
+    @IBAction func nextBtnClicked(_ sender: UIButton) {
+        if currentPage == slides.count - 1 {
+            let controller = storyboard?.instantiateViewController(identifier: "Device") as! DeviceViewController
+            controller.modalPresentationStyle = .fullScreen
+            controller.modalTransitionStyle = .flipHorizontal
+           // Core.shared.setIsNotNewUsert()
+            present(controller, animated: true, completion: nil)
+           // dismiss(animated: true, completion: nil)
+        } else {
+            currentPage += 1
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
-    
-        
-        scollView.contentSize = CGSize(width: holderView.frame.size.width*3, height: 0)
-        scollView.isPagingEnabled = true
     }
     
     
-    @objc func didTapButton(_ button: UIButton) {
-        
-        guard button.tag < 3 else {
-            Core.shared.setIsNotNewUsert()
-            dismiss(animated: true, completion: nil)
-            return
-        }
-        
-        scollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
-        
-        
+    @IBAction func skipButton(_ sender: UIButton) {
+        let controller = storyboard?.instantiateViewController(identifier: "Device") as! DeviceViewController
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .flipHorizontal
+        present(controller, animated: true, completion: nil)
     }
+    
+}
 
+extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return slides.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
+        cell.setup(slides[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        currentPage = Int(scrollView.contentOffset.x / width)
+    }
 }
