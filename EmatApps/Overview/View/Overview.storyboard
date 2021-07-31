@@ -43,32 +43,102 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="175" id="VDm-20-16u" customClass="CellOneTableViewCell" customModule="EmatApps" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="175"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="300" id="VDm-20-16u" customClass="CellOneTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VDm-20-16u" id="6J4-LZ-cAr">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpM-IV-v7V" customClass="GraphViewChart" customModule="EmatApps" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="11" width="374" height="153"/>
+                                            <rect key="frame" x="20" y="59.5" width="374" height="229.5"/>
                                             <color key="backgroundColor" name="Background"/>
                                         </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="FDs-CP-k3K">
+                                            <rect key="frame" x="325" y="11" width="69" height="29"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KVJ-Db-Hvw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="11"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-47-Yyq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="11" height="11"/>
+                                                            <color key="backgroundColor" name="Primary"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="11" id="8fe-Il-6Na"/>
+                                                                <constraint firstAttribute="height" constant="11" id="q8U-K8-ywq"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brt-fr-0CQ">
+                                                            <rect key="frame" x="15" y="0.0" width="54" height="11"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="DX2-En-0h2">
+                                                    <rect key="frame" x="0.0" y="18" width="69" height="11"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAx-3L-jwC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="11" height="11"/>
+                                                            <color key="backgroundColor" name="Accent"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="11" id="NdL-so-Jyt"/>
+                                                                <constraint firstAttribute="height" constant="11" id="dT1-jh-C8j"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNS-qp-KOJ">
+                                                            <rect key="frame" x="15" y="0.0" width="54" height="11"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Wd8-hM-nte">
+                                            <rect key="frame" x="20" y="11" width="121.5" height="43.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You save :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfJ-Mw-E1a">
+                                                    <rect key="frame" x="0.0" y="0.0" width="121.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 87.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bb-JQ-B8a">
+                                                    <rect key="frame" x="0.0" y="14.5" width="121.5" height="29"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                    <color key="textColor" name="Accent"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UfJ-Mw-E1a" firstAttribute="leading" secondItem="Wd8-hM-nte" secondAttribute="leading" id="E2T-sC-hXY"/>
+                                                <constraint firstAttribute="trailing" secondItem="UfJ-Mw-E1a" secondAttribute="trailing" id="egO-rT-ZMx"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="zpM-IV-v7V" firstAttribute="leading" secondItem="6J4-LZ-cAr" secondAttribute="leadingMargin" id="8d5-8O-qGE"/>
-                                        <constraint firstItem="zpM-IV-v7V" firstAttribute="top" secondItem="6J4-LZ-cAr" secondAttribute="topMargin" id="G90-Te-typ"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="zpM-IV-v7V" secondAttribute="bottom" id="RwG-9R-7xR"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="zpM-IV-v7V" secondAttribute="trailing" id="pb3-Sl-UkO"/>
+                                        <constraint firstItem="zpM-IV-v7V" firstAttribute="leading" secondItem="6J4-LZ-cAr" secondAttribute="leadingMargin" id="0yq-jp-Pig"/>
+                                        <constraint firstItem="zpM-IV-v7V" firstAttribute="top" secondItem="Wd8-hM-nte" secondAttribute="bottom" constant="5" id="KBO-9g-hY7"/>
+                                        <constraint firstItem="Wd8-hM-nte" firstAttribute="leading" secondItem="6J4-LZ-cAr" secondAttribute="leadingMargin" id="S6Z-6D-HgM"/>
+                                        <constraint firstItem="zpM-IV-v7V" firstAttribute="trailing" secondItem="6J4-LZ-cAr" secondAttribute="trailingMargin" id="UNA-19-JSb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zpM-IV-v7V" secondAttribute="bottom" id="g9j-YV-G7Z"/>
+                                        <constraint firstItem="FDs-CP-k3K" firstAttribute="top" secondItem="6J4-LZ-cAr" secondAttribute="topMargin" id="hFe-fd-PFZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FDs-CP-k3K" secondAttribute="trailing" id="lGI-H3-NVq"/>
+                                        <constraint firstItem="Wd8-hM-nte" firstAttribute="top" secondItem="6J4-LZ-cAr" secondAttribute="topMargin" id="ye4-r0-fbc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" name="Background"/>
                                 <connections>
                                     <outlet property="chart" destination="zpM-IV-v7V" id="ZHL-Zo-fqH"/>
+                                    <outlet property="lastLeg" destination="Mua-47-Yyq" id="SqD-fE-YrT"/>
+                                    <outlet property="thisLeg" destination="yAx-3L-jwC" id="qo4-or-P70"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="78" id="DEv-hB-35m" customClass="CellTwoTableViewCell" customModule="EmatApps" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="199.5" width="414" height="78"/>
+                                <rect key="frame" x="0.0" y="324.5" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DEv-hB-35m" id="Njc-n5-KRt">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
@@ -124,7 +194,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" rowHeight="185" id="fUI-el-ths" customClass="CellThreeTableViewCell" customModule="EmatApps" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="277.5" width="414" height="185"/>
+                                <rect key="frame" x="0.0" y="402.5" width="414" height="185"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fUI-el-ths" id="tg1-Sz-hjz">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
@@ -211,7 +281,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" rowHeight="82" id="bfq-E4-gYK" customClass="CellFourTableViewCell" customModule="EmatApps" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="462.5" width="414" height="82"/>
+                                <rect key="frame" x="0.0" y="587.5" width="414" height="82"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfq-E4-gYK" id="qpK-Zr-rCR">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
@@ -240,7 +310,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell5" rowHeight="217" id="IzV-SU-vNg" customClass="CellFiveTableViewCell" customModule="EmatApps" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="544.5" width="414" height="217"/>
+                                <rect key="frame" x="0.0" y="669.5" width="414" height="217"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IzV-SU-vNg" id="8Sz-gj-CN2">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
