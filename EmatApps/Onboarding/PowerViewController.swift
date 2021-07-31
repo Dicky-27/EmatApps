@@ -21,20 +21,16 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        // Do any additional setup after loading the view.
         stratButton.layer.cornerRadius = 8
         stratButton.layer.borderWidth = 2
         stratButton.layer.borderColor = UIColor(named: "Primary")?.cgColor
-        
-        
         createPickerView()
         dismissPickerView()
+        targetTf.addBottomBorder()
         
         self.targetTf.delegate = self
-        
-        targetTf.addBottomBorder()
         
     }
     
@@ -113,10 +109,7 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let formatter = NumberFormatter()
             formatter.numberStyle = NumberFormatter.Style.currency
             formatter.locale = Locale(identifier: "id_ID")
-            
-            
             let numberFromField = (NSString(string: currentString).integerValue)
-            //targetTf.text = formatter.stringFromNumber(NSNumber(value: numberFromField))
             targetTf.text = formatter.string(from: numberFromField as NSNumber)
 
             
@@ -134,15 +127,7 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //dismiss(animated: true, completion: nil)
         
     }
-    
-    
-    
-    
-    
-    
 }
-
-
 
 extension UITextField {
     func addBottomBorder(){

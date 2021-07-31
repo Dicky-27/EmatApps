@@ -48,9 +48,6 @@ class OverTableViewController: UITableViewController {
         
     }
     
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         

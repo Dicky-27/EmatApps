@@ -403,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ViE-Eo-vnA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3957.971014492754" y="99.776785714285708"/>
+            <point key="canvasLocation" x="3858" y="100"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="tT3-gS-2SQ">
@@ -527,6 +527,7 @@
                         <outlet property="collectionView" destination="jrS-5y-AGB" id="JXi-IE-lTp"/>
                         <outlet property="nextBtn" destination="A8D-fX-Mya" id="4LX-RE-1LJ"/>
                         <outlet property="pageControl" destination="cNu-qG-o8K" id="8iR-rd-3Y7"/>
+                        <outlet property="skipBttn" destination="bn9-Xe-OjU" id="uxr-pw-Xgf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb8-cu-AP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -566,7 +567,7 @@
                                             <color key="titleColor" name="Primary"/>
                                         </state>
                                         <connections>
-                                            <segue destination="8cX-zm-YhT" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Nvb-GX-gRv"/>
+                                            <segue destination="8cX-zm-YhT" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Nvb-GX-gRv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -636,6 +637,7 @@ Electricity Power</string>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2200 VA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNJ-Oq-Ahg">
                                         <rect key="frame" x="0.0" y="28.5" width="83.5" height="34"/>
                                         <color key="backgroundColor" name="Grey"/>
+                                        <color key="textColor" name="Accent"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -653,7 +655,7 @@ Electricity Power</string>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rp2.200.000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qd7-Bw-kCR">
                                         <rect key="frame" x="0.0" y="35.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -661,7 +663,7 @@ Electricity Power</string>
                                     <constraint firstAttribute="trailing" secondItem="Qd7-Bw-kCR" secondAttribute="trailing" id="tzn-T0-ltn"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* we don’t collect your data, this data only use for app feature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH5-DP-PlR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*We don’t collect your data, this data only use for app feature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH5-DP-PlR">
                                 <rect key="frame" x="20" y="422" width="374" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -734,7 +736,7 @@ Electricity Power</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Landing_2" width="1024" height="1024"/>
+        <image name="Landing_2" width="500" height="500"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="Accent">
             <color red="0.093999996781349182" green="0.51399999856948853" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

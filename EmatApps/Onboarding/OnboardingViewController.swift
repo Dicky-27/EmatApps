@@ -12,6 +12,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var skipBttn: UIButton!
     
     var slides: [OnboardingSlide] = []
     
@@ -21,7 +22,10 @@ class OnboardingViewController: UIViewController {
             if currentPage == slides.count - 1 {
                 nextBtn.setTitle("Next", for: .normal)
                 nextBtn.isHidden = false
+                
+                skipBttn.isHidden = true
             } else {
+                skipBttn.isHidden = false
                 nextBtn.isHidden = true
             }
         }
@@ -31,10 +35,11 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         
         nextBtn.isHidden = true
+        skipBttn.isHidden = false
         slides = [
             OnboardingSlide(title: "Intergrated With IoT", description: "Use machine learning technology integrated with IoT, we provide the best cost you should pay", image: #imageLiteral(resourceName: "Landing_1")),
-            OnboardingSlide(title: "Clear Comparison Report", description: "provide a comparison report on your electricity usage since the last month", image: #imageLiteral(resourceName: "Landing_2")),
-            OnboardingSlide(title: "Electric Budget Planner Made Easy", description: "plan how much electricity expenses you want to spend in a month", image: #imageLiteral(resourceName: "Landing_3"))
+            OnboardingSlide(title: "Clear Comparison Report", description: "Provide a comparison report on your electricity usage since the last month", image: #imageLiteral(resourceName: "Landing_2")),
+            OnboardingSlide(title: "Electric Budget Planner Made Easy", description: "Plan how much electricity expenses you want to spend in a month", image: #imageLiteral(resourceName: "Landing_3"))
         ]
         
         pageControl.numberOfPages = slides.count
@@ -48,7 +53,7 @@ class OnboardingViewController: UIViewController {
         if currentPage == slides.count - 1 {
             let controller = storyboard?.instantiateViewController(identifier: "Device") as! DeviceViewController
             controller.modalPresentationStyle = .fullScreen
-            controller.modalTransitionStyle = .flipHorizontal
+            controller.modalTransitionStyle = .coverVertical
            // Core.shared.setIsNotNewUsert()
             present(controller, animated: true, completion: nil)
            // dismiss(animated: true, completion: nil)
@@ -63,7 +68,7 @@ class OnboardingViewController: UIViewController {
     @IBAction func skipButton(_ sender: UIButton) {
         let controller = storyboard?.instantiateViewController(identifier: "Device") as! DeviceViewController
         controller.modalPresentationStyle = .fullScreen
-        controller.modalTransitionStyle = .flipHorizontal
+        controller.modalTransitionStyle = .coverVertical
         present(controller, animated: true, completion: nil)
     }
     
