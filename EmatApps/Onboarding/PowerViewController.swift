@@ -32,13 +32,17 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         self.targetTf.delegate = self
         
+        self.hideKeyboardWhenTappedAround()
+        
+        
+        
     }
     
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -70,7 +74,10 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
        let toolBar = UIToolbar()
        toolBar.sizeToFit()
         let button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(action))
-       toolBar.setItems([button], animated: true)
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+       toolBar.setItems([flexibleSpace, button], animated: true)
+    
        toolBar.isUserInteractionEnabled = true
        powerTf.inputAccessoryView = toolBar
     }
@@ -122,10 +129,21 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         //Dismiss
         
-        Core.shared.setIsNotNewUsert()
-        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-        //dismiss(animated: true, completion: nil)
+        if powerTf.text == "" || targetTf.text == "" {
+                // either textfield 1 or 2's text is empty
+            let alert = UIAlertController(title: "Oops", message: "Please fill out your power and monthly budget.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+        }else {
+            Core.shared.setIsNotNewUsert()
+            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+            //dismiss(animated: true, completion: nil)
+            
+        }
     }
 }
 
@@ -136,5 +154,17 @@ extension UITextField {
         bottomLine.backgroundColor = UIColor(named: "Black")?.cgColor
         borderStyle = .none
         layer.addSublayer(bottomLine)
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
