@@ -33,6 +33,18 @@ class OverTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
+        let data = DataLoader.init().powers
+        print(data[0].power)
+        
+        for i in 0..<10 {
+            print(data[i].created_at)
+            print(data[i].power)
+        }
+            
+        
+        
+        
+        
 
         self.tableView.separatorStyle = .none
         navigationItem.title = nil

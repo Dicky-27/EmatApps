@@ -14,6 +14,9 @@
 		AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1926AAA5D000E79190 /* EmatApps.xcdatamodeld */; };
 		AE04AF1D26AAA5D200E79190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1C26AAA5D200E79190 /* Assets.xcassets */; };
 		AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1E26AAA5D200E79190 /* LaunchScreen.storyboard */; };
+		AE5446F626B7E01000E969FF /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F526B7E01000E969FF /* Power.swift */; };
+		AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F726B7E0C700E969FF /* DataLoader.swift */; };
+		AE5446FA26B7E1FC00E969FF /* power.json in Resources */ = {isa = PBXBuildFile; fileRef = AE5446F926B7E1FC00E969FF /* power.json */; };
 		AE7074A726B29F71000255A3 /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7074A626B29F71000255A3 /* Overview.storyboard */; };
 		AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074A826B2A11A000255A3 /* OverTableViewController.swift */; };
 		AE7074AB26B2A41F000255A3 /* CellFiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */; };
@@ -86,6 +89,9 @@
 		AE04AF1C26AAA5D200E79190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE04AF1F26AAA5D200E79190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE04AF2126AAA5D200E79190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE5446F526B7E01000E969FF /* Power.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
+		AE5446F726B7E0C700E969FF /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		AE5446F926B7E1FC00E969FF /* power.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = power.json; sourceTree = "<group>"; };
 		AE7074A626B29F71000255A3 /* Overview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Overview.storyboard; sourceTree = "<group>"; };
 		AE7074A826B2A11A000255A3 /* OverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverTableViewController.swift; sourceTree = "<group>"; };
 		AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFiveTableViewCell.swift; sourceTree = "<group>"; };
@@ -308,6 +314,9 @@
 			isa = PBXGroup;
 			children = (
 				E0B3462F26B284FE0076D482 /* Model.swift */,
+				AE5446F526B7E01000E969FF /* Power.swift */,
+				AE5446F726B7E0C700E969FF /* DataLoader.swift */,
+				AE5446F926B7E1FC00E969FF /* power.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -486,6 +495,7 @@
 				E0B3465A26B2A5DD0076D482 /* Poppins-BoldItalic.otf in Resources */,
 				E0B3465C26B2A5DD0076D482 /* Poppins-SemiBold.otf in Resources */,
 				E0B3466426B2A5DD0076D482 /* Poppins-Regular.otf in Resources */,
+				AE5446FA26B7E1FC00E969FF /* power.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +510,7 @@
 				E0C3E24C26B3C6C3003AFC74 /* MonthlyBudgetCell.swift in Sources */,
 				AE7074B326B3FBD2000255A3 /* EstCollectionViewCell.swift in Sources */,
 				E0B3463C26B2A2C20076D482 /* SettingsCell.swift in Sources */,
+				AE5446F626B7E01000E969FF /* Power.swift in Sources */,
 				E0B3462926B18D7A0076D482 /* MonthlyBudget.swift in Sources */,
 				E0B3463A26B291A30076D482 /* AboutUsViewController.swift in Sources */,
 				E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */,
@@ -517,6 +528,7 @@
 				E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */,
 				AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */,
 				AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */,
+				AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
 				AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */,
 				AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */,
