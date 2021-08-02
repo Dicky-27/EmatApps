@@ -269,8 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				E0B3462C26B284920076D482 /* Budget Progress Bar */,
-				E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */,
 				E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */,
+				E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */,
 				E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */,
 			);
 			path = "Monthly Report";

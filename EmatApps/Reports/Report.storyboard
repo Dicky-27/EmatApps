@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -180,6 +180,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="fXm-TI-xd0" secondAttribute="trailing" id="3aF-QR-dou"/>
                                                                 <constraint firstItem="fXm-TI-xd0" firstAttribute="leading" secondItem="T26-Gz-J4L" secondAttribute="leading" id="7aj-ys-Z6O"/>
                                                                 <constraint firstAttribute="bottom" secondItem="fXm-TI-xd0" secondAttribute="bottom" id="B16-th-U9i"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="N5Y-GU-Wek" secondAttribute="trailing" id="CbQ-pn-xiI"/>
@@ -256,6 +257,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="T8t-gX-noc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RxW-Rb-nNb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
