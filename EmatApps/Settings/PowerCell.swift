@@ -12,7 +12,7 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var powerLabel: UILabel!
     @IBOutlet weak var powerPicker: UIPickerView!
     
-    var powerData: [String] = ["450 VA", "900 VA", "1300 VA", "2200 VA", "3500 VA", "3900 VA", "4400 VA", "5500 VA", "6600 VA", "7700 VA", "10600 VA"]
+    var powerData: [String] = ["450 VA", "900 VA", "1300 VA", "2200 VA", "3500 VA", "3900 VA", "4400 VA", "5500 VA", "6600 VA"]
     var pickerData = 0
     
     override func awakeFromNib() {
