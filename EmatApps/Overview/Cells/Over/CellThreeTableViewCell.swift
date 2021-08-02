@@ -25,7 +25,10 @@ class CellThreeTableViewCell: UITableViewCell {
     var jam: Float = 24.0
     var duit: Float = 0
     
+    let date3 = Date()
     let formatter = NumberFormatter()
+    let dateFormatter = DateFormatter()
+    let formatter2 = MeasurementFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,6 +46,11 @@ class CellThreeTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "LLLL"
         let nameOfMonth = dateFormatter.string(from: date)
         dateNow.text = "\(calendar.component(.day, from: date)) \(nameOfMonth)"
+        formatter2.unitOptions = .providedUnit
+        formatter.locale = Locale(identifier: "id_ID")
+        formatter.maximumFractionDigits = 0
+        formatter.groupingSeparator = "."
+        formatter.numberStyle = .decimal
         
         scheduledTimerWithTimeInterval()
         
@@ -55,46 +63,40 @@ class CellThreeTableViewCell: UITableViewCell {
     }
     
     
-    
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+        
     }
 
     @objc func updateCounting(){
         
         count += 1
+        let isoDate = DataLoader.init().powers[count].created_at
+        let isoDate2 = DataLoader.init().powers[count + 1].created_at
         
-        //print(DataLoader.init().powers[count].energy)
-        //power dibagi 1000
-        //power * jam
-        //jam = 24
-        //duit = kwh * 1.444,70
-        // duit asli += spen/3600
-        //
-        
-        
-        //print(count)
-        
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss.SSSSSSZ"
+        let date = dateFormatter.date(from: isoDate)
+        let date2 = dateFormatter.date(from: isoDate2)
+        let seconds = date2?.timeIntervalSince(date ?? date3)
+
+        let hour = seconds ?? 0/3600
         
         power = DataLoader.init().powers[count].power
-        kwh = (power/1000) * jam
+        kwh = (power/1000) * Float(hour)
         spen = kwh * harga
         duit += spen/3600
         
         let energyValue = Measurement(value: Double(kwh), unit: UnitEnergy.kilowattHours)
-        let formatter2 = MeasurementFormatter()
-        formatter2.unitOptions = .providedUnit
-     
-        formatter.locale = Locale(identifier: "id_ID")
-        formatter.maximumFractionDigits = 0
-        formatter.groupingSeparator = "."
-        formatter.numberStyle = .decimal
-        
         let formmaterPrice = formatter.string(from: duit as NSNumber)
         
         kwhNumber.text = "\(formatter2.string(from: energyValue))"
         currentSpen.text = "Rp \(formmaterPrice ?? "0") "
+        
+        if count == isoDate.count {
+            timer.invalidate()
+        }
         
     }
 
