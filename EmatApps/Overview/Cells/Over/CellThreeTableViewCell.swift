@@ -88,6 +88,7 @@ class CellThreeTableViewCell: UITableViewCell {
         spen = kwh * harga
         duit += spen/3600
         
+        
         let energyValue = Measurement(value: Double(kwh), unit: UnitEnergy.kilowattHours)
         let formmaterPrice = formatter.string(from: duit as NSNumber)
         
