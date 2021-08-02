@@ -122,6 +122,7 @@ class LineChartDepan: UIView {
     
     let columnYPoint2 = { (graphPoint2: Int) -> CGFloat in
         let yPoint2 = CGFloat(graphPoint2) / CGFloat(maxValue2) * graphHeight
+    
         return graphHeight + topBorder - yPoint2
       }
     
