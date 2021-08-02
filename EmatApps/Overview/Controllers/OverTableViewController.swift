@@ -33,13 +33,15 @@ class OverTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        let data = DataLoader.init().powers
-        print(data[0].power)
-        
-        for i in 0..<10 {
-            print(data[i].created_at)
-            print(data[i].power)
-        }
+//        let data = DataLoader.init().powers
+//        print(data[0].power)
+//        
+//        for i in 0..<10 {
+//            print(data[i].created_at)
+//            print(data[i].power)
+//            
+//            
+//        }
             
         
         
@@ -117,15 +119,19 @@ class OverTableViewController: UITableViewController {
             
         }else if indexPath.section == 2 {
            
-            let harga:Int = 82000
-            let formatter = NumberFormatter()
-            formatter.locale = Locale(identifier: "id_ID")
-            formatter.groupingSeparator = "."
-            formatter.numberStyle = .decimal
+//            let harga:Float = ((DataLoader.init().powers[0].power/1000) * 24) * 1444.70
+//            let formatter = NumberFormatter()
+//            formatter.locale = Locale(identifier: "id_ID")
+//            formatter.maximumFractionDigits = 0
+//            formatter.groupingSeparator = "."
+//            formatter.numberStyle = .decimal
+//            
+//            let formmaterPrice = formatter.string(from: harga as NSNumber)
+//            cell3.currentSpen.text = "Rp \(formmaterPrice ?? "0")"
+//            cell3.selectionStyle = .none
             
-            let formmaterPrice = formatter.string(from: harga as NSNumber)
-            cell3.currentSpen.text = "Rp \(formmaterPrice ?? "0"),00"
-            cell3.selectionStyle = .none
+            
+            
             return cell3
             
         }else if indexPath.section == 3{
