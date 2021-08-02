@@ -17,10 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         /*
-        let firstSetupStoryBoard = UIStoryboard.init(name: "Report", bundle: nil)
-        let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "report") as! ReportViewController
+        let firstSetupStoryBoard = UIStoryboard.init(name: "MonthlyData", bundle: nil)
+        let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "monthlyData") as! MonthlyDataViewController
         */
-        
         /*
         let firstSetupStoryBoard = UIStoryboard.init(name: "Report", bundle: nil)
         let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "report") as! ReportViewController
@@ -31,10 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let firstSetupStoryBoard = UIStoryboard.init(name: "Setting", bundle: nil)
         let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "setting") as! SettingViewController
-
+        
+        
         self.window?.rootViewController = firstSetupViewController
-        self.window?.makeKeyAndVisible()*/
-
+        self.window?.makeKeyAndVisible()
+        */
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

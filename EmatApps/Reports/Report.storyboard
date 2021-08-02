@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Reports-->
+        <!--Report View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="report" id="Y6W-OH-hqX" customClass="ReportViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31P-oN-bRi">
-                                <rect key="frame" x="0.0" y="44" width="390" height="717"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtI-8k-6yg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
@@ -43,7 +43,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkb-8M-yEt" userLabel="GraphView" customClass="GraphView" customModule="EmatApps" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="60.666666666666671" width="350" height="228.33333333333331"/>
+                                                <rect key="frame" x="20" y="60.666666666666643" width="350" height="228.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Comparison" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-ja-JgZ">
                                                         <rect key="frame" x="8" y="8.0000000000000018" width="192" height="19.666666666666671"/>
@@ -52,7 +52,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6br-xh-ldt">
-                                                        <rect key="frame" x="8" y="207.66666666666663" width="334" height="12.666666666666657"/>
+                                                        <rect key="frame" x="8" y="207.66666666666666" width="334" height="12.666666666666657"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azd-I9-0Uq" userLabel="0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="12.666666666666666"/>
@@ -238,7 +238,7 @@
                             <constraint firstItem="31P-oN-bRi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yof-sJ-7wd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Reports" image="calendar" catalog="system" selectedImage="calendar" id="0Ch-mE-sfW"/>
+                    <navigationItem key="navigationItem" id="bme-NE-XhP" propertyAccessControl="none"/>
                     <connections>
                         <outlet property="graphView" destination="rkb-8M-yEt" id="gSI-IT-pwW"/>
                         <outlet property="monthlyComparison" destination="kZk-ja-JgZ" id="Oam-2c-nU0"/>
@@ -249,25 +249,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="115.16587677725119"/>
+            <point key="canvasLocation" x="1989.2307692307691" y="115.16587677725119"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="DKe-8k-j34">
+        <!--Reports-->
+        <scene sceneID="j8U-28-Gv2">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="T8t-gX-noc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="huW-jk-gyD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Reports" image="calendar" catalog="system" selectedImage="calendar" id="0Ch-mE-sfW"/>
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RxW-Rb-nNb">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bSz-Qh-IMg">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="5gr-ui-2dt"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="kB6-sZ-OXu"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gr9-jK-R1b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GLL-hd-voF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.76923076923077" y="115.16587677725119"/>
+            <point key="canvasLocation" x="1060" y="115.16587677725119"/>
         </scene>
     </scenes>
     <resources>
