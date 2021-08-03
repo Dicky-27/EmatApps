@@ -27,27 +27,13 @@ class OverTableViewController: UITableViewController {
                 
                 return tableHeaderView
             }()
+ 
         
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        let data = DataLoader.init().powers
-//        print(data[0].power)
-//        
-//        for i in 0..<10 {
-//            print(data[i].created_at)
-//            print(data[i].power)
-//            
-//            
-//        }
-            
-        
-        
-        
-        
 
+        
         self.tableView.separatorStyle = .none
         navigationItem.title = nil
         navigationController?.navigationBar.isTranslucent = false
@@ -55,7 +41,9 @@ class OverTableViewController: UITableViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         titleStackView.button.addTarget(self, action: #selector(settingButton) , for: .touchUpInside)
-                
+        
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -119,16 +107,10 @@ class OverTableViewController: UITableViewController {
             
         }else if indexPath.section == 2 {
            
-//            let harga:Float = ((DataLoader.init().powers[0].power/1000) * 24) * 1444.70
-//            let formatter = NumberFormatter()
-//            formatter.locale = Locale(identifier: "id_ID")
-//            formatter.maximumFractionDigits = 0
-//            formatter.groupingSeparator = "."
-//            formatter.numberStyle = .decimal
-//            
-//            let formmaterPrice = formatter.string(from: harga as NSNumber)
-//            cell3.currentSpen.text = "Rp \(formmaterPrice ?? "0")"
-//            cell3.selectionStyle = .none
+          
+            
+            cell3.kwhNumber.text = "0"
+            cell3.currentSpen.text = "0"
             
             
             
@@ -182,6 +164,8 @@ class OverTableViewController: UITableViewController {
     @objc func settingButton() {
         performSegue(withIdentifier: "goSetting", sender: nil)
     }
+    
+    
 
 }
 
@@ -197,3 +181,10 @@ class Core {
         UserDefaults.standard.set(true, forKey: "isNewUser")
     }
 }
+
+extension String {
+    subscript(i: Int) -> String {
+        return String(self[index(startIndex, offsetBy: i)])
+    }
+}
+
