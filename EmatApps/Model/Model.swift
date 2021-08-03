@@ -6,3 +6,32 @@
 //
 
 import Foundation
+
+public class MonthlyData {
+    
+    @Published var monthTotal = [MonthlyPower]()
+    
+    init() {
+        loadMonthly()
+        print("init")
+    }
+    
+    func loadMonthly() {
+        if let fileLocation = Bundle.main.url(forResource: "MonthlyPower", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: fileLocation)
+                let jsonDecoder = JSONDecoder()
+                let dataFromJson = try jsonDecoder.decode([MonthlyPower].self, from: data)
+                
+                self.monthTotal = dataFromJson
+                print("month total: \(monthTotal)")
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func getFullData() -> [MonthlyPower] {
+        return self.monthTotal
+    }
+}

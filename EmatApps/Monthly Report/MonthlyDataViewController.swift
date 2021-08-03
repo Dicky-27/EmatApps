@@ -20,11 +20,22 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     
     let dayCount = ["1", "2"]
     
+    var monthDetail: String?
+    var monthDetailPow: Float?
+    var monthDetailBill: String?
+    let powFormatter = NumberFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dailyUsageTable.delegate = self
         dailyUsageTable.dataSource = self
+        
+        let totalPow = powFormatter.string(from: NSNumber(value: monthDetailPow ?? 0.0))
+        
+        monthLabel.text = monthDetail
+        monthBillLabel.text = monthDetailBill
+        energyUsageLabel.text = "\(totalPow ?? "0") kWh"
 
         // Do any additional setup after loading the view.
     }

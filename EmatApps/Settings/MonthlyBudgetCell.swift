@@ -57,14 +57,13 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
     
     
     func formatCurrency(string: String) {
-        print("format \(string)")
+
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.currency
         formatter.locale = .current
         formatter.currencySymbol = ""
         formatter.maximumFractionDigits = 0
         let numberFromField = (NSString(string: currentString).integerValue)
-        //replace billTextField with your text field name
         self.budgetField.text = formatter.string(from: NSNumber(value: numberFromField))
         print(self.budgetField.text ?? "" )
     }

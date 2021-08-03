@@ -22,16 +22,16 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Report View Controller-->
+        <!--Report ViewVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="report" id="Y6W-OH-hqX" customClass="ReportViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="report" id="Y6W-OH-hqX" customClass="ReportViewVC" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31P-oN-bRi">
-                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="717"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtI-8k-6yg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
@@ -43,7 +43,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkb-8M-yEt" userLabel="GraphView" customClass="GraphView" customModule="EmatApps" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="60.666666666666643" width="350" height="228.33333333333337"/>
+                                                <rect key="frame" x="20" y="60.666666666666671" width="350" height="228.33333333333331"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Comparison" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-ja-JgZ">
                                                         <rect key="frame" x="8" y="8.0000000000000018" width="192" height="19.666666666666671"/>
@@ -52,7 +52,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6br-xh-ldt">
-                                                        <rect key="frame" x="8" y="207.66666666666666" width="334" height="12.666666666666657"/>
+                                                        <rect key="frame" x="8" y="207.66666666666663" width="334" height="12.666666666666657"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azd-I9-0Uq" userLabel="0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="12.666666666666666"/>
@@ -152,18 +152,18 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akl-di-bAY">
-                                                                    <rect key="frame" x="20" y="37.333333333333336" width="100" height="25.333333333333336"/>
+                                                                    <rect key="frame" x="20" y="37.333333333333336" width="160" height="25.333333333333336"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="kEO-ng-Kdw"/>
+                                                                        <constraint firstAttribute="width" constant="160" id="kEO-ng-Kdw"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpJ-Yg-Vrs">
-                                                                    <rect key="frame" x="230" y="23" width="100" height="23"/>
+                                                                    <rect key="frame" x="210" y="23" width="120" height="23"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="4sh-iS-EJT"/>
+                                                                        <constraint firstAttribute="width" constant="120" id="4sh-iS-EJT"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="18"/>
                                                                     <nil key="textColor"/>
@@ -240,11 +240,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="bme-NE-XhP" propertyAccessControl="none"/>
                     <connections>
-                        <outlet property="graphView" destination="rkb-8M-yEt" id="gSI-IT-pwW"/>
-                        <outlet property="monthlyComparison" destination="kZk-ja-JgZ" id="Oam-2c-nU0"/>
-                        <outlet property="monthsLabel" destination="6br-xh-ldt" id="c2u-PF-ScM"/>
-                        <outlet property="monthsTable" destination="6aT-RT-8zo" id="QHb-zs-uZd"/>
-                        <outlet property="reportsLabel" destination="Q2w-W7-bKw" id="z1b-D5-Swc"/>
+                        <outlet property="graphView" destination="rkb-8M-yEt" id="jMw-LM-4Ts"/>
+                        <outlet property="monthlyComparison" destination="kZk-ja-JgZ" id="aaf-zr-2KT"/>
+                        <outlet property="monthsLabel" destination="6br-xh-ldt" id="BrU-eC-IVa"/>
+                        <outlet property="monthsTable" destination="6aT-RT-8zo" id="nJb-lG-uaF"/>
+                        <outlet property="reportsLabel" destination="Q2w-W7-bKw" id="H9j-yI-Ugv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -254,15 +254,18 @@
         <!--Report-->
         <scene sceneID="3yi-gw-kf6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m0I-uR-i21" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" toolbarHidden="NO" id="m0I-uR-i21" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Report" image="calendar" catalog="system" id="AOv-l6-AHX"/>
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hVm-Qg-2Lk">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="chevron.left" catalog="system" id="hVm-Qg-2Lk">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qe8-ni-6Hm">
+                        <rect key="frame" x="0.0" y="761" width="390" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="hqf-ua-qGp"/>
                     </connections>
@@ -274,6 +277,7 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
