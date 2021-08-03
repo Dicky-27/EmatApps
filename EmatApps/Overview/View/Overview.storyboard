@@ -145,16 +145,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tiZ-Vo-JIk">
-                                            <rect key="frame" x="20" y="11" width="374" height="20"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="16.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4y-55-WBN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                                     <color key="textColor" name="Black"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 200.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzl-HW-BZb">
-                                                    <rect key="frame" x="254" y="0.0" width="120" height="20"/>
+                                                    <rect key="frame" x="254" y="0.0" width="120" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="fuf-Vl-YQv"/>
                                                     </constraints>
@@ -165,7 +165,7 @@
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Va-uN-5Jt" customClass="MonthlyBudget" customModule="EmatApps" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="41" width="374" height="15"/>
+                                            <rect key="frame" x="20" y="37.5" width="374" height="15"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="org-TA-nmm"/>
@@ -204,16 +204,16 @@
                                             <rect key="frame" x="20" y="11" width="374" height="163"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pdw-p0-mSg">
-                                                    <rect key="frame" x="15" y="20" width="344" height="30.5"/>
+                                                    <rect key="frame" x="15" y="20" width="344" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 Februari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd3-Ty-yDP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="234" height="30.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="28"/>
                                                             <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
                                                             <color key="textColor" name="White"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 Kwh" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlE-Di-tKL">
-                                                            <rect key="frame" x="244" y="0.0" width="100" height="30.5"/>
+                                                            <rect key="frame" x="174" y="0.0" width="170" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="170" id="vAL-md-jJi"/>
                                                             </constraints>
@@ -231,10 +231,10 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-Nh-oQh">
-                                                    <rect key="frame" x="222.5" y="92" width="136.5" height="61"/>
+                                                    <rect key="frame" x="226.5" y="92" width="132.5" height="61"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Spending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8w-yO-Gm8">
-                                                            <rect key="frame" x="13" y="0.0" width="123.5" height="20.5"/>
+                                                            <rect key="frame" x="22" y="0.0" width="110.5" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20.5" id="CyV-Hk-2OD"/>
                                                             </constraints>
@@ -243,7 +243,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 82.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hd-HL-uAU">
-                                                            <rect key="frame" x="0.0" y="20.5" width="136.5" height="40.5"/>
+                                                            <rect key="frame" x="0.0" y="20.5" width="132.5" height="40.5"/>
                                                             <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="27"/>
                                                             <color key="textColor" name="White"/>
                                                             <nil key="highlightedColor"/>
@@ -382,16 +382,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RyO-6D-08v">
-                                                    <rect key="frame" x="15" y="20" width="344" height="30.5"/>
+                                                    <rect key="frame" x="15" y="20" width="344" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 Februari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNb-El-grz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="224" height="30.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="224" height="28"/>
                                                             <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
                                                             <color key="textColor" name="White"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 Kwh" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-Lr-9XE">
-                                                            <rect key="frame" x="244" y="0.0" width="100" height="30.5"/>
+                                                            <rect key="frame" x="244" y="0.0" width="100" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="h6P-g0-zAT"/>
                                                             </constraints>
@@ -409,10 +409,10 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="X58-jD-a97">
-                                                    <rect key="frame" x="222.5" y="90.5" width="136.5" height="59.5"/>
+                                                    <rect key="frame" x="226.5" y="90.5" width="132.5" height="59.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Predicted Bill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPA-bW-fdl">
-                                                            <rect key="frame" x="47" y="0.0" width="89.5" height="20.5"/>
+                                                            <rect key="frame" x="49.5" y="0.0" width="83" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20.5" id="NFj-xG-yAU"/>
                                                             </constraints>
@@ -421,7 +421,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 82.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blY-nQ-sff">
-                                                            <rect key="frame" x="0.0" y="20.5" width="136.5" height="39"/>
+                                                            <rect key="frame" x="0.0" y="20.5" width="132.5" height="39"/>
                                                             <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="27"/>
                                                             <color key="textColor" name="White"/>
                                                             <nil key="highlightedColor"/>
@@ -503,7 +503,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn9-Xe-OjU">
-                                <rect key="frame" x="363" y="64" width="31" height="32"/>
+                                <rect key="frame" x="362" y="64" width="32" height="29"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                 <state key="normal" title="SKIP"/>
                                 <connections>
@@ -511,7 +511,7 @@
                                 </connections>
                             </button>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jrS-5y-AGB">
-                                <rect key="frame" x="20" y="116" width="374" height="602.5"/>
+                                <rect key="frame" x="20" y="113" width="374" height="605.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yWx-8d-yeg">
                                     <size key="itemSize" width="366" height="571"/>
@@ -521,7 +521,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="mlD-uk-ZO4" customClass="OnboardingCollectionViewCell" customModule="EmatApps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="16" width="366" height="571"/>
+                                        <rect key="frame" x="0.0" y="17.5" width="366" height="571"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ItK-JX-3cD">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="571"/>
@@ -535,13 +535,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Delivery At Your Doorstep" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iB-TG-OgX">
-                                                    <rect key="frame" x="20" y="20" width="326" height="61"/>
+                                                    <rect key="frame" x="20" y="20" width="326" height="56"/>
                                                     <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use machine learning technology integrated with IoT, we provide the best cost you should pay" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u96-Cz-J9m">
-                                                    <rect key="frame" x="15" y="435.5" width="336" height="34"/>
+                                                    <rect key="frame" x="15" y="435.5" width="336" height="28"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                     <color key="textColor" name="Accent"/>
                                                     <nil key="highlightedColor"/>
@@ -643,7 +643,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do You Have Our Device?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVy-od-XRE">
-                                <rect key="frame" x="70" y="221" width="274" height="61"/>
+                                <rect key="frame" x="70" y="226" width="274" height="56"/>
                                 <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -680,7 +680,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7Y-PJ-DS8">
-                                        <rect key="frame" x="79.5" y="59.5" width="255.5" height="81"/>
+                                        <rect key="frame" x="84" y="62.5" width="246" height="75"/>
                                         <string key="text">Input your House
 Electricity Power</string>
                                         <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="32"/>
