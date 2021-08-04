@@ -259,35 +259,65 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVb-5M-sG1">
                                             <rect key="frame" x="20" y="11" width="170" height="107"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbJ-Jc-nBM">
-                                                    <rect key="frame" x="64.5" y="43.5" width="41.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="White"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v1n-QK-luT">
+                                                    <rect key="frame" x="30" y="31" width="110.5" height="45"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Power Usage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vD9-L0-hL2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="110.5" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                            <color key="textColor" name="White"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbJ-Jc-nBM">
+                                                            <rect key="frame" x="0.0" y="22" width="110.5" height="23"/>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="18"/>
+                                                            <color key="textColor" name="White"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="FbJ-Jc-nBM" firstAttribute="leading" secondItem="v1n-QK-luT" secondAttribute="leading" id="9To-ab-qYt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FbJ-Jc-nBM" secondAttribute="trailing" id="sI8-NT-jxj"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGrayColor"/>
                                             <constraints>
-                                                <constraint firstItem="FbJ-Jc-nBM" firstAttribute="centerX" secondItem="uVb-5M-sG1" secondAttribute="centerX" id="28c-xS-yPh"/>
+                                                <constraint firstItem="v1n-QK-luT" firstAttribute="centerY" secondItem="uVb-5M-sG1" secondAttribute="centerY" id="Abg-u5-3tW"/>
+                                                <constraint firstItem="v1n-QK-luT" firstAttribute="centerX" secondItem="uVb-5M-sG1" secondAttribute="centerX" id="Pgu-DB-5Ut"/>
                                                 <constraint firstAttribute="width" constant="170" id="WRR-dR-L5e"/>
-                                                <constraint firstItem="FbJ-Jc-nBM" firstAttribute="centerY" secondItem="uVb-5M-sG1" secondAttribute="centerY" id="kgq-zD-eaf"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmE-Wi-s0S">
                                             <rect key="frame" x="224" y="11" width="170" height="107"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-s3-kOF">
-                                                    <rect key="frame" x="64.5" y="43.5" width="41.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="White"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lI2-9c-C7F">
+                                                    <rect key="frame" x="41.5" y="31" width="87" height="45"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Usage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-We-9Dc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="87" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                            <color key="textColor" name="White"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-s3-kOF">
+                                                            <rect key="frame" x="0.0" y="22" width="87" height="23"/>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="18"/>
+                                                            <color key="textColor" name="White"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="QNc-s3-kOF" firstAttribute="leading" secondItem="lI2-9c-C7F" secondAttribute="leading" id="M9p-D0-SDm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QNc-s3-kOF" secondAttribute="trailing" id="QLx-Cu-aCm"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGrayColor"/>
                                             <constraints>
-                                                <constraint firstItem="QNc-s3-kOF" firstAttribute="centerY" secondItem="mmE-Wi-s0S" secondAttribute="centerY" id="LdP-Sm-EMY"/>
+                                                <constraint firstItem="lI2-9c-C7F" firstAttribute="centerY" secondItem="mmE-Wi-s0S" secondAttribute="centerY" id="QTE-HT-yVX"/>
+                                                <constraint firstItem="lI2-9c-C7F" firstAttribute="centerX" secondItem="mmE-Wi-s0S" secondAttribute="centerX" id="jXq-Dl-HiG"/>
                                                 <constraint firstAttribute="width" constant="170" id="tYa-eS-RHW"/>
-                                                <constraint firstItem="QNc-s3-kOF" firstAttribute="centerX" secondItem="mmE-Wi-s0S" secondAttribute="centerX" id="ylG-cS-RTi"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -360,15 +390,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORh-7q-gdL">
-                                <rect key="frame" x="20" y="108" width="374" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORh-7q-gdL">
+                                <rect key="frame" x="20" y="108" width="374" height="39.5"/>
                                 <string key="text">The data shown is the result of an estimated calculation using machine learning. This data is only forecast and may change at any time depending on your usage.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Uq-07-Bxk">
-                                <rect key="frame" x="20" y="164" width="374" height="629"/>
+                                <rect key="frame" x="20" y="167.5" width="374" height="625.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VR1-7D-I4Y">
                                     <size key="itemSize" width="336" height="160"/>

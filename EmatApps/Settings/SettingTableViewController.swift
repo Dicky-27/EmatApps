@@ -14,6 +14,7 @@ class SettingTableViewController: UITableViewController {
 
         self.hideKeyboardWhenTappedAround()
         tableView.tableFooterView = UIView()
+        tableView.isScrollEnabled = false
         
         
     }
