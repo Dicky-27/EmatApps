@@ -28,9 +28,12 @@
                                     <navigationItem title="Title" id="J60-Wg-2gO"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3s-sL-sTX">
-                                <rect key="frame" x="97" y="240" width="200" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3s-sL-sTX">
+                                <rect key="frame" x="45" y="240" width="300" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="94U-SW-KuC"/>
+                                    <constraint firstAttribute="width" constant="300" id="x2A-f1-XyH"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Emat">
                                         <attributes>
@@ -42,10 +45,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Za-ZY-SSi">
-                                <rect key="frame" x="25" y="677" width="341" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Za-ZY-SSi">
+                                <rect key="frame" x="25" y="677" width="340" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="4n5-f6-T6P"/>
+                                    <constraint firstAttribute="height" constant="56" id="p9g-j2-65l"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="About Us" backgroundImage="Button Primary(3x)">
@@ -58,6 +64,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="l3s-sL-sTX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="86E-PF-20a"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="l3s-sL-sTX" secondAttribute="bottom" constant="470" id="WRf-sX-7Tn"/>
+                            <constraint firstItem="l3s-sL-sTX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="152" id="ofq-PT-VyE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8Za-ZY-SSi" secondAttribute="bottom" constant="78" id="rJJ-Yo-CAk"/>
+                            <constraint firstItem="8Za-ZY-SSi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="tZ2-8n-jzH"/>
+                            <constraint firstItem="8Za-ZY-SSi" firstAttribute="top" secondItem="l3s-sL-sTX" secondAttribute="bottom" constant="336" id="xPh-Q4-PgW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UZO-3k-ucG"/>
                 </viewController>
