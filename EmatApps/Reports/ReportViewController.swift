@@ -31,9 +31,6 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         
         let maxDayIndex = monthsLabel.arrangedSubviews.count - 1
         
-        // Replace last month with that month's actual data
-        /* graphView.graphPoints[graphView.graphPoints.count - 1] = */
-        
         // refresh the chart
         graphView.setNeedsDisplay()
         

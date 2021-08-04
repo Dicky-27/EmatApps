@@ -34,4 +34,15 @@ public class MonthlyData {
     func getFullData() -> [MonthlyPower] {
         return self.monthTotal
     }
+    
+    func getPowerList() -> [Float] {
+        
+        var listPower: [Float] = []
+        for i in 0...monthTotal.count-1 {
+            listPower.append(monthTotal[i].monthly_power)
+        }
+        
+        print("list power: \(listPower)")
+        return listPower
+    }
 }

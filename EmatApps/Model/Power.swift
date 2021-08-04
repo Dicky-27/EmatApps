@@ -26,6 +26,11 @@ struct MonthlyPower: Codable {
     let monthly_power: Float
 }
 
+class TargetBill {
+    
+    static var inputedBill: Float?
+}
+
 
 /*
  

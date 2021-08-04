@@ -18,10 +18,9 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     let rupiahFormatter = NumberFormatter()
     
     //get the data from MonthlyPower.json
-    let allMonthData             = MonthlyData.init()
-    var isidata : [MonthlyPower] = []
-    
-    var harga: Float             = 1444.70 //predefine price per kwh
+    let allMonthData            = MonthlyData.init()
+    var isidata: [MonthlyPower] = []
+    var harga: Float            = 1444.70 //predefine price per kwh
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,13 +104,15 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         if indexPath.section == 2 {
             print("about us selected")
         }
+        
         let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil)
         let monthlyReportVC = monthlyReportSB.instantiateViewController(withIdentifier: "monthlyData") as! MonthlyDataViewController
         
-        monthlyReportVC.monthDetail = self.isidata[indexPath.row].month_full
-        monthlyReportVC.monthDetailPow = self.isidata[indexPath.row].monthly_power
-        monthlyReportVC.monthDetailBill = rupiahPower
+        monthlyReportVC.monthDetail            = self.isidata[indexPath.row].month_full
+        monthlyReportVC.monthDetailPow         = self.isidata[indexPath.row].monthly_power
+        monthlyReportVC.monthDetailBill        = rupiahPower
         monthlyReportVC.modalPresentationStyle = .fullScreen
+        
         present(monthlyReportVC, animated: true, completion: nil)
         
         

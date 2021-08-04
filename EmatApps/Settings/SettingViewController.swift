@@ -13,7 +13,6 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -56,6 +55,7 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
             aboutUsVC.modalPresentationStyle = .fullScreen
             present(aboutUsVC, animated: true, completion: nil)
         }
+        
         
     }
 }
