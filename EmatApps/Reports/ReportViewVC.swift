@@ -51,12 +51,9 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         // Set up the month name labels with sorted months
         for i in 0...isidata.count-1 {
-            if let date = calendar.date(
-                byAdding: .month ,
-                value: -i,
-                to: currentMonth
-            ),
-            let label = monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
+            if let label = monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
+                print("ReportViewVC setupGraphDisplay()")
+                print("month_simple = \(isidata[i].month_simple) | monthly_power \(isidata[i].monthly_power)")
                 label.text = isidata[i].month_simple
             }
         }

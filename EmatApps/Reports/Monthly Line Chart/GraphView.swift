@@ -27,7 +27,7 @@ class GraphView: UIView {
         
         monthData.loadMonthly()
         monthContent = monthData.getFullData()
-        graphPoint = monthData.getPowerList()
+        graphPoint = monthData.getPowerList().reversed()
         
         let width = rect.width
         let height = rect.height
@@ -79,11 +79,11 @@ class GraphView: UIView {
         
         // Go to start of line
         graphPath.move(to: CGPoint(x: columnXPoint(0), y: columnYPoint(Int(graphPoint[0]))))
-        
-        // Add points for each item in the graphPoints array at the correct (x, y) for the point
-        for i in 1..<graphPoint.count {
-            let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(Int(graphPoint[i])))
+        // Add line for each item in the graphPoints array at the correct (x, y) for the point
+        for i in 0..<graphPoint.count {
+            let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(Int( graphPoint[i] )))
             graphPath.addLine(to: nextPoint)
+            
         }
         
         // Save the state of the context
@@ -112,7 +112,8 @@ class GraphView: UIView {
         // Draw the circles on top of the graph stroke
         for i in 0..<graphPoint.count {
             #colorLiteral(red: 0.09847373515, green: 0.512232244, blue: 0.823799789, alpha: 1).setFill()
-            var point = CGPoint(x: columnXPoint(i), y: columnYPoint(Int(graphPoint[i])))
+            print("GraphView.swift column Y point index \(i) : \(String( Int(graphPoint[i]) ) )")
+            var point = CGPoint(x: columnXPoint(i), y: columnYPoint( Int(graphPoint[i]) ))
             point.x -= Constants.circleDiameter / 2
             point.y -= Constants.circleDiameter / 2
             
@@ -141,6 +142,7 @@ class GraphView: UIView {
             currPoint += spacingPoint
             
             circle.fill()
+            
         }
     }
 }
