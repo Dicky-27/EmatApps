@@ -9,8 +9,6 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
     
-    @IBOutlet weak var aboutUsLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

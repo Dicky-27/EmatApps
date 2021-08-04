@@ -29,6 +29,7 @@
 		AE85AAC726AFEEDB00263786 /* GraphViewChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85AAC626AFEEDB00263786 /* GraphViewChart.swift */; };
 		AE99613B26B5447200FDA0B1 /* PowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE99613A26B5447200FDA0B1 /* PowerViewController.swift */; };
 		AEBF610F26AEBE83002EB776 /* LineChartDepan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF610E26AEBE83002EB776 /* LineChartDepan.swift */; };
+		AEC3C3F526BAC5780060134F /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC3C3F426BAC5780060134F /* SettingTableViewController.swift */; };
 		AEFDAADC26B2906D00E0BBDB /* CellOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */; };
 		AEFDAADE26B2907C00E0BBDB /* CellTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */; };
 		AEFDAAE026B290A600E0BBDB /* CellThreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */; };
@@ -43,7 +44,6 @@
 		E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */; };
 		E0B3463026B284FE0076D482 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462F26B284FE0076D482 /* Model.swift */; };
 		E0B3463326B28EEA0076D482 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3463226B28EEA0076D482 /* Setting.storyboard */; };
-		E0B3463526B28F030076D482 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3463426B28F030076D482 /* SettingViewController.swift */; };
 		E0B3463826B291950076D482 /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3463726B291950076D482 /* AboutUs.storyboard */; };
 		E0B3463A26B291A30076D482 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3463926B291A30076D482 /* AboutUsViewController.swift */; };
 		E0B3463C26B2A2C20076D482 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3463B26B2A2C20076D482 /* SettingsCell.swift */; };
@@ -106,6 +106,7 @@
 		AE85AAC626AFEEDB00263786 /* GraphViewChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewChart.swift; sourceTree = "<group>"; };
 		AE99613A26B5447200FDA0B1 /* PowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerViewController.swift; sourceTree = "<group>"; };
 		AEBF610E26AEBE83002EB776 /* LineChartDepan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDepan.swift; sourceTree = "<group>"; };
+		AEC3C3F426BAC5780060134F /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellOneTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTwoTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellThreeTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUsageTableViewCell.swift; sourceTree = "<group>"; };
 		E0B3462F26B284FE0076D482 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E0B3463226B28EEA0076D482 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
-		E0B3463426B28F030076D482 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E0B3463726B291950076D482 /* AboutUs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
 		E0B3463926B291A30076D482 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		E0B3463B26B2A2C20076D482 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
@@ -240,6 +240,16 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		AEC3C3F626BAC5BD0060134F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E0B3463B26B2A2C20076D482 /* SettingsCell.swift */,
+				E0C3E24B26B3C6C3003AFC74 /* MonthlyBudgetCell.swift */,
+				E0C3E24D26B3C6D7003AFC74 /* PowerCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		AECC3DF726AFFBAE00EFF5EC /* Overview */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,11 +339,9 @@
 		E0B3463126B28ED10076D482 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				AEC3C3F626BAC5BD0060134F /* Cells */,
 				E0B3463226B28EEA0076D482 /* Setting.storyboard */,
-				E0B3463426B28F030076D482 /* SettingViewController.swift */,
-				E0B3463B26B2A2C20076D482 /* SettingsCell.swift */,
-				E0C3E24B26B3C6C3003AFC74 /* MonthlyBudgetCell.swift */,
-				E0C3E24D26B3C6D7003AFC74 /* PowerCell.swift */,
+				AEC3C3F426BAC5780060134F /* SettingTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -537,6 +545,7 @@
 				AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */,
 				AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */,
 				AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */,
+				AEC3C3F526BAC5780060134F /* SettingTableViewController.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
 				AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */,
 				AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */,
@@ -547,7 +556,6 @@
 				E02CB40C26B0CCF000A39B2C /* MonthsTableViewCell.swift in Sources */,
 				AE7074B826B45862000255A3 /* OnboardingCollectionViewCell.swift in Sources */,
 				AE7074BA26B45895000255A3 /* OnboardingSlide.swift in Sources */,
-				E0B3463526B28F030076D482 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

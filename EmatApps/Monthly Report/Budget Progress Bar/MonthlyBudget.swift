@@ -45,6 +45,6 @@ class MonthlyBudget: UIView {
         layer.addSublayer(progressLayer)
         progressLayer.backgroundColor = color?.cgColor
         
-        print("progress: \(progress)")
+       // print("progress: \(progress)")
     }
 }

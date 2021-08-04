@@ -17,8 +17,8 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var targetTf: UITextField!
     @IBOutlet weak var stratButton: UIButton!
     
-    static var budget = ""
-    static var power = ""
+    static var budget = "Rp0"
+    static var power = "0 VA"
     
     
     override func viewDidLoad() {
@@ -33,14 +33,9 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         targetTf.addBottomBorder()
         
         self.targetTf.delegate = self
-        
         self.hideKeyboardWhenTappedAround()
         
-        
-        
-
-        
-        
+    
     }
     
 

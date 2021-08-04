@@ -160,7 +160,7 @@ class OverTableViewController: UITableViewController {
             if let nextVC = segue.destination as? EstimatedViewController {
                 
             }else if segue.identifier == "goSetting" {
-                if let nextVC = segue.destination as? SettingViewController {
+                if let nextVC = segue.destination as? SettingTableViewController {
                 }
             }
         }

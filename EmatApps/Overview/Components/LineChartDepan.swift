@@ -145,9 +145,6 @@ class LineChartDepan: UIView {
         }
     }
     
-    
-    
-    
     let graphPath2 = UIBezierPath()
     graphPath2.move(to: CGPoint(x: columnXPoint2(0), y: columnYPoint2(graphPoints2[0])))
 
@@ -329,8 +326,6 @@ class LineChartDepan: UIView {
 //
 //    linePath2.lineWidth = 1.0
 //    linePath2.stroke()
-    
-    
     
   }
 }
