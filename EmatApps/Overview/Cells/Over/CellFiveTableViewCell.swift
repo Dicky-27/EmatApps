@@ -9,13 +9,15 @@ import UIKit
 
 class CellFiveTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var usageBg: UIView!
+    @IBOutlet weak var buttonEst: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        usageBg.layer.cornerRadius = 8
+        buttonEst.layer.cornerRadius = 5
+        buttonEst.layer.borderWidth = 2
+        buttonEst.layer.borderColor = UIColor(named: "Primary")?.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

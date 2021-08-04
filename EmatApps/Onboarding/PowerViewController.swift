@@ -17,6 +17,8 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var targetTf: UITextField!
     @IBOutlet weak var stratButton: UIButton!
     
+    static var budget = ""
+    static var power = ""
     
     
     override func viewDidLoad() {
@@ -34,6 +36,9 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         self.hideKeyboardWhenTappedAround()
         
+        
+        
+
         
         
     }
@@ -61,6 +66,7 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedPower = powerData[row] // selected item
         powerTf.text = selectedPower
+        PowerViewController.power = selectedPower ?? ""
     }
     
     func createPickerView() {
@@ -119,6 +125,7 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let numberFromField = (NSString(string: currentString).integerValue)
             targetTf.text = formatter.string(from: numberFromField as NSNumber)
 
+            PowerViewController.budget = formatter.string(from: numberFromField as NSNumber) ?? ""
             
         }
 

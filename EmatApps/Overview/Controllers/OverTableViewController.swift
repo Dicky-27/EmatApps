@@ -32,7 +32,7 @@ class OverTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         self.tableView.separatorStyle = .none
         navigationItem.title = nil
@@ -42,6 +42,8 @@ class OverTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         titleStackView.button.addTarget(self, action: #selector(settingButton) , for: .touchUpInside)
         
+        
+     //   tableView.isScrollEnabled = false
         
         
     }
@@ -61,6 +63,8 @@ class OverTableViewController: UITableViewController {
             present(vc, animated: true)
             
         }
+        
+        tableView.reloadData()
         
     }
 
@@ -103,27 +107,33 @@ class OverTableViewController: UITableViewController {
         }else if indexPath.section == 1 {
           
             cell2.selectionStyle = .none
+            cell2.rightLbl.text = PowerViewController.budget
+            
             return cell2
             
         }else if indexPath.section == 2 {
            
           
             
-            cell3.kwhNumber.text = "0"
-            cell3.currentSpen.text = "0"
-            
-            
+//            cell3.kwhNumber.text = "0"
+//            cell3.currentSpen.text = "0"
+//            
+//            
             
             return cell3
             
         }else if indexPath.section == 3{
             
-            cell4.buttonEst.addTarget(self, action: #selector(estButtonAction), for: .touchUpInside)
+            
             cell4.selectionStyle = .none
             return cell4
             
         }else {
             
+            
+            cell5.buttonEst.addTarget(self, action: #selector(estButtonAction), for: .touchUpInside)
+            
+            cell5.selectionStyle = .none
             return cell5
         }
 
@@ -132,15 +142,15 @@ class OverTableViewController: UITableViewController {
    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 300
+            return 260
         }else if indexPath.section == 1{
-            return 75
+            return 70
         }else if indexPath.section == 2{
-            return 170
+            return 110
         }else if indexPath.section == 3{
-            return 50
+            return 120
         }else {
-            return 270
+            return 70
         }
     }
     

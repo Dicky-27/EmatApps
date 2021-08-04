@@ -10,25 +10,21 @@ import UIKit
 class CellThreeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var viewBg: UIView!
-    @IBOutlet weak var dateNow: UILabel!
-    @IBOutlet weak var kwhNumber: UILabel!
     @IBOutlet weak var currentSpen: UILabel!
     
     
     var timer = Timer()
     var count = 0
     
-    var power: Float = 0
-    var kwh: Float = 0
-    var spen: Float = 0
-    var harga: Float = 1444.70
-    var jam: Float = 24.0
-    var duit: Float = 0
     
     let date3 = Date()
     let formatter = NumberFormatter()
     let dateFormatter = DateFormatter()
     let formatter2 = MeasurementFormatter()
+    
+
+    
+    var iteration = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,20 +36,48 @@ class CellThreeTableViewCell: UITableViewCell {
         viewBg.layer.cornerRadius = 8
         
         
-        let date = Date()
-        let calendar = Calendar.current
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "LLLL"
-        let nameOfMonth = dateFormatter.string(from: date)
-        dateNow.text = "\(calendar.component(.day, from: date)) \(nameOfMonth)"
-        formatter2.unitOptions = .providedUnit
+//        let date = Date()
+//        let calendar = Calendar.current
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "LLLL"
+//        let nameOfMonth = dateFormatter.string(from: date)
+//        dateNow.text = "\(calendar.component(.day, from: date)) \(nameOfMonth)"
+
         formatter.locale = Locale(identifier: "id_ID")
         formatter.maximumFractionDigits = 0
         formatter.groupingSeparator = "."
         formatter.numberStyle = .decimal
         
-        scheduledTimerWithTimeInterval()
+//   gett()
+    //    scheduledTimerWithTimeInterval()
+//
+//        isoDate = DataLoader.init().powers[count].created_at
+//        isoDate2 = DataLoader.init().powers[count + 1].created_at
+//
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss.SSSSSSZ"
+//        let date = dateFormatter.date(from: isoDate)
+//        let date2 = dateFormatter.date(from: isoDate2)
+//        let seconds = date2?.timeIntervalSince(date ?? date3)
+//
+//        let hour = seconds ?? 0/3600
+//
+//        power = DataLoader.init().powers[count].power
+//        kwh = (power/1000) * Float(hour)
+//        spen = kwh * harga
+//        duit += spen/3600
         
+       // let test = 40849.5214834126666666666666661851
+
+
+       // let energyValue = Measurement(value: Double(kwh), unit: UnitEnergy.kilowattHours)
+       // let formmaterPrice = formatter.string(from: test as NSNumber)
+
+      //  kwhNumber.text = "\(formatter2.string(from: energyValue))"
+        //currentSpen.text = "Rp \(formmaterPrice ?? "0") "
+        
+
+        //updateLabel()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -66,40 +90,41 @@ class CellThreeTableViewCell: UITableViewCell {
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
-        
+         
     }
 
     @objc func updateCounting(){
         
-        count += 1
-        let isoDate = DataLoader.init().powers[count].created_at
-        let isoDate2 = DataLoader.init().powers[count + 1].created_at
+        let randomfloat = Double.random(in: 2000...2200)
+        let hour: Double = 1/3600
+        let kwhnya = Double(randomfloat/1000 * hour)
         
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss.SSSSSSZ"
-        let date = dateFormatter.date(from: isoDate)
-        let date2 = dateFormatter.date(from: isoDate2)
-        let seconds = date2?.timeIntervalSince(date ?? date3)
+        
+        //  (x*100).rounded()/100
+       // let spen2 = kwhnya * harga
+       // let pr += spen2/3600
+        
+        let energyValue = Measurement(value: kwhnya, unit: UnitEnergy.kilowattHours)
+        formatter2.unitOptions = .providedUnit
+        
+        // let formmaterPrice = formatter.string(from: pr as NSNumber)
+//        print(kw2)
+//        print(randomfloat)
+        print(kwhnya)
+        print(formatter2.string(from: energyValue))
+        
+        
+       // currentSpen.text = "\(DataLoader.init().powers[count].power)"
+        
+        // let energyValue = Measurement(value: Double(kwh), unit: UnitEnergy.kilowattHours)
+        // let formmaterPrice = formatter.string(from: test as NSNumber)
 
-        let hour = seconds ?? 0/3600
         
-        power = DataLoader.init().powers[count].power
-        kwh = (power/1000) * Float(hour)
-        spen = kwh * harga
-        duit += spen/3600
-        
-        
-        let energyValue = Measurement(value: Double(kwh), unit: UnitEnergy.kilowattHours)
-        let formmaterPrice = formatter.string(from: duit as NSNumber)
-        
-        kwhNumber.text = "\(formatter2.string(from: energyValue))"
-        currentSpen.text = "Rp \(formmaterPrice ?? "0") "
-        
-        if count == isoDate.count {
-            timer.invalidate()
-        }
-        
+      //  kwhNumber.text = formatter2.string(from: energyValue)
+       // currentSpen.text = "Rp \(formmaterPrice ?? "0")"
     }
+    
+    
 
 }
 
@@ -137,6 +162,8 @@ extension UnitEnergy {
     static let megaWattHours = UnitEnergy(symbol: "mWh", converter: UnitConverterLinear(coefficient:3600000000))
 
     static let gigaWattHours = UnitEnergy(symbol: "gWh", converter: UnitConverterLinear(coefficient:3600000000000))
+    
+    
 
 }
 

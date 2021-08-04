@@ -9,15 +9,30 @@ import UIKit
 
 class CellFourTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var buttonEst: UIButton!
+    @IBOutlet weak var viewLeft: UIView!
+    @IBOutlet weak var viewRight: UIView!
     
+    @IBOutlet weak var kwhStats: UILabel!
+    @IBOutlet weak var powerStats: UILabel!
+    
+    
+    let formatter2 = MeasurementFormatter()
+    var timer = Timer()
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        buttonEst.layer.cornerRadius = 5
-        buttonEst.layer.borderWidth = 2
-        buttonEst.layer.borderColor = UIColor(named: "Primary")?.cgColor
+      
+        viewLeft.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "Primary") ?? .white)
+        
+        viewRight.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "Primary") ?? .white)
+        
+        viewLeft.layer.cornerRadius = 8
+        viewRight.layer.cornerRadius = 8
+        
+        scheduledTimerWithTimeInterval()
+        kwhStats.text = "400 kWh"
         
     }
 
@@ -28,6 +43,25 @@ class CellFourTableViewCell: UITableViewCell {
     }
 
     
+    
+    func scheduledTimerWithTimeInterval(){
+      
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+         
+    }
+
+    @objc func updateCounting(){
+        
+        let randomfloat = Int.random(in: 2000...2200)
+    
+       //  (x*100).rounded()/100
+       // let spen2 = kwhnya * harga
+       // let pr += spen2/3600
+
+        powerStats.text = "\(randomfloat) Watt"
+        
+        // currentSpen.text = "Rp \(formmaterPrice ?? "0")"
+    }
     
     
 
