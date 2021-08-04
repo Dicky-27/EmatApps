@@ -7,13 +7,13 @@
 
 import UIKit
 
-@IBDesignable
 class MonthlyBudget: UIView {
 
     @IBInspectable var color: UIColor? = .gray {
         didSet {setNeedsDisplay()}
     }
-    var progress: CGFloat = 0 {
+    
+    var progress = CGFloat(TargetBill.inputedBill ?? 0.0) {
         didSet {setNeedsDisplay()}
     }
     
@@ -44,5 +44,7 @@ class MonthlyBudget: UIView {
         
         layer.addSublayer(progressLayer)
         progressLayer.backgroundColor = color?.cgColor
+        
+        print("progress: \(progress)")
     }
 }

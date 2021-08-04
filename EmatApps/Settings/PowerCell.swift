@@ -13,7 +13,7 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var powerPicker: UIPickerView!
     
     var powerData: [String] = ["450 VA", "900 VA", "1300 VA", "2200 VA", "3500 VA", "3900 VA", "4400 VA", "5500 VA", "6600 VA"]
-    var pickerData = 0
+    var pickerData: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,8 +42,7 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerData = row
-        
+        pickerData = powerData[row]        
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {

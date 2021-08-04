@@ -18,40 +18,46 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var progressBudget: MonthlyBudget!
     @IBOutlet weak var dailyUsageTable: UITableView!
     
-    let dayCount = ["1", "2"]
+    // sample data for list of days
+    let dayList         = ["1", "2"]
+
+    var monthDetail     : String?
+    var monthDetailPow  : Float?
+    var monthDetailBill : String?
+    //var monthTargetBill : Float?
+    let powFormatter    = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dailyUsageTable.delegate = self
         dailyUsageTable.dataSource = self
+        
+        let totalPow = powFormatter.string(from: NSNumber(value: monthDetailPow ?? 0.0))
+        
+        monthLabel.text = monthDetail
+        monthBillLabel.text = monthDetailBill
+        energyUsageLabel.text = "\(totalPow ?? "0") kWh"
+        monthlyBudgetLabel.text = powFormatter.string(from: NSNumber(value: TargetBill.inputedBill ?? 0.0))
 
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dayCount.count
+        dayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
         
-        cell.dayLabel.text = dayCount[indexPath.row]
+        cell.dayLabel.text = dayList[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        /* // clicked
-        if indexPath.section == 2 {
-            print("about us selected")
-            let aboutUsSB = UIStoryboard(name: "AboutUs", bundle: nil)
-            let aboutUsVC = aboutUsSB.instantiateViewController(withIdentifier: "aboutUs") as! AboutUsViewController
-            aboutUsVC.modalPresentationStyle = .fullScreen
-            present(aboutUsVC, animated: true, completion: nil)
-        }*/
+        // the cell can't be selected on this view
     }
     
 }

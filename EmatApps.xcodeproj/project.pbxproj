@@ -35,6 +35,8 @@
 		AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAAE126B290B000E0BBDB /* CellFourTableViewCell.swift */; };
 		AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAAE326B293BD00E0BBDB /* TitleStackView.swift */; };
 		E02CB40C26B0CCF000A39B2C /* MonthsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */; };
+		E070420C26B9042D00E7F485 /* MonthlyPower.json in Resources */ = {isa = PBXBuildFile; fileRef = E070420B26B9042D00E7F485 /* MonthlyPower.json */; };
+		E070420E26B90C5700E7F485 /* ReportViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070420D26B90C5700E7F485 /* ReportViewVC.swift */; };
 		E0B3462526B18A510076D482 /* MonthlyDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */; };
 		E0B3462726B18A6A0076D482 /* MonthlyData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */; };
 		E0B3462926B18D7A0076D482 /* MonthlyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462826B18D7A0076D482 /* MonthlyBudget.swift */; };
@@ -110,6 +112,8 @@
 		AEFDAAE126B290B000E0BBDB /* CellFourTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFourTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAAE326B293BD00E0BBDB /* TitleStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleStackView.swift; sourceTree = "<group>"; };
 		E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewCell.swift; sourceTree = "<group>"; };
+		E070420B26B9042D00E7F485 /* MonthlyPower.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MonthlyPower.json; sourceTree = "<group>"; };
+		E070420D26B90C5700E7F485 /* ReportViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewVC.swift; sourceTree = "<group>"; };
 		E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyDataViewController.swift; sourceTree = "<group>"; };
 		E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonthlyData.storyboard; sourceTree = "<group>"; };
 		E0B3462826B18D7A0076D482 /* MonthlyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBudget.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				AE5446F526B7E01000E969FF /* Power.swift */,
 				AE5446F726B7E0C700E969FF /* DataLoader.swift */,
 				AE5446F926B7E1FC00E969FF /* power.json */,
+				E070420B26B9042D00E7F485 /* MonthlyPower.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 				E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */,
 				E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */,
 				E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */,
+				E070420D26B90C5700E7F485 /* ReportViewVC.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 				E0B3465626B2A5DD0076D482 /* Poppins-ExtraLight.otf in Resources */,
 				E0B3466026B2A5DD0076D482 /* Poppins-LightItalic.otf in Resources */,
 				E0B3465D26B2A5DD0076D482 /* Poppins-Italic.otf in Resources */,
+				E070420C26B9042D00E7F485 /* MonthlyPower.json in Resources */,
 				E0B3467626B2A8170076D482 /* CircularStd-Medium.ttf in Resources */,
 				AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */,
 				E0B3466126B2A5DD0076D482 /* Poppins-Bold.otf in Resources */,
@@ -518,6 +525,7 @@
 				AE7074AB26B2A41F000255A3 /* CellFiveTableViewCell.swift in Sources */,
 				AE85AAC726AFEEDB00263786 /* GraphViewChart.swift in Sources */,
 				AEBF610F26AEBE83002EB776 /* LineChartDepan.swift in Sources */,
+				E070420E26B90C5700E7F485 /* ReportViewVC.swift in Sources */,
 				E0C3E24E26B3C6D7003AFC74 /* PowerCell.swift in Sources */,
 				AE7074B626B41256000255A3 /* OnboardingViewController.swift in Sources */,
 				AEFDAADE26B2907C00E0BBDB /* CellTwoTableViewCell.swift in Sources */,
