@@ -78,7 +78,6 @@
 		E0C3E24E26B3C6D7003AFC74 /* PowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3E24D26B3C6D7003AFC74 /* PowerCell.swift */; };
 		E0FBFC7D26AD55FB00EDCEBC /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */; };
 		E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */; };
-		E0FBFC8126AE742F00EDCEBC /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,7 +154,6 @@
 		E0C3E24D26B3C6D7003AFC74 /* PowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerCell.swift; sourceTree = "<group>"; };
 		E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 		E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
-		E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,7 +408,6 @@
 			children = (
 				E0B3462D26B284C40076D482 /* Monthly Line Chart */,
 				E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */,
-				E0FBFC8026AE742F00EDCEBC /* ReportViewController.swift */,
 				E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */,
 				E070420D26B90C5700E7F485 /* ReportViewVC.swift */,
 			);
@@ -539,7 +536,6 @@
 				AEFDAADE26B2907C00E0BBDB /* CellTwoTableViewCell.swift in Sources */,
 				AEFDAADC26B2906D00E0BBDB /* CellOneTableViewCell.swift in Sources */,
 				AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */,
-				E0FBFC8126AE742F00EDCEBC /* ReportViewController.swift in Sources */,
 				AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */,
 				E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */,
 				AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */,

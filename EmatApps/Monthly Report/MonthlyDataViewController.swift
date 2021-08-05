@@ -53,7 +53,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
-        let avgPow = Float((monthDetailPow)! / 30.0)
+        let avgPow = monthDetailPow! / 30.0
         let dailyPow = Float.random(in: avgPow-5.0...avgPow+5.0)
         
         accumulatedPow += dailyPow

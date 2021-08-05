@@ -44,16 +44,14 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         graphView.setNeedsDisplay()
         
         // Setup date formatter for month label
-        let currentMonth = Date()
-        let calendar     = Calendar.current
+        //let currentMonth = Date()
+        //let calendar     = Calendar.current
         let formatter    = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("MMM")
         
         // Set up the month name labels with sorted months
         for i in 0...isidata.count-1 {
             if let label = monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
-                print("ReportViewVC setupGraphDisplay()")
-                print("month_simple = \(isidata[i].month_simple) | monthly_power \(isidata[i].monthly_power)")
                 label.text = isidata[i].month_simple
             }
         }
@@ -101,16 +99,37 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             print("about us selected")
         }
         
+        let row = indexPath.row
+        let dataParam : [String : Any] = [
+            "isiData" : isidata[row],
+            "rupiahPower" : rupiahPower
+        ]
+        /*
         let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil)
         let monthlyReportVC = monthlyReportSB.instantiateViewController(withIdentifier: "monthlyData") as! MonthlyDataViewController
-        
         monthlyReportVC.monthDetail            = self.isidata[indexPath.row].month_full
         monthlyReportVC.monthDetailPow         = self.isidata[indexPath.row].monthly_power
         monthlyReportVC.monthDetailBill        = rupiahPower
         monthlyReportVC.modalPresentationStyle = .fullScreen
+        */
         
-        present(monthlyReportVC, animated: true, completion: nil)
+        performSegue(withIdentifier: "toDetail", sender: dataParam)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
+        if segue.identifier == "toDetail" {
+            if let detailVC = segue.destination as? MonthlyDataViewController {
+                
+                let dataPowFull = sender as! [String : Any]
+                let dataPow : MonthlyPower = dataPowFull["isiData"] as! MonthlyPower
+                let rupiahPower = dataPowFull["rupiahPower"] as? String
+                
+                detailVC.monthDetail = dataPow.month_full
+                detailVC.monthDetailPow = dataPow.monthly_power
+                detailVC.monthDetailBill = rupiahPower
+                
+            }
+        }
     }
 }
