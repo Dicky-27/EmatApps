@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
         <!--Monthly Data View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="monthlyData" id="Y6W-OH-hqX" customClass="MonthlyDataViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="monthlyData" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MonthlyDataViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fu8-mu-xCk">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="2000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2I7-hI-HDv">
                                                 <rect key="frame" x="115" y="30" width="160" height="40"/>
@@ -40,7 +41,7 @@
                                                     <constraint firstAttribute="width" constant="160" id="bpy-2X-OPa"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e00-tv-wgI" userLabel="MonthBill">
@@ -77,7 +78,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.19215686274509802" green="0.65490196078431373" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="MonthlyDetailBox"/>
                                                 <constraints>
                                                     <constraint firstItem="nDZ-qv-JPt" firstAttribute="top" secondItem="e00-tv-wgI" secondAttribute="top" constant="36" id="5fe-5a-7zb"/>
                                                     <constraint firstItem="csl-rV-LHE" firstAttribute="leading" secondItem="e00-tv-wgI" secondAttribute="leading" constant="26" id="YNl-LD-0vu"/>
@@ -118,7 +119,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.19215686269999999" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="MonthlyDetailBox"/>
                                                 <constraints>
                                                     <constraint firstItem="c4z-Be-ZcT" firstAttribute="centerX" secondItem="RgL-Qn-ond" secondAttribute="centerX" id="CTa-sQ-Z9c"/>
                                                     <constraint firstAttribute="height" constant="120" id="JMt-cn-mQ2"/>
@@ -167,7 +168,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.19215686269999999" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="MonthlyDetailBox"/>
                                                 <constraints>
                                                     <constraint firstItem="qyx-hl-Fjz" firstAttribute="leading" secondItem="7hr-d5-hMi" secondAttribute="leading" constant="26" id="5dq-Ee-ArD"/>
                                                     <constraint firstItem="E7b-6m-nSg" firstAttribute="leading" secondItem="qyx-hl-Fjz" secondAttribute="trailing" constant="2" id="LBZ-yd-rQn"/>
@@ -191,7 +192,7 @@
                                                     <constraint firstAttribute="width" constant="120" id="lEC-DB-R7M"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxa-te-hcg" userLabel="ProgressBar" customClass="MonthlyBudget" customModule="EmatApps" customModuleProvider="target">
@@ -208,13 +209,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8Q-Vs-lPj">
-                                                <rect key="frame" x="287" y="385" width="60" height="20"/>
+                                                <rect key="frame" x="227" y="385" width="120" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="GA0-cG-Hu2"/>
-                                                    <constraint firstAttribute="width" constant="60" id="uN3-mB-8sK"/>
+                                                    <constraint firstAttribute="width" constant="120" id="uN3-mB-8sK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhE-O3-xm1" userLabel="DailyUsageView">
@@ -231,7 +232,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.19215686269999999" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="MonthlyDetailBox"/>
                                                 <constraints>
                                                     <constraint firstItem="WHC-up-GOD" firstAttribute="centerX" secondItem="EhE-O3-xm1" secondAttribute="centerX" id="AvQ-RI-nrq"/>
                                                     <constraint firstItem="WHC-up-GOD" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="top" constant="20" id="Ymd-lI-afX"/>
@@ -258,7 +259,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="tbI-Dm-6G6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4V-bG-f1V">
@@ -281,7 +282,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="sAx-hh-9f9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAm-gu-aeN">
@@ -297,8 +298,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-3D-HQ8">
-                                                <rect key="frame" x="0.0" y="608" width="390" height="1362"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-3D-HQ8">
+                                                <rect key="frame" x="0.0" y="608" width="390" height="3000"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dailyUsageCell" rowHeight="44" id="VWo-gr-QWs" customClass="DailyUsageTableViewCell" customModule="EmatApps" customModuleProvider="target">
@@ -328,7 +329,7 @@
                                                                         <constraint firstAttribute="width" constant="40" id="rEk-Ou-R6a"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="LabelColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kwh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRa-GX-nGi">
@@ -338,7 +339,7 @@
                                                                         <constraint firstAttribute="width" constant="40" id="z4K-at-paf"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="LabelColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnp-Rk-bZe">
@@ -348,7 +349,7 @@
                                                                         <constraint firstAttribute="width" constant="30" id="VoL-Kc-hXN"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="LabelColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -371,16 +372,6 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jx-LJ-hdz">
-                                                <rect key="frame" x="265" y="385" width="20" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="Pvz-TS-qgR"/>
-                                                    <constraint firstAttribute="width" constant="20" id="RoZ-ZT-Iq0"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inO-ZO-Khv" userLabel="Daily Highest">
                                                 <rect key="frame" x="205" y="233" width="152" height="120"/>
                                                 <subviews>
@@ -405,7 +396,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.19215686269999999" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="MonthlyDetailBox"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="152" id="0lV-Wf-25W"/>
                                                     <constraint firstItem="Lm1-db-Z10" firstAttribute="centerX" secondItem="inO-ZO-Khv" secondAttribute="centerX" id="1iR-Pm-VIv"/>
@@ -427,18 +418,19 @@
                                                     <constraint firstAttribute="width" constant="50" id="muN-uc-gwm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="2I7-hI-HDv" firstAttribute="top" secondItem="fu8-mu-xCk" secondAttribute="top" constant="30" id="0ai-dQ-W4g"/>
-                                            <constraint firstAttribute="bottom" secondItem="2bG-3D-HQ8" secondAttribute="bottom" constant="-970" id="314-ok-JeE"/>
                                             <constraint firstItem="ygS-6L-tXi" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="20" id="3O9-ne-hv0"/>
                                             <constraint firstItem="e00-tv-wgI" firstAttribute="top" secondItem="2I7-hI-HDv" secondAttribute="bottom" constant="23" id="3UH-5g-bgD"/>
                                             <constraint firstItem="6kb-gW-KnT" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="16" id="3eB-0o-jU5"/>
+                                            <constraint firstAttribute="bottom" secondItem="2bG-3D-HQ8" secondAttribute="bottom" constant="-1608" id="6lc-sz-kcK"/>
                                             <constraint firstItem="F4V-bG-f1V" firstAttribute="leading" secondItem="fDV-yF-r85" secondAttribute="trailing" constant="40" id="8eF-9j-hzK"/>
+                                            <constraint firstAttribute="trailing" secondItem="2bG-3D-HQ8" secondAttribute="trailing" id="AVp-02-KBs"/>
                                             <constraint firstItem="0tb-WB-Y8H" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="43" id="F60-RZ-p2s"/>
                                             <constraint firstItem="ygS-6L-tXi" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="55" id="Fx8-rd-YAr"/>
                                             <constraint firstAttribute="trailing" secondItem="RgL-Qn-ond" secondAttribute="trailing" constant="33" id="Gdw-mP-c34"/>
@@ -452,25 +444,22 @@
                                             <constraint firstAttribute="trailing" secondItem="EhE-O3-xm1" secondAttribute="trailing" id="U3U-Rs-hcC"/>
                                             <constraint firstItem="e4E-7R-qQ9" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="16" id="UDh-Ea-jrK"/>
                                             <constraint firstItem="e00-tv-wgI" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="33" id="Vaw-E6-JpZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="2bG-3D-HQ8" secondAttribute="trailing" id="Vb6-VV-oer"/>
                                             <constraint firstItem="7hr-d5-hMi" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="33" id="Woj-up-rjD"/>
-                                            <constraint firstItem="7Jx-LJ-hdz" firstAttribute="top" secondItem="inO-ZO-Khv" secondAttribute="bottom" constant="32" id="XNj-Ch-dux"/>
                                             <constraint firstItem="F4V-bG-f1V" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="20" id="Z1m-i7-FZ0"/>
-                                            <constraint firstAttribute="height" constant="1000" id="Zab-pi-jlv"/>
+                                            <constraint firstAttribute="height" constant="2000" id="Zab-pi-jlv"/>
                                             <constraint firstAttribute="trailing" secondItem="w8Q-Vs-lPj" secondAttribute="trailing" constant="43" id="aua-Gc-rSs"/>
+                                            <constraint firstItem="2bG-3D-HQ8" firstAttribute="top" secondItem="fDV-yF-r85" secondAttribute="bottom" constant="20" id="bBY-Tj-g1Y"/>
                                             <constraint firstItem="fDV-yF-r85" firstAttribute="leading" secondItem="ygS-6L-tXi" secondAttribute="trailing" constant="5" id="bfo-G5-tRU"/>
                                             <constraint firstItem="fDV-yF-r85" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="16" id="fG0-vt-2Vs"/>
                                             <constraint firstItem="qxa-te-hcg" firstAttribute="centerX" secondItem="fu8-mu-xCk" secondAttribute="centerX" id="gHz-yv-h3m"/>
                                             <constraint firstItem="LAm-gu-aeN" firstAttribute="leading" secondItem="e4E-7R-qQ9" secondAttribute="trailing" constant="40" id="gLp-at-4qe"/>
+                                            <constraint firstItem="2bG-3D-HQ8" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" id="gbr-Ul-K0Z"/>
                                             <constraint firstItem="EhE-O3-xm1" firstAttribute="top" secondItem="qxa-te-hcg" secondAttribute="bottom" constant="43" id="i9l-Wb-iKP"/>
                                             <constraint firstItem="e4E-7R-qQ9" firstAttribute="leading" secondItem="F4V-bG-f1V" secondAttribute="trailing" constant="5" id="jCg-8U-zwj"/>
-                                            <constraint firstItem="2bG-3D-HQ8" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" id="jNP-nK-TLZ"/>
                                             <constraint firstItem="RgL-Qn-ond" firstAttribute="top" secondItem="2I7-hI-HDv" secondAttribute="bottom" constant="23" id="lFn-iZ-VqO"/>
                                             <constraint firstItem="LAm-gu-aeN" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="20" id="m9P-lY-ea1"/>
                                             <constraint firstItem="7hr-d5-hMi" firstAttribute="top" secondItem="e00-tv-wgI" secondAttribute="bottom" constant="20" id="sXF-sR-s8j"/>
-                                            <constraint firstItem="w8Q-Vs-lPj" firstAttribute="leading" secondItem="7Jx-LJ-hdz" secondAttribute="trailing" constant="2" id="ueP-qy-Gzu"/>
                                             <constraint firstItem="6kb-gW-KnT" firstAttribute="leading" secondItem="LAm-gu-aeN" secondAttribute="trailing" constant="5" id="wWr-d0-tSq"/>
-                                            <constraint firstItem="2bG-3D-HQ8" firstAttribute="top" secondItem="fDV-yF-r85" secondAttribute="bottom" constant="20" id="xSp-Za-O3O"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -511,6 +500,12 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="LabelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MonthlyDetailBox">
+            <color red="0.19215686274509802" green="0.65490196078431373" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

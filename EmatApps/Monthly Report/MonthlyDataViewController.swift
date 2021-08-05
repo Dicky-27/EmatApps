@@ -19,12 +19,14 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var dailyUsageTable: UITableView!
     
     // sample data for list of days
-    let dayList         = ["1", "2"]
+    let dayList         = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                           "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+                           "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
+    ]
 
     var monthDetail     : String?
     var monthDetailPow  : Float?
     var monthDetailBill : String?
-    //var monthTargetBill : Float?
     let powFormatter    = NumberFormatter()
     
     override func viewDidLoad() {
@@ -35,10 +37,12 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         
         let totalPow = powFormatter.string(from: NSNumber(value: monthDetailPow ?? 0.0))
         
+        //progressBudget.progress = PowerViewController.budget
+        
         monthLabel.text = monthDetail
         monthBillLabel.text = monthDetailBill
         energyUsageLabel.text = "\(totalPow ?? "0") kWh"
-        monthlyBudgetLabel.text = powFormatter.string(from: NSNumber(value: TargetBill.inputedBill ?? 0.0))
+        monthlyBudgetLabel.text = PowerViewController.budget
 
         // Do any additional setup after loading the view.
     }
@@ -50,7 +54,10 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
+        let avgPow = Int((monthDetailPow)! / 30)
+        let dailyPow = Int.random(in: avgPow-5...avgPow+5)
         
+        cell.dailyKwhLabel.text = powFormatter.string(from: NSNumber(value: dailyPow))
         cell.dayLabel.text = dayList[indexPath.row]
         
         return cell
@@ -59,5 +66,5 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // the cell can't be selected on this view
     }
-    
+
 }

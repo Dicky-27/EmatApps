@@ -75,10 +75,14 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         // clicked
         if indexPath.section == 2 {
         print("about us selected")
+        }else {
+            if let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil).instantiateViewController(withIdentifier: "monthlyData") as? MonthlyDataViewController {
+                if let navigation = navigationController {
+                    navigation.pushViewController(monthlyReportSB, animated: true)
+                }
+            }
         }
-        let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil)
-        let monthlyReportVC = monthlyReportSB.instantiateViewController(withIdentifier: "monthlyData") as! MonthlyDataViewController
-        monthlyReportVC.modalPresentationStyle = .fullScreen
-        present(monthlyReportVC, animated: true, completion: nil)
+        //monthlyReportVC.modalPresentationStyle = .fullScreen
+        //present(monthlyReportVC, animated: true, completion: nil)
     }
 }

@@ -79,7 +79,6 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         let kwhPower    = String(isidata[indexPath.row].monthly_power)              //change kwh to string
         
         //displaying all the labels
-        cell.tableImage.image                 = #imageLiteral(resourceName: "Card Reports BG (3x)")
         cell.tableImage.layer.cornerRadius    = 9
         cell.monthLabel.text                  = isidata[indexPath.row].month_full
         cell.kwhLabel.text                    = "\(kwhPower) kWh"
