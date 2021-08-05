@@ -258,16 +258,19 @@
                         <outlet property="monthsLabel" destination="6br-xh-ldt" id="j5V-Wh-Kff"/>
                         <outlet property="monthsTable" destination="6aT-RT-8zo" id="fva-KN-LPX"/>
                         <outlet property="reportsLabel" destination="Q2w-W7-bKw" id="2qa-RX-2z9"/>
+                        <segue destination="lgP-8Q-CDT" kind="show" identifier="toDetail" id="qoN-oV-3Fb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1989.2307692307691" y="115.16587677725119"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--MonthlyData-->
         <scene sceneID="HGw-LZ-nnR">
             <objects>
-                <viewControllerPlaceholder id="lgP-8Q-CDT" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MonthlyData" id="lgP-8Q-CDT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZAJ-sJ-mS0"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOa-SH-uSe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2748" y="34"/>

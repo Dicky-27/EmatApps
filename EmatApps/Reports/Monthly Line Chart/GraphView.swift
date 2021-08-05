@@ -112,7 +112,6 @@ class GraphView: UIView {
         // Draw the circles on top of the graph stroke
         for i in 0..<graphPoint.count {
             #colorLiteral(red: 0.09847373515, green: 0.512232244, blue: 0.823799789, alpha: 1).setFill()
-            print("GraphView.swift column Y point index \(i) : \(String( Int(graphPoint[i]) ) )")
             var point = CGPoint(x: columnXPoint(i), y: columnYPoint( Int(graphPoint[i]) ))
             point.x -= Constants.circleDiameter / 2
             point.y -= Constants.circleDiameter / 2
@@ -132,11 +131,11 @@ class GraphView: UIView {
             linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder))
             linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder))
             
-            let color = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            let color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             color.setStroke()
             linePath.lineWidth = 2.0
             
-            let dashPattern: [CGFloat] = [4.0, 2.0]
+            let dashPattern: [CGFloat] = [4.0, 0.0]
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
             linePath.stroke(with: .lighten, alpha: 0.5)
             currPoint += spacingPoint

@@ -72,17 +72,22 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        performSegue(withIdentifier: "toDetail", sender: nil)
+        
         // clicked
-        if indexPath.section == 2 {
-        print("about us selected")
-        }else {
-            if let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil).instantiateViewController(withIdentifier: "monthlyData") as? MonthlyDataViewController {
-                if let navigation = navigationController {
-                    navigation.pushViewController(monthlyReportSB, animated: true)
-                }
+        /*
+        if let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil).instantiateViewController(withIdentifier: "monthlyData") as? MonthlyDataViewController {
+            if let navigation = navigationController {
+                navigation.pushViewController(monthlyReportSB, animated: true)
+            }
+        }*/
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            if let detailVC = segue.destination as? MonthlyDataViewController {
+
             }
         }
-        //monthlyReportVC.modalPresentationStyle = .fullScreen
-        //present(monthlyReportVC, animated: true, completion: nil)
     }
 }

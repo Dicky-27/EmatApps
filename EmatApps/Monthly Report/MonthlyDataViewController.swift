@@ -19,13 +19,14 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var dailyUsageTable: UITableView!
     
     // sample data for list of days
-    let dayList         = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-                           "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-                           "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
+    let dayList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                   "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+                   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
     ]
 
     var monthDetail     : String?
     var monthDetailPow  : Float?
+    var accumulatedPow  : Float = 0.0
     var monthDetailBill : String?
     let powFormatter    = NumberFormatter()
     
@@ -35,16 +36,14 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         dailyUsageTable.delegate = self
         dailyUsageTable.dataSource = self
         
-        let totalPow = powFormatter.string(from: NSNumber(value: monthDetailPow ?? 0.0))
+        //let totalPow = powFormatter.string(from: NSNumber(value: monthDetailPow ?? 0.0))
         
         //progressBudget.progress = PowerViewController.budget
         
         monthLabel.text = monthDetail
         monthBillLabel.text = monthDetailBill
-        energyUsageLabel.text = "\(totalPow ?? "0") kWh"
+        energyUsageLabel.text = String(format: "%.1f kWh", monthDetailPow!)
         monthlyBudgetLabel.text = PowerViewController.budget
-
-        // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,12 +53,18 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
-        let avgPow = Int((monthDetailPow)! / 30)
-        let dailyPow = Int.random(in: avgPow-5...avgPow+5)
+        let avgPow = Float((monthDetailPow)! / 30.0)
+        let dailyPow = Float.random(in: avgPow-5.0...avgPow+5.0)
         
-        cell.dailyKwhLabel.text = powFormatter.string(from: NSNumber(value: dailyPow))
+        accumulatedPow += dailyPow
+        
+        cell.dailyKwhLabel.text = String(format: "%.2f", dailyPow)
         cell.dayLabel.text = dayList[indexPath.row]
         
+        if indexPath.row == 29 {
+            let sisaPow: Float = monthDetailPow! - accumulatedPow
+            cell.dailyKwhLabel.text = String(format: "%.2f", sisaPow)
+        }
         return cell
     }
     
