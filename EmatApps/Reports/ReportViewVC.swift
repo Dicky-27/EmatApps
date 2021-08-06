@@ -36,6 +36,16 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         setupGraphDisplay()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        
+    }
+    
     func setupGraphDisplay() {
         
         let maxDayIndex = monthsLabel.arrangedSubviews.count - 1
@@ -61,7 +71,8 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     // Number of cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return isidata.count
+        return 6
+            //isidata.count
     }
     // Content of cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,16 +113,8 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         let row = indexPath.row
         let dataParam : [String : Any] = [
             "isiData" : isidata[row],
-            "rupiahPower" : rupiahPower
+            "rupiahPower" : rupiahPower as Any
         ]
-        /*
-        let monthlyReportSB = UIStoryboard(name: "MonthlyData", bundle: nil)
-        let monthlyReportVC = monthlyReportSB.instantiateViewController(withIdentifier: "monthlyData") as! MonthlyDataViewController
-        monthlyReportVC.monthDetail            = self.isidata[indexPath.row].month_full
-        monthlyReportVC.monthDetailPow         = self.isidata[indexPath.row].monthly_power
-        monthlyReportVC.monthDetailBill        = rupiahPower
-        monthlyReportVC.modalPresentationStyle = .fullScreen
-        */
         
         performSegue(withIdentifier: "toDetail", sender: dataParam)
     }

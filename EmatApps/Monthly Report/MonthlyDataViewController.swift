@@ -38,6 +38,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         monthBillLabel.text = monthDetailBill
         energyUsageLabel.text = String(format: "%.1f kWh", monthDetailPow!)
         monthlyBudgetLabel.text = PowerViewController.budget
+        progressBudget.progress = PowerViewController.budgetCal
         
     }
     

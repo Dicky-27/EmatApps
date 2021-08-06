@@ -13,7 +13,7 @@ class MonthlyBudget: UIView {
         didSet {setNeedsDisplay()}
     }
     
-    var progress = 0.5 {
+    var progress = 0 {
         didSet {setNeedsDisplay()}
     }
     
