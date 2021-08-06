@@ -19,7 +19,7 @@ class CellTwoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        progressBudget.progress = 0.5
+        progressBudget.progress = Float(Int(0.5))
         
     }
 

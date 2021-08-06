@@ -13,7 +13,7 @@ class MonthlyBudget: UIView {
         didSet {setNeedsDisplay()}
     }
     
-    var progress = 0.5 {
+    var progress: Float = 0.0 {
         didSet {setNeedsDisplay()}
     }
     
@@ -44,5 +44,10 @@ class MonthlyBudget: UIView {
         
         layer.addSublayer(progressLayer)
         progressLayer.backgroundColor = color?.cgColor
+        
+        let progCalc1 = Float(PowerViewController.budgetCal / 2)
+        let progCalc2 = progCalc1 / Float(PowerViewController.budgetCal)
+        
+        progress = progCalc2
     }
 }
