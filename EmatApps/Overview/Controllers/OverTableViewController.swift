@@ -7,10 +7,9 @@
 
 import UIKit
 import Charts
+import CoreData
 
 class OverTableViewController: UITableViewController {
-    
-    
     
     lazy var titleStackView: TitleStackView = {
                 let titleStackView = TitleStackView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44.0)))
@@ -84,12 +83,19 @@ class OverTableViewController: UITableViewController {
     
     var dataEntries1 = [ChartDataEntry]()
     var dataEntries2 = [ChartDataEntry]()
-    var energyModel: [Energies]?
+    var energyModel: [Energies] = []
 
+    var cobain: Float = 0
+    
+    
+    var user = [User]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setData()
+        loadData()
+        
         
         
         self.tableView.separatorStyle = .none
@@ -102,20 +108,31 @@ class OverTableViewController: UITableViewController {
         
         //load data from server
         loadPowerData()
+//        setData()
         
         
      //   tableView.isScrollEnabled = false
         
-        
+      
+        let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+            
+            notificationCenter.addObserver(self, selector: #selector(appCameToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+            
+            
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }
+//
+//
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        loadData()
+        loadPowerData()
         
         if Core.shared.isNewUser() {
             //show onboarding
@@ -124,10 +141,29 @@ class OverTableViewController: UITableViewController {
             present(vc, animated: true)
             
         }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+//                //call any function
+//            self.loadPowerData()
+//            self.setData()
+//            self.tableView.reloadData()
+//            }
+        
+        
         
         tableView.reloadData()
         
     }
+    
+    
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        loadData()
+        
+    }
+    
+    
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -164,8 +200,17 @@ class OverTableViewController: UITableViewController {
         
             cell.selectionStyle = .none
             cell.chartOver.insertSubview(lineChartView, at: 0)
-            lineChartView.frame = CGRect(x: 0, y: 0, width: cell.chartOver.frame.size.width - 30, height: cell.chartOver.frame.size.height - 30)
+            lineChartView.frame = CGRect(x: 0, y: 0, width: cell.chartOver.frame.size.width, height: cell.chartOver.frame.size.height)
             
+            let date = Date()
+            let calendar = Calendar.current
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "LLLL"
+            let day = calendar.component(.day, from: date)
+            let month = dateFormatter.string(from: date)
+            
+            cell.moneySave.text = "Rp. 0"
+            cell.dateNow.text = "\(day) \(month)"
             
             
             return cell
@@ -173,52 +218,103 @@ class OverTableViewController: UITableViewController {
         }else if indexPath.section == 1 {
           
             cell2.selectionStyle = .none
-            
-            if PowerViewController.budgetCal != 0 {
-                let test = Float(PowerViewController.budgetCal / 2)
-                let coba = test / Float(PowerViewController.budgetCal)
-                cell2.progressBudget.progress = Double(CGFloat(coba))
-                
-            }else {
-                cell2.progressBudget.progress = 0
-            }
-           
-            cell2.rightLbl.text = PowerViewController.budget
-            return cell2
-            
-        }else if indexPath.section == 2 {
-            
-            var kwhTot = 0
-            for i in 1...16{
 
-                let y2 = DailyLoader.init().daily[i].energy_agus
-                kwhTot += Int(y2)
-            
+//            if PowerViewController.budgetCal != 0 {
+//                let test = Float(PowerViewController.budgetCal / 2)
+//                let coba = test / Float(PowerViewController.budgetCal)
+//                cell2.progressBudget.progress = Double(CGFloat(coba))
+//
+//            }else {
+//                cell2.progressBudget.progress = 0
+//            }
+//
+            var kwhTot:Float = 0
+            var power:Float = 0
+        
+            if energyModel.isEmpty == false {
+                for i in 0..<energyModel.count{
+    
+                    power = energyModel[i].power ?? 0
+                    kwhTot += power/1000
+                }
             }
-            let duit = "\(Float(Float(kwhTot) * 1440.70))"
+            
+            let duit = Float(Float(kwhTot) * 1440.70)
+            
             
             let formatter = NumberFormatter()
             formatter.numberStyle = NumberFormatter.Style.currency
             formatter.locale = Locale(identifier: "id_ID")
-            let numberFromField = (NSString(string: duit).integerValue)
-            //let money = formatter.string(from: numberFromField as NSNumber)
+            formatter.maximumFractionDigits = 0
             
-            cell3.currentSpen.text = formatter.string(from: numberFromField as NSNumber)
-
+            var numberFromField:Float = 0
+            var budget:Float = 0
+            if user.isEmpty == false {
+                numberFromField = user[0].budget
+                budget = user[0].budget
+                
+                cell2.rightLbl.text = formatter.string(from: numberFromField as NSNumber)
+                cell2.progressBudget.progress = Double(duit / budget)
+               
+                //cell2.rightLbl.text =
+            }
+        
+            return cell2
+            
+        }else if indexPath.section == 2 {
+            
+            var kwhTot:Float = 0
+            var power:Float = 0
+        
+            if energyModel.isEmpty == false {
+                
+                
+                
+                for i in 0..<energyModel.count{
+    
+                    power = energyModel[i].power ?? 0
+                    kwhTot += power/1000
+                    
+    
+                }
+                
+                let duit = "\(Float(Float(kwhTot) * 1440.70))"
+                let formatter = NumberFormatter()
+                formatter.numberStyle = NumberFormatter.Style.currency
+                formatter.locale = Locale(identifier: "id_ID")
+                let numberFromField = (NSString(string: duit).integerValue)
+                //let money = formatter.string(from: numberFromField as NSNumber)
+                
+                cell3.currentSpen.text = formatter.string(from: numberFromField as NSNumber)
+                
+            }
+            
+            
+            
             
             return cell3
             
         }else if indexPath.section == 3{
             
-            var kwhTot = 0
-            for i in 1...16{
-
-                let y2 = DailyLoader.init().daily[i].energy_agus
-                kwhTot += Int(y2)
-            
+            var kwhTot:Float = 0
+            var power:Float = 0
+        
+            if energyModel.isEmpty == false {
+                let endIndex = energyModel.endIndex
+                
+                
+                for i in 0..<energyModel.count{
+    
+                    power = energyModel[i].power ?? 0
+                    kwhTot += power/1000
+    
+                }
+                cell4.kwhStats.text = "\(kwhTot) kWh"
+                cell4.powerStats.text = "\(String(describing: energyModel[endIndex-1].power ?? 0)) Watt"
             }
             
-            cell4.kwhStats.text = "\(kwhTot) kWh"
+           
+            
             cell4.selectionStyle = .none
             return cell4
             
@@ -253,6 +349,9 @@ class OverTableViewController: UITableViewController {
                 
             }else if segue.identifier == "goSetting" {
                 if let nextVC = segue.destination as? SettingTableViewController {
+                    nextVC.onCreate = {
+                        self.loadData()
+                    }
                 }
             }
         }
@@ -265,27 +364,55 @@ class OverTableViewController: UITableViewController {
     
     @objc func settingButton() {
         performSegue(withIdentifier: "goSetting", sender: nil)
+        
+        
     }
     
     
     func setData() {
-        for i in 1...31 {
-            let y = DailyLoader.init().daily[i].energy_july
-            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
-            dataEntries1.append(entry)
+        
+        
+        if energyModel.isEmpty == false {
             
+            for i in 0...energyModel.count {
+//
+//                let indexBawah = energyModel[i].created_at()// 0
+//                let indexAtas = energyModel.lastIndex(of: "a")
+//
+            }
+           
+            
+//            for i in 0...energyModel.count{
+//                //let y = DailyLoader.init().daily[i].energy_july
+//                let y = energyModel[i].power ?? 0
+//
+//
+//                let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
+//
+//
+//
+//                dataEntries1.append(entry)
+//
+//            }
+//            
+//            for i in 0...energyModel.count{
+//
+//               // let y2 = DailyLoader.init().daily[i].energy_agus
+//                
+//                let y2 = energyModel[i].power ?? 0
+//                
+//                print(y2)
+//                
+//                let entry2 = ChartDataEntry.init(x: Double(i), y: Double(y2))
+//                dataEntries2.append(entry2)
+//
+//            
+//            }
+            
+           
         }
         
-        for i in 1...16{
-
-            let y2 = DailyLoader.init().daily[i].energy_agus
-            let entry2 = ChartDataEntry.init(x: Double(i), y: Double(y2))
-            dataEntries2.append(entry2)
-
         
-        }
-        
-       
         
         let set1 = LineChartDataSet(entries: dataEntries1)
         let set2 = LineChartDataSet(entries: dataEntries2)
@@ -323,12 +450,14 @@ class OverTableViewController: UITableViewController {
 
         APIRequest.fetchEnergyData(url: Constant.GET_ENERGY_LIST,showLoader: true) { response in
             
-            print(response)
+         //   print(response)
             // handle response and store it to the data model
             self.energyModel = response
             DispatchQueue.main.async {
+                self.setData()
                 self.tableView.reloadData()
             }
+            
         } failCompletion: { message in
             // display alert failure
             // dismiss loader
@@ -336,6 +465,41 @@ class OverTableViewController: UITableViewController {
         }
     }
     
+    
+     func saveData() {
+            do {
+                try context.save()
+            } catch {
+                print("Error saving category \(error)")
+            }
+    
+            tableView.reloadData()
+    
+        }
+    
+      func loadData() {
+    
+            let request : NSFetchRequest<User> = User.fetchRequest()
+    
+            do{
+                user = try context.fetch(request)
+            } catch {
+                print("Error loading categories \(error)")
+            }
+    
+            tableView.reloadData()
+    
+        }
+    
 
+    @objc func appMovedToBackground() {
+       print("app enters background")
+        loadPowerData()
+   }
+
+   @objc func appCameToForeground() {
+       print("app enters foreground")
+        loadPowerData()
+   }
 }
 

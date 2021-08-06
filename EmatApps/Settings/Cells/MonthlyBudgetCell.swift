@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
     
@@ -15,7 +16,8 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
     weak var tableViewDelegate: UITableViewDelegate?
     
     var currentString = ""
-   
+    var user = [User]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let formatter = NumberFormatter()
     
@@ -28,6 +30,7 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
         budgetTf.delegate = self
         budgetTf.borderStyle = .none
         
+        loadData()
         
     }
 
@@ -71,6 +74,24 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
 
         PowerViewController.budget = formatter.string(from: numberFromField as NSNumber) ?? ""
         PowerViewController.budgetCal = numberFromField
+        user[0].setValue(Float(numberFromField), forKey: "budget")
         
     }
+    
+    func loadData() {
+  
+          let request : NSFetchRequest<User> = User.fetchRequest()
+  
+          do{
+              user = try context.fetch(request)
+          } catch {
+              print("Error loading categories \(error)")
+          }
+  
+         // tableView.reloadData()
+  
+      }
+    
+    
+    
 }

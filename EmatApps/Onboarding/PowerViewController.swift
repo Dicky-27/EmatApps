@@ -22,6 +22,10 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     static var budgetCal = 0
     
+    static var pow: Float = 0
+    
+    var user = [User]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     override func viewDidLoad() {
@@ -47,6 +51,11 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 //        return false
 //    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        newUser()
+        
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -65,6 +74,13 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         selectedPower = powerData[row] // selected item
         powerTf.text = selectedPower
         PowerViewController.power = selectedPower ?? ""
+        
+        let numberFormatter = NumberFormatter()
+        let number = numberFormatter.number(from: selectedPower?.westernArabicNumeralsOnly ?? "")
+        let numberFloatValue = number?.floatValue
+        
+        user[0].power = numberFloatValue ?? 0
+        saveData()
     }
     
     func createPickerView() {
@@ -124,8 +140,11 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             targetTf.text = formatter.string(from: numberFromField as NSNumber)
 
             PowerViewController.budget = formatter.string(from: numberFromField as NSNumber) ?? ""
-           
             PowerViewController.budgetCal = numberFromField
+            
+            user[0].budget = Float(numberFromField)
+            saveData()
+            
         }
 
     @IBAction func getStartedButton(_ sender: UIButton) {
@@ -151,6 +170,25 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
         }
     }
+    
+    func newUser() {
+        let newUser = User(context: self.context)
+        
+        self.user.append(newUser)
+        self.saveData()
+        
+    }
+    
+    func saveData() {
+           do {
+               try context.save()
+           } catch {
+               print("Error saving category \(error)")
+           }
+   
+          // tableView.reloadData()
+   
+       }
 }
 
 extension UITextField {

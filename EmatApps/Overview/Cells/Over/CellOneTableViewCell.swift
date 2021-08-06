@@ -12,7 +12,8 @@ class CellOneTableViewCell: UITableViewCell {
     @IBOutlet weak var thisLeg: UIView!
     
     @IBOutlet weak var chartOver: UIView!
-    
+    @IBOutlet weak var dateNow: UILabel!
+    @IBOutlet weak var moneySave: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

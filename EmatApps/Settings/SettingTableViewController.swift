@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import CoreData
+
 
 class SettingTableViewController: UITableViewController {
+    
+    var onCreate: (() -> Void)?
+    var user = [User]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +29,17 @@ class SettingTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "White")
+        saveData()
+        loadData()
     }
+    
     // MARK: - Table view data source
+    
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        saveData()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -48,13 +64,19 @@ class SettingTableViewController: UITableViewController {
         
         if indexPath.row == 0 {
             
-            cell.budgetTf.text = PowerViewController.budget
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.currency
+            formatter.locale = Locale(identifier: "id_ID")
+            formatter.maximumFractionDigits = 0
+            let numberFromField = user[0].budget
+            
+            cell.budgetTf.text = formatter.string(from: numberFromField as NSNumber)
             cell.selectionStyle = .none
             return cell
             
         }else if indexPath.row == 1 {
             
-            cell2.powerTf.text = PowerViewController.power
+            cell2.powerTf.text = "\(Int(user[0].power)) VA"
             cell2.selectionStyle = .none
             return cell2
             
@@ -68,8 +90,6 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         if indexPath.row == 2 {
             if let viewController = UIStoryboard(name: "AboutUs", bundle: nil).instantiateViewController(withIdentifier: "aboutUs") as? AboutUsViewController {
                     if let navigator = navigationController {
@@ -78,5 +98,48 @@ class SettingTableViewController: UITableViewController {
                 }
         }
     }
+    
+    func saveData() {
+           do {
+               try context.save()
+            
+//                    guard
+//                        let lastVC = presentingViewController as? OverTableViewController
+//                    else {
+//                        return
+//
+//                    }
+//
+//            lastVC.loadData()
+//            lastVC.tableView.reloadData()
+            
+            if let unwrapOncreate = onCreate{
+                unwrapOncreate()
+            }
+                
+                    
+           } catch {
+               print("Error saving category \(error)")
+           }
+   
+          // tableView.reloadData()
+        
+        
+   
+       }
+   
+     func loadData() {
+   
+           let request : NSFetchRequest<User> = User.fetchRequest()
+   
+           do{
+               user = try context.fetch(request)
+           } catch {
+               print("Error loading categories \(error)")
+           }
+   
+          // tableView.reloadData()
+   
+       }
 
 }

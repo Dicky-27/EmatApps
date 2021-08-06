@@ -31,8 +31,8 @@ class CellFourTableViewCell: UITableViewCell {
         viewLeft.layer.cornerRadius = 8
         viewRight.layer.cornerRadius = 8
         
-        scheduledTimerWithTimeInterval()
-        kwhStats.text = "400 kWh"
+    //    scheduledTimerWithTimeInterval()
+      //  kwhStats.text = "400 kWh"
         
     }
 
