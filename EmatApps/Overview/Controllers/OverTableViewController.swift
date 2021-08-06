@@ -84,7 +84,7 @@ class OverTableViewController: UITableViewController {
     
     var dataEntries1 = [ChartDataEntry]()
     var dataEntries2 = [ChartDataEntry]()
-    
+    var energyModel: [Energies]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +99,9 @@ class OverTableViewController: UITableViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         titleStackView.button.addTarget(self, action: #selector(settingButton) , for: .touchUpInside)
+        
+        //load data from server
+        loadPowerData()
         
         
      //   tableView.isScrollEnabled = false
@@ -185,9 +188,6 @@ class OverTableViewController: UITableViewController {
             
         }else if indexPath.section == 2 {
             
-//            cell3.kwhNumber.text = "0"
-//            cell3.currentSpen.text = "0"
-//            
             var kwhTot = 0
             for i in 1...16{
 
@@ -224,10 +224,7 @@ class OverTableViewController: UITableViewController {
             
         }else {
            
-            
-            
             cell5.buttonEst.addTarget(self, action: #selector(estButtonAction), for: .touchUpInside)
-            
             cell5.selectionStyle = .none
             return cell5
         }
@@ -272,8 +269,6 @@ class OverTableViewController: UITableViewController {
     
     
     func setData() {
-        
-        
         for i in 1...31 {
             let y = DailyLoader.init().daily[i].energy_july
             let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
@@ -314,7 +309,7 @@ class OverTableViewController: UITableViewController {
         set2.lineWidth = 5
         
         
-            //let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
+        //let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
 
         let set3:[ChartDataSet] = [set1, set2]
         let data = LineChartData(dataSets: set3)
@@ -323,25 +318,24 @@ class OverTableViewController: UITableViewController {
         
     }
     
+    // FETCH Data from server
+    func loadPowerData(){
 
-}
-
-
-class Core {
-    static let shared = Core()
-    
-    func isNewUser() -> Bool {
-        return !UserDefaults.standard.bool(forKey: "isNewUser")
+        APIRequest.fetchEnergyData(url: Constant.GET_ENERGY_LIST,showLoader: true) { response in
+            
+            print(response)
+            // handle response and store it to the data model
+            self.energyModel = response
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } failCompletion: { message in
+            // display alert failure
+            // dismiss loader
+           print(message)
+        }
     }
     
-    func setIsNotNewUsert() {
-        UserDefaults.standard.set(true, forKey: "isNewUser")
-    }
-}
 
-extension String {
-    subscript(i: Int) -> String {
-        return String(self[index(startIndex, offsetBy: i)])
-    }
 }
 

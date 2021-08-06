@@ -37,6 +37,19 @@ class TargetBill {
 }
 
 
+struct Energies: Codable {
+    let id: String?
+    let created_at: String?
+    let energy: Float?
+    let power: Float?
+    let voltage: Float?
+    let current: Float?
+    let frequency: Float?
+    let power_factor: Float?
+}
+
+
+
 /*
  
  "id": "2ebeb9e2-9d7d-11eb-a902-acde48001122",

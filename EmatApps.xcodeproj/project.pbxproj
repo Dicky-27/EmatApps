@@ -19,6 +19,10 @@
 		AE07D3E826BBB72200526190 /* CircleMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3E726BBB72200526190 /* CircleMarker.swift */; };
 		AE07D3EA26BBD29A00526190 /* Daily.json in Resources */ = {isa = PBXBuildFile; fileRef = AE07D3E926BBD29A00526190 /* Daily.json */; };
 		AE07D3EC26BBD2B700526190 /* DailyLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3EB26BBD2B700526190 /* DailyLoader.swift */; };
+		AE07D3FD26BD3C6400526190 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3FC26BD3C6400526190 /* BaseRequest.swift */; };
+		AE07D3FF26BD3C7500526190 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3FE26BD3C7500526190 /* APIRequest.swift */; };
+		AE07D40126BD3CDD00526190 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D40026BD3CDD00526190 /* Constant.swift */; };
+		AE07D40326BD3DAC00526190 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D40226BD3DAC00526190 /* Core.swift */; };
 		AE5446F626B7E01000E969FF /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F526B7E01000E969FF /* Power.swift */; };
 		AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F726B7E0C700E969FF /* DataLoader.swift */; };
 		AE5446FA26B7E1FC00E969FF /* power.json in Resources */ = {isa = PBXBuildFile; fileRef = AE5446F926B7E1FC00E969FF /* power.json */; };
@@ -102,6 +106,10 @@
 		AE07D3E726BBB72200526190 /* CircleMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMarker.swift; sourceTree = "<group>"; };
 		AE07D3E926BBD29A00526190 /* Daily.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Daily.json; sourceTree = "<group>"; };
 		AE07D3EB26BBD2B700526190 /* DailyLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLoader.swift; sourceTree = "<group>"; };
+		AE07D3FC26BD3C6400526190 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
+		AE07D3FE26BD3C7500526190 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		AE07D40026BD3CDD00526190 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		AE07D40226BD3DAC00526190 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		AE5446F526B7E01000E969FF /* Power.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
 		AE5446F726B7E0C700E969FF /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		AE5446F926B7E1FC00E969FF /* power.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = power.json; sourceTree = "<group>"; };
@@ -201,6 +209,7 @@
 		AE04AF0F26AAA5D000E79190 /* EmatApps */ = {
 			isa = PBXGroup;
 			children = (
+				AE07D3FB26BD3C2800526190 /* Network Service */,
 				E0B3462E26B284EC0076D482 /* Model */,
 				AE7074B426B4122B000255A3 /* Onboarding */,
 				E0B3463626B291800076D482 /* About Us */,
@@ -219,6 +228,16 @@
 				E0B3463D26B2A3EE0076D482 /* Fonts */,
 			);
 			path = EmatApps;
+			sourceTree = "<group>";
+		};
+		AE07D3FB26BD3C2800526190 /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				AE07D3FC26BD3C6400526190 /* BaseRequest.swift */,
+				AE07D3FE26BD3C7500526190 /* APIRequest.swift */,
+				AE07D40026BD3CDD00526190 /* Constant.swift */,
+			);
+			path = "Network Service";
 			sourceTree = "<group>";
 		};
 		AE7074B026B3FBAB000255A3 /* Over */ = {
@@ -249,6 +268,7 @@
 				AE7074B926B45895000255A3 /* OnboardingSlide.swift */,
 				AE7074BB26B460EB000255A3 /* DeviceViewController.swift */,
 				AE99613A26B5447200FDA0B1 /* PowerViewController.swift */,
+				AE07D40226BD3DAC00526190 /* Core.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -612,6 +632,7 @@
 				AEFDAAE026B290A600E0BBDB /* CellThreeTableViewCell.swift in Sources */,
 				AE7074AB26B2A41F000255A3 /* CellFiveTableViewCell.swift in Sources */,
 				AE85AAC726AFEEDB00263786 /* GraphViewChart.swift in Sources */,
+				AE07D40326BD3DAC00526190 /* Core.swift in Sources */,
 				AEBF610F26AEBE83002EB776 /* LineChartDepan.swift in Sources */,
 				E070420E26B90C5700E7F485 /* ReportViewVC.swift in Sources */,
 				E0C3E24E26B3C6D7003AFC74 /* PowerCell.swift in Sources */,
@@ -621,11 +642,14 @@
 				AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */,
 				AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */,
 				E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */,
+				AE07D3FD26BD3C6400526190 /* BaseRequest.swift in Sources */,
 				AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */,
 				AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */,
 				AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */,
 				AEC3C3F526BAC5780060134F /* SettingTableViewController.swift in Sources */,
+				AE07D40126BD3CDD00526190 /* Constant.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
+				AE07D3FF26BD3C7500526190 /* APIRequest.swift in Sources */,
 				AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */,
 				AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */,
 				AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */,
