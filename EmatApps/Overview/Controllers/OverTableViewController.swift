@@ -174,7 +174,7 @@ class OverTableViewController: UITableViewController {
             if PowerViewController.budgetCal != 0 {
                 let test = Float(PowerViewController.budgetCal / 2)
                 let coba = test / Float(PowerViewController.budgetCal)
-                cell2.progressBudget.progress = CGFloat(coba)
+                cell2.progressBudget.progress = Double(CGFloat(coba))
                 
             }else {
                 cell2.progressBudget.progress = 0
