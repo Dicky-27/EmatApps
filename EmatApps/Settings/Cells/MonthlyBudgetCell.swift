@@ -70,6 +70,7 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
         budgetTf.text = formatter.string(from: numberFromField as NSNumber)
 
         PowerViewController.budget = formatter.string(from: numberFromField as NSNumber) ?? ""
+        PowerViewController.budgetCal = numberFromField
         
     }
 }

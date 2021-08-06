@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class OverTableViewController: UITableViewController {
     
@@ -27,11 +28,68 @@ class OverTableViewController: UITableViewController {
                 
                 return tableHeaderView
             }()
+    
  
+    lazy var lineChartView: LineChartView = {
+        let chartView = LineChartView()
+        let yAxis = chartView.leftAxis
         
+        chartView.noDataTextColor = .black
+        chartView.rightAxis.enabled = false
+        chartView.leftAxis.enabled = false
+        chartView.legend.enabled = false
+        
+        
+        yAxis.labelFont = .boldSystemFont(ofSize: 12)
+        yAxis.setLabelCount(3, force: false)
+        yAxis.axisMinLabels = 0
+        yAxis.axisMinimum = 0
+        yAxis.labelTextColor = .black
+        yAxis.axisLineColor = .black
+        yAxis.labelPosition = .outsideChart
+        yAxis.labelAlignment = .center
+        yAxis.gridColor = .black
+        
+        
+        chartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.labelFont = .boldSystemFont(ofSize: 12)
+        chartView.xAxis.setLabelCount(6, force: false)
+        chartView.xAxis.labelTextColor = .black
+        chartView.xAxis.axisLineColor = UIColor.systemGray
+        chartView.xAxis.gridColor = UIColor(named: "Grey") ?? .black
+        
+        chartView.xAxis.axisMinLabels = 1
+        chartView.xAxis.axisMaxLabels = 30
+        chartView.xAxis.axisMinimum = 0
+        chartView.xAxis.axisMaximum = 30
+        
+//        let marker = CircleMarker(color: .red)
+//        chartView.marker = marker
+        
+       // chartView.animate(xAxisDuration: 2.0)
+   
+        
+        let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14), textColor: .black)
+      
+        chartView.marker = marker
+        
+        
+        
+        
+        return chartView
+    }()
+        
+    
+    
+    
+    var dataEntries1 = [ChartDataEntry]()
+    var dataEntries2 = [ChartDataEntry]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setData()
         
         
         self.tableView.separatorStyle = .none
@@ -102,33 +160,70 @@ class OverTableViewController: UITableViewController {
         if indexPath.section == 0 {
         
             cell.selectionStyle = .none
+            cell.chartOver.insertSubview(lineChartView, at: 0)
+            lineChartView.frame = CGRect(x: 0, y: 0, width: cell.chartOver.frame.size.width - 30, height: cell.chartOver.frame.size.height - 30)
+            
+            
+            
             return cell
             
         }else if indexPath.section == 1 {
           
             cell2.selectionStyle = .none
-            cell2.rightLbl.text = PowerViewController.budget
             
+            if PowerViewController.budgetCal != 0 {
+                let test = Float(PowerViewController.budgetCal / 2)
+                let coba = test / Float(PowerViewController.budgetCal)
+                cell2.progressBudget.progress = CGFloat(coba)
+                
+            }else {
+                cell2.progressBudget.progress = 0
+            }
+           
+            cell2.rightLbl.text = PowerViewController.budget
             return cell2
             
         }else if indexPath.section == 2 {
-           
-          
             
 //            cell3.kwhNumber.text = "0"
 //            cell3.currentSpen.text = "0"
 //            
-//            
+            var kwhTot = 0
+            for i in 1...16{
+
+                let y2 = DailyLoader.init().daily[i].energy_agus
+                kwhTot += Int(y2)
+            
+            }
+            let duit = "\(Float(Float(kwhTot) * 1440.70))"
+            
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.currency
+            formatter.locale = Locale(identifier: "id_ID")
+            let numberFromField = (NSString(string: duit).integerValue)
+            //let money = formatter.string(from: numberFromField as NSNumber)
+            
+            cell3.currentSpen.text = formatter.string(from: numberFromField as NSNumber)
+
             
             return cell3
             
         }else if indexPath.section == 3{
             
+            var kwhTot = 0
+            for i in 1...16{
+
+                let y2 = DailyLoader.init().daily[i].energy_agus
+                kwhTot += Int(y2)
             
+            }
+            
+            cell4.kwhStats.text = "\(kwhTot) kWh"
             cell4.selectionStyle = .none
             return cell4
             
         }else {
+           
             
             
             cell5.buttonEst.addTarget(self, action: #selector(estButtonAction), for: .touchUpInside)
@@ -175,6 +270,58 @@ class OverTableViewController: UITableViewController {
         performSegue(withIdentifier: "goSetting", sender: nil)
     }
     
+    
+    func setData() {
+        
+        
+        for i in 1...31 {
+            let y = DailyLoader.init().daily[i].energy_july
+            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
+            dataEntries1.append(entry)
+            
+        }
+        
+        for i in 1...16{
+
+            let y2 = DailyLoader.init().daily[i].energy_agus
+            let entry2 = ChartDataEntry.init(x: Double(i), y: Double(y2))
+            dataEntries2.append(entry2)
+
+        
+        }
+        
+       
+        
+        let set1 = LineChartDataSet(entries: dataEntries1)
+        let set2 = LineChartDataSet(entries: dataEntries2)
+
+        
+        set1.mode = .cubicBezier
+        set1.drawCirclesEnabled = false
+        set1.lineWidth = 5
+        set1.setColor(UIColor(named: "Primary") ?? .black)
+        
+        set1.highlightColor = UIColor(named: "AbuA") ?? .black
+        set1.drawHorizontalHighlightIndicatorEnabled = false
+        
+        set2.mode = .cubicBezier
+        set2.setColor(UIColor(named: "Accent") ?? .black)
+        set2.drawCirclesEnabled = false
+        
+        set2.drawHorizontalHighlightIndicatorEnabled = false
+        
+        set2.highlightColor = UIColor(named: "AbuA") ?? .black
+        set2.lineWidth = 5
+        
+        
+            //let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
+
+        let set3:[ChartDataSet] = [set1, set2]
+        let data = LineChartData(dataSets: set3)
+        data.setDrawValues(false)
+        lineChartView.data = data
+        
+    }
     
 
 }

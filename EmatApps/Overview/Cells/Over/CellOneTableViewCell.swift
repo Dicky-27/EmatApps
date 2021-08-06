@@ -11,7 +11,8 @@ class CellOneTableViewCell: UITableViewCell {
     @IBOutlet weak var lastLeg: UIView!
     @IBOutlet weak var thisLeg: UIView!
     
-    @IBOutlet weak var chart: GraphViewChart!
+    @IBOutlet weak var chartOver: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

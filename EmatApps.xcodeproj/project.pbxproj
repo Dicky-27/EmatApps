@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7250CE226740D638D8969E1F /* Pods_EmatApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8B1DC4930DC66D27A7D815 /* Pods_EmatApps.framework */; };
 		AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1026AAA5D000E79190 /* AppDelegate.swift */; };
 		AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */; };
 		AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1426AAA5D000E79190 /* ViewController.swift */; };
@@ -14,6 +15,10 @@
 		AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1926AAA5D000E79190 /* EmatApps.xcdatamodeld */; };
 		AE04AF1D26AAA5D200E79190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1C26AAA5D200E79190 /* Assets.xcassets */; };
 		AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1E26AAA5D200E79190 /* LaunchScreen.storyboard */; };
+		AE07D3E426BBA74A00526190 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3E326BBA74A00526190 /* PillMarker.swift */; };
+		AE07D3E826BBB72200526190 /* CircleMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3E726BBB72200526190 /* CircleMarker.swift */; };
+		AE07D3EA26BBD29A00526190 /* Daily.json in Resources */ = {isa = PBXBuildFile; fileRef = AE07D3E926BBD29A00526190 /* Daily.json */; };
+		AE07D3EC26BBD2B700526190 /* DailyLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3EB26BBD2B700526190 /* DailyLoader.swift */; };
 		AE5446F626B7E01000E969FF /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F526B7E01000E969FF /* Power.swift */; };
 		AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F726B7E0C700E969FF /* DataLoader.swift */; };
 		AE5446FA26B7E1FC00E969FF /* power.json in Resources */ = {isa = PBXBuildFile; fileRef = AE5446F926B7E1FC00E969FF /* power.json */; };
@@ -82,6 +87,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F8B1DC4930DC66D27A7D815 /* Pods_EmatApps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmatApps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53EBAC02C5537545D1A9538F /* Pods-EmatApps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmatApps.debug.xcconfig"; path = "Target Support Files/Pods-EmatApps/Pods-EmatApps.debug.xcconfig"; sourceTree = "<group>"; };
+		80F47A274DF337A76F1819AB /* Pods-EmatApps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmatApps.release.xcconfig"; path = "Target Support Files/Pods-EmatApps/Pods-EmatApps.release.xcconfig"; sourceTree = "<group>"; };
 		AE04AF0D26AAA5D000E79190 /* EmatApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmatApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE04AF1026AAA5D000E79190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +99,10 @@
 		AE04AF1C26AAA5D200E79190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE04AF1F26AAA5D200E79190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE04AF2126AAA5D200E79190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE07D3E326BBA74A00526190 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
+		AE07D3E726BBB72200526190 /* CircleMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMarker.swift; sourceTree = "<group>"; };
+		AE07D3E926BBD29A00526190 /* Daily.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Daily.json; sourceTree = "<group>"; };
+		AE07D3EB26BBD2B700526190 /* DailyLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLoader.swift; sourceTree = "<group>"; };
 		AE5446F526B7E01000E969FF /* Power.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
 		AE5446F726B7E0C700E969FF /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		AE5446F926B7E1FC00E969FF /* power.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = power.json; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7250CE226740D638D8969E1F /* Pods_EmatApps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +187,8 @@
 			children = (
 				AE04AF0F26AAA5D000E79190 /* EmatApps */,
 				AE04AF0E26AAA5D000E79190 /* Products */,
+				C2AB31D9AB124804D2F72C9D /* Pods */,
+				F62604887D7A34DA6909C9F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -285,6 +300,8 @@
 				AEBF610E26AEBE83002EB776 /* LineChartDepan.swift */,
 				AE85AAC626AFEEDB00263786 /* GraphViewChart.swift */,
 				AEFDAAE326B293BD00E0BBDB /* TitleStackView.swift */,
+				AE07D3E326BBA74A00526190 /* PillMarker.swift */,
+				AE07D3E726BBB72200526190 /* CircleMarker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -295,6 +312,15 @@
 				AE7074A626B29F71000255A3 /* Overview.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C2AB31D9AB124804D2F72C9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53EBAC02C5537545D1A9538F /* Pods-EmatApps.debug.xcconfig */,
+				80F47A274DF337A76F1819AB /* Pods-EmatApps.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		E0B3462326B18A1A0076D482 /* Monthly Report */ = {
@@ -331,7 +357,9 @@
 				AE5446F526B7E01000E969FF /* Power.swift */,
 				AE5446F726B7E0C700E969FF /* DataLoader.swift */,
 				AE5446F926B7E1FC00E969FF /* power.json */,
+				AE07D3E926BBD29A00526190 /* Daily.json */,
 				E070420B26B9042D00E7F485 /* MonthlyPower.json */,
+				AE07D3EB26BBD2B700526190 /* DailyLoader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +445,14 @@
 			path = Reports;
 			sourceTree = "<group>";
 		};
+		F62604887D7A34DA6909C9F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F8B1DC4930DC66D27A7D815 /* Pods_EmatApps.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,9 +460,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE04AF2426AAA5D200E79190 /* Build configuration list for PBXNativeTarget "EmatApps" */;
 			buildPhases = (
+				59E11C8E152D97E735DCDCA5 /* [CP] Check Pods Manifest.lock */,
 				AE04AF0926AAA5D000E79190 /* Sources */,
 				AE04AF0A26AAA5D000E79190 /* Frameworks */,
 				AE04AF0B26AAA5D000E79190 /* Resources */,
+				5FE5419BB1BDEB76F5BD8737 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -509,12 +547,55 @@
 				E0B3463326B28EEA0076D482 /* Setting.storyboard in Resources */,
 				E0B3465A26B2A5DD0076D482 /* Poppins-BoldItalic.otf in Resources */,
 				E0B3465C26B2A5DD0076D482 /* Poppins-SemiBold.otf in Resources */,
+				AE07D3EA26BBD29A00526190 /* Daily.json in Resources */,
 				E0B3466426B2A5DD0076D482 /* Poppins-Regular.otf in Resources */,
 				AE5446FA26B7E1FC00E969FF /* power.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59E11C8E152D97E735DCDCA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmatApps-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FE5419BB1BDEB76F5BD8737 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmatApps/Pods-EmatApps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmatApps/Pods-EmatApps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmatApps/Pods-EmatApps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE04AF0926AAA5D000E79190 /* Sources */ = {
@@ -527,6 +608,8 @@
 				E0B3463C26B2A2C20076D482 /* SettingsCell.swift in Sources */,
 				AE5446F626B7E01000E969FF /* Power.swift in Sources */,
 				E0B3462926B18D7A0076D482 /* MonthlyBudget.swift in Sources */,
+				AE07D3EC26BBD2B700526190 /* DailyLoader.swift in Sources */,
+				AE07D3E426BBA74A00526190 /* PillMarker.swift in Sources */,
 				E0B3463A26B291A30076D482 /* AboutUsViewController.swift in Sources */,
 				E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */,
 				AEFDAAE026B290A600E0BBDB /* CellThreeTableViewCell.swift in Sources */,
@@ -550,6 +633,7 @@
 				AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */,
 				AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */,
 				AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */,
+				AE07D3E826BBB72200526190 /* CircleMarker.swift in Sources */,
 				AE7074AF26B3FB95000255A3 /* EstimatedViewController.swift in Sources */,
 				E0B3463026B284FE0076D482 /* Model.swift in Sources */,
 				E0B3462526B18A510076D482 /* MonthlyDataViewController.swift in Sources */,
@@ -699,6 +783,7 @@
 		};
 		AE04AF2526AAA5D200E79190 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53EBAC02C5537545D1A9538F /* Pods-EmatApps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -718,6 +803,7 @@
 		};
 		AE04AF2626AAA5D200E79190 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80F47A274DF337A76F1819AB /* Pods-EmatApps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
