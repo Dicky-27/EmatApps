@@ -50,7 +50,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpM-IV-v7V" customClass="GraphViewChart" customModule="EmatApps" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpM-IV-v7V">
                                             <rect key="frame" x="20" y="58.5" width="374" height="230.5"/>
                                             <color key="backgroundColor" name="Background"/>
                                         </view>
@@ -139,7 +139,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" name="Background"/>
                                 <connections>
-                                    <outlet property="chart" destination="zpM-IV-v7V" id="ZHL-Zo-fqH"/>
+                                    <outlet property="chartOver" destination="zpM-IV-v7V" id="KkQ-bU-ryI"/>
                                     <outlet property="lastLeg" destination="Mua-47-Yyq" id="SqD-fE-YrT"/>
                                     <outlet property="thisLeg" destination="yAx-3L-jwC" id="qo4-or-P70"/>
                                 </connections>
@@ -246,6 +246,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="currentSpen" destination="9Hd-HL-uAU" id="tuQ-Pb-5Sv"/>
                                     <outlet property="viewBg" destination="6br-1J-4UK" id="Coj-Fg-wL9"/>
                                 </connections>
                             </tableViewCell>

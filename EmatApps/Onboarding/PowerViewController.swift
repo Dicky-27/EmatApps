@@ -20,6 +20,9 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     static var budget = "Rp0"
     static var power = "0 VA"
     
+    static var budgetCal = 0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +124,8 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             targetTf.text = formatter.string(from: numberFromField as NSNumber)
 
             PowerViewController.budget = formatter.string(from: numberFromField as NSNumber) ?? ""
-            
+           
+            PowerViewController.budgetCal = numberFromField
         }
 
     @IBAction func getStartedButton(_ sender: UIButton) {
