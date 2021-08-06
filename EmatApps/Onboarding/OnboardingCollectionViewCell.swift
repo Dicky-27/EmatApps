@@ -13,6 +13,21 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var slideImageView: UIImageView!
     @IBOutlet weak var slideTitleLbl: UILabel!
     @IBOutlet weak var slideDescriptionLbl: UILabel!
+
+      //Accesibility
+        override func awakeFromNib() {
+            super.awakeFromNib()
+
+            slideImageView.isAccessibilityElement = true
+            slideImageView.accessibilityHint = ""
+
+            slideTitleLbl.isAccessibilityElement = true
+            slideTitleLbl.accessibilityHint = ""
+
+            slideDescriptionLbl.isAccessibilityElement = true
+            slideDescriptionLbl.accessibilityHint = ""
+
+  }
     
     func setup(_ slide: OnboardingSlide) {
         slideImageView.image = slide.image

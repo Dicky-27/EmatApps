@@ -13,7 +13,25 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var skipBttn: UIButton!
-    
+
+    //Accesibility
+    override func awakeFromNib() {
+      super.awakeFromNib()
+
+      collectionView.isAccessibilityElement = true
+      collectionView.accessibilityHint = ""
+
+      nextBtn.isAccessibilityElement = true
+      nextBtn.accessibilityHint = ""
+
+      pageControl.isAccessibilityElement = true
+      pageControl.accessibilityHint = ""
+
+      skipBttn.isAccessibilityElement = true
+      skipBttn.accessibilityHint = ""
+
+    }
+
     var slides: [OnboardingSlide] = []
     
     var currentPage = 0 {

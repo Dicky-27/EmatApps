@@ -14,7 +14,8 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var monthsLabel: UIStackView!
     @IBOutlet weak var graphView: GraphView!
     @IBOutlet weak var monthsTable: UITableView!
-    
+
+
     let rupiahFormatter = NumberFormatter()
     
     //get the data from MonthlyPower.json

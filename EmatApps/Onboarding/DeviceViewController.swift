@@ -10,6 +10,23 @@ import UIKit
 class DeviceViewController: UIViewController {
     @IBOutlet weak var atasButton: UIButton!
     @IBOutlet weak var bawahButton: UIButton!
+    @IBOutlet weak var OnboardingLabel: UILabel!
+
+  //Accesibility
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        atasButton.isAccessibilityElement = true
+        atasButton.accessibilityHint = ""
+
+        bawahButton.isAccessibilityElement = true
+        bawahButton.accessibilityHint = ""
+
+        OnboardingLabel.isAccessibilityElement = true
+        OnboardingLabel.accessibilityHint = ""
+
+}
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

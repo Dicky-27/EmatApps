@@ -12,11 +12,44 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var selectedPower: String?
     var powerData: [String] = ["450 VA", "900 VA", "1300 VA", "2200 VA", "3500 VA", "3900 VA", "4400 VA", "5500 VA", "6600 VA", "7700 VA", "10600 VA"]
     var currentString = ""
-    
+
+    @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var powerTf: UITextField!
+    @IBOutlet weak var PowerLabel: UILabel!
     @IBOutlet weak var targetTf: UITextField!
+    @IBOutlet weak var MonthlyLabel: UILabel!
+    @IBOutlet weak var TermLabel: UILabel!
     @IBOutlet weak var stratButton: UIButton!
-    
+
+
+
+  //Accesibility
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        TitleLabel.isAccessibilityElement = true
+        TitleLabel.accessibilityHint = ""
+
+        PowerLabel.isAccessibilityElement = true
+        PowerLabel.accessibilityHint = ""
+
+        powerTf.isAccessibilityElement = true
+        powerTf.accessibilityHint = ""
+
+        MonthlyLabel.isAccessibilityElement = true
+        MonthlyLabel.accessibilityHint = ""
+
+        targetTf.isAccessibilityElement = true
+        targetTf.accessibilityHint = ""
+
+        TermLabel.isAccessibilityElement = true
+        TermLabel.accessibilityHint = ""
+
+        stratButton.isAccessibilityElement = true
+        stratButton.accessibilityHint = ""
+
+}
+
     static var budget = "Rp0"
     static var power = "0 VA"
     
