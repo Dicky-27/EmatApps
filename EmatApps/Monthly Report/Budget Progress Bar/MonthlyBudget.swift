@@ -13,7 +13,7 @@ class MonthlyBudget: UIView {
         didSet {setNeedsDisplay()}
     }
     
-    var progress = CGFloat(TargetBill.inputedBill ?? 0.0) {
+    var progress = 0.5 {
         didSet {setNeedsDisplay()}
     }
     
@@ -39,7 +39,7 @@ class MonthlyBudget: UIView {
         backgroundMask.path = UIBezierPath(roundedRect: rect, cornerRadius: rect.height * 25).cgPath
         layer.mask = backgroundMask
         
-        let progressRect = CGRect(origin: .zero, size: CGSize(width: rect.width * progress, height: rect.height))
+        let progressRect = CGRect(origin: .zero, size: CGSize(width: rect.width * CGFloat(progress), height: rect.height))
         progressLayer.frame = progressRect
         
         layer.addSublayer(progressLayer)
