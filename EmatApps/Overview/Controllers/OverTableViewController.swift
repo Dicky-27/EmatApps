@@ -537,12 +537,12 @@ class OverTableViewController: UITableViewController {
     
 
     @objc func appMovedToBackground() {
-       print("app enters background")
+      // print("app enters background")
         loadPowerData()
    }
 
    @objc func appCameToForeground() {
-       print("app enters foreground")
+     //  print("app enters foreground")
         loadPowerData()
    }
 }
