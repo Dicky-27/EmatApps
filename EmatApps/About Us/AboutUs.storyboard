@@ -55,7 +55,7 @@
                                     <action selector="aboutUs:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qti-td-CwH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-r1-6oq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-r1-6oq">
                                 <rect key="frame" x="25" y="364" width="340" height="122"/>
                                 <string key="text">Emat is an iOS app connected to IOT device that monitor, compare, and forecast electricity usage, give user reminder to save electricity and give user early warning message to prevent user from electricity bill bump.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>

@@ -10,13 +10,11 @@ import UIKit
 
 class EstimatedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
    
-    
+    var date = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-       // navigationController?.navigationBar.barTintColor = UIColor(named: "White")
     }
     
 
@@ -33,7 +31,7 @@ class EstimatedViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellEst", for: indexPath) as! EstCollectionViewCell
        
-        let date = Date()
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
         

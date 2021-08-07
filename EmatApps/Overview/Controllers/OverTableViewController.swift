@@ -86,7 +86,7 @@ class OverTableViewController: UITableViewController {
     var energyModel: [Energies] = []
 
     var cobain: Float = 0
-    
+    let date = Date()
     
     var user = [User]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -204,7 +204,7 @@ class OverTableViewController: UITableViewController {
             lineChartView.frame = CGRect(x: 0, y: 0, width: cell.chartOver.frame.size.width, height: cell.chartOver.frame.size.height)
             setData()
             
-            let date = Date()
+            
             let calendar = Calendar.current
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "LLLL"
@@ -349,6 +349,7 @@ class OverTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goEst" {
             if let nextVC = segue.destination as? EstimatedViewController {
+                nextVC.date = date
                 
             }else if segue.identifier == "goSetting" {
                 if let nextVC = segue.destination as? SettingTableViewController {
