@@ -41,6 +41,8 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

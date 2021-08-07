@@ -91,6 +91,7 @@ class OverTableViewController: UITableViewController {
     var user = [User]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -239,27 +240,30 @@ class OverTableViewController: UITableViewController {
                     power = energyModel[i].power ?? 0
                     kwhTot += power/1000
                 }
-            }
-            
-            let duit = Float(Float(kwhTot) * 1440.70)
-            
-            
-            let formatter = NumberFormatter()
-            formatter.numberStyle = NumberFormatter.Style.currency
-            formatter.locale = Locale(identifier: "id_ID")
-            formatter.maximumFractionDigits = 0
-            
-            var numberFromField:Float = 0
-            var budget:Float = 0
-            if user.isEmpty == false {
-                numberFromField = user[0].budget
-                budget = user[0].budget
                 
-                cell2.rightLbl.text = formatter.string(from: numberFromField as NSNumber)
-                cell2.progressBudget.progress = Float(duit / budget)
-               
-                //cell2.rightLbl.text =
+                let duit = Float(Float(kwhTot) * 1440.70)
+                
+                
+                let formatter = NumberFormatter()
+                formatter.numberStyle = NumberFormatter.Style.currency
+                formatter.locale = Locale(identifier: "id_ID")
+                formatter.maximumFractionDigits = 0
+                
+                var numberFromField:Float = 0
+                var budget:Float = 0
+                
+                if user.isEmpty == false {
+                    
+                    numberFromField = user[0].budget
+                    budget = user[0].budget
+                    
+                    cell2.rightLbl.text = formatter.string(from: numberFromField as NSNumber)
+                    cell2.progressBudget.progress = Float(duit / budget)
+                    
+                }
             }
+            
+            
         
             return cell2
             
@@ -280,19 +284,23 @@ class OverTableViewController: UITableViewController {
     
                 }
                 
-                let duit = "\(Float(Float(kwhTot) * 1440.70))"
+                let state = user[0].budget
+            
+                var harga: Float = 0
+                if state >= 399.0 && state <= 1000.0 {
+                    harga = 1352
+                }else {
+                    harga = 1440.70
+                }
+
+                let duit = "\(Float(Float(kwhTot) * harga))"
                 let formatter = NumberFormatter()
                 formatter.numberStyle = NumberFormatter.Style.currency
                 formatter.locale = Locale(identifier: "id_ID")
                 let numberFromField = (NSString(string: duit).integerValue)
-                //let money = formatter.string(from: numberFromField as NSNumber)
-                
                 cell3.currentSpen.text = formatter.string(from: numberFromField as NSNumber)
                 
             }
-            
-            
-            
             
             return cell3
             
@@ -302,7 +310,7 @@ class OverTableViewController: UITableViewController {
             var power:Float = 0
         
             if energyModel.isEmpty == false {
-                let endIndex = energyModel.endIndex
+               // let endIndex = energyModel.endIndex
                 
                 
                 for i in 0..<energyModel.count{
@@ -312,8 +320,10 @@ class OverTableViewController: UITableViewController {
     
                 }
                 
-                cell4.kwhStats.text = "\(kwhTot.clean) kWh"
-                cell4.powerStats.text = "\(String(describing: energyModel[endIndex-1].power ?? 0)) Watt"
+                let formatted = String(format: "%.2f kWh", kwhTot)
+                
+                cell4.kwhStats.text = formatted
+                cell4.powerStats.text = "\(String(describing: energyModel[0].power ?? 0)) Watt"
             }
             
            
@@ -527,12 +537,12 @@ class OverTableViewController: UITableViewController {
     
 
     @objc func appMovedToBackground() {
-       print("app enters background")
+      // print("app enters background")
         loadPowerData()
    }
 
    @objc func appCameToForeground() {
-       print("app enters foreground")
+     //  print("app enters foreground")
         loadPowerData()
    }
 }
