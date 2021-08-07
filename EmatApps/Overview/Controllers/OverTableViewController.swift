@@ -402,10 +402,6 @@ class OverTableViewController: UITableViewController {
 //
 //            }
             
-            
-//
-        //var besok = 0
-
             for i in stride(from: 0, through: energyModel.count, by: 1) {
                 
                 cekIndex += i
@@ -415,7 +411,6 @@ class OverTableViewController: UITableViewController {
                     let isoDate = energyModel[i].created_at ?? ""
                     let nextDay = energyModel[i].created_at ?? ""
 
-                   // let dat = "2021-08-07 10:42:17.352408+0700"
                     let dateFormatter = DateFormatter()
 
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
@@ -425,7 +420,6 @@ class OverTableViewController: UITableViewController {
 
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss xxxx'"
                     dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
-
 
 
                     let calendar = Calendar.current
@@ -444,25 +438,12 @@ class OverTableViewController: UITableViewController {
 
                     }else {
 
-
-                        print(kwhTot)
-                        print(power)
-
-
-                         let entry2 = ChartDataEntry.init(x: Double(i), y: Double(power))
+                         let entry2 = ChartDataEntry.init(x: Double(i), y: Double(kwhTot))
                          dataEntries2.append(entry2)
                     }
-
-
                 }
 
-                
-                
             }
-            
-              
-            
-            
            
         }
         
