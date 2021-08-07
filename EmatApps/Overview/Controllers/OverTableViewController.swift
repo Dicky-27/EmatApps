@@ -311,7 +311,8 @@ class OverTableViewController: UITableViewController {
                     kwhTot += power/1000
     
                 }
-                cell4.kwhStats.text = "\(kwhTot) kWh"
+                
+                cell4.kwhStats.text = "\(kwhTot.clean) kWh"
                 cell4.powerStats.text = "\(String(describing: energyModel[endIndex-1].power ?? 0)) Watt"
             }
             
@@ -574,4 +575,10 @@ extension Date {
     var isLastDayOfMonth: Bool {
         return dayAfter.month != month
     }
+}
+
+extension Float {
+    var clean: String {
+          return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
+       }
 }
