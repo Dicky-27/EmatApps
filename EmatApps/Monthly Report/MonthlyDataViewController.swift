@@ -85,11 +85,11 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         if dailyPow < highestDaily {
-            cell.indicatorUsage.tintColor = #colorLiteral(red: 0.6039215686, green: 1, blue: 0.4156862745, alpha: 1)
-        }else if dailyPow == highestDaily {
-            cell.indicatorUsage.tintColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.3529411765, alpha: 1)
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.6039215686, green: 1, blue: 0.4156862745, alpha: 1)
+        }else if dailyPow >= highestDaily {
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.3529411765, alpha: 1)
         }else {
-            cell.indicatorUsage.tintColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         }
         
         let maxDailyCost = rupiahFormat.string(from: NSNumber(value: highestDaily * harga))
