@@ -33,7 +33,7 @@ class OverTableViewController: UITableViewController {
         let chartView = LineChartView()
         let yAxis = chartView.leftAxis
         
-        chartView.noDataTextColor = .black
+        chartView.noDataTextColor = UIColor(named: "Black") ?? .black
         chartView.rightAxis.enabled = false
         chartView.leftAxis.enabled = false
         chartView.legend.enabled = false
@@ -470,13 +470,12 @@ class OverTableViewController: UITableViewController {
         set2.highlightColor = UIColor(named: "AbuA") ?? .black
         set2.lineWidth = 5
         
-        
-        //let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
-
-      //  let set3:[ChartDataSet] = [set1, set2]
-        let data = LineChartData(dataSet: set2)
-        data.setDrawValues(true)
-        lineChartView.data = data
+//
+//        let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
+//        let set3:[ChartDataSet] = [set1, set2]
+//        let data = LineChartData(dataSet: set2)
+//        data.setDrawValues(true)
+//        lineChartView.data = data
         
     }
     
