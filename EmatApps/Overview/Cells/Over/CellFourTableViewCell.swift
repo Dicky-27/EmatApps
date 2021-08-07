@@ -24,15 +24,10 @@ class CellFourTableViewCell: UITableViewCell {
         // Initialization code
         
       
-        viewLeft.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "Primary") ?? .white)
-        
-        viewRight.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "Primary") ?? .white)
-        
+        viewLeft.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
+        viewRight.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         viewLeft.layer.cornerRadius = 8
         viewRight.layer.cornerRadius = 8
-        
-        scheduledTimerWithTimeInterval()
-        kwhStats.text = "400 kWh"
         
     }
 
@@ -43,25 +38,6 @@ class CellFourTableViewCell: UITableViewCell {
     }
 
     
-    
-    func scheduledTimerWithTimeInterval(){
-      
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
-         
-    }
-
-    @objc func updateCounting(){
-        
-        let randomfloat = Int.random(in: 2000...2200)
-    
-       //  (x*100).rounded()/100
-       // let spen2 = kwhnya * harga
-       // let pr += spen2/3600
-
-        powerStats.text = "\(randomfloat) Watt"
-        
-        // currentSpen.text = "Rp \(formmaterPrice ?? "0")"
-    }
     
     
 

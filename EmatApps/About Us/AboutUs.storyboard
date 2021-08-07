@@ -41,21 +41,21 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Za-ZY-SSi">
                                 <rect key="frame" x="25" y="654" width="340" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Primary"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="340" id="4n5-f6-T6P"/>
                                     <constraint firstAttribute="height" constant="56" id="p9g-j2-65l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="About Us" backgroundImage="Button Primary(3x)">
+                                <state key="normal" title="Contact Us">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="aboutUs:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qti-td-CwH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-r1-6oq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-r1-6oq">
                                 <rect key="frame" x="25" y="364" width="340" height="122"/>
                                 <string key="text">Emat is an iOS app connected to IOT device that monitor, compare, and forecast electricity usage, give user reminder to save electricity and give user early warning message to prevent user from electricity bill bump.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -78,6 +78,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UZO-3k-ucG"/>
                     <connections>
+                        <outlet property="contactButt" destination="8Za-ZY-SSi" id="rNg-jy-ZgQ"/>
                         <outlet property="descLbl" destination="ejd-r1-6oq" id="IXQ-lo-CRv"/>
                     </connections>
                 </viewController>
@@ -87,9 +88,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Button Primary(3x)" width="960" height="168"/>
         <namedColor name="LabelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.19200000166893005" green="0.65499997138977051" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -140,7 +140,9 @@
                                 <color key="backgroundColor" name="Background"/>
                                 <connections>
                                     <outlet property="chartOver" destination="zpM-IV-v7V" id="KkQ-bU-ryI"/>
+                                    <outlet property="dateNow" destination="x0I-PD-vbF" id="Xcd-hK-udl"/>
                                     <outlet property="lastLeg" destination="Mua-47-Yyq" id="SqD-fE-YrT"/>
+                                    <outlet property="moneySave" destination="5bb-JQ-B8a" id="9rh-fs-i8E"/>
                                     <outlet property="thisLeg" destination="yAx-3L-jwC" id="qo4-or-P70"/>
                                 </connections>
                             </tableViewCell>
@@ -155,16 +157,16 @@
                                             <rect key="frame" x="20" y="21" width="374" height="16.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4y-55-WBN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="16.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="16.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="9ok-Y9-MMt"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                                     <color key="textColor" name="Black"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 200.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzl-HW-BZb">
-                                                    <rect key="frame" x="254" y="0.0" width="120" height="16.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="fuf-Vl-YQv"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="140" y="0.0" width="234" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                     <color key="textColor" name="Black"/>
                                                     <nil key="highlightedColor"/>
@@ -173,7 +175,7 @@
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Va-uN-5Jt" customClass="MonthlyBudget" customModule="EmatApps" customModuleProvider="target">
                                             <rect key="frame" x="20" y="47.5" width="374" height="15"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" name="Gacc"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="org-TA-nmm"/>
                                             </constraints>
@@ -196,7 +198,7 @@
                                 <color key="backgroundColor" name="Background"/>
                                 <connections>
                                     <outlet property="leftLbl" destination="J4y-55-WBN" id="Xik-Kg-B0i"/>
-                                    <outlet property="progressBudget" destination="7Va-uN-5Jt" id="o1L-ng-vRS"/>
+                                    <outlet property="progressBudget" destination="7Va-uN-5Jt" id="UTf-uK-fc2"/>
                                     <outlet property="rightLbl" destination="Vzl-HW-BZb" id="Pzi-ea-VQ2"/>
                                 </connections>
                             </tableViewCell>
@@ -213,8 +215,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-Nh-oQh">
                                                     <rect key="frame" x="121" y="18" width="132.5" height="52"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Spending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8w-yO-Gm8">
-                                                            <rect key="frame" x="22" y="0.0" width="110.5" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Spending" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8w-yO-Gm8">
+                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20.5" id="CyV-Hk-2OD"/>
                                                             </constraints>
@@ -222,13 +224,19 @@
                                                             <color key="textColor" name="White"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 82.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hd-HL-uAU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 82.000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hd-HL-uAU">
                                                             <rect key="frame" x="0.0" y="20.5" width="132.5" height="31.5"/>
                                                             <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="27"/>
                                                             <color key="textColor" name="White"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="9Hd-HL-uAU" secondAttribute="trailing" id="4Hk-V5-4M6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="c8w-yO-Gm8" secondAttribute="trailing" id="M6b-IJ-63x"/>
+                                                        <constraint firstItem="9Hd-HL-uAU" firstAttribute="leading" secondItem="PFu-Nh-oQh" secondAttribute="leading" id="esl-a3-n2E"/>
+                                                        <constraint firstItem="c8w-yO-Gm8" firstAttribute="leading" secondItem="PFu-Nh-oQh" secondAttribute="leading" id="ys3-od-hQv"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.47919201849999998" green="0.50447332860000005" blue="0.60393929479999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -331,7 +339,7 @@
                                         <constraint firstItem="mmE-Wi-s0S" firstAttribute="trailing" secondItem="qpK-Zr-rCR" secondAttribute="trailingMargin" id="wMM-QK-teO"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="White"/>
+                                <color key="backgroundColor" name="Wblack"/>
                                 <connections>
                                     <outlet property="kwhStats" destination="FbJ-Jc-nBM" id="syB-Gg-puc"/>
                                     <outlet property="powerStats" destination="QNc-s3-kOF" id="mIR-5t-9dd"/>
@@ -348,6 +356,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewy-5r-l6v">
                                             <rect key="frame" x="20" y="8.5" width="374" height="45"/>
+                                            <color key="backgroundColor" name="AccWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="d80-lp-JS2"/>
                                             </constraints>
@@ -362,7 +371,7 @@
                                         <constraint firstItem="ewy-5r-l6v" firstAttribute="trailing" secondItem="8Sz-gj-CN2" secondAttribute="trailingMargin" id="wIF-hC-e8A"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="White"/>
+                                <color key="backgroundColor" name="Wblack"/>
                                 <connections>
                                     <outlet property="buttonEst" destination="ewy-5r-l6v" id="cFg-Ce-LDN"/>
                                 </connections>
@@ -395,7 +404,7 @@
                                 <rect key="frame" x="20" y="108" width="374" height="39.5"/>
                                 <string key="text">The data shown is the result of an estimated calculation using machine learning. This data is only forecast and may change at any time depending on your usage.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Uq-07-Bxk">
@@ -437,7 +446,7 @@
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpe-yd-w0w">
                                                     <rect key="frame" x="10" y="79.5" width="354" height="1"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" name="AccWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="OHH-C1-79N"/>
                                                     </constraints>
@@ -492,7 +501,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pyk-Sy-fDD"/>
-                        <color key="backgroundColor" name="White"/>
+                        <color key="backgroundColor" name="Wblack"/>
                         <constraints>
                             <constraint firstItem="pyk-Sy-fDD" firstAttribute="trailing" secondItem="9Uq-07-Bxk" secondAttribute="trailing" constant="20" id="TkL-UW-gmf"/>
                             <constraint firstItem="pyk-Sy-fDD" firstAttribute="trailing" secondItem="ORh-7q-gdL" secondAttribute="trailing" constant="20" id="ZRb-zE-9Rn"/>
@@ -519,13 +528,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8D-fX-Mya">
                                 <rect key="frame" x="47" y="766" width="320" height="56"/>
-                                <color key="backgroundColor" name="White"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="tt4-QC-dxK"/>
                                     <constraint firstAttribute="height" constant="56" id="z0D-N0-Brb"/>
                                 </constraints>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" name="Primary"/>
+                                    <color key="titleColor" name="Black"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -571,13 +579,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Delivery At Your Doorstep" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iB-TG-OgX">
                                                     <rect key="frame" x="20" y="20" width="326" height="56"/>
                                                     <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="Black"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use machine learning technology integrated with IoT, we provide the best cost you should pay" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u96-Cz-J9m">
                                                     <rect key="frame" x="15" y="435.5" width="336" height="28"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                    <color key="textColor" name="Accent"/>
+                                                    <color key="textColor" name="Wacc"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -609,11 +617,11 @@
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cNu-qG-o8K">
                                 <rect key="frame" x="146.5" y="718.5" width="121.5" height="27.5"/>
                                 <color key="pageIndicatorTintColor" systemColor="systemGray5Color"/>
-                                <color key="currentPageIndicatorTintColor" red="0.87320786709999998" green="0.23044547439999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="currentPageIndicatorTintColor" name="Black"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0o6-Or-Qhj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Wblack"/>
                         <constraints>
                             <constraint firstItem="0o6-Or-Qhj" firstAttribute="bottom" secondItem="A8D-fX-Mya" secondAttribute="bottom" constant="40" id="4UN-Uu-whH"/>
                             <constraint firstItem="A8D-fX-Mya" firstAttribute="centerX" secondItem="vfQ-bT-oJo" secondAttribute="centerX" id="DhB-4O-7wd"/>
@@ -662,13 +670,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUr-AV-qEb">
                                         <rect key="frame" x="0.0" y="76" width="320" height="56"/>
-                                        <color key="backgroundColor" name="White"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="6on-If-QC5"/>
                                             <constraint firstAttribute="width" constant="320" id="mq6-E0-abt"/>
                                         </constraints>
                                         <state key="normal" title="Already Have A Device">
-                                            <color key="titleColor" name="Primary"/>
+                                            <color key="titleColor" name="Wacc"/>
                                         </state>
                                         <connections>
                                             <segue destination="8cX-zm-YhT" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Nvb-GX-gRv"/>
@@ -722,7 +729,7 @@ Electricity Power</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="Accent"/>
+                                <color key="backgroundColor" name="PrGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Is4-If-vF0"/>
                                     <constraint firstItem="g7Y-PJ-DS8" firstAttribute="centerY" secondItem="E3W-9s-FI8" secondAttribute="centerY" id="KAK-T0-tne"/>
@@ -735,12 +742,12 @@ Electricity Power</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your power" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-SU-23e">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2200 VA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNJ-Oq-Ahg">
                                         <rect key="frame" x="0.0" y="28.5" width="83.5" height="34"/>
-                                        <color key="backgroundColor" name="Grey"/>
+                                        <color key="backgroundColor" name="Dgrey"/>
                                         <color key="textColor" name="Accent"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -753,7 +760,7 @@ Electricity Power</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Your Monthly Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0i-fR-sEd">
                                         <rect key="frame" x="0.0" y="0.0" width="190" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rp2.200.000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qd7-Bw-kCR">
@@ -770,7 +777,7 @@ Electricity Power</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*We don’t collect your data, this data only use for app feature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH5-DP-PlR">
                                 <rect key="frame" x="20" y="422" width="374" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPb-rU-mk0">
@@ -788,7 +795,7 @@ Electricity Power</string>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yxk-sG-uWR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Wblack"/>
                         <constraints>
                             <constraint firstItem="yxk-sG-uWR" firstAttribute="trailing" secondItem="Wda-ft-Wwh" secondAttribute="trailing" constant="20" id="5sp-lu-u1F"/>
                             <constraint firstItem="yxk-sG-uWR" firstAttribute="trailing" secondItem="L4o-jd-Xi6" secondAttribute="trailing" constant="20" id="AjS-gZ-hHh"/>
@@ -842,6 +849,9 @@ Electricity Power</string>
     <resources>
         <image name="Landing_2" width="500" height="500"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <namedColor name="AccWhite">
+            <color red="0.98799997568130493" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Accent">
             <color red="0.093999996781349182" green="0.51399999856948853" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -851,11 +861,23 @@ Electricity Power</string>
         <namedColor name="Black">
             <color red="0.16899999976158142" green="0.16899999976158142" blue="0.16899999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Grey">
+        <namedColor name="Dgrey">
             <color red="0.87099999189376831" green="0.86699998378753662" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gacc">
+            <color red="0.87099999189376831" green="0.86699998378753662" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrGrey">
+            <color red="0.19200000166893005" green="0.65499997138977051" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.19200000166893005" green="0.65499997138977051" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Wacc">
+            <color red="0.093999996781349182" green="0.51399999856948853" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Wblack">
+            <color red="0.98799997568130493" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="White">
             <color red="0.98799997568130493" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -15,7 +15,7 @@ class APIRequest: NSObject {
                                   failCompletion: @escaping (String) -> Void) {
         // create request
         BaseRequest.GET(url: url, showLoader: showLoader) { response in
-            print(response)
+            //print(response)
          
             do {
                 let energyModel = try JSONDecoder().decode([Energies].self, from: response as! Data)
