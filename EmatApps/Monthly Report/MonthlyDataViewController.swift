@@ -27,10 +27,13 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     var monthDetailPow  : Float?
     var accumulatedPow  : Float = 0.0
     var monthDetailBill : String?
+    var monthBudget     : Float?
     
     var highestDaily: Float = 0.0
     var harga: Float        = 1444.70
     let rupiahFormat        = NumberFormatter()
+    let allMonthlyData      = MonthlyData.init()
+    var dataContent: [MonthlyPower] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +41,20 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         dailyUsageTable.delegate = self
         dailyUsageTable.dataSource = self
         
+        allMonthlyData.loadMonthly()
+        dataContent = allMonthlyData.getFullData()
+        
         monthLabel.text = monthDetail
         monthBillLabel.text = monthDetailBill
         energyUsageLabel.text = String(format: "%.1f kWh", monthDetailPow!)
-        monthlyBudgetLabel.text = PowerViewController.budget
+        //monthlyBudgetLabel.text = PowerViewController.budget
+        
+        rupiahFormat.numberStyle = .decimal
+        rupiahFormat.groupingSeparator = "."
+        rupiahFormat.maximumFractionDigits = 0
+        let monthBudgetStr = rupiahFormat.string(from: NSNumber(value: monthBudget!))
+        monthlyBudgetLabel.text = "Rp. \(monthBudgetStr ?? "") "
+        
         
         //let progCalc1 = Float(PowerViewController.budgetCal / 2)
         //let progCalc2 = progCalc1 / Float(PowerViewController.budgetCal)

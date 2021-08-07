@@ -34,6 +34,8 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         //showing the chart
         setupGraphDisplay()
+        
+        getMonthlyData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +62,7 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         formatter.setLocalizedDateFormatFromTemplate("MMM")
         
         // Set up the month name labels with sorted months
+        
         for i in 0...isidata.count-1 {
             if let label = monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
                 label.text = isidata[i].month_simple
@@ -132,8 +135,26 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 detailVC.monthDetail = dataPow.month_full
                 detailVC.monthDetailPow = dataPow.monthly_power
                 detailVC.monthDetailBill = rupiahPower
+                detailVC.monthBudget = dataPow.monthly_budget
                 
             }
         }
+    }
+    
+    func getMonthlyData() -> [MonthlyPower]{
+        var monthlyDataList: [MonthlyPower] = []
+        APIRequest.fetchMonthlyEnergyData(url: Constant.GET_MONTHLY_ENERGY_LIST,showLoader: true) { response in
+            
+            // handle response and store it to the data model
+            monthlyDataList = response
+           
+            
+        } failCompletion: { message in
+            // display alert failure
+            // dismiss loader
+           print(message)
+        }
+        print("monthlyDataLIstAPI: \(monthlyDataList)")
+        return monthlyDataList
     }
 }

@@ -24,6 +24,7 @@ struct MonthlyPower: Codable {
     let month_simple: String
     let month_full: String
     let monthly_power: Float
+    let monthly_budget: Float
 }
 
 struct DailyPower: Codable {

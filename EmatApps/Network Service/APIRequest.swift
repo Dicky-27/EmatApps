@@ -27,4 +27,22 @@ class APIRequest: NSObject {
         }
     }
     
+    static func fetchMonthlyEnergyData(url: String,
+                                  showLoader: Bool,
+                                  successCompletion: @escaping ([MonthlyPower]) -> Void,
+                                  failCompletion: @escaping (String) -> Void) {
+        // create request
+        BaseRequest.GET(url: url, showLoader: showLoader) { response in
+            
+         
+            do {
+                let monthlyEnergyModel = try JSONDecoder().decode([MonthlyPower].self, from: response as! Data)
+               // dataModel = energyModel
+                successCompletion(monthlyEnergyModel)
+            } catch let error { //handle error
+                print("error reading json file content: \(error.localizedDescription)")
+            }
+        }
+    }
+    
 }

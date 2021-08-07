@@ -9,4 +9,5 @@ import Foundation
 
 class Constant: NSObject {
     static let GET_ENERGY_LIST = "https://guarded-shore-21924.herokuapp.com/energies"
+    static let GET_MONTHLY_ENERGY_LIST = "https://guarded-shore-21924.herokuapp.com/monthly_energies"
 }
