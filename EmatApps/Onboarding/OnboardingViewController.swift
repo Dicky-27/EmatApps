@@ -46,7 +46,7 @@ class OnboardingViewController: UIViewController {
         
         nextBtn.layer.cornerRadius = 8
         nextBtn.layer.borderWidth = 2
-        nextBtn.layer.borderColor = UIColor(named: "Primary")?.cgColor
+        nextBtn.layer.borderColor = UIColor(named: "Wacc")?.cgColor
     }
     
     @IBAction func nextBtnClicked(_ sender: UIButton) {

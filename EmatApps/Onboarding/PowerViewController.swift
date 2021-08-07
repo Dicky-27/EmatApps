@@ -42,7 +42,6 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.targetTf.delegate = self
         self.hideKeyboardWhenTappedAround()
         
-    
     }
     
 

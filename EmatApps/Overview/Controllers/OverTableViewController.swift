@@ -53,7 +53,7 @@ class OverTableViewController: UITableViewController {
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.labelFont = .boldSystemFont(ofSize: 12)
         chartView.xAxis.setLabelCount(6, force: false)
-        chartView.xAxis.labelTextColor = .black
+        chartView.xAxis.labelTextColor = UIColor(named: "Black") ?? .blue
         chartView.xAxis.axisLineColor = UIColor.systemGray
         chartView.xAxis.gridColor = UIColor(named: "Grey") ?? .black
         
@@ -108,7 +108,7 @@ class OverTableViewController: UITableViewController {
         
         //load data from server
         loadPowerData()
-//        setData()
+        //        setData()
         
         
      //   tableView.isScrollEnabled = false
@@ -128,6 +128,7 @@ class OverTableViewController: UITableViewController {
 //        super.viewDidLayoutSubviews()
 //
 //    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
@@ -201,6 +202,7 @@ class OverTableViewController: UITableViewController {
             cell.selectionStyle = .none
             cell.chartOver.insertSubview(lineChartView, at: 0)
             lineChartView.frame = CGRect(x: 0, y: 0, width: cell.chartOver.frame.size.width, height: cell.chartOver.frame.size.height)
+            setData()
             
             let date = Date()
             let calendar = Calendar.current
@@ -254,7 +256,7 @@ class OverTableViewController: UITableViewController {
                 budget = user[0].budget
                 
                 cell2.rightLbl.text = formatter.string(from: numberFromField as NSNumber)
-                cell2.progressBudget.progress = Double(duit / budget)
+                cell2.progressBudget.progress = Float(duit / budget)
                
                 //cell2.rightLbl.text =
             }
@@ -371,15 +373,18 @@ class OverTableViewController: UITableViewController {
     
     func setData() {
         
+        var kwhTot:Float = 0
+        var power:Float = 0
+        var cekIndex = 1
         
         if energyModel.isEmpty == false {
             
-            for i in 0...energyModel.count {
+           // for i in 0...energyModel.count {
 //
 //                let indexBawah = energyModel[i].created_at()// 0
 //                let indexAtas = energyModel.lastIndex(of: "a")
 //
-            }
+          //  }
            
             
 //            for i in 0...energyModel.count{
@@ -394,20 +399,67 @@ class OverTableViewController: UITableViewController {
 //                dataEntries1.append(entry)
 //
 //            }
-//            
-//            for i in 0...energyModel.count{
+            
+            
 //
-//               // let y2 = DailyLoader.init().daily[i].energy_agus
-//                
-//                let y2 = energyModel[i].power ?? 0
-//                
-//                print(y2)
-//                
-//                let entry2 = ChartDataEntry.init(x: Double(i), y: Double(y2))
-//                dataEntries2.append(entry2)
-//
-//            
-//            }
+        //var besok = 0
+
+            for i in stride(from: 0, through: energyModel.count, by: 1) {
+                
+                cekIndex += i
+
+                if (cekIndex >= 0 && energyModel.count > cekIndex) {
+
+                    let isoDate = energyModel[i].created_at ?? ""
+                    let nextDay = energyModel[i].created_at ?? ""
+
+                   // let dat = "2021-08-07 10:42:17.352408+0700"
+                    let dateFormatter = DateFormatter()
+
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
+                    dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+                    let date = dateFormatter.date(from: isoDate)
+                    let dateNext = dateFormatter.date(from: nextDay)
+
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss xxxx'"
+                    dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
+
+
+
+                    let calendar = Calendar.current
+                    let unwrap = Date()
+
+                    let day = calendar.component(.day, from: date ?? unwrap)
+                    let datAfter = calendar.component(.day, from: dateNext ?? unwrap)
+
+
+
+                    if day == datAfter {
+
+                        power = energyModel[i].power ?? 0
+                        kwhTot += power/1000
+
+
+                    }else {
+
+
+                        print(kwhTot)
+                        print(power)
+
+
+                         let entry2 = ChartDataEntry.init(x: Double(i), y: Double(power))
+                         dataEntries2.append(entry2)
+                    }
+
+
+                }
+
+                
+                
+            }
+            
+              
+            
             
            
         }
@@ -428,7 +480,7 @@ class OverTableViewController: UITableViewController {
         
         set2.mode = .cubicBezier
         set2.setColor(UIColor(named: "Accent") ?? .black)
-        set2.drawCirclesEnabled = false
+        set2.drawCirclesEnabled = true
         
         set2.drawHorizontalHighlightIndicatorEnabled = false
         
@@ -438,9 +490,9 @@ class OverTableViewController: UITableViewController {
         
         //let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
 
-        let set3:[ChartDataSet] = [set1, set2]
-        let data = LineChartData(dataSets: set3)
-        data.setDrawValues(false)
+      //  let set3:[ChartDataSet] = [set1, set2]
+        let data = LineChartData(dataSet: set2)
+        data.setDrawValues(true)
         lineChartView.data = data
         
     }
@@ -503,3 +555,23 @@ class OverTableViewController: UITableViewController {
    }
 }
 
+
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
+    }
+}

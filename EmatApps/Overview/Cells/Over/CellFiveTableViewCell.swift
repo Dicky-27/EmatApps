@@ -17,7 +17,7 @@ class CellFiveTableViewCell: UITableViewCell {
         
         buttonEst.layer.cornerRadius = 5
         buttonEst.layer.borderWidth = 2
-        buttonEst.layer.borderColor = UIColor(named: "Primary")?.cgColor
+        buttonEst.layer.borderColor = UIColor(named: "PrAcc")?.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

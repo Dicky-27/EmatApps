@@ -41,14 +41,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Za-ZY-SSi">
                                 <rect key="frame" x="25" y="654" width="340" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Primary"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="340" id="4n5-f6-T6P"/>
                                     <constraint firstAttribute="height" constant="56" id="p9g-j2-65l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="About Us" backgroundImage="Button Primary(3x)">
+                                <state key="normal" title="Contact Us">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -78,6 +78,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UZO-3k-ucG"/>
                     <connections>
+                        <outlet property="contactButt" destination="8Za-ZY-SSi" id="rNg-jy-ZgQ"/>
                         <outlet property="descLbl" destination="ejd-r1-6oq" id="IXQ-lo-CRv"/>
                     </connections>
                 </viewController>
@@ -87,9 +88,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Button Primary(3x)" width="960" height="168"/>
         <namedColor name="LabelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.19200000166893005" green="0.65499997138977051" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

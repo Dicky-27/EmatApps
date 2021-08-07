@@ -32,7 +32,7 @@ class TitleStackView: UIStackView {
         label.font = UIFont(name: "Circular Std", size: 32)
         
         label.text = "Emat"
-        label.textColor = UIColor(named: "Accent")
+        label.textColor = UIColor(named: "AccentColor")
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,7 +46,7 @@ class TitleStackView: UIStackView {
         
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: buttonWidth, height: buttonWidth)))
         button.setImage(image, for: .normal)
-        button.tintColor = UIColor(named: "Accent")
+        button.tintColor = UIColor(named: "AccentColor")
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         button.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
