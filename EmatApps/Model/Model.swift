@@ -13,7 +13,7 @@ public class MonthlyData {
     
     init() {
         loadMonthly()
-        print("init")
+        //print("init")
     }
     
     func loadMonthly() {
@@ -24,7 +24,7 @@ public class MonthlyData {
                 let dataFromJson = try jsonDecoder.decode([MonthlyPower].self, from: data)
                 
                 self.monthTotal = dataFromJson
-                print("month total: \(monthTotal)")
+                //print("month total: \(monthTotal)")
             } catch {
                 print(error)
             }
@@ -42,7 +42,7 @@ public class MonthlyData {
             listPower.append(monthTotal[i].monthly_power)
         }
         
-        print("list power: \(listPower)")
+        //print("list power: \(listPower)")
         return listPower
     }
 }
