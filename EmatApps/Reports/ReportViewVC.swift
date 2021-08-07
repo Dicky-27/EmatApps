@@ -92,6 +92,7 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         cell.monthLabel.text                  = isidata[indexPath.row].month_full
         cell.kwhLabel.text                    = "\(kwhPower) kWh"
         cell.rupiahLabel.text                 = "Rp \(rupiahPower ?? "0")"
+        cell.selectionStyle                   = .none
         
         return cell
     }
