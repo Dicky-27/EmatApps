@@ -22,7 +22,6 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     let dayList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                    "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                    "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]
-    
 
     var monthDetail     : String?
     var monthDetailPow  : Float?
@@ -30,6 +29,8 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     var monthDetailBill : String?
     
     var highestDaily: Float = 0.0
+    var harga: Float        = 1444.70
+    let rupiahFormat        = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,10 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        rupiahFormat.numberStyle = .decimal
+        rupiahFormat.groupingSeparator = "."
+        rupiahFormat.maximumFractionDigits = 0
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
         
@@ -80,14 +85,17 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         if dailyPow < highestDaily {
-            cell.indicatorUsage.tintColor = #colorLiteral(red: 0.6039215686, green: 1, blue: 0.4156862745, alpha: 1)
-        }else if dailyPow == highestDaily {
-            cell.indicatorUsage.tintColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.3529411765, alpha: 1)
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.6039215686, green: 1, blue: 0.4156862745, alpha: 1)
+        }else if dailyPow >= highestDaily {
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.3529411765, alpha: 1)
         }else {
-            cell.indicatorUsage.tintColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         }
         
-        dailyHighestLabel.text = String(format: "%.2f", highestDaily)
+        let maxDailyCost = rupiahFormat.string(from: NSNumber(value: highestDaily * harga))
+        
+        costperDayLabel.text = maxDailyCost
+        dailyHighestLabel.text = String(format: "%.2f kWh", highestDaily)
         return cell
     }
     

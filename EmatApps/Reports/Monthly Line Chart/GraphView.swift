@@ -133,11 +133,11 @@ class GraphView: UIView {
             
             let color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             color.setStroke()
-            linePath.lineWidth = 2.0
+            linePath.lineWidth = 1.5
             
             let dashPattern: [CGFloat] = [4.0, 0.0]
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
-            linePath.stroke(with: .lighten, alpha: 0.5)
+            linePath.stroke(with: .lighten, alpha: 1.5)
             currPoint += spacingPoint
             
             circle.fill()
