@@ -22,6 +22,7 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var isidata: [MonthlyPower] = []
     var harga: Float            = 1444.70 //predefine price per kwh
     
+    var monthlyDataList: [MonthlyPower] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,8 +41,6 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-        
-        
         
     }
     
@@ -143,20 +142,26 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
     }
     
-    func getMonthlyData() -> [MonthlyPower]{
-        var monthlyDataList: [MonthlyPower] = []
+    func getMonthlyData(){
+        
         APIRequest.fetchMonthlyEnergyData(url: Constant.GET_MONTHLY_ENERGY_LIST,showLoader: true) { response in
             
             // handle response and store it to the data model
-            monthlyDataList = response
+            print(response)
+            self.monthlyDataList = response
+            
            
+//            DispatchQueue.main.async {
+//                self.setData()
+//                self.tableView.reloadData()
+//                self.removeLoadingScreen()
+//            }
             
         } failCompletion: { message in
             // display alert failure
             // dismiss loader
            print(message)
         }
-        print("monthlyDataLIstAPI: \(monthlyDataList)")
-        return monthlyDataList
     }
+    
 }
