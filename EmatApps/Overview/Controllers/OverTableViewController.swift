@@ -12,13 +12,14 @@ import CoreData
 class OverTableViewController: UITableViewController {
     
     lazy var titleStackView: TitleStackView = {
-                let titleStackView = TitleStackView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44.0)))
+                let titleStackView = TitleStackView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 40.0)))
                 titleStackView.translatesAutoresizingMaskIntoConstraints = false
                 return titleStackView
             }()
     
             lazy var tableHeaderView: UIView = {
-                let tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44.0)))
+                let tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 40.0)))
+                tableHeaderView.backgroundColor = UIColor(named: "Background")
                 tableHeaderView.addSubview(titleStackView)
                 titleStackView.leadingAnchor.constraint(equalTo: tableHeaderView.leadingAnchor, constant: 16.0).isActive = true
                 titleStackView.topAnchor.constraint(equalTo: tableHeaderView.topAnchor).isActive = true
@@ -66,7 +67,6 @@ class OverTableViewController: UITableViewController {
 //        chartView.marker = marker
         
        // chartView.animate(xAxisDuration: 2.0)
-   
         
         let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14), textColor: .black)
       
@@ -79,7 +79,11 @@ class OverTableViewController: UITableViewController {
     }()
         
     
-    
+    //Properties
+
+    let loadingView = UIView()
+    let spinner = UIActivityIndicatorView()
+    let loadingLabel = UILabel()
     
     var dataEntries1 = [ChartDataEntry]()
     var dataEntries2 = [ChartDataEntry]()
@@ -91,13 +95,21 @@ class OverTableViewController: UITableViewController {
     var user = [User]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    let viewBaru = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
         
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.refreshControl?.attributedTitle = .none
         
+    // loadData()
+        
+        setLoadingScreen()
+        
+        setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
+       
         
         self.tableView.separatorStyle = .none
         navigationItem.title = nil
@@ -107,8 +119,9 @@ class OverTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         titleStackView.button.addTarget(self, action: #selector(settingButton) , for: .touchUpInside)
         
+        
         //load data from server
-        loadPowerData()
+       // loadPowerData()
         //        setData()
         
         
@@ -120,19 +133,18 @@ class OverTableViewController: UITableViewController {
             
             notificationCenter.addObserver(self, selector: #selector(appCameToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
             
-            
+        viewBaru.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 0)
+        viewBaru.backgroundColor = UIColor(named: "Background")
+        tableView.insertSubview(viewBaru, belowSubview: self.refreshControl!)
     }
-    
-//
-//
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//    }
+
     
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+    
+        
+     //   setLoadingScreen()
         loadData()
         loadPowerData()
         
@@ -151,9 +163,10 @@ class OverTableViewController: UITableViewController {
 //            self.tableView.reloadData()
 //            }
         
+        self.tabBarController?.tabBar.isHidden = false
         
         
-        tableView.reloadData()
+       // tableView.reloadData()
         
     }
     
@@ -181,6 +194,12 @@ class OverTableViewController: UITableViewController {
 
         navigationItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Emat" : nil
         tabBarItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Overview" : "Overview"
+        
+        setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
+      
+        
+        let offset = scrollView.contentOffset.y
+        viewBaru.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: offset + titleStackView.frame.height)
 
      }
     
@@ -197,7 +216,8 @@ class OverTableViewController: UITableViewController {
         let cell4 = tableView.dequeueReusableCell(withIdentifier: "cell4") as! CellFourTableViewCell
         let cell5 = tableView.dequeueReusableCell(withIdentifier: "cell5") as! CellFiveTableViewCell
         
-
+        setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
+        
         if indexPath.section == 0 {
         
             cell.selectionStyle = .none
@@ -221,16 +241,7 @@ class OverTableViewController: UITableViewController {
         }else if indexPath.section == 1 {
           
             cell2.selectionStyle = .none
-
-//            if PowerViewController.budgetCal != 0 {
-//                let test = Float(PowerViewController.budgetCal / 2)
-//                let coba = test / Float(PowerViewController.budgetCal)
-//                cell2.progressBudget.progress = Double(CGFloat(coba))
-//
-//            }else {
-//                cell2.progressBudget.progress = 0
-//            }
-//
+            
             var kwhTot:Float = 0
             var power:Float = 0
         
@@ -273,15 +284,12 @@ class OverTableViewController: UITableViewController {
             var power:Float = 0
         
             if energyModel.isEmpty == false {
-                
-                
-                
+        
                 for i in 0..<energyModel.count{
     
                     power = energyModel[i].power ?? 0
                     kwhTot += power/1000
                     
-    
                 }
                 
                 let state = user[0].budget
@@ -325,9 +333,6 @@ class OverTableViewController: UITableViewController {
                 cell4.kwhStats.text = formatted
                 cell4.powerStats.text = "\(String(describing: energyModel[0].power ?? 0)) Watt"
             }
-            
-           
-            
             cell4.selectionStyle = .none
             return cell4
             
@@ -500,6 +505,7 @@ class OverTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.setData()
                 self.tableView.reloadData()
+                self.removeLoadingScreen()
             }
             
         } failCompletion: { message in
@@ -538,38 +544,96 @@ class OverTableViewController: UITableViewController {
 
     @objc func appMovedToBackground() {
       // print("app enters background")
+        setLoadingScreen()
         loadPowerData()
    }
 
    @objc func appCameToForeground() {
      //  print("app enters foreground")
+        setLoadingScreen()
         loadPowerData()
    }
+    
+    @objc func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
+        self.loadPowerData()
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
+    
+    private func setLoadingScreen() {
+
+          //  let height = tableView.frame.size.height
+        
+        let barHeight = (navigationController?.navigationBar.frame.height)!
+        let titleHeight = tableHeaderView.frame.height
+        
+        let tabHeight = (tabBarController?.tabBar.frame.height)!
+        let heighTot = barHeight + titleHeight + tabHeight
+        
+        
+        loadingView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - barHeight - titleHeight)
+
+
+            loadingView.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
+            loadingView.backgroundColor = UIColor(named: "Background")
+
+
+            // Sets spinner
+        
+            loadingLabel.textColor = .gray
+            loadingLabel.textAlignment = .center
+            loadingLabel.font = UIFont(name: "Circular Std", size: 10)
+            loadingLabel.text = "LOADING"
+            loadingLabel.frame = CGRect(x: 0, y: 5, width: 140, height: 30)
+            loadingLabel.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot + 20)
+                
+        
+            spinner.style = .medium
+            spinner.color = UIColor(named: "AccentColor")
+            spinner.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            spinner.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot)
+
+            loadingView.insertSubview(loadingLabel, at: 1)
+            loadingView.insertSubview(spinner, at: 1)
+            
+            tableView.addSubview(loadingView)
+
+            tableView.isUserInteractionEnabled = false
+        
+            spinner.hidesWhenStopped = true
+            spinner.startAnimating()
+
+        }
+
+        // Remove the activity indicator from the main view
+        private func removeLoadingScreen() {
+            
+            tableView.isUserInteractionEnabled = true
+            loadingView.removeFromSuperview()
+            spinner.removeFromSuperview()
+            
+          
+
+        }
+    
+    func setTableViewBackgroundGradient(_ topColor:UIColor, _ bottomColor:UIColor) {
+
+        let gradientBackgroundColors = [topColor.cgColor, bottomColor.cgColor]
+       // let gradientLocations = [0.0,1.0]
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientBackgroundColors
+        gradientLayer.locations = [0.5, 0.5]
+
+        gradientLayer.frame = tableView.bounds
+        let backgroundView = UIView(frame: tableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        tableView.backgroundView = backgroundView
+    }
+
+    
 }
 
 
-extension Date {
-    static var yesterday: Date { return Date().dayBefore }
-    static var tomorrow:  Date { return Date().dayAfter }
-    var dayBefore: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
-    }
-    var dayAfter: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
-    }
-    var noon: Date {
-        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
-    }
-    var month: Int {
-        return Calendar.current.component(.month,  from: self)
-    }
-    var isLastDayOfMonth: Bool {
-        return dayAfter.month != month
-    }
-}
-
-extension Float {
-    var clean: String {
-          return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
-       }
-}

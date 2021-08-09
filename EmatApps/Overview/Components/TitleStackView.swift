@@ -39,7 +39,7 @@ class TitleStackView: UIStackView {
     }()
 
     lazy var button: UIButton = {
-        let buttonWidth: CGFloat = 35.0
+        let buttonWidth: CGFloat = 30.0
         let image = UIImage(systemName: "gearshape")
 
     

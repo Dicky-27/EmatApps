@@ -23,14 +23,16 @@ class SettingTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.isScrollEnabled = false
         
-        
+        self.title = "Setting"
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
+        //navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
+        
         saveData()
         loadData()
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     // MARK: - Table view data source

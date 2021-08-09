@@ -20,6 +20,7 @@ class EstimatedViewController: UIViewController, UICollectionViewDelegate, UICol
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
+        self.tabBarController?.tabBar.isHidden = true
     }
 
 
