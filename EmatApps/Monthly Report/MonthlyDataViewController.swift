@@ -55,6 +55,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         let monthBudgetStr = rupiahFormat.string(from: NSNumber(value: monthBudget!))
         monthlyBudgetLabel.text = "Rp. \(monthBudgetStr ?? "") "
         
+       // self.tabBarController?.tabBar.isHidden = true
         
         //let progCalc1 = Float(PowerViewController.budgetCal / 2)
         //let progCalc2 = progCalc1 / Float(PowerViewController.budgetCal)

@@ -8,7 +8,7 @@
 import UIKit
 
 private enum Constants {
-    static let cornerRadiusSize = CGSize(width: 8.0, height: 8.0)
+    static let cornerRadiusSize = CGSize(width: 10.0, height: 8.0)
     static let margin: CGFloat = 8
     static let topBorder: CGFloat = 60
     static let bottomBorder: CGFloat = 30
@@ -127,17 +127,19 @@ class GraphView: UIView {
             )
             
             // Draw vertical graph lines
-            let linePath = UIBezierPath(roundedRect: rect, cornerRadius: 10.0)
-            linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder))
-            linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder))
+            let linePath = UIBezierPath(roundedRect: rect,
+                                        byRoundingCorners: .allCorners,
+                                        cornerRadii: Constants.cornerRadiusSize)
+            linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder+5))
+            linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder+5))
             
-            let color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            let color = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             color.setStroke()
             linePath.lineWidth = 1.5
             
             let dashPattern: [CGFloat] = [4.0, 0.0]
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
-            linePath.stroke(with: .lighten, alpha: 1.5)
+            linePath.stroke(with: .exclusion, alpha: 0.5)
             currPoint += spacingPoint
             
             circle.fill()
