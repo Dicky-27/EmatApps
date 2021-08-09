@@ -131,7 +131,7 @@ class GraphView: UIView {
                                         byRoundingCorners: .allCorners,
                                         cornerRadii: Constants.cornerRadiusSize)
             linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder+5))
-            linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder+5))
+            linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder+4))
             
             let color = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             color.setStroke()
@@ -139,7 +139,7 @@ class GraphView: UIView {
             
             let dashPattern: [CGFloat] = [4.0, 0.0]
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
-            linePath.stroke(with: .exclusion, alpha: 0.5)
+            linePath.stroke(with: .exclusion, alpha: 0.25)
             currPoint += spacingPoint
             
             circle.fill()

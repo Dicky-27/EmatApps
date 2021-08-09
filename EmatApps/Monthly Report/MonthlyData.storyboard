@@ -311,7 +311,7 @@
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-hz-3lT">
                                                                     <rect key="frame" x="20" y="11.666666666666666" width="20" height="20"/>
-                                                                    <color key="backgroundColor" red="1" green="0.38823529411764707" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="iIo-dZ-DEk"/>
                                                                         <constraint firstAttribute="width" constant="21" id="uDw-3R-HHa"/>

@@ -32,8 +32,6 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     var highestDaily: Float = 0.0
     var harga: Float        = 1444.70
     let rupiahFormat        = NumberFormatter()
-    let allMonthlyData      = MonthlyData.init()
-    var dataContent: [MonthlyPower] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,26 +39,15 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         dailyUsageTable.delegate = self
         dailyUsageTable.dataSource = self
         
-        allMonthlyData.loadMonthly()
-        dataContent = allMonthlyData.getFullData()
-        
         monthLabel.text = monthDetail
         monthBillLabel.text = monthDetailBill
         energyUsageLabel.text = String(format: "%.1f kWh", monthDetailPow!)
-        //monthlyBudgetLabel.text = PowerViewController.budget
         
         rupiahFormat.numberStyle = .decimal
         rupiahFormat.groupingSeparator = "."
         rupiahFormat.maximumFractionDigits = 0
         let monthBudgetStr = rupiahFormat.string(from: NSNumber(value: monthBudget!))
         monthlyBudgetLabel.text = "Rp. \(monthBudgetStr ?? "") "
-        
-       // self.tabBarController?.tabBar.isHidden = true
-        
-        //let progCalc1 = Float(PowerViewController.budgetCal / 2)
-        //let progCalc2 = progCalc1 / Float(PowerViewController.budgetCal)
-        
-        //progressBudget.progress = progCalc2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,8 +63,13 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
         
         let avgPow = monthDetailPow! / 30.0
-        let dailyPow = Float.random(in: avgPow-3.0...avgPow+2.70)
-        
+        var dailyPow : Float = 0.0
+        if avgPow == 0 {
+            dailyPow = 0.0
+        }
+        else{
+         dailyPow = Float.random(in: avgPow-3.0...avgPow+2.70)
+        }
         accumulatedPow += dailyPow
         cell.dayLabel.text = dayList[indexPath.row]
         
@@ -102,6 +94,8 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
             cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.6039215686, green: 1, blue: 0.4156862745, alpha: 1)
         }else if dailyPow >= highestDaily {
             cell.indicatorUsage.backgroundColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.3529411765, alpha: 1)
+        }else if dailyPow == 0.0 {
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }else {
             cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         }

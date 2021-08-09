@@ -71,7 +71,6 @@ class SettingTableViewController: UITableViewController {
             formatter.locale = Locale(identifier: "id_ID")
             formatter.maximumFractionDigits = 0
             let numberFromField = user[0].budget
-            
             cell.budgetTf.text = formatter.string(from: numberFromField as NSNumber)
             cell.selectionStyle = .none
             return cell

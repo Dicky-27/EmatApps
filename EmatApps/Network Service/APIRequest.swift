@@ -33,7 +33,7 @@ class APIRequest: NSObject {
                                   failCompletion: @escaping (String) -> Void) {
         // create request
         BaseRequest.GET(url: url, showLoader: showLoader) { response in
-            print(response)
+            //print(response)
          
             do {
                 let monthlyEnergyModel = try JSONDecoder().decode([MonthlyPower].self, from: response as! Data)
