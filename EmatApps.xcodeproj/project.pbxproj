@@ -294,13 +294,6 @@
 			path = Overview;
 			sourceTree = "<group>";
 		};
-		AECC416826BD7864005D8E86 /* User */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		AEFDAAD726B2902600E0BBDB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,7 +371,6 @@
 		E0B3462E26B284EC0076D482 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AECC416826BD7864005D8E86 /* User */,
 				E0B3462F26B284FE0076D482 /* Model.swift */,
 				AE5446F526B7E01000E969FF /* Power.swift */,
 				AE5446F726B7E0C700E969FF /* DataLoader.swift */,
