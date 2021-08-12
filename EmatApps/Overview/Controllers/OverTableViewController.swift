@@ -155,16 +155,6 @@ class OverTableViewController: UITableViewController {
      //   setLoadingScreen()
         loadData()
         loadPowerData()
-        
-    
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-//                //call any function
-//            self.loadPowerData()
-//            self.setData()
-//            self.tableView.reloadData()
-//            }
-        
         self.tabBarController?.tabBar.isHidden = false
         
         
@@ -575,10 +565,10 @@ class OverTableViewController: UITableViewController {
     private func setLoadingScreen() {
 
         //  let height = tableView.frame.size.height
-        let barHeight = (navigationController?.navigationBar.frame.height)!
+        guard let barHeight = navigationController?.navigationBar.frame.height else { return }
         let titleHeight = tableHeaderView.frame.height
         
-        let tabHeight = (tabBarController?.tabBar.frame.height)!
+        guard let tabHeight = tabBarController?.tabBar.frame.height else { return }
         let heighTot = barHeight + titleHeight + tabHeight
         
         
