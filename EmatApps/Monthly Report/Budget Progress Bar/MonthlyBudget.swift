@@ -8,7 +8,7 @@
 import UIKit
 
 class MonthlyBudget: UIView {
-
+    
     @IBInspectable var color: UIColor? = .gray {
         didSet {setNeedsDisplay()}
     }
@@ -21,21 +21,21 @@ class MonthlyBudget: UIView {
     private let backgroundMask = CAShapeLayer()
     
     override init(frame: CGRect) {
-            super.init(frame: frame)
-            setupLayers()
-        }
-
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            setupLayers()
-        }
-
-        private func setupLayers() {
-            layer.addSublayer(progressLayer)
-        }
+        super.init(frame: frame)
+        setupLayers()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupLayers()
+    }
+    
+    private func setupLayers() {
+        layer.addSublayer(progressLayer)
+    }
     
     override func draw(_ rect: CGRect) {
-
+        
         backgroundMask.path = UIBezierPath(roundedRect: rect, cornerRadius: rect.height * 25).cgPath
         layer.mask = backgroundMask
         
@@ -44,6 +44,5 @@ class MonthlyBudget: UIView {
         
         layer.addSublayer(progressLayer)
         progressLayer.backgroundColor = color?.cgColor
-        
     }
 }

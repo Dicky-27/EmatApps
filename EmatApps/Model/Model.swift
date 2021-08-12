@@ -13,21 +13,34 @@ public class MonthlyData {
     
     init() {
         loadMonthly()
-        //print("init")
     }
     
+//    func loadMonthly() {
+//        if let fileLocation = Bundle.main.url(forResource: "MonthlyPower", withExtension: "json") {
+//            do {
+//                let data = try Data(contentsOf: fileLocation)
+//                let jsonDecoder = JSONDecoder()
+//                let dataFromJson = try jsonDecoder.decode([MonthlyPower].self, from: data)
+//
+//                self.monthTotal = dataFromJson
+//                //print("month total: \(monthTotal)")
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
     func loadMonthly() {
-        if let fileLocation = Bundle.main.url(forResource: "MonthlyPower", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: fileLocation)
-                let jsonDecoder = JSONDecoder()
-                let dataFromJson = try jsonDecoder.decode([MonthlyPower].self, from: data)
-                
-                self.monthTotal = dataFromJson
-                //print("month total: \(monthTotal)")
-            } catch {
-                print(error)
+        APIRequest.fetchMonthlyEnergyData(url: Constant.GET_MONTHLY_ENERGY_LIST,showLoader: true) { response in
+            // handle response and store it to the data model
+            self.monthTotal = response
+
+            DispatchQueue.main.async {
+  
             }
+            
+        } failCompletion: { message in
+
+            print(message)
         }
     }
     
@@ -38,11 +51,13 @@ public class MonthlyData {
     func getPowerList() -> [Float] {
         
         var listPower: [Float] = []
-        for i in 0...monthTotal.count-1 {
-            listPower.append(monthTotal[i].monthly_power)
+        
+        if monthTotal.count > 0 {
+            for i in 0...monthTotal.count-1 {
+                listPower.append(monthTotal[i].monthly_power)
+            }
         }
         
-        //print("list power: \(listPower)")
         return listPower
     }
 }

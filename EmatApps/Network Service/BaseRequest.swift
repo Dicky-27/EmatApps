@@ -22,7 +22,6 @@ class BaseRequest: NSObject {
         
         //configure request and set header
         request.httpMethod = "GET"
-      //  request.allHTTPHeaderFields = header
         
         //init session
         let session = URLSession.shared

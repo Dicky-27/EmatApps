@@ -8,7 +8,7 @@
 import UIKit
 
 class MonthsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var tableImage: UIImageView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var rupiahLabel: UILabel!
@@ -22,7 +22,7 @@ class MonthsTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }    
 }

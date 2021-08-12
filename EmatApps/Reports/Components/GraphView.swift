@@ -16,13 +16,11 @@ private enum Constants {
     static let circleDiameter: CGFloat = 10
 }
 
-//@IBDesignable
 class GraphView: UIView {
     
     let monthData = MonthlyData.init()
     var monthContent: [MonthlyPower] = []
     var graphPoint : [Float] = []
-    
     var labelData: [String] = []
    
 
@@ -79,10 +77,9 @@ class GraphView: UIView {
         
         // Set up the points line
         let graphPath = UIBezierPath()
-        
-        // Go to start of line
         graphPath.move(to: CGPoint(x: columnXPoint(0), y: columnYPoint(Int(graphPoint[0]))))
-        // Add line for each item in the graphPoints array at the correct (x, y) for the point
+        
+        // Add line for each item in the graphPoints array at the correct point
         for i in 0..<graphPoint.count {
             let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(Int( graphPoint[i] )))
             graphPath.addLine(to: nextPoint)
@@ -108,14 +105,11 @@ class GraphView: UIView {
         clippingPath.addClip()
         context.restoreGState()
         
-        // Draw the line on top of the clipped gradient
+        // Draw the line on top of the clipped path
         graphPath.lineWidth = 2.0
         graphPath.stroke()
 
-
         // Draw the circles on top of the graph stroke
-        
-        
         for i in 0..<graphPoint.count {
             #colorLiteral(red: 0.09847373515, green: 0.512232244, blue: 0.823799789, alpha: 1).setFill()
             var point = CGPoint(x: columnXPoint(i), y: columnYPoint( Int(graphPoint[i]) ))
@@ -146,9 +140,8 @@ class GraphView: UIView {
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
             linePath.stroke(with: .exclusion, alpha: 0.25)
             
-            
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
             //Draw label
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
             label.font = UIFont(name: "Circular Std", size: 10)
             label.center = CGPoint(x: columnXPoint(i), y: graphHeight + topBorder+15)
             label.textAlignment = .center

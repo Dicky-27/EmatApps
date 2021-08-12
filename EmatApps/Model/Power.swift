@@ -32,11 +32,6 @@ struct DailyPower: Codable {
     let energy_agus: Float
 }
 
-class TargetBill {
-    
-    static var inputedBill: Float?
-}
-
 struct Energies: Codable {
     let id: String?
     let created_at: String?
