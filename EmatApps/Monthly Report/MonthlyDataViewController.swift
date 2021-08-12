@@ -9,14 +9,14 @@ import UIKit
 
 class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var monthBillLabel: UILabel!
-    @IBOutlet weak var energyUsageLabel: UILabel!
-    @IBOutlet weak var costperDayLabel: UILabel!
-    @IBOutlet weak var dailyHighestLabel: UILabel!
-    @IBOutlet weak var monthlyBudgetLabel: UILabel!
-    @IBOutlet weak var progressBudget: MonthlyBudget!
-    @IBOutlet weak var dailyUsageTable: UITableView!
+    @IBOutlet weak var monthLabel         : UILabel!
+    @IBOutlet weak var monthBillLabel     : UILabel!
+    @IBOutlet weak var energyUsageLabel   : UILabel!
+    @IBOutlet weak var costperDayLabel    : UILabel!
+    @IBOutlet weak var dailyHighestLabel  : UILabel!
+    @IBOutlet weak var monthlyBudgetLabel : UILabel!
+    @IBOutlet weak var progressBudget     : MonthlyBudget!
+    @IBOutlet weak var dailyUsageTable    : UITableView!
     
     // sample data for list of days
     let dayList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
@@ -28,38 +28,27 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     var accumulatedPow  : Float = 0.0
     var monthDetailBill : String?
     var monthBudget     : Float?
+    var highestDaily    : Float = 0.0
+    var harga           : Float = 1444.70
     
-    var highestDaily: Float = 0.0
-    var harga: Float        = 1444.70
-    let rupiahFormat        = NumberFormatter()
-    let allMonthlyData      = MonthlyData.init()
-    var dataContent: [MonthlyPower] = []
+    let rupiahFormat    = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dailyUsageTable.delegate = self
+        dailyUsageTable.delegate   = self
         dailyUsageTable.dataSource = self
         
-        allMonthlyData.loadMonthly()
-        dataContent = allMonthlyData.getFullData()
-        
-        monthLabel.text = monthDetail
-        monthBillLabel.text = monthDetailBill
+        monthLabel.text       = monthDetail
+        monthBillLabel.text   = monthDetailBill
         energyUsageLabel.text = String(format: "%.1f kWh", monthDetailPow!)
-        //monthlyBudgetLabel.text = PowerViewController.budget
         
-        rupiahFormat.numberStyle = .decimal
-        rupiahFormat.groupingSeparator = "."
+        rupiahFormat.numberStyle           = .decimal
+        rupiahFormat.groupingSeparator     = "."
         rupiahFormat.maximumFractionDigits = 0
+        
         let monthBudgetStr = rupiahFormat.string(from: NSNumber(value: monthBudget!))
         monthlyBudgetLabel.text = "Rp. \(monthBudgetStr ?? "") "
-        
-        
-        //let progCalc1 = Float(PowerViewController.budgetCal / 2)
-        //let progCalc2 = progCalc1 / Float(PowerViewController.budgetCal)
-        
-        //progressBudget.progress = progCalc2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,14 +57,20 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        rupiahFormat.numberStyle = .decimal
-        rupiahFormat.groupingSeparator = "."
+        rupiahFormat.numberStyle           = .decimal
+        rupiahFormat.groupingSeparator     = "."
         rupiahFormat.maximumFractionDigits = 0
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
         
         let avgPow = monthDetailPow! / 30.0
-        let dailyPow = Float.random(in: avgPow-3.0...avgPow+2.70)
+        var dailyPow : Float = 0.0
+        if avgPow == 0 {
+            dailyPow = 0.0
+        }
+        else {
+         dailyPow = Float.random(in: avgPow-3.0...avgPow+2.70)
+        }
         
         accumulatedPow += dailyPow
         cell.dayLabel.text = dayList[indexPath.row]
@@ -99,16 +94,18 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         
         if dailyPow < highestDaily {
             cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.6039215686, green: 1, blue: 0.4156862745, alpha: 1)
-        }else if dailyPow >= highestDaily {
+        }else if dailyPow == 0.0 {
+            cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
+        }else if dailyPow >= highestDaily{
             cell.indicatorUsage.backgroundColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.3529411765, alpha: 1)
         }else {
             cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         }
         
-        let maxDailyCost = rupiahFormat.string(from: NSNumber(value: highestDaily * harga))
-        
-        costperDayLabel.text = maxDailyCost
+        let maxDailyCost       = rupiahFormat.string(from: NSNumber(value: highestDaily * harga))
+        costperDayLabel.text   = maxDailyCost
         dailyHighestLabel.text = String(format: "%.2f kWh", highestDaily)
+        
         return cell
     }
     
