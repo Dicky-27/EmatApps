@@ -29,11 +29,6 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var isidata            : [MonthlyPower] = []
     var hargaPerKwh        : Float = 1444.70 //predefine price per kwh
     
-
-    //get the data from MonthlyPower.json
-    let allMonthData            = MonthlyData.init()
-    var harga: Float            = 1444.70 //predefine price per kwh
-    
     var monthlyDataList: [MonthlyPower] = []
     
     override func viewDidLoad() {
@@ -87,8 +82,8 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func setupGraphDisplay() {
         
-        if isidata.count > 0 {
-            let maxDayIndex = isidata.count - 1
+        if monthlyDataList.count > 0 {
+            let maxDayIndex = monthlyDataList.count - 1
             
             // refresh the chart
             graphView.setNeedsDisplay()
@@ -98,7 +93,7 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             formatter.setLocalizedDateFormatFromTemplate("MMM")
             
             // Set up the month name labels with sorted months
-            for i in 0...isidata.count-1 {
+            for i in 0...monthlyDataList.count-1 {
                 if let label = monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
                     label.text = isidata[i].month_simple
                 }

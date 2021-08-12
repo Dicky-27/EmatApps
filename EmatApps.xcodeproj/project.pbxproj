@@ -28,8 +28,6 @@
 		AE3CFD5A26C4F6A700847D76 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CFD5926C4F6A700847D76 /* ReportTableViewController.swift */; };
 		AE3CFD5D26C50B3B00847D76 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CFD5C26C50B3B00847D76 /* TitleView.swift */; };
 		AE5446F626B7E01000E969FF /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F526B7E01000E969FF /* Power.swift */; };
-		AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F726B7E0C700E969FF /* DataLoader.swift */; };
-		AE5446FA26B7E1FC00E969FF /* power.json in Resources */ = {isa = PBXBuildFile; fileRef = AE5446F926B7E1FC00E969FF /* power.json */; };
 		AE7074A726B29F71000255A3 /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7074A626B29F71000255A3 /* Overview.storyboard */; };
 		AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074A826B2A11A000255A3 /* OverTableViewController.swift */; };
 		AE7074AB26B2A41F000255A3 /* CellFiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */; };
@@ -49,13 +47,12 @@
 		AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAAE126B290B000E0BBDB /* CellFourTableViewCell.swift */; };
 		AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAAE326B293BD00E0BBDB /* TitleStackView.swift */; };
 		E02CB40C26B0CCF000A39B2C /* MonthsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */; };
-		E070420C26B9042D00E7F485 /* MonthlyPower.json in Resources */ = {isa = PBXBuildFile; fileRef = E070420B26B9042D00E7F485 /* MonthlyPower.json */; };
+		E04162AA26C5369F009F9C26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04162A926C5369F009F9C26 /* Model.swift */; };
 		E070420E26B90C5700E7F485 /* ReportViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070420D26B90C5700E7F485 /* ReportViewVC.swift */; };
 		E0B3462526B18A510076D482 /* MonthlyDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */; };
 		E0B3462726B18A6A0076D482 /* MonthlyData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */; };
 		E0B3462926B18D7A0076D482 /* MonthlyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462826B18D7A0076D482 /* MonthlyBudget.swift */; };
 		E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */; };
-		E0B3463026B284FE0076D482 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3462F26B284FE0076D482 /* Model.swift */; };
 		E0B3463326B28EEA0076D482 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3463226B28EEA0076D482 /* Setting.storyboard */; };
 		E0B3463826B291950076D482 /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3463726B291950076D482 /* AboutUs.storyboard */; };
 		E0B3463A26B291A30076D482 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3463926B291A30076D482 /* AboutUsViewController.swift */; };
@@ -119,8 +116,6 @@
 		AE3CFD5926C4F6A700847D76 /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		AE3CFD5C26C50B3B00847D76 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		AE5446F526B7E01000E969FF /* Power.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
-		AE5446F726B7E0C700E969FF /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		AE5446F926B7E1FC00E969FF /* power.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = power.json; sourceTree = "<group>"; };
 		AE7074A626B29F71000255A3 /* Overview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Overview.storyboard; sourceTree = "<group>"; };
 		AE7074A826B2A11A000255A3 /* OverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverTableViewController.swift; sourceTree = "<group>"; };
 		AE7074AA26B2A41F000255A3 /* CellFiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFiveTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,13 +135,12 @@
 		AEFDAAE126B290B000E0BBDB /* CellFourTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFourTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAAE326B293BD00E0BBDB /* TitleStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleStackView.swift; sourceTree = "<group>"; };
 		E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewCell.swift; sourceTree = "<group>"; };
-		E070420B26B9042D00E7F485 /* MonthlyPower.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MonthlyPower.json; sourceTree = "<group>"; };
+		E04162A926C5369F009F9C26 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E070420D26B90C5700E7F485 /* ReportViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewVC.swift; sourceTree = "<group>"; };
 		E0B3462426B18A510076D482 /* MonthlyDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyDataViewController.swift; sourceTree = "<group>"; };
 		E0B3462626B18A6A0076D482 /* MonthlyData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonthlyData.storyboard; sourceTree = "<group>"; };
 		E0B3462826B18D7A0076D482 /* MonthlyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBudget.swift; sourceTree = "<group>"; };
 		E0B3462A26B26AFC0076D482 /* DailyUsageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUsageTableViewCell.swift; sourceTree = "<group>"; };
-		E0B3462F26B284FE0076D482 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E0B3463226B28EEA0076D482 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		E0B3463726B291950076D482 /* AboutUs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
 		E0B3463926B291A30076D482 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
@@ -407,12 +401,9 @@
 		E0B3462E26B284EC0076D482 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E0B3462F26B284FE0076D482 /* Model.swift */,
+				E04162A926C5369F009F9C26 /* Model.swift */,
 				AE5446F526B7E01000E969FF /* Power.swift */,
-				AE5446F726B7E0C700E969FF /* DataLoader.swift */,
-				AE5446F926B7E1FC00E969FF /* power.json */,
 				AE07D3E926BBD29A00526190 /* Daily.json */,
-				E070420B26B9042D00E7F485 /* MonthlyPower.json */,
 				AE07D3EB26BBD2B700526190 /* DailyLoader.swift */,
 			);
 			path = Model;
@@ -579,7 +570,6 @@
 				E0B3465626B2A5DD0076D482 /* Poppins-ExtraLight.otf in Resources */,
 				E0B3466026B2A5DD0076D482 /* Poppins-LightItalic.otf in Resources */,
 				E0B3465D26B2A5DD0076D482 /* Poppins-Italic.otf in Resources */,
-				E070420C26B9042D00E7F485 /* MonthlyPower.json in Resources */,
 				E0B3467626B2A8170076D482 /* CircularStd-Medium.ttf in Resources */,
 				AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */,
 				E0B3466126B2A5DD0076D482 /* Poppins-Bold.otf in Resources */,
@@ -602,7 +592,6 @@
 				E0B3465C26B2A5DD0076D482 /* Poppins-SemiBold.otf in Resources */,
 				AE07D3EA26BBD29A00526190 /* Daily.json in Resources */,
 				E0B3466426B2A5DD0076D482 /* Poppins-Regular.otf in Resources */,
-				AE5446FA26B7E1FC00E969FF /* power.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04162AA26C5369F009F9C26 /* Model.swift in Sources */,
 				AE99613B26B5447200FDA0B1 /* PowerViewController.swift in Sources */,
 				E0C3E24C26B3C6C3003AFC74 /* MonthlyBudgetCell.swift in Sources */,
 				AE7074B326B3FBD2000255A3 /* EstCollectionViewCell.swift in Sources */,
@@ -685,7 +675,6 @@
 				AE07D3FD26BD3C6400526190 /* BaseRequest.swift in Sources */,
 				AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */,
 				AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */,
-				AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */,
 				AEC3C3F526BAC5780060134F /* SettingTableViewController.swift in Sources */,
 				AE07D40126BD3CDD00526190 /* Constant.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
@@ -695,7 +684,6 @@
 				AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */,
 				AE07D3E826BBB72200526190 /* CircleMarker.swift in Sources */,
 				AE7074AF26B3FB95000255A3 /* EstimatedViewController.swift in Sources */,
-				E0B3463026B284FE0076D482 /* Model.swift in Sources */,
 				E0B3462526B18A510076D482 /* MonthlyDataViewController.swift in Sources */,
 				E02CB40C26B0CCF000A39B2C /* MonthsTableViewCell.swift in Sources */,
 				AE7074B826B45862000255A3 /* OnboardingCollectionViewCell.swift in Sources */,
