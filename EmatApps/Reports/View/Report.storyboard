@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31P-oN-bRi">
-                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtI-8k-6yg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
@@ -130,7 +130,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" name="graphColor"/>
+                                                <color key="backgroundColor" name="Gacc"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailingMargin" secondItem="kZk-ja-JgZ" secondAttribute="trailing" constant="142" id="0PQ-F1-wN6"/>
                                                     <constraint firstAttribute="bottom" secondItem="6br-xh-ldt" secondAttribute="bottom" constant="8" id="1RE-57-VV4"/>
@@ -258,7 +258,6 @@
                         <outlet property="monthsLabel" destination="6br-xh-ldt" id="j5V-Wh-Kff"/>
                         <outlet property="monthsTable" destination="6aT-RT-8zo" id="fva-KN-LPX"/>
                         <outlet property="reportsLabel" destination="Q2w-W7-bKw" id="2qa-RX-2z9"/>
-                        <segue destination="lgP-8Q-CDT" kind="show" identifier="toDetail" id="h39-cK-Xkq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -288,19 +287,260 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="kB6-sZ-OXu"/>
+                        <segue destination="FYf-am-yrL" kind="relationship" relationship="rootViewController" id="KDk-af-zAc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLL-hd-voF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1060" y="115.16587677725119"/>
         </scene>
+        <!--Report Table View Controller-->
+        <scene sceneID="ELj-QR-v9b">
+            <objects>
+                <tableViewController id="FYf-am-yrL" customClass="ReportTableViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6rn-hQ-rhB">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Wblack"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="273" id="xtF-zW-A7m" customClass="GrafTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="273"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xtF-zW-A7m" id="lmY-Me-yu4">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="273"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydx-eh-SwG" customClass="GraphView" customModule="EmatApps" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="11" width="350" height="251"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XmZ-nk-zpz">
+                                                    <rect key="frame" x="5" y="231.33333333333334" width="340" height="11.666666666666657"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSL-i1-AR4" userLabel="0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="cQu-6D-6YK"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1T-yq-Mpp" userLabel="1">
+                                                            <rect key="frame" x="28.666666666666664" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="8oH-Y9-ubT"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t21-pA-PTP" userLabel="2">
+                                                            <rect key="frame" x="57.666666666666671" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="eBa-uX-60g"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Des" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-b6-4sR" userLabel="3">
+                                                            <rect key="frame" x="86.333333333333329" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="0Ms-9i-UNj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVe-Yg-Tji" userLabel="4">
+                                                            <rect key="frame" x="115.33333333333334" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="ODt-aw-evN"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAj-F1-wq9" userLabel="5">
+                                                            <rect key="frame" x="144" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="j4F-Tz-zog"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhS-4b-mFp" userLabel="6">
+                                                            <rect key="frame" x="173" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="93d-H5-on0"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbO-mz-4IY" userLabel="7">
+                                                            <rect key="frame" x="201.66666666666666" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="WxH-Qu-1GM"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gZ-yW-Yh0" userLabel="8">
+                                                            <rect key="frame" x="230.66666666666666" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="dc5-Vs-5BO"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jj-nZ-h6U" userLabel="9">
+                                                            <rect key="frame" x="259.33333333333331" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="TCS-Rx-7So"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFU-WH-Rxp" userLabel="10">
+                                                            <rect key="frame" x="288.33333333333331" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="xM1-bX-iut"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-KP-YCI" userLabel="11">
+                                                            <rect key="frame" x="317" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="37Y-E1-ywg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
+                                                            <color key="textColor" name="LabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="graphColor"/>
+                                            <constraints>
+                                                <constraint firstItem="XmZ-nk-zpz" firstAttribute="leading" secondItem="ydx-eh-SwG" secondAttribute="leading" constant="5" id="LH0-pd-Aae"/>
+                                                <constraint firstAttribute="bottom" secondItem="XmZ-nk-zpz" secondAttribute="bottom" constant="8" id="Y7p-qw-r11"/>
+                                                <constraint firstAttribute="trailing" secondItem="XmZ-nk-zpz" secondAttribute="trailing" constant="5" id="mjQ-ra-PNp"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Comparison" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajN-ao-9am">
+                                            <rect key="frame" x="25" y="15.999999999999998" width="131" height="16.333333333333329"/>
+                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                                            <color key="textColor" name="LabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ydx-eh-SwG" secondAttribute="bottom" id="1dQ-nm-Wg7"/>
+                                        <constraint firstItem="ajN-ao-9am" firstAttribute="leading" secondItem="lmY-Me-yu4" secondAttribute="leadingMargin" constant="5" id="6s8-bl-E4N"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ydx-eh-SwG" secondAttribute="trailing" id="76S-ru-ShD"/>
+                                        <constraint firstItem="ydx-eh-SwG" firstAttribute="leading" secondItem="lmY-Me-yu4" secondAttribute="leadingMargin" id="Q9l-Sh-Pkd"/>
+                                        <constraint firstItem="ydx-eh-SwG" firstAttribute="top" secondItem="lmY-Me-yu4" secondAttribute="topMargin" id="YxG-zt-4sR"/>
+                                        <constraint firstItem="ajN-ao-9am" firstAttribute="top" secondItem="lmY-Me-yu4" secondAttribute="topMargin" constant="5" id="lXr-Ug-8v3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="graph" destination="ydx-eh-SwG" id="CCx-xC-a0B"/>
+                                    <outlet property="monthlyComparison" destination="ajN-ao-9am" id="4YF-CV-pdu"/>
+                                    <outlet property="monthsLabel" destination="XmZ-nk-zpz" id="W72-a3-Tys"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="100" id="lda-dh-xUg" customClass="ListTableViewCell" customModule="EmatApps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="297.33333396911621" width="390" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lda-dh-xUg" id="uDs-Fz-IsT">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardReport" translatesAutoresizingMaskIntoConstraints="NO" id="aWv-7w-Jje">
+                                            <rect key="frame" x="20" y="11" width="350" height="78"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQn-pV-TQE">
+                                            <rect key="frame" x="40" y="39.666666666666664" width="160" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="160" id="B1h-NB-ndm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAP-Me-dNM">
+                                            <rect key="frame" x="250" y="57" width="100" height="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="jQX-lu-2fw"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                            <color key="textColor" name="LabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyA-LR-c1i">
+                                            <rect key="frame" x="230" y="26" width="120" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="s3w-1J-zk9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="18"/>
+                                            <color key="textColor" name="LabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zQn-pV-TQE" firstAttribute="centerY" secondItem="uDs-Fz-IsT" secondAttribute="centerY" id="4Fa-0v-xDt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aWv-7w-Jje" secondAttribute="trailing" id="4h1-Gd-zST"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="aWv-7w-Jje" secondAttribute="bottom" id="Asw-5p-1Xl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gyA-LR-c1i" secondAttribute="trailing" constant="20" id="Lsy-HN-aue"/>
+                                        <constraint firstItem="aWv-7w-Jje" firstAttribute="leading" secondItem="uDs-Fz-IsT" secondAttribute="leadingMargin" id="Omd-yC-oWt"/>
+                                        <constraint firstItem="zQn-pV-TQE" firstAttribute="leading" secondItem="uDs-Fz-IsT" secondAttribute="leadingMargin" constant="20" id="Tbv-10-FiJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FAP-Me-dNM" secondAttribute="trailing" constant="20" id="fe2-Y9-7zA"/>
+                                        <constraint firstItem="FAP-Me-dNM" firstAttribute="top" secondItem="gyA-LR-c1i" secondAttribute="bottom" constant="10" id="gfW-ll-VHm"/>
+                                        <constraint firstItem="aWv-7w-Jje" firstAttribute="top" secondItem="uDs-Fz-IsT" secondAttribute="topMargin" id="j3G-hv-aQ7"/>
+                                        <constraint firstItem="gyA-LR-c1i" firstAttribute="top" secondItem="uDs-Fz-IsT" secondAttribute="topMargin" constant="15" id="mE3-Qx-Y3Y"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="kwhLabel" destination="FAP-Me-dNM" id="x9W-mU-Nkj"/>
+                                    <outlet property="monthLabel" destination="zQn-pV-TQE" id="AAw-bi-wKb"/>
+                                    <outlet property="rupiahLabel" destination="gyA-LR-c1i" id="8m0-Ue-Eld"/>
+                                    <outlet property="tableImage" destination="aWv-7w-Jje" id="DGw-3l-r38"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FYf-am-yrL" id="sHF-P6-Jp2"/>
+                            <outlet property="delegate" destination="FYf-am-yrL" id="7xz-YI-AD9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Rdc-H2-6bM"/>
+                    <connections>
+                        <segue destination="lgP-8Q-CDT" kind="show" identifier="toDetail" id="AHm-ax-xTx"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohm-c2-x6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1989" y="871"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CardReport" width="348" height="77"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <namedColor name="Gacc">
+            <color red="0.87099999189376831" green="0.86699998378753662" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LabelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Wblack">
+            <color red="0.98799997568130493" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="graphColor">
             <color red="0.88999998569488525" green="0.96899998188018799" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

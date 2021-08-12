@@ -23,4 +23,19 @@ class DeviceViewController: UIViewController {
         bawahButton.layer.borderWidth = 2
         
     }
+    
+    @IBAction func newDeviceButton(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func alreadyButton(_ sender: UIButton) {
+        
+        let controller = storyboard?.instantiateViewController(identifier: "Power") as! PowerViewController
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .coverVertical
+        present(controller, animated: true, completion: nil)
+        
+      
+    }
+    
 }

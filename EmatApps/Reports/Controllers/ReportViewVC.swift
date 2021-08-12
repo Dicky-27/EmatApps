@@ -23,6 +23,7 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var harga: Float            = 1444.70 //predefine price per kwh
     
     var monthlyDataList: [MonthlyPower] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

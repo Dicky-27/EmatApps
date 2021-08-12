@@ -23,6 +23,10 @@
 		AE07D3FF26BD3C7500526190 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D3FE26BD3C7500526190 /* APIRequest.swift */; };
 		AE07D40126BD3CDD00526190 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D40026BD3CDD00526190 /* Constant.swift */; };
 		AE07D40326BD3DAC00526190 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D40226BD3DAC00526190 /* Core.swift */; };
+		AE3CFD5626C4F66200847D76 /* GrafTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CFD5526C4F66200847D76 /* GrafTableViewCell.swift */; };
+		AE3CFD5826C4F66E00847D76 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CFD5726C4F66E00847D76 /* ListTableViewCell.swift */; };
+		AE3CFD5A26C4F6A700847D76 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CFD5926C4F6A700847D76 /* ReportTableViewController.swift */; };
+		AE3CFD5D26C50B3B00847D76 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CFD5C26C50B3B00847D76 /* TitleView.swift */; };
 		AE5446F626B7E01000E969FF /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F526B7E01000E969FF /* Power.swift */; };
 		AE5446F826B7E0C700E969FF /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5446F726B7E0C700E969FF /* DataLoader.swift */; };
 		AE5446FA26B7E1FC00E969FF /* power.json in Resources */ = {isa = PBXBuildFile; fileRef = AE5446F926B7E1FC00E969FF /* power.json */; };
@@ -110,6 +114,10 @@
 		AE07D3FE26BD3C7500526190 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		AE07D40026BD3CDD00526190 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		AE07D40226BD3DAC00526190 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		AE3CFD5526C4F66200847D76 /* GrafTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafTableViewCell.swift; sourceTree = "<group>"; };
+		AE3CFD5726C4F66E00847D76 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		AE3CFD5926C4F6A700847D76 /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
+		AE3CFD5C26C50B3B00847D76 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		AE5446F526B7E01000E969FF /* Power.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
 		AE5446F726B7E0C700E969FF /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		AE5446F926B7E1FC00E969FF /* power.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = power.json; sourceTree = "<group>"; };
@@ -238,6 +246,41 @@
 				AE07D40026BD3CDD00526190 /* Constant.swift */,
 			);
 			path = "Network Service";
+			sourceTree = "<group>";
+		};
+		AE3CFD5426C4F64B00847D76 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */,
+				AE3CFD5526C4F66200847D76 /* GrafTableViewCell.swift */,
+				AE3CFD5726C4F66E00847D76 /* ListTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AE3CFD5B26C50B2600847D76 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AE3CFD5C26C50B3B00847D76 /* TitleView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AE3CFD5E26C50B8300847D76 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE3CFD5926C4F6A700847D76 /* ReportTableViewController.swift */,
+				E070420D26B90C5700E7F485 /* ReportViewVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AE3CFD5F26C50B9E00847D76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AE7074B026B3FBAB000255A3 /* Over */ = {
@@ -454,10 +497,11 @@
 		E0FBFC7926AD55AE00EDCEBC /* Reports */ = {
 			isa = PBXGroup;
 			children = (
+				AE3CFD5F26C50B9E00847D76 /* View */,
+				AE3CFD5E26C50B8300847D76 /* Controllers */,
+				AE3CFD5B26C50B2600847D76 /* Components */,
+				AE3CFD5426C4F64B00847D76 /* Cells */,
 				E0B3462D26B284C40076D482 /* Monthly Line Chart */,
-				E0FBFC7C26AD55FB00EDCEBC /* Report.storyboard */,
-				E02CB40B26B0CCF000A39B2C /* MonthsTableViewCell.swift */,
-				E070420D26B90C5700E7F485 /* ReportViewVC.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -628,16 +672,20 @@
 				AE07D3EC26BBD2B700526190 /* DailyLoader.swift in Sources */,
 				AE07D3E426BBA74A00526190 /* PillMarker.swift in Sources */,
 				E0B3463A26B291A30076D482 /* AboutUsViewController.swift in Sources */,
+				AE3CFD5626C4F66200847D76 /* GrafTableViewCell.swift in Sources */,
 				E0FBFC7F26AE73AD00EDCEBC /* GraphView.swift in Sources */,
 				AEFDAAE026B290A600E0BBDB /* CellThreeTableViewCell.swift in Sources */,
 				AE7074AB26B2A41F000255A3 /* CellFiveTableViewCell.swift in Sources */,
 				AE85AAC726AFEEDB00263786 /* GraphViewChart.swift in Sources */,
+				AE3CFD5D26C50B3B00847D76 /* TitleView.swift in Sources */,
 				AE07D40326BD3DAC00526190 /* Core.swift in Sources */,
 				AEBF610F26AEBE83002EB776 /* LineChartDepan.swift in Sources */,
 				E070420E26B90C5700E7F485 /* ReportViewVC.swift in Sources */,
 				E0C3E24E26B3C6D7003AFC74 /* PowerCell.swift in Sources */,
+				AE3CFD5826C4F66E00847D76 /* ListTableViewCell.swift in Sources */,
 				AE7074B626B41256000255A3 /* OnboardingViewController.swift in Sources */,
 				AEFDAADE26B2907C00E0BBDB /* CellTwoTableViewCell.swift in Sources */,
+				AE3CFD5A26C4F6A700847D76 /* ReportTableViewController.swift in Sources */,
 				AEFDAADC26B2906D00E0BBDB /* CellOneTableViewCell.swift in Sources */,
 				AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */,
 				AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */,

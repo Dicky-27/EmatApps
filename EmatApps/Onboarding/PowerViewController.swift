@@ -36,11 +36,12 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         stratButton.layer.borderWidth = 2
         stratButton.layer.borderColor = UIColor(named: "Primary")?.cgColor
         createPickerView()
-        dismissPickerView()
         targetTf.addBottomBorder()
         
         self.targetTf.delegate = self
         self.hideKeyboardWhenTappedAround()
+        
+  
         
     }
     
@@ -88,20 +89,7 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
            powerTf.inputView = pickerView
     }
     
-    
-    func dismissPickerView() {
-       let toolBar = UIToolbar()
-       toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(action))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-
-       toolBar.setItems([flexibleSpace, button], animated: true)
-    
-       toolBar.isUserInteractionEnabled = true
-       powerTf.inputAccessoryView = toolBar
-    }
-    
-    
+ 
     @objc func action() {
           view.endEditing(true)
     }
@@ -158,14 +146,15 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let alert = UIAlertController(title: "Oops", message: "Please fill out your power and monthly budget.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
+            
             self.present(alert, animated: true, completion: nil)
             
             
             
         }else {
+            
             Core.shared.setIsNotNewUsert()
-            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-            //dismiss(animated: true, completion: nil)
+            self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             
         }
     }

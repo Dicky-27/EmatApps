@@ -97,20 +97,26 @@ class OverTableViewController: UITableViewController {
     
     let viewBaru = UIView()
     
+    var isEmpty: Bool {
+        do {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+            let count  = try context.count(for: request)
+            return count == 0
+        } catch {
+            return true
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         self.refreshControl?.attributedTitle = .none
         
     // loadData()
         
         setLoadingScreen()
-        
         setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
-       
-        
         self.tableView.separatorStyle = .none
         navigationItem.title = nil
         navigationController?.navigationBar.isTranslucent = false
@@ -118,14 +124,6 @@ class OverTableViewController: UITableViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         titleStackView.button.addTarget(self, action: #selector(settingButton) , for: .touchUpInside)
-        
-        
-        //load data from server
-       // loadPowerData()
-        //        setData()
-        
-        
-     //   tableView.isScrollEnabled = false
         
       
         let notificationCenter = NotificationCenter.default
@@ -136,9 +134,20 @@ class OverTableViewController: UITableViewController {
         viewBaru.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 0)
         viewBaru.backgroundColor = UIColor(named: "Background")
         tableView.insertSubview(viewBaru, belowSubview: self.refreshControl!)
+      
+      
+        checkUserByData()
+        if Core.shared.isNewUser() {
+            //show onboarding
+            let vc = storyboard?.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+            
+        }
     }
-
     
+    
+  
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
@@ -148,13 +157,7 @@ class OverTableViewController: UITableViewController {
         loadData()
         loadPowerData()
         
-        if Core.shared.isNewUser() {
-            //show onboarding
-            let vc = storyboard?.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-            
-        }
+    
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
 //                //call any function
@@ -562,10 +565,17 @@ class OverTableViewController: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
+    private func checkUserByData() {
+        if isEmpty == true {
+            UserDefaults.standard.set(false, forKey: "isNewUser")
+        }else {
+            UserDefaults.standard.set(true, forKey: "isNewUser")
+        }
+    }
+    
     private func setLoadingScreen() {
 
-          //  let height = tableView.frame.size.height
-        
+        //  let height = tableView.frame.size.height
         let barHeight = (navigationController?.navigationBar.frame.height)!
         let titleHeight = tableHeaderView.frame.height
         
@@ -576,46 +586,42 @@ class OverTableViewController: UITableViewController {
         loadingView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - barHeight - titleHeight)
 
 
-            loadingView.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
-            loadingView.backgroundColor = UIColor(named: "Background")
+        loadingView.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
+        loadingView.backgroundColor = UIColor(named: "Background")
 
 
-            // Sets spinner
+        // Sets spinner
+        loadingLabel.textColor = .gray
+        loadingLabel.textAlignment = .center
+        loadingLabel.font = UIFont(name: "Circular Std", size: 10)
+        loadingLabel.text = "LOADING"
+        loadingLabel.frame = CGRect(x: 0, y: 5, width: 140, height: 30)
+        loadingLabel.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot + 20)
+    
+        spinner.style = .medium
+        spinner.color = UIColor(named: "AccentColor")
+        spinner.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        spinner.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot)
+
+        loadingView.insertSubview(loadingLabel, at: 1)
+        loadingView.insertSubview(spinner, at: 1)
         
-            loadingLabel.textColor = .gray
-            loadingLabel.textAlignment = .center
-            loadingLabel.font = UIFont(name: "Circular Std", size: 10)
-            loadingLabel.text = "LOADING"
-            loadingLabel.frame = CGRect(x: 0, y: 5, width: 140, height: 30)
-            loadingLabel.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot + 20)
-                
-        
-            spinner.style = .medium
-            spinner.color = UIColor(named: "AccentColor")
-            spinner.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-            spinner.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot)
+        tableView.addSubview(loadingView)
 
-            loadingView.insertSubview(loadingLabel, at: 1)
-            loadingView.insertSubview(spinner, at: 1)
-            
-            tableView.addSubview(loadingView)
-
-            tableView.isUserInteractionEnabled = false
-        
-            spinner.hidesWhenStopped = true
-            spinner.startAnimating()
+        tableView.isUserInteractionEnabled = false
+    
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
 
         }
 
         // Remove the activity indicator from the main view
         private func removeLoadingScreen() {
             
-            tableView.isUserInteractionEnabled = true
-            loadingView.removeFromSuperview()
-            spinner.removeFromSuperview()
+        tableView.isUserInteractionEnabled = true
+        loadingView.removeFromSuperview()
+        spinner.removeFromSuperview()
             
-          
-
         }
     
     func setTableViewBackgroundGradient(_ topColor:UIColor, _ bottomColor:UIColor) {
@@ -632,7 +638,8 @@ class OverTableViewController: UITableViewController {
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
         tableView.backgroundView = backgroundView
     }
-
+    
+    
     
 }
 
