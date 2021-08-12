@@ -44,7 +44,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkb-8M-yEt" userLabel="GraphView" customClass="GraphView" customModule="EmatApps" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="60.666666666666657" width="350" height="239.99999999999997"/>
+                                                <rect key="frame" x="20" y="60.666666666666686" width="350" height="240"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Comparison" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-ja-JgZ">
                                                         <rect key="frame" x="8" y="3.9999999999999982" width="192" height="25.333333333333329"/>
@@ -53,7 +53,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6br-xh-ldt">
-                                                        <rect key="frame" x="8" y="219.33333333333334" width="334" height="12.666666666666657"/>
+                                                        <rect key="frame" x="8" y="219.33333333333331" width="334" height="12.666666666666657"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azd-I9-0Uq" userLabel="0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="12.666666666666666"/>
@@ -310,10 +310,10 @@
                                             <rect key="frame" x="20" y="11" width="350" height="251"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XmZ-nk-zpz">
-                                                    <rect key="frame" x="5" y="231.33333333333334" width="340" height="11.666666666666657"/>
+                                                    <rect key="frame" x="5" y="230.33333333333334" width="340" height="12.666666666666657"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSL-i1-AR4" userLabel="0">
-                                                            <rect key="frame" x="0.0" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="cQu-6D-6YK"/>
                                                             </constraints>
@@ -322,7 +322,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1T-yq-Mpp" userLabel="1">
-                                                            <rect key="frame" x="28.666666666666664" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="28.666666666666664" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="8oH-Y9-ubT"/>
                                                             </constraints>
@@ -331,7 +331,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t21-pA-PTP" userLabel="2">
-                                                            <rect key="frame" x="57.666666666666671" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="57.666666666666671" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="eBa-uX-60g"/>
                                                             </constraints>
@@ -340,7 +340,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Des" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-b6-4sR" userLabel="3">
-                                                            <rect key="frame" x="86.333333333333329" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="86.333333333333329" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="0Ms-9i-UNj"/>
                                                             </constraints>
@@ -349,7 +349,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVe-Yg-Tji" userLabel="4">
-                                                            <rect key="frame" x="115.33333333333334" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="115.33333333333334" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="ODt-aw-evN"/>
                                                             </constraints>
@@ -358,7 +358,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAj-F1-wq9" userLabel="5">
-                                                            <rect key="frame" x="144" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="144" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="j4F-Tz-zog"/>
                                                             </constraints>
@@ -367,7 +367,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhS-4b-mFp" userLabel="6">
-                                                            <rect key="frame" x="173" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="173" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="93d-H5-on0"/>
                                                             </constraints>
@@ -376,7 +376,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbO-mz-4IY" userLabel="7">
-                                                            <rect key="frame" x="201.66666666666666" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="201.66666666666666" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="WxH-Qu-1GM"/>
                                                             </constraints>
@@ -385,7 +385,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gZ-yW-Yh0" userLabel="8">
-                                                            <rect key="frame" x="230.66666666666666" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="230.66666666666666" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="dc5-Vs-5BO"/>
                                                             </constraints>
@@ -394,7 +394,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jj-nZ-h6U" userLabel="9">
-                                                            <rect key="frame" x="259.33333333333331" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="259.33333333333331" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="TCS-Rx-7So"/>
                                                             </constraints>
@@ -403,7 +403,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFU-WH-Rxp" userLabel="10">
-                                                            <rect key="frame" x="288.33333333333331" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="288.33333333333331" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="xM1-bX-iut"/>
                                                             </constraints>
@@ -412,7 +412,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-KP-YCI" userLabel="11">
-                                                            <rect key="frame" x="317" y="0.0" width="23" height="11.666666666666666"/>
+                                                            <rect key="frame" x="317" y="0.0" width="23" height="12.666666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="37Y-E1-ywg"/>
                                                             </constraints>
@@ -431,7 +431,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Comparison" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajN-ao-9am">
-                                            <rect key="frame" x="25" y="15.999999999999998" width="131" height="16.333333333333329"/>
+                                            <rect key="frame" x="25" y="16" width="150" height="19.666666666666671"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                             <color key="textColor" name="LabelColor"/>
                                             <nil key="highlightedColor"/>
@@ -463,7 +463,7 @@
                                             <rect key="frame" x="20" y="11" width="350" height="78"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQn-pV-TQE">
-                                            <rect key="frame" x="40" y="39.666666666666664" width="160" height="21"/>
+                                            <rect key="frame" x="40" y="37.333333333333336" width="160" height="25.333333333333336"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="160" id="B1h-NB-ndm"/>
                                             </constraints>
@@ -472,7 +472,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAP-Me-dNM">
-                                            <rect key="frame" x="250" y="57" width="100" height="14"/>
+                                            <rect key="frame" x="250" y="59" width="100" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="jQX-lu-2fw"/>
                                             </constraints>
@@ -481,7 +481,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyA-LR-c1i">
-                                            <rect key="frame" x="230" y="26" width="120" height="21"/>
+                                            <rect key="frame" x="230" y="26" width="120" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="s3w-1J-zk9"/>
                                             </constraints>

@@ -97,6 +97,8 @@ class ReportTableViewController: UITableViewController {
                 }
             }
             
+            cell.selectionStyle = .none
+            
             return cell
         }else {
             

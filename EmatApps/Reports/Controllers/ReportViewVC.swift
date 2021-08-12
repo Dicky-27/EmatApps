@@ -29,16 +29,13 @@ class ReportViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var isidata            : [MonthlyPower] = []
     var hargaPerKwh        : Float = 1444.70 //predefine price per kwh
     
-<<<<<<< HEAD:EmatApps/Reports/Controllers/ReportViewVC.swift
+
     //get the data from MonthlyPower.json
     let allMonthData            = MonthlyData.init()
-    var isidata: [MonthlyPower] = []
     var harga: Float            = 1444.70 //predefine price per kwh
     
     var monthlyDataList: [MonthlyPower] = []
     
-=======
->>>>>>> fromTia1:EmatApps/Reports/ReportViewVC.swift
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -127,9 +127,8 @@ class GraphView: UIView {
             )
             
             // Draw vertical graph lines
-            let linePath = UIBezierPath(roundedRect: rect,
-                                        byRoundingCorners: .allCorners,
-                                        cornerRadii: Constants.cornerRadiusSize)
+            let linePath = UIBezierPath()
+            
             linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder+5))
             linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder+4))
             
