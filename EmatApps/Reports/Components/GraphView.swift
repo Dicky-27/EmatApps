@@ -9,7 +9,7 @@ import UIKit
 
 private enum Constants {
     static let cornerRadiusSize = CGSize(width: 10.0, height: 8.0)
-    static let margin: CGFloat = 8
+    static let margin: CGFloat = 20
     static let topBorder: CGFloat = 60
     static let bottomBorder: CGFloat = 30
     static let colorAlpha: CGFloat = 0.3
@@ -22,6 +22,9 @@ class GraphView: UIView {
     let monthData = MonthlyData.init()
     var monthContent: [MonthlyPower] = []
     var graphPoint : [Float] = []
+    
+    var labelData: [String] = []
+   
 
     override func draw(_ rect: CGRect) {
         
@@ -108,8 +111,11 @@ class GraphView: UIView {
         // Draw the line on top of the clipped gradient
         graphPath.lineWidth = 2.0
         graphPath.stroke()
-        
+
+
         // Draw the circles on top of the graph stroke
+        
+        
         for i in 0..<graphPoint.count {
             #colorLiteral(red: 0.09847373515, green: 0.512232244, blue: 0.823799789, alpha: 1).setFill()
             var point = CGPoint(x: columnXPoint(i), y: columnYPoint( Int(graphPoint[i]) ))
@@ -136,11 +142,24 @@ class GraphView: UIView {
             color.setStroke()
             linePath.lineWidth = 1.5
             
-            let dashPattern: [CGFloat] = [4.0, 0.0]
+            let dashPattern: [CGFloat] = [4.0, 2.0]
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
             linePath.stroke(with: .exclusion, alpha: 0.25)
-            currPoint += spacingPoint
             
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+            //Draw label
+            label.font = UIFont(name: "Circular Std", size: 10)
+            label.center = CGPoint(x: columnXPoint(i), y: graphHeight + topBorder+15)
+            label.textAlignment = .center
+            
+            if labelData.isEmpty == false {
+                label.text = labelData[i]
+            }
+            
+            self.insertSubview(label, at: 1)
+            
+            currPoint += spacingPoint
             circle.fill()
             
         }

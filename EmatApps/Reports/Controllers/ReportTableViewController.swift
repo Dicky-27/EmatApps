@@ -10,6 +10,11 @@ import UIKit
 class ReportTableViewController: UITableViewController {
 
     
+    let loadingView = UIView()
+    let spinner = UIActivityIndicatorView()
+    let loadingLabel = UILabel()
+    
+    
     let rupiahFormatter = NumberFormatter()
     let allMonthData            = MonthlyData.init()
     var isidata: [MonthlyPower] = []
@@ -38,8 +43,10 @@ class ReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getMonthlyData()
+        setLoadingScreen()
         tableView.separatorStyle = .none
+        
+        tableView.backgroundColor = UIColor(named: "Wblack")
         
         navigationItem.title = nil
         navigationController?.navigationBar.isTranslucent = false
@@ -47,6 +54,15 @@ class ReportTableViewController: UITableViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.refreshControl?.attributedTitle = .none
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLoadingScreen()
+        getMonthlyData()
     }
 
     // MARK: - Table view data source
@@ -74,7 +90,7 @@ class ReportTableViewController: UITableViewController {
         
         if indexPath.section == 0 {
             
-            let maxDayIndex = cell.monthsLabel.arrangedSubviews.count - 1
+            let maxDayIndex = monthlyDataList.count - 1
             
             // refresh the chart
             cell.graph.setNeedsDisplay()
@@ -83,19 +99,14 @@ class ReportTableViewController: UITableViewController {
             cell.graph.layer.borderColor = UIColor.clear.cgColor
             cell.graph.layer.masksToBounds = true
             
-            // Setup date formatter for month label
-            //let currentMonth = Date()
-            //let calendar     = Calendar.current
-            let formatter    = DateFormatter()
-            formatter.setLocalizedDateFormatFromTemplate("MMM")
-            
-            // Set up the month name labels with sorted months
             
             for i in 0..<monthlyDataList.count {
-                if let label = cell.monthsLabel.arrangedSubviews[maxDayIndex - i] as? UILabel {
-                    label.text = monthlyDataList[i].month_simple
-                }
+                cell.graph.labelData.append(monthlyDataList[maxDayIndex - i].month_simple)
             }
+            
+            let formatter    = DateFormatter()
+            formatter.setLocalizedDateFormatFromTemplate("MMM")
+        
             
             cell.selectionStyle = .none
             
@@ -121,12 +132,8 @@ class ReportTableViewController: UITableViewController {
                 
                 
             }
-            
             return cell2
         }
-
-        // Configure the cell...
-
         
     }
     
@@ -167,6 +174,7 @@ class ReportTableViewController: UITableViewController {
         
         performSegue(withIdentifier: "toDetail", sender: dataParam)
     }
+    
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -186,6 +194,53 @@ class ReportTableViewController: UITableViewController {
         }
     }
     
+    private func setLoadingScreen() {
+
+        let barHeight = (navigationController?.navigationBar.frame.height)!
+        let titleHeight = tableHeaderView.frame.height
+        
+        let tabHeight = (tabBarController?.tabBar.frame.height)!
+        let heighTot = barHeight + titleHeight + tabHeight
+        
+        
+        loadingView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - barHeight - titleHeight)
+
+
+        loadingView.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
+        loadingView.backgroundColor = UIColor(named: "Wblack")
+        loadingLabel.textColor = .gray
+        loadingLabel.textAlignment = .center
+        loadingLabel.font = UIFont(name: "Circular Std", size: 10)
+        loadingLabel.text = "LOADING"
+        loadingLabel.frame = CGRect(x: 0, y: 5, width: 140, height: 30)
+        loadingLabel.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot + 20)
+    
+        spinner.style = .medium
+        spinner.color = UIColor(named: "AccentColor")
+        spinner.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        spinner.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot)
+
+        loadingView.insertSubview(loadingLabel, at: 1)
+        loadingView.insertSubview(spinner, at: 1)
+        
+        tableView.addSubview(loadingView)
+
+        tableView.isUserInteractionEnabled = false
+    
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+
+        }
+
+        // Remove the activity indicator from the main view
+        private func removeLoadingScreen() {
+            
+        tableView.isUserInteractionEnabled = true
+        loadingView.removeFromSuperview()
+        spinner.removeFromSuperview()
+            
+        }
+    
     func getMonthlyData(){
         
         APIRequest.fetchMonthlyEnergyData(url: Constant.GET_MONTHLY_ENERGY_LIST,showLoader: true) { response in
@@ -198,7 +253,7 @@ class ReportTableViewController: UITableViewController {
             DispatchQueue.main.async {
                // self.setData()
                 self.tableView.reloadData()
-                //self.removeLoadingScreen()
+                self.removeLoadingScreen()
             }
             
         } failCompletion: { message in
@@ -206,6 +261,14 @@ class ReportTableViewController: UITableViewController {
             // dismiss loader
            print(message)
         }
+    }
+    
+    @objc func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
+        self.getMonthlyData()
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
 
 }

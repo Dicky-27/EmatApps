@@ -126,9 +126,6 @@ class GraphViewChart: UIView {
                 self.addSubview(label)
             }
             
-            
-            
-            
         }
         
         //line bawah

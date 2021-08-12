@@ -261,6 +261,7 @@
 		AE3CFD5B26C50B2600847D76 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */,
 				AE3CFD5C26C50B3B00847D76 /* TitleView.swift */,
 			);
 			path = Components;
@@ -403,14 +404,6 @@
 			path = "Budget Progress Bar";
 			sourceTree = "<group>";
 		};
-		E0B3462D26B284C40076D482 /* Monthly Line Chart */ = {
-			isa = PBXGroup;
-			children = (
-				E0FBFC7E26AE73AD00EDCEBC /* GraphView.swift */,
-			);
-			path = "Monthly Line Chart";
-			sourceTree = "<group>";
-		};
 		E0B3462E26B284EC0076D482 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,7 +494,6 @@
 				AE3CFD5E26C50B8300847D76 /* Controllers */,
 				AE3CFD5B26C50B2600847D76 /* Components */,
 				AE3CFD5426C4F64B00847D76 /* Cells */,
-				E0B3462D26B284C40076D482 /* Monthly Line Chart */,
 			);
 			path = Reports;
 			sourceTree = "<group>";

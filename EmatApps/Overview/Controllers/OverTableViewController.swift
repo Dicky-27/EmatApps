@@ -80,7 +80,6 @@ class OverTableViewController: UITableViewController {
         
     
     //Properties
-
     let loadingView = UIView()
     let spinner = UIActivityIndicatorView()
     let loadingLabel = UILabel()
