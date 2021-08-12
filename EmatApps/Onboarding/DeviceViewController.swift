@@ -13,8 +13,6 @@ class DeviceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         atasButton.layer.cornerRadius = 8
         bawahButton.layer.cornerRadius = 8
@@ -34,7 +32,6 @@ class DeviceViewController: UIViewController {
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .coverVertical
         present(controller, animated: true, completion: nil)
-        
       
     }
     

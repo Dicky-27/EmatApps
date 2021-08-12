@@ -10,7 +10,6 @@ import UIKit
 @IBDesignable
 class AboutUsViewController: UIViewController {
     
-  //  let label = UILabel()
     @IBOutlet weak var descLbl: UILabel!
     
     @IBOutlet weak var contactButt: UIButton!
@@ -19,20 +18,18 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
-        
         let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
         attributedString.setColorForText(textForAttribute: "Emat", withColor: #colorLiteral(red: 0.08218777925, green: 0.5918437839, blue: 0.8580096364, alpha: 1))
         attributedString.setColorForText(textForAttribute: "monitor", withColor: #colorLiteral(red: 0.08218777925, green: 0.5918437839, blue: 0.8580096364, alpha: 1))
         attributedString.setColorForText(textForAttribute: "compare", withColor: #colorLiteral(red: 0.08218777925, green: 0.5918437839, blue: 0.8580096364, alpha: 1))
         attributedString.setColorForText(textForAttribute: "forecast", withColor: #colorLiteral(red: 0.08218777925, green: 0.5918437839, blue: 0.8580096364, alpha: 1))
         
-        descLbl.font = UIFont(name: "Poppins", size: 14)
-        descLbl.attributedText = attributedString
-        contactButt.layer.borderColor = UIColor.clear.cgColor
-        contactButt.layer.cornerRadius = 8
-        contactButt.layer.borderWidth = 2
+        descLbl.font            = UIFont(name: "Poppins", size: 14)
+        descLbl.attributedText  = attributedString
         
+        contactButt.layer.borderColor  = UIColor.clear.cgColor
+        contactButt.layer.cornerRadius = 8
+        contactButt.layer.borderWidth  = 2
         
     }
     

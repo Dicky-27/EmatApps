@@ -31,7 +31,6 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         stratButton.layer.cornerRadius = 8
         stratButton.layer.borderWidth = 2
         stratButton.layer.borderColor = UIColor(named: "Primary")?.cgColor
@@ -40,16 +39,8 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         self.targetTf.delegate = self
         self.hideKeyboardWhenTappedAround()
-        
-  
-        
+         
     }
-    
-
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        return false
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         newUser()
@@ -64,11 +55,9 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return powerData.count
     }
    
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return powerData[row] // dropdown item
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedPower = powerData[row] // selected item
@@ -89,13 +78,10 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
            powerTf.inputView = pickerView
     }
     
- 
     @objc func action() {
           view.endEditing(true)
     }
 
-    
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         switch string {
@@ -136,11 +122,6 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     @IBAction func getStartedButton(_ sender: UIButton) {
         
-        //Saving
-        
-        
-        //Dismiss
-        
         if powerTf.text == "" || targetTf.text == "" {
                 // either textfield 1 or 2's text is empty
             let alert = UIAlertController(title: "Oops", message: "Please fill out your power and monthly budget.", preferredStyle: UIAlertController.Style.alert)
@@ -149,9 +130,7 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             self.present(alert, animated: true, completion: nil)
             
-            
-            
-        }else {
+        } else {
             
             Core.shared.setIsNotNewUsert()
             self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -173,10 +152,8 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
            } catch {
                print("Error saving category \(error)")
            }
-   
-          // tableView.reloadData()
-   
-       }
+        
+    }
 }
 
 extension UITextField {

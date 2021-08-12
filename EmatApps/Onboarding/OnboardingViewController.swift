@@ -54,9 +54,9 @@ class OnboardingViewController: UIViewController {
             let controller = storyboard?.instantiateViewController(identifier: "Device") as! DeviceViewController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .coverVertical
-           // Core.shared.setIsNotNewUsert()
+            
             present(controller, animated: true, completion: nil)
-           // dismiss(animated: true, completion: nil)
+            
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)

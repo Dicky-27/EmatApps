@@ -14,11 +14,9 @@ class CellTwoTableViewCell: UITableViewCell {
     @IBOutlet weak var progressBudget: MonthlyBudget!
     
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         
     }
 
