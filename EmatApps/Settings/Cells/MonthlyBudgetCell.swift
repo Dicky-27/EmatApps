@@ -24,9 +24,7 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-      
-        
+
         budgetTf.delegate = self
         budgetTf.borderStyle = .none
         
@@ -39,8 +37,6 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
 
         // Configure the view for the selected state
     }
-    
-  
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
@@ -82,16 +78,12 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
   
           let request : NSFetchRequest<User> = User.fetchRequest()
   
-          do{
+          do {
               user = try context.fetch(request)
           } catch {
               print("Error loading categories \(error)")
           }
-  
-         // tableView.reloadData()
-  
-      }
-    
-    
+
+    }
     
 }

@@ -9,8 +9,6 @@ import UIKit
 import CoreData
 
 class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
-  
-   
     
     @IBOutlet weak var powerTf: UITextField!
     
@@ -25,8 +23,6 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
         // Initialization code
         loadData()
         createPickerView()
-  //      dismissPickerView()
-       
       
     }
 
@@ -36,7 +32,6 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
         // Configure the view for the selected state
     }
     
-   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -54,7 +49,6 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
         selectedPower = powerData[row] // selected item
         powerTf.text = selectedPower
         PowerViewController.power = selectedPower ?? ""
-       // PowerViewController.pow = Float(selectedPower?.westernArabicNumeralsOnly)
         
         let numberFormatter = NumberFormatter()
         let number = numberFormatter.number(from: selectedPower?.westernArabicNumeralsOnly ?? "")
@@ -69,24 +63,6 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
            pickerView.delegate = self
            powerTf.inputView = pickerView
     }
-    
-    
-//    func dismissPickerView() {
-//       let toolBar = UIToolbar()
-//       toolBar.sizeToFit()
-//        let button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(action))
-//        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//
-//       toolBar.setItems([flexibleSpace, button], animated: true)
-//
-//       toolBar.isUserInteractionEnabled = true
-//       powerTf.inputAccessoryView = toolBar
-//    }
-//
-//
-//    @objc func action() {
-//          self.endEditing(true)
-//    }
 
     func loadData() {
   
@@ -97,13 +73,9 @@ class PowerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
           } catch {
               print("Error loading categories \(error)")
           }
-  
-         // tableView.reloadData()
-  
-      }
+    }
     
 }
-
 
 extension String {
     var westernArabicNumeralsOnly: String {

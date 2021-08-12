@@ -13,5 +13,4 @@ class DailyUsageTableViewCell: UITableViewCell {
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var dailyKwhLabel: UILabel!
     
-    
 }

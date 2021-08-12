@@ -28,7 +28,6 @@ class TitleStackView: UIStackView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-       // label.font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize, weight: .light)
         label.font = UIFont(name: "Circular Std", size: 32)
         
         label.text = "Emat"
@@ -41,8 +40,6 @@ class TitleStackView: UIStackView {
     lazy var button: UIButton = {
         let buttonWidth: CGFloat = 25.0
         let image = UIImage(systemName: "gearshape")
-
-    
         
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: buttonWidth, height: buttonWidth)))
         button.setImage(image, for: .normal)
@@ -55,7 +52,6 @@ class TitleStackView: UIStackView {
         
         return button
     }()
-    
     
 }
 
