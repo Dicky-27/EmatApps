@@ -1,0 +1,6 @@
+framework module Pods_EmatApps {
+  umbrella header "Pods-EmatApps-umbrella.h"
+
+  export *
+  module * { export * }
+}
