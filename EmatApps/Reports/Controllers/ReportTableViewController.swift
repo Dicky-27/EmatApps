@@ -8,11 +8,11 @@
 import UIKit
 
 class ReportTableViewController: UITableViewController {
-
+    
     let loadingView     = UIView()
     let spinner         = UIActivityIndicatorView()
     let loadingLabel    = UILabel()
-    let rupiahFormatter = NumberFormatter()
+    let dateFormatter   = DateFormatter()
     var harga: Float    = 1444.70 //predefine price per kwh
     
     var monthlyDataList: [MonthlyPower] = []
@@ -88,19 +88,24 @@ class ReportTableViewController: UITableViewController {
         if indexPath.section == 0 {
             
             let maxDayIndex = monthlyDataList.count - 1
-
-            cell.graph.setNeedsDisplay()
-            cell.graph.layer.cornerRadius = 8
-            cell.graph.layer.borderWidth = 1
-            cell.graph.layer.borderColor = UIColor.clear.cgColor
-            cell.graph.layer.masksToBounds = true
             
+            // pass necessary data to graph view
+            cell.graph.monthContent = monthlyDataList
+            var powerList : [Float] = []
             for i in 0..<monthlyDataList.count {
                 cell.graph.labelData.append(monthlyDataList[maxDayIndex - i].month_simple)
+                powerList.append( monthlyDataList[maxDayIndex - i].monthly_power )
             }
+            cell.graph.graphPoint = powerList
             
-            let formatter    = DateFormatter()
-            formatter.setLocalizedDateFormatFromTemplate("MMM")
+            // setting up UI for graph
+            cell.graph.setNeedsDisplay()
+            cell.graph.layer.cornerRadius   = 8
+            cell.graph.layer.borderWidth    = 1
+            cell.graph.layer.borderColor    = UIColor.clear.cgColor
+            cell.graph.layer.masksToBounds  = true
+            
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
             
             cell.selectionStyle = .none
             
@@ -110,20 +115,17 @@ class ReportTableViewController: UITableViewController {
             
             if monthlyDataList.count != 0 {
                 
-                rupiahFormatter.numberStyle           = .decimal
-                rupiahFormatter.groupingSeparator     = "."
-                rupiahFormatter.maximumFractionDigits = 0
+                let kwhPow      = monthlyDataList[indexPath.row].monthly_power
+                let kwhPower    = Helper.kwhFormatter(number : kwhPow)
+                let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga
+                let rupiahPower = Helper.rpFormatter(number : totalSpend)
                 
-                let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga              //rupiahLabel calc
-                let rupiahPower = rupiahFormatter.string(from: NSNumber(value: totalSpend))         //change totalspend to string
-                let kwhPower    = String(monthlyDataList[indexPath.row].monthly_power)              //change kwh to string
-                
-                //displaying all the months labels
-                cell2.tableImage.layer.cornerRadius    = 9
-                cell2.monthLabel.text                  = monthlyDataList[indexPath.row].month_full
-                cell2.kwhLabel.text                    = "\(kwhPower) kWh"
-                cell2.rupiahLabel.text                 = "Rp \(rupiahPower ?? "0")"
-                cell2.selectionStyle                   = .none
+                // displaying all the months labels
+                cell2.tableImage.layer.cornerRadius = 8
+                cell2.monthLabel.text               = monthlyDataList[indexPath.row].month_full
+                cell2.kwhLabel.text                 = kwhPower
+                cell2.rupiahLabel.text              = rupiahPower
+                cell2.selectionStyle                = .none
             }
             return cell2
         }
@@ -136,6 +138,7 @@ class ReportTableViewController: UITableViewController {
             return 100
         }
     }
+   
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let maxTitlePoint = tableView.convert(CGPoint(x: titleStackView.titleLabel.bounds.minX, y: titleStackView.titleLabel.bounds.maxY), from: titleStackView.titleLabel)
@@ -145,12 +148,9 @@ class ReportTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        rupiahFormatter.numberStyle           = .decimal
-        rupiahFormatter.groupingSeparator     = "."
-        rupiahFormatter.maximumFractionDigits = 0
         
-        let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga              //rupiahLabel calc
-        let rupiahPower = rupiahFormatter.string(from: NSNumber(value: totalSpend))         //change totalspend to string
+        let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga
+        let rupiahPower = Helper.rpFormatter(number: totalSpend)
         
         let row = indexPath.row
         let dataParam : [String : Any] = [
@@ -174,7 +174,6 @@ class ReportTableViewController: UITableViewController {
                 detailVC.monthDetailPow    = dataPow.monthly_power
                 detailVC.monthDetailBill   = rupiahPower
                 detailVC.monthBudget       = dataPow.monthly_budget
-                
             }
         }
     }
@@ -235,7 +234,7 @@ class ReportTableViewController: UITableViewController {
             }
             
         } failCompletion: { message in
-
+            
             print(message)
         }
     }

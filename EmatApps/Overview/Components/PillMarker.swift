@@ -78,18 +78,18 @@ class PillMarker: MarkerImage {
         labelText.draw(with: rectangle, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
         
         let circleRect = CGRect(x: point.x - radius, y: point.y - radius, width: radius * 2, height: radius * 2)
-        context.setFillColor(UIColor(named: "Accent")?.cgColor ?? color.cgColor)
+        context.setFillColor(UIColor(named: "AccentColor")?.cgColor ?? color.cgColor)
         context.fillEllipse(in: circleRect)
         context.restoreGState()
     }
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
-        labelText = customString(Int(entry.y), valueX: Int(entry.x))
+        labelText = customString( value: entry.y, valueX: Int(entry.x))
         
     }
     
-    private func customString(_ value: Int, valueX: Int) -> String {
-        
-        return "Energy : \(TimeInterval(value)) Kwh \n Day : \(valueX)"
+    private func customString(value: Double, valueX: Int) -> String {
+        let kwh = Helper.kwhFormatter(number: Float(TimeInterval(value)))
+        return "Energy : \(kwh) \n Day : \(valueX)"
     }
 }

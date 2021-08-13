@@ -11,7 +11,7 @@ import UIKit
 
 class ChartSetup: UIView{
     
-        var lineChartView: LineChartView = {
+       static var lineChartView: LineChartView = {
         let chartView = LineChartView()
         let yAxis = chartView.leftAxis
 
@@ -50,92 +50,59 @@ class ChartSetup: UIView{
         return chartView
     }()
     
-    override func draw(_ rect: CGRect) {
+    static func drawing(view: UIView) {
+        
         setData()
-        self.addSubview(lineChartView)
-        lineChartView.frame = CGRect(x: 0, y: 0, width: rect.width, height: rect.height)
+        view.addSubview(lineChartView)
+        lineChartView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        
         
     }
     
-    func setData() {
+    static func setData() {
         
-//        print("hello")
-//        var kwhTot:Float = 0
-//        var power:Float = 0
-//        var cekIndex = 1
-        
-        var dataEntries1 = [ChartDataEntry]()
+        let dataEntries1 = [ChartDataEntry]()
         var dataEntries2 = [ChartDataEntry]()
+        var power: Float = 0
+        var kwhTot: Float = 0
+        let formatter = DateFormatter()
+        let un = Date()
         
         if EnergiesLoad.energyModel.isEmpty == false {
-        for i in 0..<EnergiesLoad.energyModel.count{
-            guard let y = EnergiesLoad.energyModel[i].power else { return }
 
-
-            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
-
-
-            dataEntries1.append(entry)
-
-            }
-            
-        for i in 0..<EnergiesLoad.energyModel.count{
-            guard let y = EnergiesLoad.energyModel[i].power else { return }
-
-
-            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
-
-
-            dataEntries2.append(entry)
-
-            }
-  /*
-        for i in stride(from: 0, through: EnergiesLoad.energyModel.count, by: 1) {
-                
-                cekIndex += i
-
-                if (cekIndex >= 0 && EnergiesLoad.energyModel.count > cekIndex) {
-
-                    let isoDate = EnergiesLoad.energyModel[i].created_at ?? ""
-                    let nextDay = EnergiesLoad.energyModel[i].created_at ?? ""
-
-                    let dateFormatter = DateFormatter()
-
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
-                    dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-                    let date = dateFormatter.date(from: isoDate)
-                    let dateNext = dateFormatter.date(from: nextDay)
-
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss xxxx'"
-                    dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
-
-
-                    let calendar = Calendar.current
-                    let unwrap = Date()
-
-                    let day = calendar.component(.day, from: date ?? unwrap)
-                    let datAfter = calendar.component(.day, from: dateNext ?? unwrap)
-
-
-                    if day == datAfter {
-
-                        power = EnergiesLoad.energyModel[i].power ?? 0
-                        kwhTot += power/1000
-
-                    }else {
-
-                         let entry2 = ChartDataEntry.init(x: Double(i), y: Double(kwhTot))
-                         dataEntries2.append(entry2)
-                         
-                        
-                    }
-                }
-
-            }
-           
-        }
+        let lastIndex = EnergiesLoad.energyModel.count - 1
         
-     */
+            
+            for i in 0..<EnergiesLoad.energyModel.count {
+                
+               
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
+                formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
+                let isoDate = EnergiesLoad.energyModel[lastIndex - i].created_at ?? ""
+                let date = formatter.date(from: isoDate)
+
+                formatter.dateFormat = "yyyy-MM-dd"
+                formatter.timeZone = .current
+
+                let itu = formatter.string(from: date ?? un)
+                let results = EnergiesLoad.energyModel.filter { ($0.created_at ?? "").contains(itu) }
+                let calendar = Calendar.current
+                let unwrap = Date()
+
+                let day = calendar.component(.day, from: date ?? unwrap)
+                
+                for j in 0..<results.count {
+                    power = results[j].power ?? 0
+                    kwhTot += power/1000
+                }
+                
+                let entry2 = ChartDataEntry.init(x: Double(day), y: Double(kwhTot))
+                dataEntries2.append(entry2)
+                power  = 0
+                kwhTot = 0
+                
+            }
+     
         
         let set1 = LineChartDataSet(entries: dataEntries1)
         let set2 = LineChartDataSet(entries: dataEntries2)
@@ -148,23 +115,22 @@ class ChartSetup: UIView{
         set1.highlightColor = UIColor(named: "AbuA") ?? .black
         set1.drawHorizontalHighlightIndicatorEnabled = false
         
-        set2.mode = .cubicBezier
-        set2.setColor(UIColor(named: "Accent") ?? .black)
-        set2.drawCirclesEnabled = true
+        set2.mode = .horizontalBezier
+        set2.setColor(UIColor(named: "AccentColor") ?? .black)
+        set2.drawCirclesEnabled = false
         set2.drawHorizontalHighlightIndicatorEnabled = false
         set2.highlightColor = UIColor(named: "AbuA") ?? .black
         set2.lineWidth = 5
         
 
 //        let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
-        let set3:[ChartDataSet] = [set1, set2]
+//        let set3:[ChartDataSet] = [set1, set2]
             
-        let data = LineChartData(dataSets: set3)
+        let data = LineChartData(dataSet: set2)
         data.setDrawValues(true)
         lineChartView.data = data
         
-    }
+        }
     
-}
-
+    }
 }

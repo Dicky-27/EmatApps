@@ -64,6 +64,7 @@ class OverTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         loadData()
+        setLoadingScreen()
         loadPowerData()
         self.tabBarController?.tabBar.isHidden = false
         
@@ -119,9 +120,11 @@ class OverTableViewController: UITableViewController {
             dateFormatter.dateFormat = "LLLL"
             let day = calendar.component(.day, from: date)
             let month = dateFormatter.string(from: date)
-            cell.moneySave.text = "Rp. 0"
+            
+            cell.moneySave.text = "Rp0"
             cell.dateNow.text = "\(day) \(month)"
             
+            ChartSetup.drawing(view: cell.chartOver)
             
             return cell
             
@@ -156,13 +159,12 @@ class OverTableViewController: UITableViewController {
                     budget = UserData.user[0].budget
                     
                     cell2.rightLbl.text = formatter.string(from: numberFromField as NSNumber)
+                    
                     cell2.progressBudget.progress = Float(duit / budget)
                     
                 }
             }
             
-            
-        
             return cell2
             
         }else if indexPath.section == 2 {
@@ -212,11 +214,13 @@ class OverTableViewController: UITableViewController {
     
                 }
                 
-                let formatted = String(format: "%.2f kWh", kwhTot)
+            let kwh = Helper.kwhFormatter(number: kwhTot)
+            let watt = Helper.wattFormatter(number: EnergiesLoad.energyModel[0].power ?? 0)
+            cell4.kwhStats.text = kwh
+            cell4.powerStats.text = watt
                 
-                cell4.kwhStats.text = formatted
-                cell4.powerStats.text = "\(String(describing: EnergiesLoad.energyModel[0].power ?? 0)) Watt"
             }
+            
             cell4.selectionStyle = .none
             return cell4
             
@@ -311,7 +315,6 @@ class OverTableViewController: UITableViewController {
     
     @objc func refresh(sender:AnyObject)
     {
-        // Updating your data here...
         self.loadPowerData()
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
