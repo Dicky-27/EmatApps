@@ -64,6 +64,7 @@ class OverTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         loadData()
+        setLoadingScreen()
         loadPowerData()
         self.tabBarController?.tabBar.isHidden = false
         
@@ -123,6 +124,7 @@ class OverTableViewController: UITableViewController {
             cell.moneySave.text = "Rp0"
             cell.dateNow.text = "\(day) \(month)"
             
+            ChartSetup.drawing(view: cell.chartOver)
             
             return cell
             
@@ -163,8 +165,6 @@ class OverTableViewController: UITableViewController {
                 }
             }
             
-            
-        
             return cell2
             
         }else if indexPath.section == 2 {
@@ -315,7 +315,6 @@ class OverTableViewController: UITableViewController {
     
     @objc func refresh(sender:AnyObject)
     {
-        // Updating your data here...
         self.loadPowerData()
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()

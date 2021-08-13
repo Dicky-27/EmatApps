@@ -84,12 +84,12 @@ class PillMarker: MarkerImage {
     }
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
-        labelText = customString(Int(entry.y), valueX: Int(entry.x))
+        labelText = customString( value: entry.y, valueX: Int(entry.x))
         
     }
     
-    private func customString(_ value: Int, valueX: Int) -> String {
-        
-        return "Energy : \(TimeInterval(value)) Kwh \n Day : \(valueX)"
+    private func customString(value: Double, valueX: Int) -> String {
+        let kwh = Helper.kwhFormatter(number: Float(TimeInterval(value)))
+        return "Energy : \(kwh) \n Day : \(valueX)"
     }
 }

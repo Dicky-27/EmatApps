@@ -50,7 +50,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpM-IV-v7V" customClass="ChartSetup" customModule="EmatApps" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpM-IV-v7V">
                                             <rect key="frame" x="20" y="62.5" width="374" height="226.5"/>
                                             <color key="backgroundColor" name="Background"/>
                                         </view>
