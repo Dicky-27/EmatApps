@@ -37,7 +37,7 @@ class EstimatedViewController: UIViewController, UICollectionViewDelegate, UICol
         
         cell.estDate.text = "\(month)"
         cell.estKwh.text = "138,8 kWh"
-        cell.estSpen.text = "Rp 200.000"
+        cell.estSpen.text = "Rp200.000"
         cell.layer.cornerRadius = 8
         
         return cell

@@ -35,4 +35,18 @@ class Helper {
         
         return finalString
     }
+    
+    static func wattFormatter(number: Float) -> String {
+        
+        let kwhFormat = NumberFormatter()
+        
+        kwhFormat.numberStyle = .decimal
+        kwhFormat.decimalSeparator = ","
+        kwhFormat.minimumFractionDigits = 2
+        kwhFormat.maximumFractionDigits = 2
+        let finalString = "\(kwhFormat.string(from: NSNumber(value:number)) ?? "0,00") Watt"
+        
+        return finalString
+    }
+
 }
