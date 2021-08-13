@@ -449,10 +449,15 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="averageCostCard" destination="7hr-d5-hMi" id="W9U-qf-Emq"/>
                         <outlet property="costperDayLabel" destination="E7b-6m-nSg" id="Az4-0O-XJC"/>
+                        <outlet property="dailyHighestCard" destination="inO-ZO-Khv" id="sgB-Qc-4bm"/>
                         <outlet property="dailyHighestLabel" destination="Lm1-db-Z10" id="JBz-ld-ofZ"/>
+                        <outlet property="dailyUsageBanner" destination="EhE-O3-xm1" id="9Kn-95-8ev"/>
                         <outlet property="dailyUsageTable" destination="2bG-3D-HQ8" id="JqF-P7-G0u"/>
+                        <outlet property="energyUsageCard" destination="RgL-Qn-ond" id="WEa-PX-V4S"/>
                         <outlet property="energyUsageLabel" destination="sLa-aX-ec9" id="aw2-6J-qGh"/>
+                        <outlet property="monthBillCard" destination="e00-tv-wgI" id="b7O-OP-Wpk"/>
                         <outlet property="monthBillLabel" destination="A1U-G0-qdI" id="nSm-fr-hd9"/>
                         <outlet property="monthLabel" destination="2I7-hI-HDv" id="sXN-4D-TUI"/>
                         <outlet property="monthlyBudgetLabel" destination="w8Q-Vs-lPj" id="Ooo-by-2HK"/>
