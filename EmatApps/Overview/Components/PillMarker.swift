@@ -15,8 +15,6 @@ class PillMarker: MarkerImage {
     private (set) var textColor: UIColor
     private var labelText: String = ""
     private var attrs: [NSAttributedString.Key: AnyObject]!
-    
-    
     var radius: CGFloat = 10
     
     init(color: UIColor, font: UIFont, textColor: UIColor) {
@@ -31,13 +29,8 @@ class PillMarker: MarkerImage {
     }
     
     override func draw(context: CGContext, point: CGPoint) {
-        // custom padding around text
         let labelWidth = labelText.size(withAttributes: attrs).width + 10
-        
-        // if you modify labelHeigh you will have to tweak baselineOffset in attrs
         let labelHeight = labelText.size(withAttributes: attrs).height + 4
-        // place pill above the marker, centered along x
-        
         var rectangle = CGRect(x: point.x, y: point.y, width: labelWidth, height: labelHeight)
         
         if point.y < 60 {
@@ -76,23 +69,17 @@ class PillMarker: MarkerImage {
             
         }
         
-        
-        // rounded rect
         let clipPath = UIBezierPath(roundedRect: rectangle, cornerRadius: 6.0).cgPath
         context.addPath(clipPath)
         context.setFillColor(UIColor.white.cgColor)
         context.setStrokeColor(UIColor.white.cgColor)
         context.closePath()
         context.drawPath(using: .fillStroke)
-        
-        // add the text
         labelText.draw(with: rectangle, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
         
         let circleRect = CGRect(x: point.x - radius, y: point.y - radius, width: radius * 2, height: radius * 2)
-        
         context.setFillColor(UIColor(named: "Accent")?.cgColor ?? color.cgColor)
         context.fillEllipse(in: circleRect)
-        
         context.restoreGState()
     }
     

@@ -11,7 +11,6 @@ import UIKit
 class AboutUsViewController: UIViewController {
     
     @IBOutlet weak var descLbl: UILabel!
-    
     @IBOutlet weak var contactButt: UIButton!
     let stringValue = "Emat is an iOS app connected to IOT device that monitor, compare, and forecast electricity usage, give user reminder to save electricity and give user early warning message to prevent user from electricity bill bump."
     
