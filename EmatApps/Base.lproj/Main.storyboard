@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TA2-Db-nzl">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Overview-->
+        <scene sceneID="9MT-nW-0kp">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Overview" id="XxG-0t-YnD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Overview" image="square.and.pencil" catalog="system" id="Pa4-51-iIB"/>
+                    <navigationItem key="navigationItem" id="AMA-it-JC9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wr-hB-5nV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1254" y="311"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LmY-RB-0Oo">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TA2-Db-nzl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WSY-0o-q6t">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="XxG-0t-YnD" kind="relationship" relationship="viewControllers" id="pya-lx-3LD"/>
+                        <segue destination="nYS-kf-pOP" kind="relationship" relationship="viewControllers" id="pmB-pi-aIM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gp7-Sy-F7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95.652173913043484" y="93.75"/>
+        </scene>
+        <!--Report-->
+        <scene sceneID="g89-YR-xnp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Report" id="nYS-kf-pOP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Report" image="calendar.badge.exclamationmark" catalog="system" id="YWm-eE-lgm"/>
+                    <navigationItem key="navigationItem" id="Ku9-ob-tD0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J65-fd-s3i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1266" y="-102"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar.badge.exclamationmark" catalog="system" width="128" height="108"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+    </resources>
 </document>
