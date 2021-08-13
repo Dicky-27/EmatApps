@@ -10,7 +10,6 @@
 		7250CE226740D638D8969E1F /* Pods_EmatApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8B1DC4930DC66D27A7D815 /* Pods_EmatApps.framework */; };
 		AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1026AAA5D000E79190 /* AppDelegate.swift */; };
 		AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */; };
-		AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1426AAA5D000E79190 /* ViewController.swift */; };
 		AE04AF1826AAA5D000E79190 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1626AAA5D000E79190 /* Main.storyboard */; };
 		AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1926AAA5D000E79190 /* EmatApps.xcdatamodeld */; };
 		AE04AF1D26AAA5D200E79190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1C26AAA5D200E79190 /* Assets.xcassets */; };
@@ -94,7 +93,6 @@
 		AE04AF0D26AAA5D000E79190 /* EmatApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmatApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE04AF1026AAA5D000E79190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE04AF1426AAA5D000E79190 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE04AF1726AAA5D000E79190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE04AF1A26AAA5D000E79190 /* EmatApps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EmatApps.xcdatamodel; sourceTree = "<group>"; };
 		AE04AF1C26AAA5D200E79190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 				AECC3DF726AFFBAE00EFF5EC /* Overview */,
 				AE04AF1026AAA5D000E79190 /* AppDelegate.swift */,
 				AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */,
-				AE04AF1426AAA5D000E79190 /* ViewController.swift */,
 				AE04AF1626AAA5D000E79190 /* Main.storyboard */,
 				AE04AF1E26AAA5D200E79190 /* LaunchScreen.storyboard */,
 				AE04AF2126AAA5D200E79190 /* Info.plist */,
@@ -658,7 +655,6 @@
 				AE3CFD5A26C4F6A700847D76 /* ReportTableViewController.swift in Sources */,
 				AEFDAADC26B2906D00E0BBDB /* CellOneTableViewCell.swift in Sources */,
 				AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */,
-				AE04AF1526AAA5D000E79190 /* ViewController.swift in Sources */,
 				E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */,
 				AE07D3FD26BD3C6400526190 /* BaseRequest.swift in Sources */,
 				AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */,
