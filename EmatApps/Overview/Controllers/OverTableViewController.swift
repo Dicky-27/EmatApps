@@ -52,6 +52,7 @@ class OverTableViewController: UITableViewController {
         setPullToRequest()
         setLoadingScreen()
         checkUserByData()
+        
         if Core.shared.isNewUser() {
             let vc = storyboard?.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
             vc.modalPresentationStyle = .fullScreen
@@ -372,7 +373,7 @@ class OverTableViewController: UITableViewController {
         tableView.isUserInteractionEnabled = true
         Loading.loadingView.removeFromSuperview()
         Loading.spinner.removeFromSuperview()
-        }
+    }
     
     func setTableViewBackgroundGradient(_ topColor:UIColor, _ bottomColor:UIColor) {
 

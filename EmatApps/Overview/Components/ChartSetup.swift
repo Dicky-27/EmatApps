@@ -51,7 +51,7 @@ class ChartSetup: UIView{
     }()
     
     override func draw(_ rect: CGRect) {
-       // setData()
+        setData()
         self.addSubview(lineChartView)
         lineChartView.frame = CGRect(x: 0, y: 0, width: rect.width, height: rect.height)
         
@@ -59,38 +59,38 @@ class ChartSetup: UIView{
     
     func setData() {
         
-        print("hello")
-        var kwhTot:Float = 0
-        var power:Float = 0
-        var cekIndex = 1
+//        print("hello")
+//        var kwhTot:Float = 0
+//        var power:Float = 0
+//        var cekIndex = 1
         
-        let dataEntries1 = [ChartDataEntry]()
+        var dataEntries1 = [ChartDataEntry]()
         var dataEntries2 = [ChartDataEntry]()
         
         if EnergiesLoad.energyModel.isEmpty == false {
-            
-    /*  for i in 0...energyModel.count {
-
-                let indexBawah = energyModel[i].created_at()
-                let indexAtas = energyModel.lastIndex(of: "a")
-
-           }
-           
-            
-        for i in 0...energyModel.count{
-            let y = DailyLoader.init().daily[i].energy_july
-            let y = energyModel[i].power ?? 0
+        for i in 0..<EnergiesLoad.energyModel.count{
+            guard let y = EnergiesLoad.energyModel[i].power else { return }
 
 
             let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
 
 
-
             dataEntries1.append(entry)
 
-            }*/
+            }
             
-            for i in stride(from: 0, through: EnergiesLoad.energyModel.count, by: 1) {
+        for i in 0..<EnergiesLoad.energyModel.count{
+            guard let y = EnergiesLoad.energyModel[i].power else { return }
+
+
+            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
+
+
+            dataEntries2.append(entry)
+
+            }
+  /*
+        for i in stride(from: 0, through: EnergiesLoad.energyModel.count, by: 1) {
                 
                 cekIndex += i
 
@@ -117,18 +117,16 @@ class ChartSetup: UIView{
                     let datAfter = calendar.component(.day, from: dateNext ?? unwrap)
 
 
-                    print(day)
                     if day == datAfter {
 
                         power = EnergiesLoad.energyModel[i].power ?? 0
                         kwhTot += power/1000
-                    print(datAfter)
 
                     }else {
 
                          let entry2 = ChartDataEntry.init(x: Double(i), y: Double(kwhTot))
                          dataEntries2.append(entry2)
-                         print(dataEntries2)
+                         
                         
                     }
                 }
@@ -137,7 +135,7 @@ class ChartSetup: UIView{
            
         }
         
-        
+     */
         
         let set1 = LineChartDataSet(entries: dataEntries1)
         let set2 = LineChartDataSet(entries: dataEntries2)
@@ -159,11 +157,14 @@ class ChartSetup: UIView{
         
 
 //        let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
-//        let set3:[ChartDataSet] = [set1, set2]
-        let data = LineChartData(dataSet: set2)
+        let set3:[ChartDataSet] = [set1, set2]
+            
+        let data = LineChartData(dataSets: set3)
         data.setDrawValues(true)
         lineChartView.data = data
         
     }
     
+}
+
 }
