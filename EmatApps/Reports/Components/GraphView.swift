@@ -8,60 +8,54 @@
 import UIKit
 
 private enum Constants {
-    static let cornerRadiusSize = CGSize(width: 10.0, height: 8.0)
-    static let margin: CGFloat = 20
-    static let topBorder: CGFloat = 60
-    static let bottomBorder: CGFloat = 30
-    static let colorAlpha: CGFloat = 0.3
+    static let margin        : CGFloat = 20
+    static let topBorder     : CGFloat = 60
+    static let bottomBorder  : CGFloat = 30
+    static let colorAlpha    : CGFloat = 0.3
     static let circleDiameter: CGFloat = 10
+    static let cornerRadiusSize        = CGSize(width: 10.0, height: 8.0)
 }
 
 class GraphView: UIView {
     
-    let monthData = MonthlyData.init()
     var monthContent: [MonthlyPower] = []
-    var graphPoint : [Float] = []
-    var labelData: [String] = []
+    var graphPoint  : [Float]        = []
+    var labelData   : [String]       = []
    
-
     override func draw(_ rect: CGRect) {
         
-        monthData.loadMonthly()
-        monthContent = monthData.getFullData()
-        graphPoint = monthData.getPowerList().reversed()
-        
-        let width = rect.width
+        let width  = rect.width
         let height = rect.height
-        let path = UIBezierPath(
+        let path   = UIBezierPath(
             
             roundedRect: rect,
             byRoundingCorners: .allCorners,
             cornerRadii: Constants.cornerRadiusSize
         )
-        
         path.addClip()
+        
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
         
         var spacingPoint : CGFloat = 0.0
-        var currPoint : CGFloat = 0.0
+        var currPoint    : CGFloat = 0.0
         
         // Calculate the x point
-        let margin = Constants.margin
-        let graphWidth = width - margin * 2 - 4
+        let margin       = Constants.margin
+        let graphWidth   = width - margin * 2 - 4
         let columnXPoint = { (column: Int) -> CGFloat in
             
             // Calculate the gap between points
-            let spacing = graphWidth / CGFloat(self.graphPoint.count - 1)
+            let spacing  = graphWidth / CGFloat(self.graphPoint.count - 1)
             spacingPoint = spacing
             return CGFloat(column) * spacing + margin + 2
         }
         
         // Calculate the y point
-        let topBorder = Constants.topBorder
-        let bottomBorder = Constants.bottomBorder
-        let graphHeight = height - topBorder - bottomBorder
+        let topBorder      = Constants.topBorder
+        let bottomBorder   = Constants.bottomBorder
+        let graphHeight    = height - topBorder - bottomBorder
         guard let maxValue = graphPoint.max() else {
             return
         }
@@ -113,8 +107,8 @@ class GraphView: UIView {
         for i in 0..<graphPoint.count {
             #colorLiteral(red: 0.09847373515, green: 0.512232244, blue: 0.823799789, alpha: 1).setFill()
             var point = CGPoint(x: columnXPoint(i), y: columnYPoint( Int(graphPoint[i]) ))
-            point.x -= Constants.circleDiameter / 2
-            point.y -= Constants.circleDiameter / 2
+            point.x  -= Constants.circleDiameter / 2
+            point.y  -= Constants.circleDiameter / 2
             
             let circle = UIBezierPath(
                 ovalIn: CGRect(
@@ -132,18 +126,18 @@ class GraphView: UIView {
             linePath.move(to: CGPoint(x: margin + currPoint + 2, y: bottomBorder+5))
             linePath.addLine(to: CGPoint(x: margin + currPoint + 2, y: graphHeight + topBorder+4))
             
-            let color = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-            color.setStroke()
+            let color          = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             linePath.lineWidth = 1.5
+            color.setStroke()
             
             let dashPattern: [CGFloat] = [4.0, 2.0]
             linePath.setLineDash(dashPattern, count: dashPattern.count, phase: 0)
             linePath.stroke(with: .exclusion, alpha: 0.25)
             
             //Draw label
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
-            label.font = UIFont(name: "Circular Std", size: 10)
-            label.center = CGPoint(x: columnXPoint(i), y: graphHeight + topBorder+15)
+            let label           = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+            label.font          = UIFont(name: "Circular Std", size: 10)
+            label.center        = CGPoint(x: columnXPoint(i), y: graphHeight + topBorder+15)
             label.textAlignment = .center
             
             if labelData.isEmpty == false {
@@ -157,4 +151,5 @@ class GraphView: UIView {
             
         }
     }
+    
 }

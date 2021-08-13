@@ -4,8 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,243 +21,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Report ViewVC-->
-        <scene sceneID="s0d-6b-0kx">
-            <objects>
-                <viewController storyboardIdentifier="report" id="Y6W-OH-hqX" customClass="ReportViewVC" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31P-oN-bRi">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtI-8k-6yg">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2w-W7-bKw">
-                                                <rect key="frame" x="21" y="10.000000000000002" width="348" height="30.666666666666671"/>
-                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
-                                                <color key="textColor" name="LabelColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkb-8M-yEt" userLabel="GraphView" customClass="GraphView" customModule="EmatApps" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="60.666666666666686" width="350" height="240"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Comparison" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-ja-JgZ">
-                                                        <rect key="frame" x="8" y="3.9999999999999982" width="192" height="25.333333333333329"/>
-                                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
-                                                        <color key="textColor" name="LabelColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6br-xh-ldt">
-                                                        <rect key="frame" x="8" y="219.33333333333331" width="334" height="12.666666666666657"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azd-I9-0Uq" userLabel="0">
-                                                                <rect key="frame" x="0.0" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0v-ra-Zu5" userLabel="1">
-                                                                <rect key="frame" x="28.666666666666664" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKv-t3-UJ1" userLabel="2">
-                                                                <rect key="frame" x="57.666666666666671" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5by-vT-gl9" userLabel="3">
-                                                                <rect key="frame" x="86.333333333333329" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxF-PT-tCm" userLabel="4">
-                                                                <rect key="frame" x="115.33333333333334" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVc-DY-u4v" userLabel="5">
-                                                                <rect key="frame" x="144" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTX-qV-Vro" userLabel="6">
-                                                                <rect key="frame" x="173" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rr8-qF-wR0" userLabel="7">
-                                                                <rect key="frame" x="201.66666666666666" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jB-sG-njV" userLabel="8">
-                                                                <rect key="frame" x="230.66666666666669" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6N-Gm-Xsh" userLabel="9">
-                                                                <rect key="frame" x="259.33333333333331" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSb-68-zEj" userLabel="10">
-                                                                <rect key="frame" x="288.33333333333331" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyi-Ou-Qlw" userLabel="11">
-                                                                <rect key="frame" x="317" y="0.0" width="17" height="12.666666666666666"/>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
-                                                                <color key="textColor" name="LabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" name="Gacc"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailingMargin" secondItem="kZk-ja-JgZ" secondAttribute="trailing" constant="142" id="0PQ-F1-wN6"/>
-                                                    <constraint firstAttribute="bottom" secondItem="6br-xh-ldt" secondAttribute="bottom" constant="8" id="1RE-57-VV4"/>
-                                                    <constraint firstItem="kZk-ja-JgZ" firstAttribute="top" secondItem="rkb-8M-yEt" secondAttribute="top" constant="4" id="CNo-LE-YsX"/>
-                                                    <constraint firstItem="kZk-ja-JgZ" firstAttribute="leading" secondItem="rkb-8M-yEt" secondAttribute="leadingMargin" id="Fuj-sV-tc4"/>
-                                                    <constraint firstItem="6br-xh-ldt" firstAttribute="leading" secondItem="rkb-8M-yEt" secondAttribute="leadingMargin" id="HG8-pe-xiC"/>
-                                                    <constraint firstAttribute="trailingMargin" secondItem="6br-xh-ldt" secondAttribute="trailing" id="fNL-te-Ra5"/>
-                                                    <constraint firstItem="6br-xh-ldt" firstAttribute="top" secondItem="kZk-ja-JgZ" secondAttribute="bottom" constant="190" id="lL9-Ng-rmH"/>
-                                                    <constraint firstAttribute="height" constant="240" id="roL-Ta-Nq8"/>
-                                                </constraints>
-                                            </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6aT-RT-8zo">
-                                                <rect key="frame" x="20" y="310.66666666666663" width="350" height="1189.3333333333335"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="monthCell" rowHeight="100" id="0kP-jA-vKQ" customClass="MonthsTableViewCell" customModule="EmatApps" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="350" height="100"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0kP-jA-vKQ" id="T26-Gz-J4L">
-                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardReport" translatesAutoresizingMaskIntoConstraints="NO" id="fXm-TI-xd0">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="100"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="100" id="7pv-D2-afq"/>
-                                                                        <constraint firstAttribute="width" constant="350" id="TeS-Zc-v7W"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akl-di-bAY">
-                                                                    <rect key="frame" x="20" y="37.333333333333336" width="160" height="25.333333333333336"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="160" id="kEO-ng-Kdw"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpJ-Yg-Vrs">
-                                                                    <rect key="frame" x="210" y="23" width="120" height="23"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="120" id="4sh-iS-EJT"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="18"/>
-                                                                    <color key="textColor" name="LabelColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5Y-GU-Wek">
-                                                                    <rect key="frame" x="230" y="58" width="100" height="17"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="SRy-F9-Y96"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                                    <color key="textColor" name="LabelColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="fXm-TI-xd0" secondAttribute="trailing" id="3aF-QR-dou"/>
-                                                                <constraint firstItem="fXm-TI-xd0" firstAttribute="leading" secondItem="T26-Gz-J4L" secondAttribute="leading" id="7aj-ys-Z6O"/>
-                                                                <constraint firstAttribute="bottom" secondItem="fXm-TI-xd0" secondAttribute="bottom" id="B16-th-U9i"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="N5Y-GU-Wek" secondAttribute="trailing" id="CbQ-pn-xiI"/>
-                                                                <constraint firstItem="N5Y-GU-Wek" firstAttribute="top" secondItem="wpJ-Yg-Vrs" secondAttribute="bottom" constant="12" id="S7e-2c-dQs"/>
-                                                                <constraint firstItem="wpJ-Yg-Vrs" firstAttribute="top" secondItem="T26-Gz-J4L" secondAttribute="topMargin" constant="12" id="T2J-Xz-1cI"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="wpJ-Yg-Vrs" secondAttribute="trailing" id="TAz-pC-yYi"/>
-                                                                <constraint firstItem="akl-di-bAY" firstAttribute="centerY" secondItem="fXm-TI-xd0" secondAttribute="centerY" id="d2Q-dO-3cN"/>
-                                                                <constraint firstItem="akl-di-bAY" firstAttribute="leading" secondItem="T26-Gz-J4L" secondAttribute="leadingMargin" id="tLd-9y-rKS"/>
-                                                                <constraint firstItem="fXm-TI-xd0" firstAttribute="top" secondItem="T26-Gz-J4L" secondAttribute="top" id="wXS-UW-kkI"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                        <connections>
-                                                            <outlet property="kwhLabel" destination="N5Y-GU-Wek" id="KUP-cB-UkH"/>
-                                                            <outlet property="monthLabel" destination="akl-di-bAY" id="kmG-f9-R7R"/>
-                                                            <outlet property="rupiahLabel" destination="wpJ-Yg-Vrs" id="qaT-S4-dCl"/>
-                                                            <outlet property="tableImage" destination="fXm-TI-xd0" id="eiz-8V-beF"/>
-                                                        </connections>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                            </tableView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="rkb-8M-yEt" secondAttribute="trailing" constant="20" id="6Ob-ps-bY5"/>
-                                            <constraint firstItem="6aT-RT-8zo" firstAttribute="leading" secondItem="FtI-8k-6yg" secondAttribute="leading" constant="20" id="7Ye-K2-Byo"/>
-                                            <constraint firstAttribute="bottom" secondItem="6aT-RT-8zo" secondAttribute="bottom" id="8n3-tW-my3"/>
-                                            <constraint firstItem="6aT-RT-8zo" firstAttribute="top" secondItem="rkb-8M-yEt" secondAttribute="bottom" constant="10" id="FYG-j7-Zwe"/>
-                                            <constraint firstAttribute="trailing" secondItem="Q2w-W7-bKw" secondAttribute="trailing" constant="21" id="Lkf-XP-ejN"/>
-                                            <constraint firstItem="rkb-8M-yEt" firstAttribute="leading" secondItem="FtI-8k-6yg" secondAttribute="leading" constant="20" id="Ms9-kI-PSP"/>
-                                            <constraint firstAttribute="trailing" secondItem="6aT-RT-8zo" secondAttribute="trailing" constant="20" id="WzP-oM-e5B"/>
-                                            <constraint firstItem="rkb-8M-yEt" firstAttribute="top" secondItem="Q2w-W7-bKw" secondAttribute="bottom" constant="20" id="dQ6-qZ-GJB"/>
-                                            <constraint firstAttribute="height" constant="1500" id="qe0-RH-N2T"/>
-                                            <constraint firstItem="Q2w-W7-bKw" firstAttribute="top" secondItem="FtI-8k-6yg" secondAttribute="top" constant="10" id="rQw-j9-lLY"/>
-                                            <constraint firstItem="Q2w-W7-bKw" firstAttribute="leading" secondItem="FtI-8k-6yg" secondAttribute="leading" constant="21" id="z5C-sa-2rk"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="FtI-8k-6yg" firstAttribute="leading" secondItem="Pyh-pO-NN9" secondAttribute="leading" id="0Eg-t6-143"/>
-                                    <constraint firstItem="FtI-8k-6yg" firstAttribute="trailing" secondItem="Pyh-pO-NN9" secondAttribute="trailing" id="0W3-9D-NDh"/>
-                                    <constraint firstItem="FtI-8k-6yg" firstAttribute="bottom" secondItem="Pyh-pO-NN9" secondAttribute="bottom" id="Ghe-rc-Ir9"/>
-                                    <constraint firstItem="FtI-8k-6yg" firstAttribute="width" secondItem="ZIi-tM-bJe" secondAttribute="width" id="fYW-xh-wp9"/>
-                                    <constraint firstItem="FtI-8k-6yg" firstAttribute="top" secondItem="Pyh-pO-NN9" secondAttribute="top" id="vIy-6V-yMw"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Pyh-pO-NN9"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="ZIi-tM-bJe"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="31P-oN-bRi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="TaP-0a-z9O"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="31P-oN-bRi" secondAttribute="trailing" id="k1R-R7-xOI"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="31P-oN-bRi" secondAttribute="bottom" id="qVY-Xy-2Ca"/>
-                            <constraint firstItem="31P-oN-bRi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yof-sJ-7wd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="bme-NE-XhP" propertyAccessControl="none"/>
-                    <connections>
-                        <outlet property="graphView" destination="rkb-8M-yEt" id="4wO-Oq-2j3"/>
-                        <outlet property="monthlyComparison" destination="kZk-ja-JgZ" id="o3I-YE-yzV"/>
-                        <outlet property="monthsLabel" destination="6br-xh-ldt" id="j5V-Wh-Kff"/>
-                        <outlet property="monthsTable" destination="6aT-RT-8zo" id="fva-KN-LPX"/>
-                        <outlet property="reportsLabel" destination="Q2w-W7-bKw" id="2qa-RX-2z9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1989.2307692307691" y="115.16587677725119"/>
-        </scene>
         <!--MonthlyData-->
         <scene sceneID="HGw-LZ-nnR">
             <objects>
@@ -406,15 +167,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohm-c2-x6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989" y="871"/>
+            <point key="canvasLocation" x="1974" y="115"/>
         </scene>
     </scenes>
     <resources>
         <image name="CardReport" width="348" height="77"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <namedColor name="Gacc">
-            <color red="0.87099999189376831" green="0.86699998378753662" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="LabelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -424,8 +182,5 @@
         <namedColor name="graphColor">
             <color red="0.88999998569488525" green="0.96899998188018799" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
