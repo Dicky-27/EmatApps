@@ -9,14 +9,19 @@ import UIKit
 
 class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var monthLabel         : UILabel!
-    @IBOutlet weak var monthBillLabel     : UILabel!
-    @IBOutlet weak var energyUsageLabel   : UILabel!
-    @IBOutlet weak var costperDayLabel    : UILabel!
-    @IBOutlet weak var dailyHighestLabel  : UILabel!
-    @IBOutlet weak var monthlyBudgetLabel : UILabel!
-    @IBOutlet weak var progressBudget     : MonthlyBudget!
-    @IBOutlet weak var dailyUsageTable    : UITableView!
+    @IBOutlet weak var monthLabel           : UILabel!
+    @IBOutlet weak var monthBillLabel       : UILabel!
+    @IBOutlet weak var energyUsageLabel     : UILabel!
+    @IBOutlet weak var costperDayLabel      : UILabel!
+    @IBOutlet weak var dailyHighestLabel    : UILabel!
+    @IBOutlet weak var monthlyBudgetLabel   : UILabel!
+    @IBOutlet weak var progressBudget       : MonthlyBudget!
+    @IBOutlet weak var dailyUsageTable      : UITableView!
+    @IBOutlet weak var monthBillCard        : UIView!
+    @IBOutlet weak var energyUsageCard      : UIView!
+    @IBOutlet weak var averageCostCard      : UIView!
+    @IBOutlet weak var dailyHighestCard     : UIView!
+    @IBOutlet weak var dailyUsageBanner     : UIView!
     
     // sample data for list of days
     let dayList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
@@ -41,6 +46,13 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         monthBillLabel.text     = monthDetailBill
         energyUsageLabel.text   = Helper.kwhFormatter(number: monthDetailPow ?? 0)
         monthlyBudgetLabel.text = Helper.rpFormatter(number: monthBudget ?? 0)
+        
+        view.addGradientBackground(firstColor: UIColor(named: "Background") ?? .blue, secondColor: UIColor(named: "Wblack") ?? .white)
+        monthBillCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
+        energyUsageCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
+        averageCostCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
+        dailyHighestCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
+        dailyUsageBanner.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,5 +119,6 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // the cell can't be selected on this view
     }
-
 }
+
+

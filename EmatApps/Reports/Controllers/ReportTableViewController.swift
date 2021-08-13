@@ -138,6 +138,7 @@ class ReportTableViewController: UITableViewController {
             return 100
         }
     }
+   
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let maxTitlePoint = tableView.convert(CGPoint(x: titleStackView.titleLabel.bounds.minX, y: titleStackView.titleLabel.bounds.maxY), from: titleStackView.titleLabel)
