@@ -30,7 +30,7 @@ class TitleStackView: UIStackView {
         let label = UILabel()
         label.font = UIFont(name: "Circular Std", size: 32)
         
-        label.text = "Emat"
+        label.text = "Overview"
         label.textColor = UIColor(named: "AccentColor")
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false

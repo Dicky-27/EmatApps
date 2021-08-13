@@ -15,7 +15,7 @@ class CellFiveTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        buttonEst.layer.cornerRadius = 5
+        buttonEst.layer.cornerRadius = 8
         buttonEst.layer.borderWidth = 2
         buttonEst.layer.borderColor = UIColor(named: "PrAcc")?.cgColor
     }
