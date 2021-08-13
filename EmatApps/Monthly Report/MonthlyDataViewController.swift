@@ -39,6 +39,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
         dailyUsageTable.delegate   = self
         dailyUsageTable.dataSource = self
         

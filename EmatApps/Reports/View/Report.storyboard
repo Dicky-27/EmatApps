@@ -72,7 +72,7 @@
                                             <color key="backgroundColor" name="graphColor"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Comparison" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajN-ao-9am">
-                                            <rect key="frame" x="35" y="18" width="150" height="19.666666666666671"/>
+                                            <rect key="frame" x="35" y="18" width="131" height="16.333333333333329"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                             <color key="textColor" name="LabelColor"/>
                                             <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                             <rect key="frame" x="20" y="8" width="350" height="89"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQn-pV-TQE">
-                                            <rect key="frame" x="40" y="39.333333333333336" width="160" height="26.666666666666664"/>
+                                            <rect key="frame" x="40" y="41.333333333333336" width="160" height="22.333333333333336"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="160" id="B1h-NB-ndm"/>
                                             </constraints>
@@ -112,7 +112,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAP-Me-dNM">
-                                            <rect key="frame" x="250" y="59" width="100" height="17"/>
+                                            <rect key="frame" x="250" y="57" width="100" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="jQX-lu-2fw"/>
                                             </constraints>
@@ -121,7 +121,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyA-LR-c1i">
-                                            <rect key="frame" x="230" y="26" width="120" height="23"/>
+                                            <rect key="frame" x="230" y="26" width="120" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="s3w-1J-zk9"/>
                                             </constraints>

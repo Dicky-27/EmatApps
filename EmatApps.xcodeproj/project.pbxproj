@@ -389,8 +389,6 @@
 			isa = PBXGroup;
 			children = (
 				AE5446F526B7E01000E969FF /* Power.swift */,
-				AE07D3E926BBD29A00526190 /* Daily.json */,
-				AE07D3EB26BBD2B700526190 /* DailyLoader.swift */,
 				E04162AB26C6A409009F9C26 /* Helper.swift */,
 			);
 			path = Model;
@@ -631,7 +629,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AECC1F9D26C64EA9003D3814 /* ChartSetup.swift in Sources */,
-				E04162AA26C5369F009F9C26 /* Model.swift in Sources */,
 				AE99613B26B5447200FDA0B1 /* PowerViewController.swift in Sources */,
 				E0C3E24C26B3C6C3003AFC74 /* MonthlyBudgetCell.swift in Sources */,
 				AE7074B326B3FBD2000255A3 /* EstCollectionViewCell.swift in Sources */,
@@ -646,8 +643,6 @@
 				AE7074AB26B2A41F000255A3 /* CellFiveTableViewCell.swift in Sources */,
 				AE3CFD5D26C50B3B00847D76 /* TitleView.swift in Sources */,
 				AE07D40326BD3DAC00526190 /* Core.swift in Sources */,
-				AEBF610F26AEBE83002EB776 /* LineChartDepan.swift in Sources */,
-				E070420E26B90C5700E7F485 /* ReportViewVC.swift in Sources */,
 				E0C3E24E26B3C6D7003AFC74 /* PowerCell.swift in Sources */,
 				AE3CFD5826C4F66E00847D76 /* ListTableViewCell.swift in Sources */,
 				AE7074B626B41256000255A3 /* OnboardingViewController.swift in Sources */,
@@ -821,13 +816,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4VR7S48W5N;
 				INFOPLIST_FILE = EmatApps/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rangga.EmatApps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -842,13 +838,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4VR7S48W5N;
 				INFOPLIST_FILE = EmatApps/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rangga.EmatApps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
