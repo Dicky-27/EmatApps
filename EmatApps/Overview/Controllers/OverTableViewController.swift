@@ -63,9 +63,12 @@ class OverTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        checkUserByData()
+        
         loadData()
         setLoadingScreen()
         loadPowerData()
+    
         self.tabBarController?.tabBar.isHidden = false
         
     }
@@ -88,7 +91,7 @@ class OverTableViewController: UITableViewController {
         let maxTitlePoint = tableView.convert(CGPoint(x: titleStackView.titleLabel.bounds.minX, y: titleStackView.titleLabel.bounds.maxY), from: titleStackView.titleLabel)
         let offset = scrollView.contentOffset.y
 
-        navigationItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Emat" : nil
+        navigationItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Overview" : nil
         tabBarItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Overview" : "Overview"
         setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
         Loading.viewBaru.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: offset + titleStackView.frame.height)
