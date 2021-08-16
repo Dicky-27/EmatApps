@@ -81,6 +81,7 @@ class SettingTableViewController: UITableViewController {
         } else {
             
             cell3.accessoryType = .disclosureIndicator
+            cell3.selectionStyle = .none
             return cell3
         }
             
