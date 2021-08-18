@@ -116,9 +116,9 @@ class ReportTableViewController: UITableViewController {
             if monthlyDataList.count != 0 {
                 
                 let kwhPow      = monthlyDataList[indexPath.row].monthly_power
-                let kwhPower    = Helper.kwhFormatter(number : kwhPow)
+                let kwhPower    = kwhPow.toKwhString()
                 let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga
-                let rupiahPower = Helper.rpFormatter(number : totalSpend)
+                let rupiahPower = totalSpend.toRupiahString()
                 
                 // displaying all the months labels
                 cell2.tableImage.layer.cornerRadius = 8
@@ -150,7 +150,7 @@ class ReportTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga
-        let rupiahPower = Helper.rpFormatter(number: totalSpend)
+        let rupiahPower = totalSpend.toRupiahString()
         
         let row = indexPath.row
         let dataParam : [String : Any] = [

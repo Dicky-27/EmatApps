@@ -89,7 +89,6 @@ class PillMarker: MarkerImage {
     }
     
     private func customString(value: Double, valueX: Int) -> String {
-        let kwh = Helper.kwhFormatter(number: Float(TimeInterval(value)))
-        return "Energy : \(kwh) \n Day : \(valueX)"
+        return "Energy : \(Float(TimeInterval(value)).toWattString()) \n Day : \(valueX)"
     }
 }

@@ -450,6 +450,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="averageCostCard" destination="7hr-d5-hMi" id="W9U-qf-Emq"/>
+                        <outlet property="billLabel" destination="nDZ-qv-JPt" id="JFT-Rq-Qfw"/>
                         <outlet property="costperDayLabel" destination="E7b-6m-nSg" id="Az4-0O-XJC"/>
                         <outlet property="dailyHighestCard" destination="inO-ZO-Khv" id="sgB-Qc-4bm"/>
                         <outlet property="dailyHighestLabel" destination="Lm1-db-Z10" id="JBz-ld-ofZ"/>
@@ -466,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989.2307692307691" y="95.260663507109001"/>
+            <point key="canvasLocation" x="2368" y="84"/>
         </scene>
     </scenes>
     <resources>

@@ -217,10 +217,8 @@ class OverTableViewController: UITableViewController {
     
                 }
                 
-            let kwh = Helper.kwhFormatter(number: kwhTot)
-            let watt = Helper.wattFormatter(number: EnergiesLoad.energyModel[0].power ?? 0)
-            cell4.kwhStats.text = kwh
-            cell4.powerStats.text = watt
+            cell4.kwhStats.text = kwhTot.toKwhString()
+            cell4.powerStats.text = EnergiesLoad.energyModel[0].power?.toWattString()
                 
             }
             
