@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7250CE226740D638D8969E1F /* Pods_EmatApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8B1DC4930DC66D27A7D815 /* Pods_EmatApps.framework */; };
+		AE03DF0126CCE96C0000047D /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE03DF0026CCE96C0000047D /* Onboarding.storyboard */; };
 		AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1026AAA5D000E79190 /* AppDelegate.swift */; };
 		AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */; };
 		AE04AF1826AAA5D000E79190 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE04AF1626AAA5D000E79190 /* Main.storyboard */; };
@@ -89,6 +90,7 @@
 		4F8B1DC4930DC66D27A7D815 /* Pods_EmatApps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmatApps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EBAC02C5537545D1A9538F /* Pods-EmatApps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmatApps.debug.xcconfig"; path = "Target Support Files/Pods-EmatApps/Pods-EmatApps.debug.xcconfig"; sourceTree = "<group>"; };
 		80F47A274DF337A76F1819AB /* Pods-EmatApps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmatApps.release.xcconfig"; path = "Target Support Files/Pods-EmatApps/Pods-EmatApps.release.xcconfig"; sourceTree = "<group>"; };
+		AE03DF0026CCE96C0000047D /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		AE04AF0D26AAA5D000E79190 /* EmatApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmatApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE04AF1026AAA5D000E79190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE04AF1226AAA5D000E79190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -290,14 +292,55 @@
 		AE7074B426B4122B000255A3 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				AE7074B526B41256000255A3 /* OnboardingViewController.swift */,
-				AE7074B726B45862000255A3 /* OnboardingCollectionViewCell.swift */,
-				AE7074B926B45895000255A3 /* OnboardingSlide.swift */,
-				AE7074BB26B460EB000255A3 /* DeviceViewController.swift */,
-				AE99613A26B5447200FDA0B1 /* PowerViewController.swift */,
-				AE07D40226BD3DAC00526190 /* Core.swift */,
+				AE916AE126CCF47A00967317 /* Helper */,
+				AE916AE026CCF46500967317 /* Model */,
+				AE916ADF26CCF45F00967317 /* Cells */,
+				AE916ADE26CCF45900967317 /* Controllers */,
+				AE916ADD26CCF45000967317 /* View */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AE916ADD26CCF45000967317 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE03DF0026CCE96C0000047D /* Onboarding.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE916ADE26CCF45900967317 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE7074BB26B460EB000255A3 /* DeviceViewController.swift */,
+				AE7074B526B41256000255A3 /* OnboardingViewController.swift */,
+				AE99613A26B5447200FDA0B1 /* PowerViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AE916ADF26CCF45F00967317 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AE7074B726B45862000255A3 /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AE916AE026CCF46500967317 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE7074B926B45895000255A3 /* OnboardingSlide.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE916AE126CCF47A00967317 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AE07D40226BD3DAC00526190 /* Core.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		AEC3C3F626BAC5BD0060134F /* Cells */ = {
@@ -564,6 +607,7 @@
 				E0B3466026B2A5DD0076D482 /* Poppins-LightItalic.otf in Resources */,
 				E0B3465D26B2A5DD0076D482 /* Poppins-Italic.otf in Resources */,
 				E0B3467626B2A8170076D482 /* CircularStd-Medium.ttf in Resources */,
+				AE03DF0126CCE96C0000047D /* Onboarding.storyboard in Resources */,
 				AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */,
 				E0B3466126B2A5DD0076D482 /* Poppins-Bold.otf in Resources */,
 				E0B3465426B2A5DD0076D482 /* Poppins-ExtraBoldItalic.otf in Resources */,

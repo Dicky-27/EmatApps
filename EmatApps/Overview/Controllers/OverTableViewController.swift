@@ -53,12 +53,7 @@ class OverTableViewController: UITableViewController {
         setLoadingScreen()
         checkUserByData()
         
-        if Core.shared.isNewUser() {
-            let vc = storyboard?.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-            
-        }
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,8 +71,19 @@ class OverTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         loadData()
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if Core.shared.isNewUser() {
+            let sb = UIStoryboard(name: "Onboarding", bundle: nil)
+            let vc = sb.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
+            
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+            
+        }
+    }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 5
