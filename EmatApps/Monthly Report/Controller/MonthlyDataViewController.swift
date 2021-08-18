@@ -22,7 +22,6 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var averageCostCard      : UIView!
     @IBOutlet weak var dailyHighestCard     : UIView!
     @IBOutlet weak var dailyUsageBanner     : UIView!
-    @IBOutlet weak var billLabel: UILabel!
     
     // sample data for list of days
     let dayList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
