@@ -14,7 +14,12 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var skipBttn: UIButton!
     
-    var slides: [OnboardingSlide] = []
+    var slides: [OnboardingSlide] = [
+        OnboardingSlide(title: "Intergrated With IoT", description: "Use machine learning technology integrated with IoT, we provide the best cost you should pay", image: #imageLiteral(resourceName: "Landing_1")),
+                                     
+        OnboardingSlide(title: "Clear Comparison Report", description: "Provide a comparison report on your electricity usage since the last month", image: #imageLiteral(resourceName: "Landing_2")),
+                                    
+        OnboardingSlide(title: "Electric Budget Planner Made Easy", description: "Plan how much electricity expenses you want to spend in a month", image: #imageLiteral(resourceName: "Landing_3"))]
     
     var currentPage = 0 {
         didSet {
@@ -36,17 +41,11 @@ class OnboardingViewController: UIViewController {
         
         nextBtn.isHidden = true
         skipBttn.isHidden = false
-        slides = [
-            OnboardingSlide(title: "Intergrated With IoT", description: "Use machine learning technology integrated with IoT, we provide the best cost you should pay", image: #imageLiteral(resourceName: "Landing_1")),
-            OnboardingSlide(title: "Clear Comparison Report", description: "Provide a comparison report on your electricity usage since the last month", image: #imageLiteral(resourceName: "Landing_2")),
-            OnboardingSlide(title: "Electric Budget Planner Made Easy", description: "Plan how much electricity expenses you want to spend in a month", image: #imageLiteral(resourceName: "Landing_3"))
-        ]
-        
         pageControl.numberOfPages = slides.count
-        
         nextBtn.layer.cornerRadius = 8
         nextBtn.layer.borderWidth = 2
         nextBtn.layer.borderColor = UIColor(named: "Wacc")?.cgColor
+        
     }
     
     @IBAction func nextBtnClicked(_ sender: UIButton) {
