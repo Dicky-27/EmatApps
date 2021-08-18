@@ -1,16 +1,15 @@
 //
-//  Helper.swift
+//  String+Formatter.swift
 //  EmatApps
 //
-//  Created by Dian Dinihari on 13/08/21.
+//  Created by Dian Dinihari on 18/08/21.
 //
 
 import Foundation
 
-
-class Helper {
+extension Float {
     
-    static func rpFormatter(number: Float) -> String {
+    func toRupiahString() -> String {
         
         let rupiahFormat = NumberFormatter()
         
@@ -18,12 +17,10 @@ class Helper {
         rupiahFormat.groupingSeparator = "."
         rupiahFormat.maximumFractionDigits = 0
         
-        let finalString = "Rp\(rupiahFormat.string(from: NSNumber(value: number)) ?? "0")"
-        
-        return finalString
+        return "Rp\(rupiahFormat.string(from: NSNumber(value: self)) ?? "0")"
     }
     
-    static func kwhFormatter(number: Float) -> String {
+    func toKwhString() -> String {
         
         let kwhFormat = NumberFormatter()
         
@@ -31,12 +28,11 @@ class Helper {
         kwhFormat.decimalSeparator = ","
         kwhFormat.minimumFractionDigits = 2
         kwhFormat.maximumFractionDigits = 2
-        let finalString = "\(kwhFormat.string(from: NSNumber(value:number)) ?? "0,00") kWh"
         
-        return finalString
+        return "\(kwhFormat.string(from: NSNumber(value:self)) ?? "0,00") kWh"
     }
     
-    static func wattFormatter(number: Float) -> String {
+    func toWattString() -> String {
         
         let kwhFormat = NumberFormatter()
         
@@ -44,9 +40,7 @@ class Helper {
         kwhFormat.decimalSeparator = ","
         kwhFormat.minimumFractionDigits = 2
         kwhFormat.maximumFractionDigits = 2
-        let finalString = "\(kwhFormat.string(from: NSNumber(value:number)) ?? "0,00") Watt"
         
-        return finalString
+        return "\(kwhFormat.string(from: NSNumber(value:self)) ?? "0,00") Watt"
     }
-
 }

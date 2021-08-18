@@ -16,15 +16,6 @@ struct Power: Codable {
     let current: Float
     let frequency: Float
     let power_factor: Float
-    
-}
-
-struct MonthlyPower: Codable {
-    let id: String
-    let month_simple: String
-    let month_full: String
-    let monthly_power: Float
-    let monthly_budget: Float
 }
 
 struct DailyPower: Codable {

@@ -46,8 +46,8 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         
         monthLabel.text         = monthDetail
         monthBillLabel.text     = monthDetailBill
-        energyUsageLabel.text   = Helper.kwhFormatter(number: monthDetailPow ?? 0)
-        monthlyBudgetLabel.text = Helper.rpFormatter(number: monthBudget ?? 0)
+        energyUsageLabel.text   = monthDetailPow?.toKwhString()
+        monthlyBudgetLabel.text = monthBudget?.toRupiahString()
         
         view.addGradientBackground(firstColor: UIColor(named: "Background") ?? .blue, secondColor: UIColor(named: "Wblack") ?? .white)
         monthBillCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
@@ -55,6 +55,9 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         averageCostCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         dailyHighestCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         dailyUsageBanner.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
+        
+        monthBillLabel.shouldGroupAccessibilityChildren = true
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,7 +71,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         var dailyPow: Float = 0.0
         let avgPow          = monthDetailPow! / 30.0
         let maxDailyCost    = highestDaily * harga
-        let maxDailyStr     = Helper.rpFormatter(number: maxDailyCost)
+        let maxDailyStr     = maxDailyCost.toRupiahString()
         
         if avgPow == 0 {
             dailyPow = 0.0
@@ -81,7 +84,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         cell.dayLabel.text = dayList[indexPath.row]
         
         if indexPath.row != 29 {
-            cell.dailyKwhLabel.text = Helper.kwhFormatter(number: dailyPow)
+            cell.dailyKwhLabel.text = dailyPow.toKwhString()
             if highestDaily < dailyPow { highestDaily = dailyPow }
         }
         else {
@@ -93,7 +96,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
                 sisaPow = monthDetailPow! - accumulatedPow
             }
             
-            cell.dailyKwhLabel.text = Helper.kwhFormatter(number: sisaPow)
+            cell.dailyKwhLabel.text = sisaPow.toKwhString()
             if highestDaily < sisaPow { highestDaily = sisaPow }
         }
 
@@ -113,7 +116,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         }
 
         costperDayLabel.text    = maxDailyStr
-        dailyHighestLabel.text  = Helper.kwhFormatter(number: highestDaily)
+        dailyHighestLabel.text  = highestDaily.toKwhString()
         
         return cell
     }
