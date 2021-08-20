@@ -8,4 +8,5 @@ target 'EmatApps' do
   # Pods for EmatApps
   pod 'Charts'
   pod 'TinyConstraints'
+  pod 'FSCalendar'
 end
