@@ -35,6 +35,7 @@
 		AE7074B826B45862000255A3 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074B726B45862000255A3 /* OnboardingCollectionViewCell.swift */; };
 		AE7074BA26B45895000255A3 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074B926B45895000255A3 /* OnboardingSlide.swift */; };
 		AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7074BB26B460EB000255A3 /* DeviceViewController.swift */; };
+		AE916B2026CF6D0200967317 /* CollectionExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE916B1F26CF6D0200967317 /* CollectionExtention.swift */; };
 		AE99613B26B5447200FDA0B1 /* PowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE99613A26B5447200FDA0B1 /* PowerViewController.swift */; };
 		AEC3C3F526BAC5780060134F /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC3C3F426BAC5780060134F /* SettingTableViewController.swift */; };
 		AECC1F9D26C64EA9003D3814 /* ChartSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC1F9C26C64EA9003D3814 /* ChartSetup.swift */; };
@@ -120,6 +121,7 @@
 		AE7074B726B45862000255A3 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE7074B926B45895000255A3 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		AE7074BB26B460EB000255A3 /* DeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
+		AE916B1F26CF6D0200967317 /* CollectionExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtention.swift; sourceTree = "<group>"; };
 		AE99613A26B5447200FDA0B1 /* PowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerViewController.swift; sourceTree = "<group>"; };
 		AEC3C3F426BAC5780060134F /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		AECC1F9C26C64EA9003D3814 /* ChartSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSetup.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				AE07D40226BD3DAC00526190 /* Core.swift */,
+				AE916B1F26CF6D0200967317 /* CollectionExtention.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				AE07D40126BD3CDD00526190 /* Constant.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
 				AE07D3FF26BD3C7500526190 /* APIRequest.swift in Sources */,
+				AE916B2026CF6D0200967317 /* CollectionExtention.swift in Sources */,
 				AEFDAAE226B290B000E0BBDB /* CellFourTableViewCell.swift in Sources */,
 				AEFDAAE426B293BD00E0BBDB /* TitleStackView.swift in Sources */,
 				AE04AF1326AAA5D000E79190 /* SceneDelegate.swift in Sources */,

@@ -156,24 +156,4 @@ class PowerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 }
 
-extension UITextField {
-    func addBottomBorder(){
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: self.frame.size.height -  1, width: self.frame.size.width - 20, height: 0.5)
-        bottomLine.backgroundColor = UIColor(named: "Black")?.cgColor
-        borderStyle = .none
-        layer.addSublayer(bottomLine)
-    }
-}
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}

@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dw-17-20P">
-                                <rect key="frame" x="362" y="64" width="32" height="29"/>
+                                <rect key="frame" x="363" y="64" width="31" height="32"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                 <state key="normal" title="SKIP"/>
                                 <connections>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bMp-WN-tjz">
-                                <rect key="frame" x="20" y="113" width="374" height="605.5"/>
+                                <rect key="frame" x="20" y="116" width="374" height="602.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="DeF-P2-L4x">
                                     <size key="itemSize" width="366" height="571"/>
@@ -66,27 +66,27 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="MaE-Pr-kIi" customClass="OnboardingCollectionViewCell" customModule="EmatApps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="17.5" width="366" height="571"/>
+                                        <rect key="frame" x="0.0" y="16" width="366" height="571"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FKR-FM-T3M">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="571"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Landing_2" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-pq-ACS">
-                                                    <rect key="frame" x="58" y="126" width="250" height="260"/>
+                                                    <rect key="frame" x="58" y="131" width="250" height="260"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="260" id="Mkt-1g-Taw"/>
                                                         <constraint firstAttribute="width" constant="250" id="e24-hl-UlN"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Delivery At Your Doorstep" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yum-Lh-cmJ">
-                                                    <rect key="frame" x="20" y="20" width="326" height="56"/>
+                                                    <rect key="frame" x="20" y="20" width="326" height="61"/>
                                                     <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
                                                     <color key="textColor" name="Black"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use machine learning technology integrated with IoT, we provide the best cost you should pay" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxD-uw-NM3">
-                                                    <rect key="frame" x="15" y="426" width="336" height="28"/>
+                                                    <rect key="frame" x="15" y="431" width="336" height="34"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                     <color key="textColor" name="Wacc"/>
                                                     <nil key="highlightedColor"/>
@@ -158,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dRE-Ox-yWo">
-                                <rect key="frame" x="47" y="450" width="320" height="132"/>
+                                <rect key="frame" x="47" y="455" width="320" height="132"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2H-eg-Z4U">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
@@ -190,7 +190,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do You Have Our Device?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bA-Zy-2NM">
-                                <rect key="frame" x="70" y="264" width="274" height="56"/>
+                                <rect key="frame" x="70" y="264" width="274" height="61"/>
                                 <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -228,7 +228,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCi-Nf-c15">
-                                        <rect key="frame" x="84" y="75" width="246" height="75"/>
+                                        <rect key="frame" x="79.5" y="75" width="255.5" height="81"/>
                                         <string key="text">Input your House
 Electricity Power</string>
                                         <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="32"/>
@@ -258,7 +258,7 @@ Electricity Power</string>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="wyd-Aa-ne2"/>
                                         </constraints>
-                                        <color key="textColor" name="Accent"/>
+                                        <color key="textColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -336,8 +336,8 @@ Electricity Power</string>
     </scenes>
     <resources>
         <image name="Landing_2" width="500" height="500"/>
-        <namedColor name="Accent">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AccentColor">
+            <color red="0.093999996781349182" green="0.51399999856948853" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Black">
             <color red="0.16899999976158142" green="0.16899999976158142" blue="0.16899999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

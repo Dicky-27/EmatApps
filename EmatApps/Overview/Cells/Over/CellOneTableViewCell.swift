@@ -29,4 +29,17 @@ class CellOneTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    func setup() {
+        let calendar = Calendar.current
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let day = calendar.component(.day, from: date)
+        let month = dateFormatter.string(from: date)
+        
+        moneySave.text = "Rp0"
+        dateNow.text = "\(day) \(month)"
+        
+    }
 }

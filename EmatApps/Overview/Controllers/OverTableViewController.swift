@@ -29,7 +29,6 @@ class OverTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        
         self.tableView.separatorStyle = .none
         navigationItem.title = nil
@@ -123,16 +122,7 @@ class OverTableViewController: UITableViewController {
         if indexPath.section == 0 {
         
             cell.selectionStyle = .none
-            let calendar = Calendar.current
-            let date = Date()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "LLLL"
-            let day = calendar.component(.day, from: date)
-            let month = dateFormatter.string(from: date)
-            
-            cell.moneySave.text = "Rp0"
-            cell.dateNow.text = "\(day) \(month)"
-            
+            cell.setup()
             ChartSetup.drawing(view: cell.chartOver)
             
             return cell
@@ -140,94 +130,19 @@ class OverTableViewController: UITableViewController {
         }else if indexPath.section == 1 {
           
             cell2.selectionStyle = .none
-            
-            var kwhTot:Float = 0
-            var power:Float = 0
-        
-            if EnergiesLoad.energyModel.isEmpty == false {
-                for i in 0..<EnergiesLoad.energyModel.count{
-    
-                    power = EnergiesLoad.energyModel[i].power ?? 0
-                    kwhTot += power/1000
-                }
-                
-                let duit = Float(Float(kwhTot) * 1440.70)
-                
-                
-                let formatter = NumberFormatter()
-                formatter.numberStyle = NumberFormatter.Style.currency
-                formatter.locale = Locale(identifier: "id_ID")
-                formatter.maximumFractionDigits = 0
-                
-                var numberFromField:Float = 0
-                var budget:Float = 0
-                
-                if UserData.user.isEmpty == false {
-                    
-                    numberFromField = UserData.user[0].budget
-                    budget = UserData.user[0].budget
-                    
-                    cell2.rightLbl.text = formatter.string(from: numberFromField as NSNumber)
-                    
-                    cell2.progressBudget.progress = Float(duit / budget)
-                    
-                }
-            }
+            cell2.setup()
             
             return cell2
             
         }else if indexPath.section == 2 {
             
-            var kwhTot:Float = 0
-            var power:Float = 0
-        
-            if EnergiesLoad.energyModel.isEmpty == false {
-        
-                for i in 0..<EnergiesLoad.energyModel.count{
-    
-                    power = EnergiesLoad.energyModel[i].power ?? 0
-                    kwhTot += power/1000
-                    
-                }
-                
-                let state = UserData.user[0].budget
-            
-                var harga: Float = 0
-                if state >= 399.0 && state <= 1000.0 {
-                    harga = 1352
-                }else {
-                    harga = 1440.70
-                }
-
-                let duit = "\(Float(Float(kwhTot) * harga))"
-                let formatter = NumberFormatter()
-                formatter.numberStyle = NumberFormatter.Style.currency
-                formatter.locale = Locale(identifier: "id_ID")
-                let numberFromField = (NSString(string: duit).integerValue)
-                cell3.currentSpen.text = formatter.string(from: numberFromField as NSNumber)
-                
-            }
-            
+            cell3.selectionStyle = .none
+            cell3.setup()
             return cell3
             
         }else if indexPath.section == 3{
             
-            var kwhTot:Float = 0
-            var power:Float = 0
-        
-            if EnergiesLoad.energyModel.isEmpty == false {
-                for i in 0..<EnergiesLoad.energyModel.count{
-    
-                    power = EnergiesLoad.energyModel[i].power ?? 0
-                    kwhTot += power/1000
-    
-                }
-                
-            cell4.kwhStats.text = kwhTot.toKwhString()
-            cell4.powerStats.text = EnergiesLoad.energyModel[0].power?.toWattString()
-                
-            }
-            
+            cell4.setup()
             cell4.selectionStyle = .none
             return cell4
             
@@ -272,7 +187,6 @@ class OverTableViewController: UITableViewController {
         }
     }
     
-    
     @objc func estButtonAction() {
         performSegue(withIdentifier: "goEst", sender: nil)
     }
@@ -282,31 +196,28 @@ class OverTableViewController: UITableViewController {
     }
 
     func loadPowerData(){
-
+        
         APIRequest.fetchEnergyData(url: Constant.GET_ENERGY_LIST,showLoader: true) { response in
             EnergiesLoad.energyModel = response
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.removeLoadingScreen()
-            }
-            
-        } failCompletion: { message in
-           print(message)
+            }}
+            failCompletion: { message in print(message) }
         }
-    }
     
       func loadData() {
-    
+
             let request : NSFetchRequest<User> = User.fetchRequest()
-    
+
             do{
                 UserData.user = try UserData.context.fetch(request)
             } catch {
                 print("Error loading categories \(error)")
             }
-    
+
             tableView.reloadData()
-    
+
         }
     
 
@@ -408,6 +319,8 @@ class OverTableViewController: UITableViewController {
         }
         
     }
+    
+    
     
     
 }

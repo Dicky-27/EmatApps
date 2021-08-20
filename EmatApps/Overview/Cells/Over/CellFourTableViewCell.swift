@@ -36,4 +36,23 @@ class CellFourTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func setup() {
+        
+        var kwhTot:Float = 0
+        var power:Float = 0
+    
+        if EnergiesLoad.energyModel.isEmpty == false {
+            for i in 0..<EnergiesLoad.energyModel.count{
+
+                power = EnergiesLoad.energyModel[i].power ?? 0
+                kwhTot += power/1000
+
+            }
+            
+        kwhStats.text = kwhTot.toKwhString()
+        powerStats.text = EnergiesLoad.energyModel[0].power?.toWattString()
+            
+        }
+    }
 }

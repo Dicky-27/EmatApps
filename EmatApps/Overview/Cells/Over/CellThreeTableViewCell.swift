@@ -39,6 +39,39 @@ class CellThreeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setup() {
+        
+        var kwhTot:Float = 0
+        var power:Float = 0
+    
+        if EnergiesLoad.energyModel.isEmpty == false {
+    
+            for i in 0..<EnergiesLoad.energyModel.count{
+
+                power = EnergiesLoad.energyModel[i].power ?? 0
+                kwhTot += power/1000
+                
+            }
+            
+            let state = UserData.user[0].budget
+        
+            var harga: Float = 0
+            if state >= 399.0 && state <= 1000.0 {
+                harga = 1352
+            }else {
+                harga = 1440.70
+            }
+
+            let duit = "\(Float(Float(kwhTot) * harga))"
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.currency
+            formatter.locale = Locale(identifier: "id_ID")
+            let numberFromField = (NSString(string: duit).integerValue)
+            currentSpen.text = formatter.string(from: numberFromField as NSNumber)
+            
+        }
+    }
+    
 }
 
 extension UIView{
