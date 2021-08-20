@@ -116,7 +116,6 @@ class OverTableViewController: UITableViewController {
         guard let cell4 = tableView.dequeueReusableCell(withIdentifier: "cell4") as? CellFourTableViewCell else {fatalError("Cell is not of kind FormItemTableViewCell")}
         guard let cell5 = tableView.dequeueReusableCell(withIdentifier: "cell5") as? CellFiveTableViewCell else {fatalError("Cell is not of kind FormItemTableViewCell")}
         
-
         setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
         
         if indexPath.section == 0 {
@@ -170,7 +169,6 @@ class OverTableViewController: UITableViewController {
         }
     }
     
-   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goEst" {
             if let nextVC = segue.destination as? EstimatedViewController {

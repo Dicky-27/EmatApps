@@ -19,7 +19,7 @@ class APIRequest: NSObject {
             
             do {
                 let energyModel = try JSONDecoder().decode([Energies].self, from: response as! Data)
-                
+        
                 successCompletion(energyModel)
             } catch let error {
                 //handle error

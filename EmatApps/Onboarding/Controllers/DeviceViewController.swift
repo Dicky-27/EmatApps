@@ -23,6 +23,7 @@ class DeviceViewController: UIViewController {
     }
     
     @IBAction func newDeviceButton(_ sender: UIButton) {
+        
     }
     
     
