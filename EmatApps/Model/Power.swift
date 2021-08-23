@@ -33,3 +33,14 @@ struct Energies: Codable {
     let frequency: Float?
     let power_factor: Float?
 }
+
+struct Daily_Energies: Codable {
+    let id: String?
+    let created_at: String?
+    let energy: Float?
+    let power: Float?
+    let voltage: Float?
+    let current: Float?
+    let frequency: Float?
+    let power_factor: Float?
+}

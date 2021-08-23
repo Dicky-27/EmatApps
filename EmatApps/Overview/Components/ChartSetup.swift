@@ -64,44 +64,52 @@ class ChartSetup: UIView{
         let dataEntries1 = [ChartDataEntry]()
         var dataEntries2 = [ChartDataEntry]()
         var power: Float = 0
-        var kwhTot: Float = 0
         let formatter = DateFormatter()
-        let un = Date()
         
-        if EnergiesLoad.energyModel.isEmpty == false {
+        if EnergiesLoad.daily_energy.isEmpty == false {
 
-        let lastIndex = EnergiesLoad.energyModel.count - 1
-        
+            let lastIndex = EnergiesLoad.daily_energy.count - 1
             
-            for i in 0..<EnergiesLoad.energyModel.count {
+            for i in 0..<EnergiesLoad.daily_energy.count {
                 
                
                 formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
                 formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
-                let isoDate = EnergiesLoad.energyModel[lastIndex - i].created_at ?? ""
-                let date = formatter.date(from: isoDate)
-
-                formatter.dateFormat = "yyyy-MM-dd"
+                let isoDate = EnergiesLoad.daily_energy[lastIndex - i].created_at ?? ""
+                let datenya = formatter.date(from: isoDate)
+                let date = Date()
+                let calendar = Calendar.current
+                
+                formatter.dateFormat = "yyyy-MM-"
                 formatter.timeZone = .current
 
-                let itu = formatter.string(from: date ?? un)
-                let results = EnergiesLoad.energyModel.filter { ($0.created_at ?? "").contains(itu) }
-                let calendar = Calendar.current
+                let itu = formatter.string(from: date)
+                
+                
+                let results = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
                 let unwrap = Date()
+                
+                print(itu)
+            
 
-                let day = calendar.component(.day, from: date ?? unwrap)
+                let day = calendar.component(.day, from: datenya ?? unwrap)
                 
                 for j in 0..<results.count {
-                    power = results[j].power ?? 0
-                    kwhTot += power/1000
+                    
+               
+                    power = results[j].energy ?? 0
+                    //print(power)
                 }
                 
-                let entry2 = ChartDataEntry.init(x: Double(day), y: Double(kwhTot))
+                let entry2 = ChartDataEntry.init(x: Double(day), y: Double(power))
                 dataEntries2.append(entry2)
+                print(dataEntries2)
                 power  = 0
-                kwhTot = 0
                 
             }
+            
+            
+            
      
         
         let set1 = LineChartDataSet(entries: dataEntries1)
@@ -123,10 +131,10 @@ class ChartSetup: UIView{
         set2.lineWidth = 5
         
 
-//        let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
-//        let set3:[ChartDataSet] = [set1, set2]
+//       let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
+        let set3:[ChartDataSet] = [set1, set2]
             
-        let data = LineChartData(dataSet: set2)
+        let data = LineChartData(dataSets: set3)
         data.setDrawValues(true)
         lineChartView.data = data
         

@@ -62,6 +62,7 @@ class OverTableViewController: UITableViewController {
         loadData()
         setLoadingScreen()
         loadPowerData()
+        loadDailyData()
     
         self.tabBarController?.tabBar.isHidden = false
         
@@ -174,7 +175,7 @@ class OverTableViewController: UITableViewController {
             if let nextVC = segue.destination as? EstimatedViewController {
                 let date = Date()
                 nextVC.date = date
-                
+
             }else if segue.identifier == "goSetting" {
                 if let nextVC = segue.destination as? SettingTableViewController {
                     nextVC.onCreate = {
@@ -204,7 +205,19 @@ class OverTableViewController: UITableViewController {
             failCompletion: { message in print(message) }
         }
     
-      func loadData() {
+    func loadDailyData(){
+        
+        APIRequest.fetchDailyEnergyData(url: Constant.GET_DAILY_ENERGY_LIST,showLoader: true) { response in
+            EnergiesLoad.daily_energy = response
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.removeLoadingScreen()
+            }}
+            failCompletion: { message in print(message) }
+        }
+    
+    
+    func loadData() {
 
             let request : NSFetchRequest<User> = User.fetchRequest()
 
