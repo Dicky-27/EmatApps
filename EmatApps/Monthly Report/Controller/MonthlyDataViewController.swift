@@ -4,7 +4,6 @@
 //
 //  Created by Dian Dinihari on 28/07/21.
 //
-
 import UIKit
 
 class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
