@@ -74,17 +74,10 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         if dailyDataList.count != 0 {
             
             var dailyPow: Float = 0.0
-            let avgPow          = monthDetailPow! / 30.0
             let maxDailyCost    = highestDaily * harga
             let maxDailyStr     = maxDailyCost.toRupiahString()
             
-            if avgPow == 0 {
-                dailyPow = 0.0
-            }
-            else {
-                //dailyPow = Float.random(in: avgPow-3.0...avgPow+2.70)
-                dailyPow = dailyDataList[indexPath.row].power ?? 0.0               
-            }
+            dailyPow = dailyDataList[indexPath.row].power ?? 0.0
             
             accumulatedPow += dailyPow
             cell.dayLabel.text = dayList[indexPath.row]
@@ -101,8 +94,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
                 else {
                     sisaPow = monthDetailPow! - accumulatedPow
                 }
-                
-                //cell.dailyKwhLabel.text = sisaPow.toKwhString()
+
                 cell.dailyKwhLabel.text = dailyPow.toKwhString()
                 if highestDaily < sisaPow { highestDaily = sisaPow }
             }
@@ -125,8 +117,6 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
             costperDayLabel.text    = maxDailyStr
             dailyHighestLabel.text  = highestDaily.toKwhString()
         }
-        
-        
         
         return cell
     }

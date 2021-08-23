@@ -40,6 +40,8 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getDailyDataList()
+        
         navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
         
         dailyList.delegate = self
@@ -63,36 +65,27 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-        //getKwhDaily()
-        
         let dateFormatter        = DateFormatter()
         dateFormatter.dateFormat = "MMMM d"
         let formattedDate        = dateFormatter.string(from: date)
         
-        let dailyIndex = dailyDataList.count - 1
-        var dailyPow: Float = 0.0
+        dateFormatter.dateFormat = "d"
+        let dayNumberStr         = dateFormatter.string(from: date)
+        let dataIndex : Int      = Int(dayNumberStr) ?? 0
         
-        for i in 0..<dailyDataList.count {
-            
-            dailyPow = dailyDataList[dailyIndex - i].power ?? 0.0
-            
+        var kwhPower : Float = 0.0
+        if dataIndex < dailyDataList.count {
+            kwhPower = dailyDataList[dataIndex].power ?? 0.0
         }
         
+        // gimana caranya buat validasi tanggal yg diselect sama dengan data dari dailyDataList(array)
+        // buat dapetin data yang exact di bulan berapa dan tanggal ke berapa
+        
         daySelectedLabel.text   = formattedDate
-        dailyKwhLabel.text      = dailyPow.toKwhString()
+        dailyKwhLabel.text      = kwhPower.toKwhString()
     
     }
     
-//    func getKwhDaily() {
-//
-//        let dailyIndex = dailyDataList.count - 1
-//
-//        for i in 0..<dailyDataList.count {
-//
-//            var dailyPow = dailyDataList[dailyIndex - i].power
-//
-//        }
-//    }
     
     func getDailyDataList(){
         
@@ -100,10 +93,6 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
             
             // handle response and store it to the data model
             self.dailyDataList = response
-            
-            DispatchQueue.main.async {
-                
-            }
             
         } failCompletion: { message in
             
