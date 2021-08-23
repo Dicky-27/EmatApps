@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xO4-jX-1vJ">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -477,10 +477,10 @@
             </objects>
             <point key="canvasLocation" x="2368" y="84"/>
         </scene>
-        <!--View Controller-->
+        <!--Monthly Report View Controller-->
         <scene sceneID="YKT-LA-HyA">
             <objects>
-                <viewController id="xO4-jX-1vJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="monthlyReport" id="xO4-jX-1vJ" customClass="MonthlyReportViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6hJ-qX-bLs">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -713,8 +713,50 @@
                                                     <constraint firstItem="1rq-OK-Q7s" firstAttribute="centerX" secondItem="4IT-Dt-GCB" secondAttribute="centerX" id="x2c-XF-PKr"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xE1-b9-fdz" customClass="FSCalendar">
+                                                <rect key="frame" x="8" y="598" width="374" height="266"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="scrollEnabled" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uHH-iq-Nzc">
+                                                <rect key="frame" x="8" y="918" width="374" height="74"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QpL-dQ-OQH">
+                                                        <rect key="frame" x="8" y="27" width="20" height="20"/>
+                                                        <color key="backgroundColor" red="1" green="0.38823529410000002" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="12" id="akM-a6-vJe"/>
+                                                            <constraint firstAttribute="height" constant="12" id="yJe-oA-Hgr"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="June 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yY8-xf-Nvp">
+                                                        <rect key="frame" x="36" y="26" width="159" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="18,77 kWh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zo-K6-hko">
+                                                        <rect key="frame" x="287" y="27" width="79" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWA-S3-11l">
-                                                <rect key="frame" x="55" y="560" width="12" height="12"/>
+                                                <rect key="frame" x="55" y="894" width="12" height="12"/>
                                                 <color key="backgroundColor" red="1" green="0.38823529410000002" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="12" id="Rag-OO-P3u"/>
@@ -727,7 +769,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Exceed" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgH-M5-FNg">
-                                                <rect key="frame" x="72" y="556" width="50" height="20"/>
+                                                <rect key="frame" x="72" y="890" width="50" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="0xC-lO-AOv"/>
                                                     <constraint firstAttribute="width" constant="50" id="LEy-At-V0K"/>
@@ -737,7 +779,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-65-Q7c">
-                                                <rect key="frame" x="162" y="560" width="12" height="12"/>
+                                                <rect key="frame" x="162" y="894" width="12" height="12"/>
                                                 <color key="backgroundColor" red="0.60392156860000001" green="1" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="GuJ-71-IaP"/>
@@ -750,7 +792,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lower" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST1-Hh-JMf">
-                                                <rect key="frame" x="179" y="556" width="50" height="20"/>
+                                                <rect key="frame" x="179" y="890" width="50" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="7Cs-lj-JZm"/>
                                                     <constraint firstAttribute="height" constant="20" id="W0O-2e-wrD"/>
@@ -760,7 +802,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pI2-RI-cnG">
-                                                <rect key="frame" x="269" y="560" width="12" height="12"/>
+                                                <rect key="frame" x="269" y="894" width="12" height="12"/>
                                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="I6I-XZ-Nb2"/>
@@ -773,7 +815,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="No Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzW-KF-9Lj">
-                                                <rect key="frame" x="286" y="556" width="50" height="20"/>
+                                                <rect key="frame" x="286" y="890" width="50" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="twr-Sx-0Kj"/>
                                                     <constraint firstAttribute="width" constant="50" id="uxj-FO-iPk"/>
@@ -782,11 +824,6 @@
                                                 <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xE1-b9-fdz" customClass="DailyCalendar" customModule="EmatApps" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="598" width="374" height="266"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -820,6 +857,24 @@
                             <constraint firstItem="xh7-zG-KcY" firstAttribute="top" secondItem="c6P-wQ-c4I" secondAttribute="top" id="rfF-X0-4G6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="averageCostCard" destination="5nB-y5-nA1" id="Whe-mg-3cC"/>
+                        <outlet property="costperDayLabel" destination="Zmw-dS-ziH" id="cqd-Qr-Jf0"/>
+                        <outlet property="dailyHighestCard" destination="Iba-Ut-Bvb" id="GRE-8R-O1C"/>
+                        <outlet property="dailyHighestLabel" destination="g68-Jm-ZeK" id="UuW-qV-pZ7"/>
+                        <outlet property="dailyKwhLabel" destination="3zo-K6-hko" id="yJE-f2-2NK"/>
+                        <outlet property="dailyList" destination="xE1-b9-fdz" id="8br-w8-AwA"/>
+                        <outlet property="dailyUsageBanner" destination="4IT-Dt-GCB" id="yRp-RE-KiX"/>
+                        <outlet property="daySelectedLabel" destination="yY8-xf-Nvp" id="BIN-r5-HzY"/>
+                        <outlet property="energyUsageCard" destination="Czm-kF-AAu" id="utG-MP-wf0"/>
+                        <outlet property="energyUsageLabel" destination="Ns7-do-a1S" id="KA7-Fz-fwm"/>
+                        <outlet property="indicatorUsage" destination="QpL-dQ-OQH" id="R5g-SQ-o6R"/>
+                        <outlet property="monthBillCard" destination="eRt-gR-PjC" id="gAm-VJ-Wtm"/>
+                        <outlet property="monthBillLabel" destination="jxM-d6-fLb" id="sDr-Nt-g56"/>
+                        <outlet property="monthLabel" destination="eMQ-xw-sII" id="rA2-Us-T3u"/>
+                        <outlet property="monthlyBudgetLabel" destination="bq9-1c-ATg" id="6bE-wz-wkH"/>
+                        <outlet property="progressBudget" destination="0Z4-Jh-AYs" id="w6p-C0-TSh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jI5-B3-dai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -841,6 +896,9 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

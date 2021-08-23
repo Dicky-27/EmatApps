@@ -17,19 +17,17 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
     @IBOutlet weak var dailyHighestLabel    : UILabel!
     @IBOutlet weak var monthlyBudgetLabel   : UILabel!
     @IBOutlet weak var progressBudget       : MonthlyBudget!
-    @IBOutlet weak var dailyUsageTable      : UITableView!
     @IBOutlet weak var monthBillCard        : UIView!
     @IBOutlet weak var energyUsageCard      : UIView!
     @IBOutlet weak var averageCostCard      : UIView!
     @IBOutlet weak var dailyHighestCard     : UIView!
     @IBOutlet weak var dailyUsageBanner     : UIView!
-    @IBOutlet weak var dailyList: FSCalendar!
+    @IBOutlet weak var dailyList            : FSCalendar!
+    @IBOutlet weak var indicatorUsage       : UIView!
+    @IBOutlet weak var daySelectedLabel     : UILabel!
+    @IBOutlet weak var dailyKwhLabel        : UILabel!
     
-    // sample data for list of days
-//    let dayList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-//                   "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-//                   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]
-
+    
     var monthDetail     : String?
     var monthDetailPow  : Float?
     var accumulatedPow  : Float = 0.0
@@ -37,6 +35,7 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
     var monthBudget     : Float?
     var highestDaily    : Float = 0.0
     var harga           : Float = 1444.70
+    var dailyDataList   : [Daily_Energies] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,14 +61,54 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
 
     }
     
-    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-        return "."
+        //getKwhDaily()
+        
+        let dateFormatter        = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d"
+        let formattedDate        = dateFormatter.string(from: date)
+        
+        let dailyIndex = dailyDataList.count - 1
+        var dailyPow: Float = 0.0
+        
+        for i in 0..<dailyDataList.count {
+            
+            dailyPow = dailyDataList[dailyIndex - i].power ?? 0.0
+            
+        }
+        
+        daySelectedLabel.text   = formattedDate
+        dailyKwhLabel.text      = dailyPow.toKwhString()
+    
     }
     
-    func kwhPerDay() {
+//    func getKwhDaily() {
+//
+//        let dailyIndex = dailyDataList.count - 1
+//
+//        for i in 0..<dailyDataList.count {
+//
+//            var dailyPow = dailyDataList[dailyIndex - i].power
+//
+//        }
+//    }
+    
+    func getDailyDataList(){
         
-        
+        APIRequest.fetchDailyEnergyData(url: Constant.GET_DAILY_ENERGY_LIST,showLoader: true) { response in
+            
+            // handle response and store it to the data model
+            self.dailyDataList = response
+            
+            DispatchQueue.main.async {
+                
+            }
+            
+        } failCompletion: { message in
+            
+            print(message)
+        }
     }
     
     
