@@ -66,24 +66,42 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
         let dateFormatter        = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         let formattedDate        = dateFormatter.string(from: date)
-        
-        dateFormatter.dateFormat = "d"
-        let dayNumberStr         = dateFormatter.string(from: date)
-        let dataIndex : Int      = Int(dayNumberStr) ?? 0
+        let unwrap = Date()
         
         var kwhPower : Float = 0.0
-        if dataIndex < dailyDataList.count {
-            kwhPower = dailyDataList[dataIndex].power ?? 0.0
+        var result: [Daily_Energies] = []
+        var resultBefore: [Daily_Energies] = []
+        
+        let dayBefore = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? unwrap
+        let dateBefore = dateFormatter.string(from: dayBefore)
+        
+        
+        result = dailyDataList.filter { ($0.created_at ?? "").contains(formattedDate) }
+        resultBefore = dailyDataList.filter { ($0.created_at ?? "").contains(dateBefore) }
+        
+        if result.isEmpty == false {
+            
+            if resultBefore.isEmpty == false {
+                //Ada data
+                daySelectedLabel.text = formattedDate
+                kwhPower = (result[0].energy ?? 0) - (resultBefore[0].energy ?? 0)
+                dailyKwhLabel.text = kwhPower.toKwhString()
+            }else {
+                //No data di day before
+                daySelectedLabel.text = formattedDate
+                dailyKwhLabel.text = "No data entry"
+            }
+
+            
+        }else {
+            //NO data samsek
+            daySelectedLabel.text = formattedDate
+            dailyKwhLabel.text = "No data entry"
         }
-        
-        // gimana caranya buat validasi tanggal yg diselect sama dengan data dari dailyDataList(array)
-        // buat dapetin data yang exact di bulan berapa dan tanggal ke berapa
-        
-        daySelectedLabel.text   = formattedDate
-        dailyKwhLabel.text      = kwhPower.toKwhString()
-    
+            
+        kwhPower = 0
     }
     
     
