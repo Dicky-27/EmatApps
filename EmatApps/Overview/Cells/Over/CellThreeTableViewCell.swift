@@ -44,17 +44,37 @@ class CellThreeTableViewCell: UITableViewCell {
         var kwhTot:Float = 0
         var power:Float = 0
     
-        if EnergiesLoad.energyModel.isEmpty == false {
+        if EnergiesLoad.daily_energy.isEmpty == false {
     
-            for i in 0..<EnergiesLoad.energyModel.count{
+            
+            let state = UserData.user[0].power
+        
+            let formatter = DateFormatter()
+            var result: [Daily_Energies] = []
+            
+            let lastIndex = EnergiesLoad.daily_energy.count - 1
+            let date = Date()
 
-                power = EnergiesLoad.energyModel[i].power ?? 0
-                kwhTot += power/1000
+            if date == date.startOfMonth {
+                kwhTot = 0
+            }
+            
+            formatter.dateFormat = "yyyy-MM-"
+            formatter.timeZone = .current
+
+            let itu = formatter.string(from: date)
+            result = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
+            
+            for i in 0..<result.count {
+                let tryv = result.indices.contains((lastIndex+1) - i)
+                if tryv == true  {
+                    power = (result[lastIndex - i].energy ?? 0) - (result[(lastIndex+1) - i].energy ?? 0)
+                    kwhTot += power
+                    power  = 0
+                }
                 
             }
             
-            let state = UserData.user[0].budget
-        
             var harga: Float = 0
             if state >= 399.0 && state <= 1000.0 {
                 harga = 1352
@@ -63,11 +83,11 @@ class CellThreeTableViewCell: UITableViewCell {
             }
 
             let duit = "\(Float(Float(kwhTot) * harga))"
-            let formatter = NumberFormatter()
-            formatter.numberStyle = NumberFormatter.Style.currency
-            formatter.locale = Locale(identifier: "id_ID")
+            let formatterNumber = NumberFormatter()
+            formatterNumber.numberStyle = NumberFormatter.Style.currency
+            formatterNumber.locale = Locale(identifier: "id_ID")
             let numberFromField = (NSString(string: duit).integerValue)
-            currentSpen.text = formatter.string(from: numberFromField as NSNumber)
+            currentSpen.text = formatterNumber.string(from: numberFromField as NSNumber)
             
         }
     }

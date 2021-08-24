@@ -42,17 +42,41 @@ class CellFourTableViewCell: UITableViewCell {
         var kwhTot:Float = 0
         var power:Float = 0
     
-        if EnergiesLoad.energyModel.isEmpty == false {
-            for i in 0..<EnergiesLoad.energyModel.count{
+        if EnergiesLoad.daily_energy.isEmpty == false {
+            let formatter = DateFormatter()
+            var result: [Daily_Energies] = []
+            
+            let lastIndex = EnergiesLoad.daily_energy.count - 1
+            let date = Date()
+            
+            if date == date.startOfMonth {
+                kwhTot = 0
+            }
 
-                power = EnergiesLoad.energyModel[i].power ?? 0
-                kwhTot += power/1000
+            formatter.dateFormat = "yyyy-MM-"
+            formatter.timeZone = .current
 
+            let itu = formatter.string(from: date)
+            
+            result = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
+            
+            for i in 0..<result.count {
+                let tryv = result.indices.contains((lastIndex+1) - i)
+                if tryv == true  {
+                    power = (result[lastIndex - i].energy ?? 0) - (result[(lastIndex+1) - i].energy ?? 0)
+                    kwhTot += power
+                    
+                    power  = 0
+                }
+                
             }
             
         kwhStats.text = kwhTot.toKwhString()
-        powerStats.text = EnergiesLoad.energyModel[0].power?.toWattString()
             
+        }
+        
+        if EnergiesLoad.energyModel.isEmpty == false {
+            powerStats.text = EnergiesLoad.energyModel[0].power?.toWattString()
         }
     }
 }
