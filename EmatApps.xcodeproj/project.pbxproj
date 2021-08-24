@@ -39,6 +39,8 @@
 		AE99613B26B5447200FDA0B1 /* PowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE99613A26B5447200FDA0B1 /* PowerViewController.swift */; };
 		AEC3C3F526BAC5780060134F /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC3C3F426BAC5780060134F /* SettingTableViewController.swift */; };
 		AECC1F9D26C64EA9003D3814 /* ChartSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC1F9C26C64EA9003D3814 /* ChartSetup.swift */; };
+		AECF594C26D4F6E400AAC8E1 /* Marker.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECF594B26D4F6E400AAC8E1 /* Marker.xib */; };
+		AECF594E26D4FCB200AAC8E1 /* MarkerChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF594D26D4FCB200AAC8E1 /* MarkerChart.swift */; };
 		AEFDAADC26B2906D00E0BBDB /* CellOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */; };
 		AEFDAADE26B2907C00E0BBDB /* CellTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */; };
 		AEFDAAE026B290A600E0BBDB /* CellThreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */; };
@@ -127,6 +129,8 @@
 		AE99613A26B5447200FDA0B1 /* PowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerViewController.swift; sourceTree = "<group>"; };
 		AEC3C3F426BAC5780060134F /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		AECC1F9C26C64EA9003D3814 /* ChartSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSetup.swift; sourceTree = "<group>"; };
+		AECF594B26D4F6E400AAC8E1 /* Marker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Marker.xib; sourceTree = "<group>"; };
+		AECF594D26D4FCB200AAC8E1 /* MarkerChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerChart.swift; sourceTree = "<group>"; };
 		AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellOneTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTwoTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellThreeTableViewCell.swift; sourceTree = "<group>"; };
@@ -454,6 +458,7 @@
 				AE07D3E326BBA74A00526190 /* PillMarker.swift */,
 				AE07D3E726BBB72200526190 /* ModelProp.swift */,
 				AECC1F9C26C64EA9003D3814 /* ChartSetup.swift */,
+				AECF594D26D4FCB200AAC8E1 /* MarkerChart.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				AE7074A626B29F71000255A3 /* Overview.storyboard */,
+				AECF594B26D4F6E400AAC8E1 /* Marker.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -770,6 +776,7 @@
 				E0B3465626B2A5DD0076D482 /* Poppins-ExtraLight.otf in Resources */,
 				E0B3466026B2A5DD0076D482 /* Poppins-LightItalic.otf in Resources */,
 				E0B3465D26B2A5DD0076D482 /* Poppins-Italic.otf in Resources */,
+				AECF594C26D4F6E400AAC8E1 /* Marker.xib in Resources */,
 				E0B3467626B2A8170076D482 /* CircularStd-Medium.ttf in Resources */,
 				AE03DF0126CCE96C0000047D /* Onboarding.storyboard in Resources */,
 				AE04AF2026AAA5D200E79190 /* LaunchScreen.storyboard in Resources */,
@@ -870,6 +877,7 @@
 				AE04AF1B26AAA5D000E79190 /* EmatApps.xcdatamodeld in Sources */,
 				E0B3462B26B26AFC0076D482 /* DailyUsageTableViewCell.swift in Sources */,
 				E04162B426CD35AA009F9C26 /* Float+Formatter.swift in Sources */,
+				AECF594E26D4FCB200AAC8E1 /* MarkerChart.swift in Sources */,
 				AE07D3FD26BD3C6400526190 /* BaseRequest.swift in Sources */,
 				AE7074BC26B460EB000255A3 /* DeviceViewController.swift in Sources */,
 				AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */,
