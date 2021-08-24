@@ -89,6 +89,6 @@ class PillMarker: MarkerImage {
     }
     
     private func customString(value: Double, valueX: Int) -> String {
-        return "Energy : \(Float(TimeInterval(value)).toWattString()) \n Day : \(valueX)"
+        return "Energy : \(Float(TimeInterval(value)).toKwhString()) \n Day : \(valueX)"
     }
 }

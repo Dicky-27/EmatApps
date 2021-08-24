@@ -61,55 +61,78 @@ class ChartSetup: UIView{
     
     static func setData() {
         
-        let dataEntries1 = [ChartDataEntry]()
+        var dataEntries1 = [ChartDataEntry]()
         var dataEntries2 = [ChartDataEntry]()
         var power: Float = 0
+        var powerBefore: Float = 0
         let formatter = DateFormatter()
+        var result: [Daily_Energies] = []
+        var resultBefore: [Daily_Energies] = []
+        let unwrap = Date()
+        let calendar = Calendar.current
         
         if EnergiesLoad.daily_energy.isEmpty == false {
 
             let lastIndex = EnergiesLoad.daily_energy.count - 1
-            
-            for i in 0..<EnergiesLoad.daily_energy.count {
-                
-               
-                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
-                formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
-                let isoDate = EnergiesLoad.daily_energy[lastIndex - i].created_at ?? ""
-                let datenya = formatter.date(from: isoDate)
-                let date = Date()
-                let calendar = Calendar.current
-                
-                formatter.dateFormat = "yyyy-MM-"
-                formatter.timeZone = .current
+            let date = Date()
 
-                let itu = formatter.string(from: date)
-                
-                
-                let results = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
-                let unwrap = Date()
-                
-                print(itu)
-            
+            formatter.dateFormat = "yyyy-MM-"
+            formatter.timeZone = .current
 
-                let day = calendar.component(.day, from: datenya ?? unwrap)
-                
-                for j in 0..<results.count {
+            let itu = formatter.string(from: date)
+            let previousMonth = Calendar.current.date(byAdding: .month, value: -1, to: Date()) ?? unwrap
+            let prev = formatter.string(from: previousMonth)
+            
+            result = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
+            resultBefore = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(prev) }
+        
+            
+            if result.isEmpty == false {
+                for i in 0..<result.count {
+                    let tryv = result.indices.contains((lastIndex+1) - i)
+                    if tryv == true  {
+                        power = (result[lastIndex - i].energy ?? 0) - (result[(lastIndex+1) - i].energy ?? 0)
+                        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
+                        formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
+                        let isoDate = EnergiesLoad.daily_energy[lastIndex - i].created_at ?? ""
+                        let datenya = formatter.date(from: isoDate)
+                        let day = calendar.component(.day, from: datenya ?? unwrap)
+                        let entry2 = ChartDataEntry.init(x: Double(day), y: Double(power))
+                        dataEntries2.append(entry2)
                     
-               
-                    power = results[j].energy ?? 0
-                    //print(power)
+                        power  = 0
+                    }
+                    
                 }
                 
-                let entry2 = ChartDataEntry.init(x: Double(day), y: Double(power))
-                dataEntries2.append(entry2)
-                print(dataEntries2)
-                power  = 0
-                
+            }else {
+                dataEntries2 = []
             }
+           
             
             
-            
+            if resultBefore.isEmpty == false {
+                for i in 0..<result.count {
+                    let tryv = result.indices.contains((lastIndex+1) - i)
+                    if tryv == true  {
+                        powerBefore = (result[lastIndex - i].energy ?? 0) - (result[(lastIndex+1) - i].energy ?? 0)
+                        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
+                        formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
+                        let isoDate = EnergiesLoad.daily_energy[lastIndex - i].created_at ?? ""
+                        let datenya = formatter.date(from: isoDate)
+                        let day = calendar.component(.day, from: datenya ?? unwrap)
+                        let entry = ChartDataEntry.init(x: Double(day), y: Double(powerBefore))
+                        dataEntries1.append(entry)
+                    
+                        powerBefore  = 0
+                    }
+                    
+                }
+                
+            }else {
+                dataEntries1 = []
+            }
+
      
         
         let set1 = LineChartDataSet(entries: dataEntries1)
@@ -130,12 +153,10 @@ class ChartSetup: UIView{
         set2.highlightColor = UIColor(named: "AbuA") ?? .black
         set2.lineWidth = 5
         
-
-//       let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "temperature")
         let set3:[ChartDataSet] = [set1, set2]
             
         let data = LineChartData(dataSets: set3)
-        data.setDrawValues(true)
+        data.setDrawValues(false)
         lineChartView.data = data
         
         }
