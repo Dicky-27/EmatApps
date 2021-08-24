@@ -12,19 +12,24 @@ class PillMarker: MarkerImage {
     
     private (set) var color: UIColor
     private (set) var font: UIFont
-    private (set) var textColor: UIColor
+   // private (set) var textColor: UIColor
     private var labelText: String = ""
+    private var label = UILabel()
     private var attrs: [NSAttributedString.Key: AnyObject]!
     var radius: CGFloat = 10
     
-    init(color: UIColor, font: UIFont, textColor: UIColor) {
+    init(color: UIColor, font: UIFont) {
         self.color = color
         self.font = font
-        self.textColor = textColor
+        //self.textColor = textColor
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        attrs = [.font: font, .paragraphStyle: paragraphStyle, .foregroundColor: textColor, .baselineOffset: NSNumber(value: -4)]
+       
+        attrs = [.font: font, .paragraphStyle: paragraphStyle, .baselineOffset: NSNumber(value: -4)]
+        
+       
+        
         super.init()
     }
     
@@ -75,7 +80,11 @@ class PillMarker: MarkerImage {
         context.setStrokeColor(UIColor.white.cgColor)
         context.closePath()
         context.drawPath(using: .fillStroke)
-        labelText.draw(with: rectangle, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+        
+        
+        label.textAlignment = .left
+       // labelText.draw(with: rectangle, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+        label.text?.draw(with: rectangle, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
         
         let circleRect = CGRect(x: point.x - radius, y: point.y - radius, width: radius * 2, height: radius * 2)
         context.setFillColor(UIColor(named: "AccentColor")?.cgColor ?? color.cgColor)
@@ -86,9 +95,17 @@ class PillMarker: MarkerImage {
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         labelText = customString( value: entry.y, valueX: Int(entry.x))
         
+        let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: "Time Energy")
+        attributedString.setColorForText(textForAttribute: "Time", withColor: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
+        attributedString.setColorForText(textForAttribute: "Energy", withColor: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
+        
+        label.attributedText = attributedString
+        
+        
+        
     }
     
     private func customString(value: Double, valueX: Int) -> String {
-        return "Energy : \(Float(TimeInterval(value)).toKwhString()) \n Day : \(valueX)"
+        return "Time \(Float(TimeInterval(value)).toKwhString())\nEnergy \(valueX)"
     }
 }

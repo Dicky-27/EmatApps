@@ -44,7 +44,7 @@ class ChartSetup: UIView{
         chartView.xAxis.axisMinimum = 0
         chartView.xAxis.axisMaximum = 30
 
-        let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14), textColor: .black)
+        let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14))
         chartView.marker = marker
 
         return chartView

@@ -76,7 +76,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
             var correctDate = dailyDataList[indexPath.row].created_at
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMMM d"
-            var dayLabel = dateFormatter.string(from: correctDate)
+            //var dayLabel = dateFormatter.string(from: correctDate)
             
             var dailyPow: Float = 0.0
             let maxDailyCost    = highestDaily * harga
