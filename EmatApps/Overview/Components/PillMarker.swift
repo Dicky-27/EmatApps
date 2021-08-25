@@ -38,6 +38,8 @@ class PillMarker: MarkerImage {
         let labelHeight = labelText.size(withAttributes: attrs).height + 4
         var rectangle = CGRect(x: point.x, y: point.y, width: labelWidth, height: labelHeight)
         
+        
+        
         if point.y < 60 {
             
             if point.x < 60{
