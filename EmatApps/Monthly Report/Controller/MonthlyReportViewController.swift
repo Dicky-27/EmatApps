@@ -30,17 +30,18 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
     
     var monthDetail     : String?
     var monthDetailPow  : Float?
-    var accumulatedPow  : Float = 0.0
     var monthDetailBill : String?
     var monthBudget     : Float?
     var highestDaily    : Float = 0.0
     var harga           : Float = 1444.70
     var dailyDataList   : [Daily_Energies] = []
+    var kwhPower        : Float = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getDailyDataList()
+        getHighestDaily()
         
         navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
         
@@ -60,50 +61,59 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
         dailyUsageBanner.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         
         monthBillLabel.shouldGroupAccessibilityChildren = true
+        self.dailyList.today = nil
 
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-        let dateFormatter        = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let formattedDate        = dateFormatter.string(from: date)
-        let unwrap = Date()
+        let dateFormatter           = DateFormatter()
+        dateFormatter.dateFormat    = "yyyy-MM-dd"
+        let formattedDate           = dateFormatter.string(from: date)
+        let unwrap                  = Date()
         
-        var kwhPower : Float = 0.0
         var result: [Daily_Energies] = []
         var resultBefore: [Daily_Energies] = []
         
         let dayBefore = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? unwrap
         let dateBefore = dateFormatter.string(from: dayBefore)
         
-        
         result = dailyDataList.filter { ($0.created_at ?? "").contains(formattedDate) }
         resultBefore = dailyDataList.filter { ($0.created_at ?? "").contains(dateBefore) }
+        
+        dateFormatter.dateFormat = "MMMM d"
+        let formatted = dateFormatter.date(from: formattedDate) ?? unwrap
+        let strFormat = dateFormatter.string(from: formatted)
         
         if result.isEmpty == false {
             
             if resultBefore.isEmpty == false {
                 //Ada data
-                daySelectedLabel.text = formattedDate
+                daySelectedLabel.text = strFormat
                 kwhPower = (result[0].energy ?? 0) - (resultBefore[0].energy ?? 0)
                 dailyKwhLabel.text = kwhPower.toKwhString()
-            }else {
+            } else {
                 //No data di day before
-                daySelectedLabel.text = formattedDate
+                daySelectedLabel.text = strFormat
                 dailyKwhLabel.text = "No data entry"
             }
-
             
-        }else {
+        } else {
             //NO data samsek
-            daySelectedLabel.text = formattedDate
+            daySelectedLabel.text = strFormat
             dailyKwhLabel.text = "No data entry"
         }
             
         kwhPower = 0
     }
     
+//    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+//        <#code#>
+//    }
+    
+    func getHighestDaily(){
+ 
+    }
     
     func getDailyDataList(){
         

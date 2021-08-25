@@ -35,6 +35,8 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     var highestDaily    : Float = 0.0
     var harga           : Float = 1444.70
     var dailyDataList   : [Daily_Energies] = []
+    //let formatter       = DateFormatter()
+    //let date            = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,19 +75,22 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         
         if dailyDataList.count != 0 {
             
-            var correctDate = dailyDataList[indexPath.row].created_at
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMMM d"
-            //var dayLabel = dateFormatter.string(from: correctDate)
-            
             var dailyPow: Float = 0.0
             let maxDailyCost    = highestDaily * harga
             let maxDailyStr     = maxDailyCost.toRupiahString()
             
-            dailyPow = dailyDataList[indexPath.row].power ?? 0.0
+            dailyPow = dailyDataList[indexPath.row].energy ?? 0.0
             
             accumulatedPow += dailyPow
-            cell.dayLabel.text = dayList[indexPath.row]
+            
+            //formatter.dateFormat = "d"
+            let dayLabel = dailyDataList[indexPath.row].created_at
+            //let dayStr = formatter.date(from: dayLabel ?? "")
+            
+            let dayLabelArr = dayLabel?.components(separatedBy: " ")
+            let dayLabelDate: String = dayLabelArr?[0].components(separatedBy: "-")[2] ?? ""
+            
+            cell.dayLabel.text = dayLabelDate
             
             if indexPath.row != 29 {
                 cell.dailyKwhLabel.text = dailyPow.toKwhString()
