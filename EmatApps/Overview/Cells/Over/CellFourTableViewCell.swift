@@ -18,6 +18,8 @@ class CellFourTableViewCell: UITableViewCell {
     
     let formatter2 = MeasurementFormatter()
     var timer = Timer()
+   
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +29,10 @@ class CellFourTableViewCell: UITableViewCell {
         viewRight.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         viewLeft.layer.cornerRadius = 8
         viewRight.layer.cornerRadius = 8
+                
         
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -36,6 +40,21 @@ class CellFourTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupAccessbility() {
+        var elemets = [UIAccessibilityElement]()
+        
+        let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
+        kwhElemetn.accessibilityLabel = "Total power usage, \(kwhStats.text ?? "0"))"
+        kwhElemetn.accessibilityFrameInContainerSpace = viewLeft.frame
+        elemets.append(kwhElemetn)
+        
+        let kwhElemetn2 = UIAccessibilityElement(accessibilityContainer: self)
+        kwhElemetn2.accessibilityLabel = "Current usage, \(powerStats.text ?? "0"))"
+        kwhElemetn2.accessibilityFrameInContainerSpace = viewRight.frame
+        elemets.append(kwhElemetn2)
+        
+        self.accessibilityElements = elemets
+    }
     
     func setup() {
         
@@ -78,5 +97,9 @@ class CellFourTableViewCell: UITableViewCell {
         if EnergiesLoad.energyModel.isEmpty == false {
             powerStats.text = EnergiesLoad.energyModel[0].power?.toWattString()
         }
+        
+        setupAccessbility()
     }
+    
+    
 }

@@ -31,13 +31,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-d6-YIG">
-                            <rect key="frame" x="10" y="7" width="100" height="36"/>
+                            <rect key="frame" x="10" y="8" width="100" height="34"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="M9k-sP-d65">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="13"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="12"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mb-fE-nSe">
-                                            <rect key="frame" x="0.0" y="0.0" width="30" height="13"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="pOh-Q9-sJI"/>
                                             </constraints>
@@ -46,7 +46,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7W-mC-bxy">
-                                            <rect key="frame" x="55" y="0.0" width="45" height="13"/>
+                                            <rect key="frame" x="55" y="0.0" width="45" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="Ovt-MM-RZ2"/>
                                             </constraints>
@@ -61,16 +61,16 @@
                                     </constraints>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="H4x-8W-c1Z">
-                                    <rect key="frame" x="0.0" y="23" width="100" height="13"/>
+                                    <rect key="frame" x="0.0" y="22" width="100" height="12"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Energy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htb-HZ-8Gf">
-                                            <rect key="frame" x="0.0" y="0.0" width="46" height="13"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="46" height="12"/>
                                             <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="10"/>
                                             <color key="textColor" name="Primary"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 kWh" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnI-2H-hYj">
-                                            <rect key="frame" x="55" y="0.0" width="45" height="13"/>
+                                            <rect key="frame" x="55" y="0.0" width="45" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="Rov-Cy-qfe"/>
                                             </constraints>

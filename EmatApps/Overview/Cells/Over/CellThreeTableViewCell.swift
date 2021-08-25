@@ -31,12 +31,25 @@ class CellThreeTableViewCell: UITableViewCell {
         viewBg.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         viewBg.layer.cornerRadius = 8
         
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    
+    func setupAccessbility() {
+        var elemets = [UIAccessibilityElement]()
+        
+        let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
+        kwhElemetn.accessibilityLabel = "Current spending, \(currentSpen.text ?? "0"))"
+        kwhElemetn.accessibilityFrameInContainerSpace = viewBg.frame
+        elemets.append(kwhElemetn)
+        
+        self.accessibilityElements = elemets
     }
     
     func setup() {
@@ -90,6 +103,8 @@ class CellThreeTableViewCell: UITableViewCell {
             currentSpen.text = formatterNumber.string(from: numberFromField as NSNumber)
             
         }
+        
+        setupAccessbility()
     }
     
 }
