@@ -41,7 +41,6 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
         super.viewDidLoad()
         
         getDailyDataList()
-        getHighestDaily()
         
         navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
         
@@ -107,23 +106,13 @@ class MonthlyReportViewController: UIViewController, FSCalendarDelegate, FSCalen
         kwhPower = 0
     }
     
-//    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-//        <#code#>
-//    }
-    
-    func getHighestDaily(){
- 
-    }
-    
     func getDailyDataList(){
         
         APIRequest.fetchDailyEnergyData(url: Constant.GET_DAILY_ENERGY_LIST,showLoader: true) { response in
-            
             // handle response and store it to the data model
             self.dailyDataList = response
             
         } failCompletion: { message in
-            
             print(message)
         }
     }

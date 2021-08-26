@@ -22,25 +22,28 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var dailyHighestCard     : UIView!
     @IBOutlet weak var dailyUsageBanner     : UIView!
     
-    // sample data for list of days
-    let dayList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-                   "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-                   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]
-
+    
     var monthDetail     : String?
     var monthDetailPow  : Float?
-    var accumulatedPow  : Float = 0.0
     var monthDetailBill : String?
+    var monthBillNumber : Float = 0.0
     var monthBudget     : Float?
     var highestDaily    : Float = 0.0
+    var dailyBudget     : Float = 0.0
     var harga           : Float = 1444.70
     var dailyDataList   : [Daily_Energies] = []
-    //let formatter       = DateFormatter()
-    //let date            = Date()
+    var monthlyDataList : [MonthlyPower] =  []
+    var prevEnergy      : Float = 0
+    var todayEnergy     : Float = 0
+    var currEnergy      : Float = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dailyBudget = (monthBudget ?? 0.0) / 30 / harga
+        let percentBill = (monthBillNumber ) / (monthBudget ?? 0.0)
+        progressBudget.progress = percentBill
         getDailyDataList()
         
         navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
@@ -65,70 +68,49 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //dayList.count
-        dailyDataList.count
+        if monthDetail == "August" {
+            return dailyDataList.count
+        }
+        else { return 0 }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
-        
-        if dailyDataList.count != 0 {
-            
-            var dailyPow: Float = 0.0
+        if monthDetail == "August" && dailyDataList.count != 0 {
             let maxDailyCost    = highestDaily * harga
             let maxDailyStr     = maxDailyCost.toRupiahString()
             
-            dailyPow = dailyDataList[indexPath.row].energy ?? 0.0
+            todayEnergy = dailyDataList[indexPath.row].energy ?? 0.0
+            currEnergy = todayEnergy - prevEnergy
             
-            accumulatedPow += dailyPow
+            if currEnergy > highestDaily { highestDaily = currEnergy }
             
-            //formatter.dateFormat = "d"
             let dayLabel = dailyDataList[indexPath.row].created_at
-            //let dayStr = formatter.date(from: dayLabel ?? "")
-            
             let dayLabelArr = dayLabel?.components(separatedBy: " ")
             let dayLabelDate: String = dayLabelArr?[0].components(separatedBy: "-")[2] ?? ""
             
             cell.dayLabel.text = dayLabelDate
+            cell.dailyKwhLabel.text = currEnergy.toKwhString()
             
-            if indexPath.row != 29 {
-                cell.dailyKwhLabel.text = dailyPow.toKwhString()
-                if highestDaily < dailyPow { highestDaily = dailyPow }
-            }
-            else {
-                var sisaPow : Float = 0.0
-                if accumulatedPow >= monthDetailPow! {
-                    sisaPow = 0.0
-                }
-                else {
-                    sisaPow = monthDetailPow! - accumulatedPow
-                }
-
-                cell.dailyKwhLabel.text = dailyPow.toKwhString()
-                if highestDaily < sisaPow { highestDaily = sisaPow }
-            }
-
-            switch dailyPow {
-            case _ where dailyPow == 0:
+            switch currEnergy {
+            case _ where currEnergy == 0:
                 cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.8705882353, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
-                progressBudget.progress = 0.0
-            case _ where dailyPow < highestDaily:
+            case _ where currEnergy <= dailyBudget :
                 cell.indicatorUsage.backgroundColor = #colorLiteral(red: 0.6039215686, green: 1, blue: 0.4156862745, alpha: 1)
-                progressBudget.progress = 1.0
-            case _ where dailyPow >= highestDaily:
+            case _ where currEnergy > dailyBudget:
                 cell.indicatorUsage.backgroundColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.3529411765, alpha: 1)
-                progressBudget.progress = 0.0
             default:
                 cell.indicatorUsage.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                progressBudget.progress = 0.0
             }
 
             costperDayLabel.text    = maxDailyStr
             dailyHighestLabel.text  = highestDaily.toKwhString()
+            prevEnergy              = currEnergy
+            
+            return cell
         }
-        
-        return cell
+        else { return cell }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -140,6 +122,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         APIRequest.fetchDailyEnergyData(url: Constant.GET_DAILY_ENERGY_LIST,showLoader: true) { response in
             // handle response and store it to the data model
             self.dailyDataList = response
+            self.dailyDataList.reverse()
             
             DispatchQueue.main.async {
                 self.dailyUsageTable.reloadData()
