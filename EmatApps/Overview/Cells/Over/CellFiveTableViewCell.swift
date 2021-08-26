@@ -18,6 +18,9 @@ class CellFiveTableViewCell: UITableViewCell {
         buttonEst.layer.cornerRadius = 8
         buttonEst.layer.borderWidth = 2
         buttonEst.layer.borderColor = UIColor(named: "PrAcc")?.cgColor
+        
+        buttonEst.isAccessibilityElement = true
+        self.isAccessibilityElement = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

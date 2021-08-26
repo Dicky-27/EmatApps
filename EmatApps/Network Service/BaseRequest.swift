@@ -18,7 +18,7 @@ class BaseRequest: NSObject {
         }
         
         //init request
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 20.0)
         
         //configure request and set header
         request.httpMethod = "GET"

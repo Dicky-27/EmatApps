@@ -10,6 +10,7 @@ import Charts
 import UIKit
 
 class ChartSetup: UIView{
+
     
        static var lineChartView: LineChartView = {
         let chartView = LineChartView()
@@ -44,9 +45,10 @@ class ChartSetup: UIView{
         chartView.xAxis.axisMinimum = 0
         chartView.xAxis.axisMaximum = 30
 
-        let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14))
-        chartView.marker = marker
-
+        let customMarkerView = MarkerChart()
+        customMarkerView.chartView = chartView
+        chartView.marker = customMarkerView
+        
         return chartView
     }()
     
@@ -56,6 +58,7 @@ class ChartSetup: UIView{
         view.addSubview(lineChartView)
         lineChartView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         
+
         
     }
     
@@ -138,6 +141,18 @@ class ChartSetup: UIView{
         let set1 = LineChartDataSet(entries: dataEntries1)
         let set2 = LineChartDataSet(entries: dataEntries2)
 
+        if let lastPosition = dataEntries2.last {
+            let point:CGPoint = lineChartView.getPosition(entry: lastPosition, axis: .right)
+            
+            
+            let circle = UIView()
+            circle.frame = CGRect(x: point.x - 10, y: point.y - 10, width: 20, height: 20)
+            circle.backgroundColor = UIColor.red
+            circle.layer.cornerRadius =  min(circle.frame.size.height, circle.frame.size.width) / 2.0
+            circle.clipsToBounds = true
+            
+            
+        }
         
         set1.mode = .cubicBezier
         set1.drawCirclesEnabled = false
