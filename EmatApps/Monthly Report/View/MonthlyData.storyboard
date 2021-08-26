@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fu8-mu-xCk">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="2000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2I7-hI-HDv">
                                                 <rect key="frame" x="115" y="33" width="160" height="40"/>
@@ -282,7 +282,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-3D-HQ8">
-                                                <rect key="frame" x="0.0" y="611" width="390" height="2997"/>
+                                                <rect key="frame" x="0.0" y="611" width="390" height="2497"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dailyUsageCell" rowHeight="44" id="VWo-gr-QWs" customClass="DailyUsageTableViewCell" customModule="EmatApps" customModuleProvider="target">
@@ -418,7 +418,7 @@
                                             <constraint firstItem="LfE-UA-Xsb" firstAttribute="top" secondItem="2I7-hI-HDv" secondAttribute="bottom" constant="23" id="WHv-v1-Gbx"/>
                                             <constraint firstItem="7hr-d5-hMi" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="33" id="Woj-up-rjD"/>
                                             <constraint firstItem="F4V-bG-f1V" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="20" id="Z1m-i7-FZ0"/>
-                                            <constraint firstAttribute="height" constant="2000" id="Zab-pi-jlv"/>
+                                            <constraint firstAttribute="height" constant="1500" id="Zab-pi-jlv"/>
                                             <constraint firstAttribute="trailing" secondItem="w8Q-Vs-lPj" secondAttribute="trailing" constant="43" id="aua-Gc-rSs"/>
                                             <constraint firstItem="2bG-3D-HQ8" firstAttribute="top" secondItem="fDV-yF-r85" secondAttribute="bottom" constant="20" id="bBY-Tj-g1Y"/>
                                             <constraint firstItem="fDV-yF-r85" firstAttribute="leading" secondItem="ygS-6L-tXi" secondAttribute="trailing" constant="5" id="bfo-G5-tRU"/>

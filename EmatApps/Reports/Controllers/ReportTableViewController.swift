@@ -75,7 +75,7 @@ class ReportTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return 1
-        }else {
+        } else {
             return monthlyDataList.count
         }
     }
@@ -139,7 +139,6 @@ class ReportTableViewController: UITableViewController {
         }
     }
    
-    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let maxTitlePoint = tableView.convert(CGPoint(x: titleStackView.titleLabel.bounds.minX, y: titleStackView.titleLabel.bounds.maxY), from: titleStackView.titleLabel)
         
@@ -173,6 +172,7 @@ class ReportTableViewController: UITableViewController {
                 detailVC.monthDetail       = dataPow.month_full
                 detailVC.monthDetailPow    = dataPow.monthly_power
                 detailVC.monthDetailBill   = rupiahPower
+                detailVC.monthBillNumber   = dataPow.monthly_power * harga
                 detailVC.monthBudget       = dataPow.monthly_budget
             }
         }
@@ -228,13 +228,11 @@ class ReportTableViewController: UITableViewController {
             self.monthlyDataList = response
             
             DispatchQueue.main.async {
-                
                 self.tableView.reloadData()
                 self.removeLoadingScreen()
             }
             
         } failCompletion: { message in
-            
             print(message)
         }
     }
