@@ -21,6 +21,9 @@ class CellOneTableViewCell: UITableViewCell {
         
         thisLeg.layer.cornerRadius = thisLeg.frame.size.width/2
         lastLeg.layer.cornerRadius = thisLeg.frame.size.width/2
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,6 +32,16 @@ class CellOneTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func setupAccessbility() {
+        var elemets = [UIAccessibilityElement]()
+        
+        let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
+        kwhElemetn.accessibilityLabel = "\(dateNow.text ?? "0"), you save \(moneySave.text ?? "0")"
+        kwhElemetn.accessibilityFrameInContainerSpace = dateNow.frame.union(moneySave.frame).union(chartOver.frame)
+        elemets.append(kwhElemetn)
+        
+        self.accessibilityElements = elemets
+    }
     
     func setup() {
         let calendar = Calendar.current
@@ -40,6 +53,8 @@ class CellOneTableViewCell: UITableViewCell {
         
         moneySave.text = "Rp0"
         dateNow.text = "\(day) \(month)"
+        
+        setupAccessbility()
         
     }
 }

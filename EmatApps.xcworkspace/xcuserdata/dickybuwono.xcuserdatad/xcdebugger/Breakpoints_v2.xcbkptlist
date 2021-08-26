@@ -46,10 +46,10 @@
             filePath = "EmatApps/Overview/Controllers/OverTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "viewWillDisappear(_:)"
-            landmarkType = "7">
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "OverTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,10 +62,8 @@
             filePath = "EmatApps/Overview/Components/ChartSetup.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "setData()"
-            landmarkType = "7">
+            startingLineNumber = "200"
+            endingLineNumber = "200">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -241,6 +239,22 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "setupAccessbility()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0E56633-C4A1-4797-998A-8D34647A3A88"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmatApps/Overview/Cells/Over/CellOneTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

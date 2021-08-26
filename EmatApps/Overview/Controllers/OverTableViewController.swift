@@ -52,6 +52,8 @@ class OverTableViewController: UITableViewController {
         setLoadingScreen()
         checkUserByData()
         
+        titleStackView.button.isAccessibilityElement = true
+        titleStackView.button.accessibilityLabel = "Setting"
        
     }
     

@@ -41,11 +41,16 @@ class CellThreeTableViewCell: UITableViewCell {
     }
     
     
-    func setupAccessbility() {
+    func setupAccessbility(duit: Float) {
         var elemets = [UIAccessibilityElement]()
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.spellOut
+        formatter.locale = Locale(identifier: "id_ID")
+        formatter.maximumFractionDigits = 0
+        
         
         let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
-        kwhElemetn.accessibilityLabel = "Current spending, \(currentSpen.text ?? "0"))"
+        kwhElemetn.accessibilityLabel = "Current spending, \(formatter.string(from: NSNumber(value: duit)) ?? "0")"
         kwhElemetn.accessibilityFrameInContainerSpace = viewBg.frame
         elemets.append(kwhElemetn)
         
@@ -102,9 +107,10 @@ class CellThreeTableViewCell: UITableViewCell {
             let numberFromField = (NSString(string: duit).integerValue)
             currentSpen.text = formatterNumber.string(from: numberFromField as NSNumber)
             
+            setupAccessbility(duit: Float(Float(kwhTot) * harga))
         }
         
-        setupAccessbility()
+       
     }
     
 }

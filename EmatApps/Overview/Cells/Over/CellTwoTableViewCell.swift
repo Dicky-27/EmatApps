@@ -80,10 +80,33 @@ class CellTwoTableViewCell: UITableViewCell {
                 rightLbl.text = formatterNumber.string(from: numberFromField as NSNumber)
                 progressBudget.progress = Float(duit / budget)
                 
+                setupAccessbility()
+                
             }
         }
 
         
+    }
+    
+    func setupAccessbility() {
+        var elemets = [UIAccessibilityElement]()
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.spellOut
+        formatter.locale = Locale(identifier: "id_ID")
+        formatter.maximumFractionDigits = 0
+        
+//        let currencyName = locale.localizedString(forCurrencyCode: locale.currencyCode!)!
+//        label.accessibilityLabel = NumberFormatter.localizedString(from: NSNumber(value: 1000000), number: .spellOut) + currencyName
+        
+        let formatter2 = NumberFormatter()
+        formatter2.numberStyle = .percent
+        
+        let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
+        kwhElemetn.accessibilityLabel = "Your monthly budget, \(formatter.string(from: NSNumber(value: UserData.user[0].budget)) ?? "0") , Your current spending progress , \(formatter2.string(from: NSNumber(value: progressBudget.progress)) ?? "0")"
+        
+        kwhElemetn.accessibilityFrameInContainerSpace = leftLbl.frame.union(rightLbl.frame).union(progressBudget.frame)
+        elemets.append(kwhElemetn)
+        self.accessibilityElements = elemets
     }
     
     

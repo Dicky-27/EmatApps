@@ -158,14 +158,14 @@ class ChartSetup: UIView{
         set1.drawCirclesEnabled = false
         set1.lineWidth = 5
         set1.setColor(UIColor(named: "Primary") ?? .black)
-        set1.highlightColor = UIColor(named: "AbuA") ?? .black
+        set1.highlightColor = UIColor(named: "Black") ?? .black
         set1.drawHorizontalHighlightIndicatorEnabled = false
         
         set2.mode = .horizontalBezier
         set2.setColor(UIColor(named: "AccentColor") ?? .black)
         set2.drawCirclesEnabled = false
         set2.drawHorizontalHighlightIndicatorEnabled = false
-        set2.highlightColor = UIColor(named: "AbuA") ?? .black
+        set2.highlightColor = UIColor(named: "Black") ?? .black
         set2.lineWidth = 5
         
         let set3:[ChartDataSet] = [set1, set2]
