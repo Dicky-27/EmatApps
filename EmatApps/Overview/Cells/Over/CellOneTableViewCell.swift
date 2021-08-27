@@ -36,7 +36,7 @@ class CellOneTableViewCell: UITableViewCell {
         var elemets = [UIAccessibilityElement]()
         
         let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
-        kwhElemetn.accessibilityLabel = "\(dateNow.text ?? "0"), you save \(moneySave.text ?? "0")"
+        kwhElemetn.accessibilityLabel = "\(dateNow.text ?? "0"), you save \(moneySave.text ?? "0") from last month"
         kwhElemetn.accessibilityFrameInContainerSpace = dateNow.frame.union(moneySave.frame).union(chartOver.frame)
         elemets.append(kwhElemetn)
         

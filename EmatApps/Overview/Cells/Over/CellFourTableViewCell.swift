@@ -40,16 +40,16 @@ class CellFourTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupAccessbility() {
+    func setupAccessbility(kwh: Float, watt: Float) {
         var elemets = [UIAccessibilityElement]()
         
         let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
-        kwhElemetn.accessibilityLabel = "Total power usage, \(kwhStats.text ?? "0"))"
+        kwhElemetn.accessibilityLabel = "Total power usage, \((kwh * 100).rounded()/100 as NSNumber) kilowatt hour"
         kwhElemetn.accessibilityFrameInContainerSpace = viewLeft.frame
         elemets.append(kwhElemetn)
         
         let kwhElemetn2 = UIAccessibilityElement(accessibilityContainer: self)
-        kwhElemetn2.accessibilityLabel = "Current usage, \(powerStats.text ?? "0"))"
+        kwhElemetn2.accessibilityLabel = "Current usage, \((watt * 100).rounded()/100 as NSNumber) Watt"
         kwhElemetn2.accessibilityFrameInContainerSpace = viewRight.frame
         elemets.append(kwhElemetn2)
         
@@ -96,9 +96,10 @@ class CellFourTableViewCell: UITableViewCell {
         
         if EnergiesLoad.energyModel.isEmpty == false {
             powerStats.text = EnergiesLoad.energyModel[0].power?.toWattString()
+            setupAccessbility(kwh: kwhTot, watt: EnergiesLoad.energyModel[0].power ?? 0)
         }
         
-        setupAccessbility()
+        
     }
     
     

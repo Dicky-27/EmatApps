@@ -19,14 +19,21 @@ class EstCollectionViewCell: UICollectionViewCell {
         
         self.contentView.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         
-        setupAccessbility()
+        
+        let uang: Float = 138.8
+        let kwh: Float = 200000
+        setupAccessbility(uang: uang, kwh: kwh)
     }
     
-    func setupAccessbility() {
+    func setupAccessbility(uang: Float, kwh: Float) {
         var elemets = [UIAccessibilityElement]()
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.spellOut
+        formatter.locale = Locale(identifier: "en_ID")
+        formatter.maximumFractionDigits = 0
         
         let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
-        kwhElemetn.accessibilityLabel = "Estimated calculation for \(estDate.text ?? "0"), Total power usage , \(estKwh.text ?? "0") , Predicted Bill , \(estSpen.text ?? "0")"
+        kwhElemetn.accessibilityLabel = "Estimated calculation for \(estDate.text ?? ""), Total power usage , \((kwh * 100).rounded()/100 as NSNumber) kilowatt hour , Predicted Bill , \(formatter.string(from: uang as NSNumber) ?? "0")rupiah"
         kwhElemetn.accessibilityFrameInContainerSpace = self.frame
         elemets.append(kwhElemetn)
         
