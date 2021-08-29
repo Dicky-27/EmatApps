@@ -80,6 +80,7 @@
                     <connections>
                         <outlet property="contactButt" destination="8Za-ZY-SSi" id="rNg-jy-ZgQ"/>
                         <outlet property="descLbl" destination="ejd-r1-6oq" id="IXQ-lo-CRv"/>
+                        <outlet property="ematTitle" destination="l3s-sL-sTX" id="4P8-8A-pDA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
