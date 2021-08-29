@@ -89,12 +89,11 @@ class ChartSetup: UIView{
             result = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
             resultBefore = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(prev) }
         
-            
             if result.isEmpty == false {
                 for i in 0..<result.count {
                     let tryv = result.indices.contains((lastIndex+1) - i)
                     if tryv == true  {
-                        power = (result[lastIndex - i].energy ?? 0) - (result[(lastIndex+1) - i].energy ?? 0)
+                        power = result[lastIndex - i].energy ?? 0
                         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
                         formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
                         let isoDate = EnergiesLoad.daily_energy[lastIndex - i].created_at ?? ""
@@ -102,12 +101,12 @@ class ChartSetup: UIView{
                         let day = calendar.component(.day, from: datenya ?? unwrap)
                         let entry2 = ChartDataEntry.init(x: Double(day), y: Double(power))
                         dataEntries2.append(entry2)
-                    
+
                         power  = 0
                     }
-                    
+
                 }
-                
+
             }else {
                 dataEntries2 = []
             }
@@ -118,7 +117,7 @@ class ChartSetup: UIView{
                 for i in 0..<result.count {
                     let tryv = result.indices.contains((lastIndex+1) - i)
                     if tryv == true  {
-                        powerBefore = (result[lastIndex - i].energy ?? 0) - (result[(lastIndex+1) - i].energy ?? 0)
+                        powerBefore = result[lastIndex - i].energy ?? 0
                         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
                         formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
                         let isoDate = EnergiesLoad.daily_energy[lastIndex - i].created_at ?? ""

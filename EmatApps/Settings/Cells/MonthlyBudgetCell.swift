@@ -12,6 +12,7 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
     
     
     @IBOutlet weak var budgetTf: UITextField!
+    @IBOutlet weak var descLbl: UILabel!
     
     weak var tableViewDelegate: UITableViewDelegate?
     
@@ -29,7 +30,7 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
         budgetTf.borderStyle = .none
         
         loadData()
-        
+        setupAccessibility()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -84,6 +85,26 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
               print("Error loading categories \(error)")
           }
 
+    }
+    
+    func setupAccessibility() {
+//        var elemets = [UIAccessibilityElement]()
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.spellOut
+        formatter.locale = Locale(identifier: "en_ID")
+        formatter.maximumFractionDigits = 0
+//
+//
+//        let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
+//        //kwhElemetn.accessibilityLabel = "Current spending, \(formatter.string(from: NSNumber(value: duit)) ?? "0")Rupiah"
+//        kwhElemetn.accessibilityFrameInContainerSpace = self.frame
+//        elemets.append(kwhElemetn)
+//
+//        self.accessibilityElements = elemets
+        
+        self.isAccessibilityElement = true
+        self.accessibilityLabel = "\(descLbl.text ?? "") ,  \(formatter.string(from: UserData.user[0].budget as NSNumber) ?? "0")rupiah , textfield"
+        
     }
     
 }
