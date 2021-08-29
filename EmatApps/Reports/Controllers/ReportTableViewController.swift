@@ -239,7 +239,12 @@ class ReportTableViewController: UITableViewController {
         APIRequest.fetchMonthlyEnergyData(url: Constant.GET_MONTHLY_ENERGY_LIST,showLoader: true) { response in
             
             // handle response and store it to the data model
-            self.monthlyDataList = response
+            self.monthlyDataList = []
+            for i in 0...response.count - 1 {
+                if response[i].monthly_power != 0.0 && response[i].monthly_budget != 0.0 {
+                    self.monthlyDataList.append(response[i])
+                }
+            }
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
