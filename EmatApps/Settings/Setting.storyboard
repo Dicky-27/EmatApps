@@ -47,6 +47,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="budgetTf" destination="zwr-Tt-MI7" id="P4t-5y-eiM"/>
+                                    <outlet property="descLbl" destination="GMO-XL-LdY" id="qPx-pw-GBh"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="50" id="aWk-a9-asK" customClass="PowerCell" customModule="EmatApps" customModuleProvider="target">

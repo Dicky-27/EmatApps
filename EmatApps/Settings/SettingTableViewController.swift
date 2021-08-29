@@ -23,7 +23,7 @@ class SettingTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.isScrollEnabled = false
         
-        self.title = "Setting"
+        self.title = "Settings"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,5 +122,6 @@ class SettingTableViewController: UITableViewController {
         }
 
     }
+    
     
 }

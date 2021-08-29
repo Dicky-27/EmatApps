@@ -82,7 +82,7 @@ class CellFourTableViewCell: UITableViewCell {
             for i in 0..<result.count {
                 let tryv = result.indices.contains((lastIndex+1) - i)
                 if tryv == true  {
-                    power = (result[lastIndex - i].energy ?? 0) - (result[(lastIndex+1) - i].energy ?? 0)
+                    power = result[lastIndex - i].energy ?? 0
                     kwhTot += power
                     
                     power  = 0
