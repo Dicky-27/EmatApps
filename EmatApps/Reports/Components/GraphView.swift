@@ -145,6 +145,7 @@ class GraphView: UIView {
             }
             
             self.insertSubview(label, at: 1)
+            label.isAccessibilityElement = false
             
             currPoint += spacingPoint
             circle.fill()

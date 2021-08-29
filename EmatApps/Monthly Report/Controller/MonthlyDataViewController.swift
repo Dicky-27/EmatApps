@@ -8,10 +8,11 @@ import UIKit
 
 class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     @IBOutlet weak var monthLabel           : UILabel!
     @IBOutlet weak var monthBillLabel       : UILabel!
     @IBOutlet weak var energyUsageLabel     : UILabel!
-    @IBOutlet weak var costperDayLabel      : UILabel!
+    @IBOutlet weak var averageCostLabel     : UILabel!
     @IBOutlet weak var dailyHighestLabel    : UILabel!
     @IBOutlet weak var monthlyBudgetLabel   : UILabel!
     @IBOutlet weak var progressBudget       : MonthlyBudget!
@@ -21,8 +22,14 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var averageCostCard      : UIView!
     @IBOutlet weak var dailyHighestCard     : UIView!
     @IBOutlet weak var dailyUsageBanner     : UIView!
+    @IBOutlet weak var leftLabel            : UILabel!
+    @IBOutlet weak var monthBill            : UILabel!
+    @IBOutlet weak var energyUsage          : UILabel!
+    @IBOutlet weak var averageCost          : UILabel!
+    @IBOutlet weak var dailyHigh            : UILabel!
+    @IBOutlet weak var dailyUse             : UILabel!
     
-    
+    // Properties
     var monthDetail     : String?
     var monthDetailPow  : Float?
     var monthDetailBill : String?
@@ -36,8 +43,8 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     var prevEnergy      : Float = 0
     var todayEnergy     : Float = 0
     var currEnergy      : Float = 0
+    var maxDailyCost    : Float = 0
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,9 +69,6 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         averageCostCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         dailyHighestCard.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         dailyUsageBanner.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
-        
-        monthBillLabel.shouldGroupAccessibilityChildren = true
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,18 +81,23 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = dailyUsageTable.dequeueReusableCell(withIdentifier: "dailyUsageCell") as! DailyUsageTableViewCell
+        
         if monthDetail == "August" && dailyDataList.count != 0 {
-            let maxDailyCost    = highestDaily * harga
-            let maxDailyStr     = maxDailyCost.toRupiahString()
+            
+            maxDailyCost    = highestDaily * harga
+            let maxDailyStr = maxDailyCost.toRupiahString()
             
             todayEnergy = dailyDataList[indexPath.row].energy ?? 0.0
-            currEnergy = todayEnergy - prevEnergy
+            currEnergy  = todayEnergy - prevEnergy
             
-            if currEnergy > highestDaily { highestDaily = currEnergy }
+            let dayLabel                = dailyDataList[indexPath.row].created_at
+            let dayLabelArr             = dayLabel?.components(separatedBy: " ")
+            let dayLabelDate: String    = dayLabelArr?[0].components(separatedBy: "-")[2] ?? ""
             
-            let dayLabel = dailyDataList[indexPath.row].created_at
-            let dayLabelArr = dayLabel?.components(separatedBy: " ")
-            let dayLabelDate: String = dayLabelArr?[0].components(separatedBy: "-")[2] ?? ""
+            if currEnergy > highestDaily {
+                highestDaily = currEnergy
+                accessibilityHelper()
+            }
             
             cell.dayLabel.text = dayLabelDate
             cell.dailyKwhLabel.text = currEnergy.toKwhString()
@@ -104,7 +113,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
                 cell.indicatorUsage.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             }
 
-            costperDayLabel.text    = maxDailyStr
+            averageCostLabel.text   = maxDailyStr
             dailyHighestLabel.text  = highestDaily.toKwhString()
             prevEnergy              = currEnergy
             
@@ -130,6 +139,55 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
         } failCompletion: { message in
             print(message)
         }
+    }
+    
+    func accessibilityHelper() {
+        
+        let formatterRp = NumberFormatter()
+        formatterRp.numberStyle = NumberFormatter.Style.spellOut
+        formatterRp.locale = Locale(identifier: "en_ID")
+        formatterRp.maximumFractionDigits = 0
+        
+        let formatterPercent = NumberFormatter()
+        formatterPercent.numberStyle = .percent
+        
+        let formatterKwh = NumberFormatter()
+        formatterKwh.numberStyle = .decimal
+        formatterKwh.locale = Locale(identifier: "en_ID")
+        formatterKwh.maximumFractionDigits = 2
+        formatterKwh.minimumFractionDigits = 2
+        
+        
+        monthLabel.isAccessibilityElement = true
+        monthLabel.accessibilityTraits = .none
+        monthLabel.accessibilityLabel = "\(monthDetail ?? "") Report"
+        
+        monthBill.isAccessibilityElement = false
+        monthBillLabel.isAccessibilityElement = false
+        monthBillCard.isAccessibilityElement = true
+        monthBillCard.accessibilityLabel = "Month Bill Total, \(formatterRp.string(from: NSNumber(value: (monthBillNumber).rounded())) ?? "0")Rupiah"
+        
+        energyUsage.isAccessibilityElement = false
+        energyUsageLabel.isAccessibilityElement = false
+        energyUsageCard.isAccessibilityElement = true
+        energyUsageCard.accessibilityLabel = "Energy Usage Total, \(formatterRp.string(from: NSNumber(value: (monthDetailPow ?? 0.0).rounded())) ?? "0") kilowatt hour"
+        
+        averageCost.isAccessibilityElement = false
+        averageCostLabel.isAccessibilityElement = false
+        averageCostCard.isAccessibilityElement = true
+        averageCostCard.accessibilityLabel = "Average Cost Daily, \(formatterRp.string(from: NSNumber(value: (maxDailyCost).rounded())) ?? "0")Rupiah"
+        
+        dailyHigh.isAccessibilityElement = false
+        dailyHighestLabel.isAccessibilityElement = false
+        dailyHighestCard.isAccessibilityElement = true
+        dailyHighestCard.accessibilityLabel = "Highest Energy Daily, \(formatterKwh.string(from: NSNumber(value: highestDaily)) ?? "0") kilowatt hour"
+        
+        leftLabel.isAccessibilityElement = false
+        monthlyBudgetLabel.isAccessibilityElement = false
+        progressBudget.isAccessibilityElement = true
+        progressBudget.accessibilityLabel = "This Month Budget is, \(formatterRp.string(from: NSNumber(value: monthBudget ?? 0)) ?? "0")Rupiah, this month spending progress is, \(formatterPercent.string(from: NSNumber(value: progressBudget.progress)) ?? "0")"
+        
+        
     }
 }
 
