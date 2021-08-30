@@ -64,4 +64,22 @@ class APIRequest: NSObject {
             }
         }
     }
+    
+    static func fetchPredictEnergyData(url: String,
+                                       showLoader: Bool,
+                                       successCompletion: @escaping ([Predict]) -> Void,
+                                       failCompletion: @escaping (String) -> Void) {
+        // create request
+        BaseRequest.GET(url: url, showLoader: showLoader) { response in
+            
+            do {
+                let predictModel = try JSONDecoder().decode([Predict].self, from: response as! Data)
+                
+                successCompletion(predictModel)
+            } catch let error {
+                //handle error
+                print("error reading json file content: \(error.localizedDescription)")
+            }
+        }
+    }
 }

@@ -27,4 +27,5 @@ struct UserData {
 struct EnergiesLoad {
     static var energyModel: [Energies] = []
     static var daily_energy: [Daily_Energies] = []
+    static var predictEnergy: [Predict] = []
 }

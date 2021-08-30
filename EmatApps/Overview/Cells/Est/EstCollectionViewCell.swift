@@ -11,13 +11,12 @@ class EstCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var estDate: UILabel!
     @IBOutlet weak var estKwh: UILabel!
+    @IBOutlet weak var separatorLine: UIView!
     @IBOutlet weak var estSpen: UILabel!
     
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        self.contentView.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         
         
         let uang: Float = 138.8
@@ -40,6 +39,11 @@ class EstCollectionViewCell: UICollectionViewCell {
         self.accessibilityElements = elemets
     }
     
+    
+    func setupAppearance() {
+        
+        
+    }
     
 }
 

@@ -41,6 +41,7 @@
 		AECC1F9D26C64EA9003D3814 /* ChartSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC1F9C26C64EA9003D3814 /* ChartSetup.swift */; };
 		AECF594C26D4F6E400AAC8E1 /* Marker.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECF594B26D4F6E400AAC8E1 /* Marker.xib */; };
 		AECF594E26D4FCB200AAC8E1 /* MarkerChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF594D26D4FCB200AAC8E1 /* MarkerChart.swift */; };
+		AED5E00E26DD255C00765C09 /* Predicted.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED5E00D26DD255C00765C09 /* Predicted.swift */; };
 		AEFDAADC26B2906D00E0BBDB /* CellOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */; };
 		AEFDAADE26B2907C00E0BBDB /* CellTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */; };
 		AEFDAAE026B290A600E0BBDB /* CellThreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */; };
@@ -132,6 +133,7 @@
 		AECC1F9C26C64EA9003D3814 /* ChartSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSetup.swift; sourceTree = "<group>"; };
 		AECF594B26D4F6E400AAC8E1 /* Marker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Marker.xib; sourceTree = "<group>"; };
 		AECF594D26D4FCB200AAC8E1 /* MarkerChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerChart.swift; sourceTree = "<group>"; };
+		AED5E00D26DD255C00765C09 /* Predicted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicted.swift; sourceTree = "<group>"; };
 		AEFDAADB26B2906D00E0BBDB /* CellOneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellOneTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAADD26B2907C00E0BBDB /* CellTwoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTwoTableViewCell.swift; sourceTree = "<group>"; };
 		AEFDAADF26B290A600E0BBDB /* CellThreeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellThreeTableViewCell.swift; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 			children = (
 				AE5446F526B7E01000E969FF /* Power.swift */,
 				E04162B926CD6965009F9C26 /* MonthlyPower.swift */,
+				AED5E00D26DD255C00765C09 /* Predicted.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 				AE7074A926B2A11A000255A3 /* OverTableViewController.swift in Sources */,
 				AEC3C3F526BAC5780060134F /* SettingTableViewController.swift in Sources */,
 				AE07D40126BD3CDD00526190 /* Constant.swift in Sources */,
+				AED5E00E26DD255C00765C09 /* Predicted.swift in Sources */,
 				E077FC4D26D2FA9100BF56BA /* DailyCalendar.swift in Sources */,
 				AE04AF1126AAA5D000E79190 /* AppDelegate.swift in Sources */,
 				AE07D3FF26BD3C7500526190 /* APIRequest.swift in Sources */,
