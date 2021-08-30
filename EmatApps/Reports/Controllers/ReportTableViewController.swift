@@ -21,6 +21,8 @@ class ReportTableViewController: UITableViewController {
         
         let titleStackView = TitleView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 40.0)))
         titleStackView.translatesAutoresizingMaskIntoConstraints = false
+        titleStackView.isAccessibilityElement   = true
+        titleStackView.accessibilityLabel       = "Report Page"
         
         return titleStackView
     }()
@@ -106,14 +108,23 @@ class ReportTableViewController: UITableViewController {
             cell.graph.layer.masksToBounds  = true
             
             dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
-            
             cell.selectionStyle = .none
+            
+            cell.isAccessibilityElement = true
+            cell.monthlyComparison.isAccessibilityElement = false
+            cell.graph.isAccessibilityElement = false
+            cell.accessibilityLabel = "Graphic of Monthly Comparison"
             
             return cell
             
         } else {
             
             if monthlyDataList.count != 0 {
+                
+                let formatter = NumberFormatter()
+                formatter.numberStyle = NumberFormatter.Style.spellOut
+                formatter.locale = Locale(identifier: "en_ID")
+                formatter.maximumFractionDigits = 0
                 
                 let kwhPow      = monthlyDataList[indexPath.row].monthly_power
                 let kwhPower    = kwhPow.toKwhString()
@@ -126,6 +137,9 @@ class ReportTableViewController: UITableViewController {
                 cell2.kwhLabel.text                 = kwhPower
                 cell2.rupiahLabel.text              = rupiahPower
                 cell2.selectionStyle                = .none
+                cell2.isAccessibilityElement        = true
+                cell2.accessibilityLabel            =
+                    "\(cell2.monthLabel.text ?? ""), total spending is, \(formatter.string(from: NSNumber(value: totalSpend.rounded())) ?? "")Rupiah, total power usage, \((kwhPow * 100).rounded()/100 as NSNumber) kilowatt hour"
             }
             return cell2
         }
@@ -225,7 +239,12 @@ class ReportTableViewController: UITableViewController {
         APIRequest.fetchMonthlyEnergyData(url: Constant.GET_MONTHLY_ENERGY_LIST,showLoader: true) { response in
             
             // handle response and store it to the data model
-            self.monthlyDataList = response
+            self.monthlyDataList = []
+            for i in 0...response.count - 1 {
+                if response[i].monthly_power != 0.0 && response[i].monthly_budget != 0.0 {
+                    self.monthlyDataList.append(response[i])
+                }
+            }
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

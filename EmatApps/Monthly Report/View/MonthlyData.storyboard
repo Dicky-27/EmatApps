@@ -44,51 +44,46 @@
                                                 <color key="textColor" name="LabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="LfE-UA-Xsb">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guM-8S-tVL" userLabel="MonthBill">
                                                 <rect key="frame" x="33" y="96" width="152" height="120"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guM-8S-tVL" userLabel="MonthBill">
-                                                        <rect key="frame" x="0.0" y="0.0" width="152" height="120"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Bill" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6d-wb-C7Z">
-                                                                <rect key="frame" x="16" y="34" width="120" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="cZQ-AM-DKq"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400.000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYR-ac-KAU">
-                                                                <rect key="frame" x="16" y="55" width="120" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="TZt-7q-bTM"/>
-                                                                    <constraint firstAttribute="width" constant="120" id="UDm-MA-JmK"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="18"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" name="MonthlyDetailBox"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Bill" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6d-wb-C7Z">
+                                                        <rect key="frame" x="16" y="34" width="120" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="152" id="20y-dT-dxT"/>
-                                                            <constraint firstItem="E6d-wb-C7Z" firstAttribute="leading" secondItem="guM-8S-tVL" secondAttribute="leading" constant="16" id="7A4-GJ-wj8"/>
-                                                            <constraint firstAttribute="height" constant="120" id="XYG-5k-v0R"/>
-                                                            <constraint firstAttribute="trailing" secondItem="E6d-wb-C7Z" secondAttribute="trailing" constant="16" id="i9r-Na-8aS"/>
-                                                            <constraint firstAttribute="trailing" secondItem="MYR-ac-KAU" secondAttribute="trailing" constant="16" id="kkR-Ml-ApR"/>
-                                                            <constraint firstItem="MYR-ac-KAU" firstAttribute="leading" secondItem="guM-8S-tVL" secondAttribute="leading" constant="16" id="v0n-2G-sRp"/>
-                                                            <constraint firstItem="E6d-wb-C7Z" firstAttribute="top" secondItem="guM-8S-tVL" secondAttribute="top" constant="34" id="xFm-ly-uI3"/>
-                                                            <constraint firstItem="MYR-ac-KAU" firstAttribute="top" secondItem="E6d-wb-C7Z" secondAttribute="bottom" constant="1" id="zEc-x7-RFa"/>
+                                                            <constraint firstAttribute="height" constant="20" id="cZQ-AM-DKq"/>
                                                         </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400.000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYR-ac-KAU">
+                                                        <rect key="frame" x="16" y="55" width="120" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="TZt-7q-bTM"/>
+                                                            <constraint firstAttribute="width" constant="120" id="UDm-MA-JmK"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" name="MonthlyDetailBox"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="152" id="20y-dT-dxT"/>
+                                                    <constraint firstItem="E6d-wb-C7Z" firstAttribute="leading" secondItem="guM-8S-tVL" secondAttribute="leading" constant="16" id="7A4-GJ-wj8"/>
+                                                    <constraint firstAttribute="height" constant="120" id="XYG-5k-v0R"/>
+                                                    <constraint firstAttribute="trailing" secondItem="E6d-wb-C7Z" secondAttribute="trailing" constant="16" id="i9r-Na-8aS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MYR-ac-KAU" secondAttribute="trailing" constant="16" id="kkR-Ml-ApR"/>
+                                                    <constraint firstItem="MYR-ac-KAU" firstAttribute="leading" secondItem="guM-8S-tVL" secondAttribute="leading" constant="16" id="v0n-2G-sRp"/>
+                                                    <constraint firstItem="E6d-wb-C7Z" firstAttribute="top" secondItem="guM-8S-tVL" secondAttribute="top" constant="34" id="xFm-ly-uI3"/>
+                                                    <constraint firstItem="MYR-ac-KAU" firstAttribute="top" secondItem="E6d-wb-C7Z" secondAttribute="bottom" constant="1" id="zEc-x7-RFa"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RgL-Qn-ond" userLabel="EnergyUsage">
                                                 <rect key="frame" x="205" y="96" width="152" height="120"/>
                                                 <subviews>
@@ -409,20 +404,19 @@
                                             <constraint firstItem="0tb-WB-Y8H" firstAttribute="top" secondItem="7hr-d5-hMi" secondAttribute="bottom" constant="32" id="LaR-d0-DZp"/>
                                             <constraint firstItem="EhE-O3-xm1" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" id="NRh-Lh-9SZ"/>
                                             <constraint firstItem="w8Q-Vs-lPj" firstAttribute="top" secondItem="inO-ZO-Khv" secondAttribute="bottom" constant="32" id="Nbr-wz-MXJ"/>
+                                            <constraint firstItem="guM-8S-tVL" firstAttribute="top" secondItem="2I7-hI-HDv" secondAttribute="bottom" constant="23" id="NcL-z6-WQ2"/>
                                             <constraint firstItem="inO-ZO-Khv" firstAttribute="top" secondItem="RgL-Qn-ond" secondAttribute="bottom" constant="20" id="QQQ-7m-Mqo"/>
                                             <constraint firstItem="2I7-hI-HDv" firstAttribute="top" secondItem="fu8-mu-xCk" secondAttribute="topMargin" constant="25" id="QoH-NX-qaN"/>
                                             <constraint firstItem="2I7-hI-HDv" firstAttribute="centerX" secondItem="fu8-mu-xCk" secondAttribute="centerX" id="SRN-AK-5sb"/>
                                             <constraint firstAttribute="trailing" secondItem="EhE-O3-xm1" secondAttribute="trailing" id="U3U-Rs-hcC"/>
                                             <constraint firstItem="e4E-7R-qQ9" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="16" id="UDh-Ea-jrK"/>
                                             <constraint firstAttribute="trailing" secondItem="inO-ZO-Khv" secondAttribute="trailing" constant="33" id="VcU-Rj-MiD"/>
-                                            <constraint firstItem="LfE-UA-Xsb" firstAttribute="top" secondItem="2I7-hI-HDv" secondAttribute="bottom" constant="23" id="WHv-v1-Gbx"/>
                                             <constraint firstItem="7hr-d5-hMi" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="33" id="Woj-up-rjD"/>
                                             <constraint firstItem="F4V-bG-f1V" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="20" id="Z1m-i7-FZ0"/>
                                             <constraint firstAttribute="height" constant="1500" id="Zab-pi-jlv"/>
                                             <constraint firstAttribute="trailing" secondItem="w8Q-Vs-lPj" secondAttribute="trailing" constant="43" id="aua-Gc-rSs"/>
                                             <constraint firstItem="2bG-3D-HQ8" firstAttribute="top" secondItem="fDV-yF-r85" secondAttribute="bottom" constant="20" id="bBY-Tj-g1Y"/>
                                             <constraint firstItem="fDV-yF-r85" firstAttribute="leading" secondItem="ygS-6L-tXi" secondAttribute="trailing" constant="5" id="bfo-G5-tRU"/>
-                                            <constraint firstItem="guM-8S-tVL" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="33" id="dVS-5p-5TU"/>
                                             <constraint firstItem="fDV-yF-r85" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="16" id="fG0-vt-2Vs"/>
                                             <constraint firstAttribute="trailing" secondItem="qxa-te-hcg" secondAttribute="trailing" constant="32" id="gGY-dW-esB"/>
                                             <constraint firstItem="qxa-te-hcg" firstAttribute="centerX" secondItem="fu8-mu-xCk" secondAttribute="centerX" id="gHz-yv-h3m"/>
@@ -432,6 +426,7 @@
                                             <constraint firstItem="e4E-7R-qQ9" firstAttribute="leading" secondItem="F4V-bG-f1V" secondAttribute="trailing" constant="5" id="jCg-8U-zwj"/>
                                             <constraint firstItem="RgL-Qn-ond" firstAttribute="top" secondItem="2I7-hI-HDv" secondAttribute="bottom" constant="23" id="lFn-iZ-VqO"/>
                                             <constraint firstItem="LAm-gu-aeN" firstAttribute="top" secondItem="EhE-O3-xm1" secondAttribute="bottom" constant="20" id="m9P-lY-ea1"/>
+                                            <constraint firstItem="guM-8S-tVL" firstAttribute="leading" secondItem="fu8-mu-xCk" secondAttribute="leading" constant="33" id="mBw-me-Sum"/>
                                             <constraint firstItem="6kb-gW-KnT" firstAttribute="leading" secondItem="LAm-gu-aeN" secondAttribute="trailing" constant="5" id="wWr-d0-tSq"/>
                                         </constraints>
                                     </view>
@@ -458,17 +453,23 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="averageCost" destination="5jO-HI-164" id="BfZ-XF-WMc"/>
                         <outlet property="averageCostCard" destination="7hr-d5-hMi" id="W9U-qf-Emq"/>
-                        <outlet property="costperDayLabel" destination="E7b-6m-nSg" id="Az4-0O-XJC"/>
+                        <outlet property="averageCostLabel" destination="E7b-6m-nSg" id="Az4-0O-XJC"/>
+                        <outlet property="dailyHigh" destination="9u8-K2-4yB" id="1QQ-Do-uW3"/>
                         <outlet property="dailyHighestCard" destination="inO-ZO-Khv" id="sgB-Qc-4bm"/>
                         <outlet property="dailyHighestLabel" destination="Lm1-db-Z10" id="JBz-ld-ofZ"/>
                         <outlet property="dailyUsageBanner" destination="EhE-O3-xm1" id="9Kn-95-8ev"/>
                         <outlet property="dailyUsageTable" destination="2bG-3D-HQ8" id="JqF-P7-G0u"/>
+                        <outlet property="dailyUse" destination="WHC-up-GOD" id="d1C-Og-J6Z"/>
+                        <outlet property="energyUsage" destination="c4z-Be-ZcT" id="B8e-3Q-RqE"/>
                         <outlet property="energyUsageCard" destination="RgL-Qn-ond" id="WEa-PX-V4S"/>
                         <outlet property="energyUsageLabel" destination="sLa-aX-ec9" id="aw2-6J-qGh"/>
+                        <outlet property="leftLabel" destination="0tb-WB-Y8H" id="iAZ-ui-LfS"/>
+                        <outlet property="monthBill" destination="E6d-wb-C7Z" id="Hjk-e3-7q3"/>
                         <outlet property="monthBillCard" destination="guM-8S-tVL" id="s2H-bB-j3c"/>
                         <outlet property="monthBillLabel" destination="MYR-ac-KAU" id="wsg-cd-5YR"/>
-                        <outlet property="monthLabel" destination="2I7-hI-HDv" id="sXN-4D-TUI"/>
+                        <outlet property="monthLabel" destination="2I7-hI-HDv" id="lhN-3v-SJ7"/>
                         <outlet property="monthlyBudgetLabel" destination="w8Q-Vs-lPj" id="Ooo-by-2HK"/>
                         <outlet property="progressBudget" destination="qxa-te-hcg" id="Vjc-RI-Qnj"/>
                     </connections>
