@@ -12,7 +12,6 @@ class ReportTableViewController: UITableViewController {
     let loadingView     = UIView()
     let spinner         = UIActivityIndicatorView()
     let loadingLabel    = UILabel()
-    let dateFormatter   = DateFormatter()
     var harga: Float    = 1444.70 //predefine price per kwh
     
     var monthlyDataList: [MonthlyPower] = []
@@ -44,16 +43,17 @@ class ReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setLoadingScreen()
-        
         navigationItem.title = nil
-        navigationController?.navigationBar.shadowImage   = UIImage()
+        navigationController?.navigationBar.shadowImage = UIImage()
         
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         self.refreshControl?.attributedTitle = .none
+        
+        setPullToRequest()
+        setLoadingScreen()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +86,7 @@ class ReportTableViewController: UITableViewController {
             
             let maxDayIndex = monthlyDataList.count - 1
             
-            // pass necessary data to graph view
+            /// pass necessary data to graph view
             cell.graph.monthContent = monthlyDataList
             var powerList : [Float] = []
             for i in 0..<monthlyDataList.count {
@@ -95,14 +95,8 @@ class ReportTableViewController: UITableViewController {
             }
             cell.graph.graphPoint = powerList
             
-            // setting up UI for graph
+            /// Displaying the graph
             cell.graph.setNeedsDisplay()
-            cell.graph.layer.cornerRadius   = 8
-            cell.graph.layer.borderWidth    = 1
-            cell.graph.layer.borderColor    = UIColor.clear.cgColor
-            cell.graph.layer.masksToBounds  = true
-            
-            dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
             cell.selectionStyle = .none
             
             /// Accessibility for MonthlyComparison Graph
@@ -114,11 +108,6 @@ class ReportTableViewController: UITableViewController {
         } else {
             
             if monthlyDataList.count != 0 {
-                
-                let formatter = NumberFormatter()
-                formatter.numberStyle = NumberFormatter.Style.spellOut
-                formatter.locale = Locale(identifier: "en_ID")
-                formatter.maximumFractionDigits = 0
                 
                 let kwhPow      = monthlyDataList[indexPath.row].monthly_power
                 let kwhPower    = kwhPow.toKwhString()
@@ -257,6 +246,11 @@ class ReportTableViewController: UITableViewController {
         self.getMonthlyData()
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
+    }
+    
+    func setPullToRequest(){
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.refreshControl?.attributedTitle = .none
     }
     
 }

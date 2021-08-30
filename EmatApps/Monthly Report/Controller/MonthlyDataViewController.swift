@@ -35,6 +35,7 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     var monthDetailBill : String?
     var monthBillNumber : Float = 0.0
     var monthBudget     : Float?
+    var monthlyProgress : Float?
     var highestDaily    : Float = 0.0
     var dailyBudget     : Float = 0.0
     var harga           : Float = 1444.70
@@ -131,6 +132,16 @@ class MonthlyDataViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // the cell can't be selected on this view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
     }
     
     func getDailyDataList(){

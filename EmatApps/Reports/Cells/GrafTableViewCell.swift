@@ -14,6 +14,12 @@ class GrafTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        graph.layer.cornerRadius   = 8
+        graph.layer.borderWidth    = 1
+        graph.layer.borderColor    = UIColor.clear.cgColor
+        graph.layer.masksToBounds  = true
+        
         // Initialization code
     }
     

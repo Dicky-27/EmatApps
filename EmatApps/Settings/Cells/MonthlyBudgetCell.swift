@@ -88,19 +88,11 @@ class MonthlyBudgetCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func setupAccessibility() {
-//        var elemets = [UIAccessibilityElement]()
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.spellOut
         formatter.locale = Locale(identifier: "en_ID")
         formatter.maximumFractionDigits = 0
-//
-//
-//        let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
-//        //kwhElemetn.accessibilityLabel = "Current spending, \(formatter.string(from: NSNumber(value: duit)) ?? "0")Rupiah"
-//        kwhElemetn.accessibilityFrameInContainerSpace = self.frame
-//        elemets.append(kwhElemetn)
-//
-//        self.accessibilityElements = elemets
         
         self.isAccessibilityElement = true
         self.accessibilityLabel = "\(descLbl.text ?? "") ,  \(formatter.string(from: UserData.user[0].budget as NSNumber) ?? "0")rupiah , textfield"
