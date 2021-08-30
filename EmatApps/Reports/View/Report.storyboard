@@ -38,7 +38,7 @@
                     <tabBarItem key="tabBarItem" title="Reports" image="calendar" catalog="system" selectedImage="calendar" id="0Ch-mE-sfW"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bSz-Qh-IMg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bSz-Qh-IMg">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -56,7 +56,7 @@
             <objects>
                 <tableViewController id="FYf-am-yrL" customClass="ReportTableViewController" customModule="EmatApps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6rn-hQ-rhB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Wblack"/>
                         <prototypes>
