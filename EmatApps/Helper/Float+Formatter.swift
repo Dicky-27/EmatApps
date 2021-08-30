@@ -44,42 +44,34 @@ extension Float {
         
         return "\(kwhFormat.string(from: NSNumber(value:self)) ?? "0,00") Watt"
     }
-}
-
-
-extension Date {
-    var startOfDay: Date {
-        return Calendar.current.startOfDay(for: self)
+    
+    func accRupiahFormater() -> String {
+        let formatterRp = NumberFormatter()
+        formatterRp.numberStyle = NumberFormatter.Style.spellOut
+        formatterRp.locale = Locale(identifier: "en_ID")
+        formatterRp.maximumFractionDigits = 0
+        
+        return "\(formatterRp.string(from: NSNumber(value: self)) ?? "0")Rupiah"
     }
-
-    var startOfMonth: Date {
-
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents([.year, .month], from: self)
-
-        return  calendar.date(from: components)!
+    
+    func accKwhFormatter() -> String {
+        let formatterKwh = NumberFormatter()
+        formatterKwh.numberStyle = .decimal
+        formatterKwh.locale = Locale(identifier: "en_ID")
+        formatterKwh.maximumFractionDigits = 2
+        formatterKwh.minimumFractionDigits = 2
+        
+        return "\(formatterKwh.string(from: NSNumber(value: self)) ?? "0") Kilowatt Hour"
     }
-
-    var endOfDay: Date {
-        var components = DateComponents()
-        components.day = 1
-        components.second = -1
-        return Calendar.current.date(byAdding: components, to: startOfDay)!
-    }
-
-    var endOfMonth: Date {
-        var components = DateComponents()
-        components.month = 1
-        components.second = -1
-        return Calendar(identifier: .gregorian).date(byAdding: components, to: startOfMonth)!
-    }
-
-    func isMonday() -> Bool {
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents([.weekday], from: self)
-        return components.weekday == 2
+    
+    func accPercentFormatter() -> String {
+        let formatterPercent = NumberFormatter()
+        formatterPercent.numberStyle = .percent
+        
+        return "\(formatterPercent.string(from: NSNumber(value: self)) ?? "0")"
     }
 }
+
 
 extension UIView{
     func addGradientBackground(firstColor: UIColor, secondColor: UIColor){
@@ -138,3 +130,4 @@ extension Measurement where UnitType: Dimension {
         return returnMeasure
     }
 }
+
