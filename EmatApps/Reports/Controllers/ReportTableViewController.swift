@@ -46,11 +46,7 @@ class ReportTableViewController: UITableViewController {
         
         setLoadingScreen()
         
-        tableView.separatorStyle  = .none
-        tableView.backgroundColor = UIColor(named: "Wblack")
-        
         navigationItem.title = nil
-        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage   = UIImage()
         
         tableView.tableHeaderView = tableHeaderView
@@ -61,7 +57,6 @@ class ReportTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.barTintColor = UIColor(named: "Wblack")
         setLoadingScreen()
         getMonthlyData()
     }
@@ -110,9 +105,8 @@ class ReportTableViewController: UITableViewController {
             dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
             cell.selectionStyle = .none
             
+            /// Accessibility for MonthlyComparison Graph
             cell.isAccessibilityElement = true
-            cell.monthlyComparison.isAccessibilityElement = false
-            cell.graph.isAccessibilityElement = false
             cell.accessibilityLabel = "Graphic of Monthly Comparison"
             
             return cell
@@ -131,15 +125,17 @@ class ReportTableViewController: UITableViewController {
                 let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga
                 let rupiahPower = totalSpend.toRupiahString()
                 
-                // displaying all the months labels
+                /// displaying all the months labels
                 cell2.tableImage.layer.cornerRadius = 8
                 cell2.monthLabel.text               = monthlyDataList[indexPath.row].month_full
                 cell2.kwhLabel.text                 = kwhPower
                 cell2.rupiahLabel.text              = rupiahPower
                 cell2.selectionStyle                = .none
+                
+                /// Accessibility for MonthTableCell
                 cell2.isAccessibilityElement        = true
                 cell2.accessibilityLabel            =
-                    "\(cell2.monthLabel.text ?? ""), total spending is, \(formatter.string(from: NSNumber(value: totalSpend.rounded())) ?? "")Rupiah, total power usage, \((kwhPow * 100).rounded()/100 as NSNumber) kilowatt hour"
+                    "\(cell2.monthLabel.text ?? ""), total spending is, \((totalSpend.rounded()).accRupiahFormater())Rupiah, total power usage, \((kwhPow * 100).rounded()/100) kilowatt hour"
             }
             return cell2
         }
@@ -179,15 +175,15 @@ class ReportTableViewController: UITableViewController {
         if segue.identifier == "toDetail" {
             if let detailVC = segue.destination as? MonthlyDataViewController {
                 
-                let dataPowFull            = sender as! [String : Any]
-                let dataPow : MonthlyPower = dataPowFull["monthlyDataList"] as! MonthlyPower
-                let rupiahPower            = dataPowFull["rupiahPower"] as? String
+                let dataPowFull             = sender as! [String : Any]
+                let dataPow: MonthlyPower   = dataPowFull["monthlyDataList"] as! MonthlyPower
+                let rupiahPower             = dataPowFull["rupiahPower"] as? String
                 
-                detailVC.monthDetail       = dataPow.month_full
-                detailVC.monthDetailPow    = dataPow.monthly_power
-                detailVC.monthDetailBill   = rupiahPower
-                detailVC.monthBillNumber   = dataPow.monthly_power * harga
-                detailVC.monthBudget       = dataPow.monthly_budget
+                detailVC.monthDetail        = dataPow.month_full
+                detailVC.monthDetailPow     = dataPow.monthly_power
+                detailVC.monthDetailBill    = rupiahPower
+                detailVC.monthBillNumber    = dataPow.monthly_power * harga
+                detailVC.monthBudget        = dataPow.monthly_budget
             }
         }
     }

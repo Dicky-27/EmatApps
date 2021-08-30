@@ -43,6 +43,32 @@ extension Float {
         
         return "\(kwhFormat.string(from: NSNumber(value:self)) ?? "0,00") Watt"
     }
+    
+    func accRupiahFormater() -> String {
+        let formatterRp = NumberFormatter()
+        formatterRp.numberStyle = NumberFormatter.Style.spellOut
+        formatterRp.locale = Locale(identifier: "en_ID")
+        formatterRp.maximumFractionDigits = 0
+        
+        return "\(formatterRp.string(from: NSNumber(value: self)) ?? "0")Rupiah"
+    }
+    
+    func accKwhFormatter() -> String {
+        let formatterKwh = NumberFormatter()
+        formatterKwh.numberStyle = .decimal
+        formatterKwh.locale = Locale(identifier: "en_ID")
+        formatterKwh.maximumFractionDigits = 2
+        formatterKwh.minimumFractionDigits = 2
+        
+        return "\(formatterKwh.string(from: NSNumber(value: self)) ?? "0") Kilowatt Hour"
+    }
+    
+    func accPercentFormatter() -> String {
+        let formatterPercent = NumberFormatter()
+        formatterPercent.numberStyle = .percent
+        
+        return "\(formatterPercent.string(from: NSNumber(value: self)) ?? "0")"
+    }
 }
 
 
