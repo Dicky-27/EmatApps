@@ -73,6 +73,8 @@ extension Float {
 }
 
 
+
+
 extension UIView{
     func addGradientBackground(firstColor: UIColor, secondColor: UIColor){
         clipsToBounds = true
