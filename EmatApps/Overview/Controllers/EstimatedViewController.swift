@@ -15,13 +15,14 @@ class EstimatedViewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadPredictData()
         
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "DWhite")
         self.tabBarController?.tabBar.isHidden = true
+        loadPredictData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

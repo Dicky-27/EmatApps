@@ -62,7 +62,6 @@ class OverTableViewController: UITableViewController {
         checkUserByData()
         
         loadData()
-        setLoadingScreen()
         loadPowerData()
         loadDailyData()
     
