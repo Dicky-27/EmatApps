@@ -128,6 +128,7 @@ class CellOneTableViewCell: UITableViewCell {
             
             let duit = kwhTot * harga
             let duitBefore = kwhTotBefore * harga
+            let savingN = duitBefore - duit
             let saving = "\(duitBefore - duit)"
             
             let formatterNumber = NumberFormatter()
@@ -135,6 +136,12 @@ class CellOneTableViewCell: UITableViewCell {
             formatterNumber.locale = Locale(identifier: "id_ID")
             let numberFromField = (NSString(string: saving).integerValue)
             moneySave.text = formatterNumber.string(from: numberFromField as NSNumber)
+            
+            if savingN.sign == .minus {
+                moneySave.textColor = UIColor(named: "redSecond")
+            }else {
+                moneySave.textColor = UIColor(named: "AccentColor")
+            }
             
             setupAccessbility()
         }
