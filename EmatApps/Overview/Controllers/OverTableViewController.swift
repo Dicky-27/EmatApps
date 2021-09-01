@@ -124,7 +124,7 @@ class OverTableViewController: UITableViewController {
         if indexPath.section == 0 {
         
             cell.selectionStyle = .none
-            cell.setup()
+            cell.setData()
             ChartSetup.drawing(view: cell.chartOver)
             
             return cell

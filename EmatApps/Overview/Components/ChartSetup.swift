@@ -88,6 +88,8 @@ class ChartSetup: UIView{
             
             result = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
             resultBefore = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(prev) }
+            
+           
         
             if result.isEmpty == false {
                 for i in 0..<result.count {
@@ -114,16 +116,17 @@ class ChartSetup: UIView{
             
             
             if resultBefore.isEmpty == false {
-                for i in 0..<result.count {
-                    let tryv = result.indices.contains((lastIndex+1) - i)
+                for i in 0..<resultBefore.count {
+                    let tryv = resultBefore.indices.contains((lastIndex+1) - i)
                     if tryv == true  {
-                        powerBefore = result[lastIndex - i].energy ?? 0
+                        powerBefore = resultBefore[lastIndex - i].energy ?? 0
                         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
                         formatter.timeZone =  NSTimeZone(forSecondsFromGMT: 25200) as TimeZone?
                         let isoDate = EnergiesLoad.daily_energy[lastIndex - i].created_at ?? ""
                         let datenya = formatter.date(from: isoDate)
                         let day = calendar.component(.day, from: datenya ?? unwrap)
                         let entry = ChartDataEntry.init(x: Double(day), y: Double(powerBefore))
+                    
                         dataEntries1.append(entry)
                     
                         powerBefore  = 0
