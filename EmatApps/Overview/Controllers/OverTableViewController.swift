@@ -29,7 +29,6 @@ class OverTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        
         self.tableView.separatorStyle = .none
         navigationItem.title = nil
@@ -53,19 +52,19 @@ class OverTableViewController: UITableViewController {
         setLoadingScreen()
         checkUserByData()
         
-        if Core.shared.isNewUser() {
-            let vc = storyboard?.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-            
-        }
+        titleStackView.button.isAccessibilityElement = true
+        titleStackView.button.accessibilityLabel = "Setting"
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        checkUserByData()
+        
         loadData()
-        setLoadingScreen()
         loadPowerData()
+        loadDailyData()
+    
         self.tabBarController?.tabBar.isHidden = false
         
     }
@@ -73,8 +72,19 @@ class OverTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         loadData()
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if Core.shared.isNewUser() {
+            let sb = UIStoryboard(name: "Onboarding", bundle: nil)
+            let vc = sb.instantiateViewController(identifier: "onboarding") as! OnboardingViewController
+            
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+            
+        }
+    }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -88,7 +98,7 @@ class OverTableViewController: UITableViewController {
         let maxTitlePoint = tableView.convert(CGPoint(x: titleStackView.titleLabel.bounds.minX, y: titleStackView.titleLabel.bounds.maxY), from: titleStackView.titleLabel)
         let offset = scrollView.contentOffset.y
 
-        navigationItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Emat" : nil
+        navigationItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Overview" : nil
         tabBarItem.title = scrollView.contentOffset.y > maxTitlePoint.y ? "Overview" : "Overview"
         setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
         Loading.viewBaru.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: offset + titleStackView.frame.height)
@@ -108,22 +118,12 @@ class OverTableViewController: UITableViewController {
         guard let cell4 = tableView.dequeueReusableCell(withIdentifier: "cell4") as? CellFourTableViewCell else {fatalError("Cell is not of kind FormItemTableViewCell")}
         guard let cell5 = tableView.dequeueReusableCell(withIdentifier: "cell5") as? CellFiveTableViewCell else {fatalError("Cell is not of kind FormItemTableViewCell")}
         
-
         setTableViewBackgroundGradient(UIColor(named: "Background") ?? .blue, UIColor(named: "Wblack") ?? .black)
         
         if indexPath.section == 0 {
         
             cell.selectionStyle = .none
-            let calendar = Calendar.current
-            let date = Date()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "LLLL"
-            let day = calendar.component(.day, from: date)
-            let month = dateFormatter.string(from: date)
-            
-            cell.moneySave.text = "Rp0"
-            cell.dateNow.text = "\(day) \(month)"
-            
+            cell.setData()
             ChartSetup.drawing(view: cell.chartOver)
             
             return cell
@@ -131,96 +131,19 @@ class OverTableViewController: UITableViewController {
         }else if indexPath.section == 1 {
           
             cell2.selectionStyle = .none
-            
-            var kwhTot:Float = 0
-            var power:Float = 0
-        
-            if EnergiesLoad.energyModel.isEmpty == false {
-                for i in 0..<EnergiesLoad.energyModel.count{
-    
-                    power = EnergiesLoad.energyModel[i].power ?? 0
-                    kwhTot += power/1000
-                }
-                
-                let duit = Float(Float(kwhTot) * 1440.70)
-                
-                
-                let formatter = NumberFormatter()
-                formatter.numberStyle = NumberFormatter.Style.currency
-                formatter.locale = Locale(identifier: "id_ID")
-                formatter.maximumFractionDigits = 0
-                
-                var numberFromField:Float = 0
-                var budget:Float = 0
-                
-                if UserData.user.isEmpty == false {
-                    
-                    numberFromField = UserData.user[0].budget
-                    budget = UserData.user[0].budget
-                    
-                    cell2.rightLbl.text = formatter.string(from: numberFromField as NSNumber)
-                    
-                    cell2.progressBudget.progress = Float(duit / budget)
-                    
-                }
-            }
+            cell2.setup()
             
             return cell2
             
         }else if indexPath.section == 2 {
             
-            var kwhTot:Float = 0
-            var power:Float = 0
-        
-            if EnergiesLoad.energyModel.isEmpty == false {
-        
-                for i in 0..<EnergiesLoad.energyModel.count{
-    
-                    power = EnergiesLoad.energyModel[i].power ?? 0
-                    kwhTot += power/1000
-                    
-                }
-                
-                let state = UserData.user[0].budget
-            
-                var harga: Float = 0
-                if state >= 399.0 && state <= 1000.0 {
-                    harga = 1352
-                }else {
-                    harga = 1440.70
-                }
-
-                let duit = "\(Float(Float(kwhTot) * harga))"
-                let formatter = NumberFormatter()
-                formatter.numberStyle = NumberFormatter.Style.currency
-                formatter.locale = Locale(identifier: "id_ID")
-                let numberFromField = (NSString(string: duit).integerValue)
-                cell3.currentSpen.text = formatter.string(from: numberFromField as NSNumber)
-                
-            }
-            
+            cell3.selectionStyle = .none
+            cell3.setup()
             return cell3
             
         }else if indexPath.section == 3{
             
-            var kwhTot:Float = 0
-            var power:Float = 0
-        
-            if EnergiesLoad.energyModel.isEmpty == false {
-                for i in 0..<EnergiesLoad.energyModel.count{
-    
-                    power = EnergiesLoad.energyModel[i].power ?? 0
-                    kwhTot += power/1000
-    
-                }
-                
-            let kwh = Helper.kwhFormatter(number: kwhTot)
-            let watt = Helper.wattFormatter(number: EnergiesLoad.energyModel[0].power ?? 0)
-            cell4.kwhStats.text = kwh
-            cell4.powerStats.text = watt
-                
-            }
-            
+            cell4.setup()
             cell4.selectionStyle = .none
             return cell4
             
@@ -248,13 +171,12 @@ class OverTableViewController: UITableViewController {
         }
     }
     
-   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goEst" {
             if let nextVC = segue.destination as? EstimatedViewController {
                 let date = Date()
                 nextVC.date = date
-                
+
             }else if segue.identifier == "goSetting" {
                 if let nextVC = segue.destination as? SettingTableViewController {
                     nextVC.onCreate = {
@@ -265,7 +187,6 @@ class OverTableViewController: UITableViewController {
         }
     }
     
-    
     @objc func estButtonAction() {
         performSegue(withIdentifier: "goEst", sender: nil)
     }
@@ -275,31 +196,40 @@ class OverTableViewController: UITableViewController {
     }
 
     func loadPowerData(){
-
+        
         APIRequest.fetchEnergyData(url: Constant.GET_ENERGY_LIST,showLoader: true) { response in
             EnergiesLoad.energyModel = response
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.removeLoadingScreen()
-            }
-            
-        } failCompletion: { message in
-           print(message)
+            }}
+            failCompletion: { message in print(message) }
         }
-    }
     
-      func loadData() {
+    func loadDailyData(){
+        
+        APIRequest.fetchDailyEnergyData(url: Constant.GET_DAILY_ENERGY_LIST,showLoader: true) { response in
+            EnergiesLoad.daily_energy = response
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.removeLoadingScreen()
+            }}
+            failCompletion: { message in print(message) }
+        }
     
+    
+    func loadData() {
+
             let request : NSFetchRequest<User> = User.fetchRequest()
-    
+
             do{
                 UserData.user = try UserData.context.fetch(request)
             } catch {
                 print("Error loading categories \(error)")
             }
-    
+
             tableView.reloadData()
-    
+
         }
     
 
@@ -338,45 +268,6 @@ class OverTableViewController: UITableViewController {
         }
     }
     
-    private func setLoadingScreen() {
-        
-        guard let barHeight = navigationController?.navigationBar.frame.height else { return }
-        let titleHeight = tableHeaderView.frame.height
-        
-        guard let tabHeight = tabBarController?.tabBar.frame.height else { return }
-        let heighTot = barHeight + titleHeight + tabHeight
-        
-        Loading.loadingView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - barHeight - titleHeight)
-        Loading.loadingView.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
-        Loading.loadingView.backgroundColor = UIColor(named: "Background")
-
-        Loading.loadingLabel.textColor = .gray
-        Loading.loadingLabel.textAlignment = .center
-        Loading.loadingLabel.font = UIFont(name: "Circular Std", size: 10)
-        Loading.loadingLabel.text = "LOADING"
-        Loading.loadingLabel.frame = CGRect(x: 0, y: 5, width: 140, height: 30)
-        Loading.loadingLabel.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot + 20)
-    
-        Loading.spinner.style = .medium
-        Loading.spinner.color = UIColor(named: "AccentColor")
-        Loading.spinner.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        Loading.spinner.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot)
-
-        Loading.loadingView.insertSubview(Loading.loadingLabel, at: 1)
-        Loading.loadingView.insertSubview(Loading.spinner, at: 1)
-        
-        tableView.addSubview(Loading.loadingView)
-        tableView.isUserInteractionEnabled = false
-        Loading.spinner.hidesWhenStopped = true
-        Loading.spinner.startAnimating()
-
-        }
-    
-    private func removeLoadingScreen() {
-        tableView.isUserInteractionEnabled = true
-        Loading.loadingView.removeFromSuperview()
-        Loading.spinner.removeFromSuperview()
-    }
     
     func setTableViewBackgroundGradient(_ topColor:UIColor, _ bottomColor:UIColor) {
 
@@ -401,6 +292,8 @@ class OverTableViewController: UITableViewController {
         }
         
     }
+    
+    
     
     
 }

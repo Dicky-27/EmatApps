@@ -31,7 +31,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-Tt-MI7">
-                                            <rect key="frame" x="272" y="11" width="88" height="28"/>
+                                            <rect key="frame" x="328" y="11" width="32" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
@@ -40,7 +40,6 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="GMO-XL-LdY" secondAttribute="bottom" constant="2" id="RfG-Z1-SY7"/>
                                         <constraint firstItem="zwr-Tt-MI7" firstAttribute="top" secondItem="v1r-JH-i7R" secondAttribute="topMargin" id="TXo-W5-68i"/>
                                         <constraint firstItem="GMO-XL-LdY" firstAttribute="leading" secondItem="v1r-JH-i7R" secondAttribute="leadingMargin" constant="5" id="dKK-6Y-EXM"/>
-                                        <constraint firstItem="zwr-Tt-MI7" firstAttribute="leading" secondItem="GMO-XL-LdY" secondAttribute="trailing" constant="125" id="ll8-sk-AvC"/>
                                         <constraint firstItem="GMO-XL-LdY" firstAttribute="top" secondItem="v1r-JH-i7R" secondAttribute="topMargin" constant="2" id="sVy-aF-Cof"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="zwr-Tt-MI7" secondAttribute="bottom" id="u7i-rC-mnz"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="zwr-Tt-MI7" secondAttribute="trailing" constant="10" id="uBB-fj-9PZ"/>
@@ -48,6 +47,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="budgetTf" destination="zwr-Tt-MI7" id="P4t-5y-eiM"/>
+                                    <outlet property="descLbl" destination="GMO-XL-LdY" id="qPx-pw-GBh"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="50" id="aWk-a9-asK" customClass="PowerCell" customModule="EmatApps" customModuleProvider="target">

@@ -8,12 +8,12 @@
 import UIKit
 
 private enum Constants {
-    static let margin        : CGFloat = 20
-    static let topBorder     : CGFloat = 60
-    static let bottomBorder  : CGFloat = 30
-    static let colorAlpha    : CGFloat = 0.3
-    static let circleDiameter: CGFloat = 10
-    static let cornerRadiusSize        = CGSize(width: 10.0, height: 8.0)
+    static let margin : CGFloat         = 20
+    static let topBorder : CGFloat      = 60
+    static let bottomBorder : CGFloat   = 30
+    static let colorAlpha : CGFloat     = 0.3
+    static let circleDiameter: CGFloat  = 10
+    static let cornerRadiusSize         = CGSize(width: 10.0, height: 8.0)
 }
 
 class GraphView: UIView {
@@ -145,6 +145,7 @@ class GraphView: UIView {
             }
             
             self.insertSubview(label, at: 1)
+            label.isAccessibilityElement = false
             
             currPoint += spacingPoint
             circle.fill()

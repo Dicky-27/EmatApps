@@ -12,7 +12,6 @@ class ReportTableViewController: UITableViewController {
     let loadingView     = UIView()
     let spinner         = UIActivityIndicatorView()
     let loadingLabel    = UILabel()
-    let dateFormatter   = DateFormatter()
     var harga: Float    = 1444.70 //predefine price per kwh
     
     var monthlyDataList: [MonthlyPower] = []
@@ -21,6 +20,8 @@ class ReportTableViewController: UITableViewController {
         
         let titleStackView = TitleView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 40.0)))
         titleStackView.translatesAutoresizingMaskIntoConstraints = false
+        titleStackView.isAccessibilityElement   = true
+        titleStackView.accessibilityLabel       = "Report Page"
         
         return titleStackView
     }()
@@ -42,25 +43,22 @@ class ReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setLoadingScreen()
-        
-        tableView.separatorStyle  = .none
-        tableView.backgroundColor = UIColor(named: "Wblack")
-        
         navigationItem.title = nil
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.shadowImage   = UIImage()
+        navigationController?.navigationBar.shadowImage = UIImage()
         
         tableView.tableHeaderView = tableHeaderView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         self.refreshControl?.attributedTitle = .none
+        
+        setPullToRequest()
+        setLoadingScreen()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor(named: "Wblack")
         
-        setLoadingScreen()
         getMonthlyData()
     }
     
@@ -75,7 +73,7 @@ class ReportTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return 1
-        }else {
+        } else {
             return monthlyDataList.count
         }
     }
@@ -89,7 +87,7 @@ class ReportTableViewController: UITableViewController {
             
             let maxDayIndex = monthlyDataList.count - 1
             
-            // pass necessary data to graph view
+            /// pass necessary data to graph view
             cell.graph.monthContent = monthlyDataList
             var powerList : [Float] = []
             for i in 0..<monthlyDataList.count {
@@ -98,16 +96,13 @@ class ReportTableViewController: UITableViewController {
             }
             cell.graph.graphPoint = powerList
             
-            // setting up UI for graph
+            /// Displaying the graph
             cell.graph.setNeedsDisplay()
-            cell.graph.layer.cornerRadius   = 8
-            cell.graph.layer.borderWidth    = 1
-            cell.graph.layer.borderColor    = UIColor.clear.cgColor
-            cell.graph.layer.masksToBounds  = true
-            
-            dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
-            
             cell.selectionStyle = .none
+            
+            /// Accessibility for MonthlyComparison Graph
+            cell.isAccessibilityElement = true
+            cell.accessibilityLabel = "Graphic of Monthly Comparison"
             
             return cell
             
@@ -116,16 +111,21 @@ class ReportTableViewController: UITableViewController {
             if monthlyDataList.count != 0 {
                 
                 let kwhPow      = monthlyDataList[indexPath.row].monthly_power
-                let kwhPower    = Helper.kwhFormatter(number : kwhPow)
+                let kwhPower    = kwhPow.toKwhString()
                 let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga
-                let rupiahPower = Helper.rpFormatter(number : totalSpend)
+                let rupiahPower = totalSpend.toRupiahString()
                 
-                // displaying all the months labels
+                /// displaying all the months labels
                 cell2.tableImage.layer.cornerRadius = 8
                 cell2.monthLabel.text               = monthlyDataList[indexPath.row].month_full
                 cell2.kwhLabel.text                 = kwhPower
                 cell2.rupiahLabel.text              = rupiahPower
                 cell2.selectionStyle                = .none
+                
+                /// Accessibility for MonthTableCell
+                cell2.isAccessibilityElement        = true
+                cell2.accessibilityLabel            =
+                    "\(cell2.monthLabel.text ?? ""), total spending is, \((totalSpend.rounded()).accRupiahFormater()), total power usage, \((kwhPow * 100).rounded()/100) kilowatt hour"
             }
             return cell2
         }
@@ -139,7 +139,6 @@ class ReportTableViewController: UITableViewController {
         }
     }
    
-    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let maxTitlePoint = tableView.convert(CGPoint(x: titleStackView.titleLabel.bounds.minX, y: titleStackView.titleLabel.bounds.maxY), from: titleStackView.titleLabel)
         
@@ -150,7 +149,7 @@ class ReportTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let totalSpend  = monthlyDataList[indexPath.row].monthly_power * harga
-        let rupiahPower = Helper.rpFormatter(number: totalSpend)
+        let rupiahPower = totalSpend.toRupiahString()
         
         let row = indexPath.row
         let dataParam : [String : Any] = [
@@ -166,75 +165,38 @@ class ReportTableViewController: UITableViewController {
         if segue.identifier == "toDetail" {
             if let detailVC = segue.destination as? MonthlyDataViewController {
                 
-                let dataPowFull            = sender as! [String : Any]
-                let dataPow : MonthlyPower = dataPowFull["monthlyDataList"] as! MonthlyPower
-                let rupiahPower            = dataPowFull["rupiahPower"] as? String
+                let dataPowFull             = sender as! [String : Any]
+                let dataPow: MonthlyPower   = dataPowFull["monthlyDataList"] as! MonthlyPower
+                let rupiahPower             = dataPowFull["rupiahPower"] as? String
                 
-                detailVC.monthDetail       = dataPow.month_full
-                detailVC.monthDetailPow    = dataPow.monthly_power
-                detailVC.monthDetailBill   = rupiahPower
-                detailVC.monthBudget       = dataPow.monthly_budget
+                detailVC.monthDetail        = dataPow.month_full
+                detailVC.monthDetailPow     = dataPow.monthly_power
+                detailVC.monthDetailBill    = rupiahPower
+                detailVC.monthBillNumber    = dataPow.monthly_power * harga
+                detailVC.monthBudget        = dataPow.monthly_budget
             }
         }
     }
     
-    private func setLoadingScreen() {
-        
-        let barHeight   = (navigationController?.navigationBar.frame.height)!
-        let titleHeight = tableHeaderView.frame.height
-        let tabHeight   = (tabBarController?.tabBar.frame.height)!
-        let heighTot    = barHeight + titleHeight + tabHeight
-        
-        loadingView.frame           = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - barHeight - titleHeight)
-        loadingView.center          = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
-        loadingView.backgroundColor = UIColor(named: "Wblack")
-        
-        loadingLabel.textColor      = .gray
-        loadingLabel.textAlignment  = .center
-        loadingLabel.font           = UIFont(name: "Circular Std", size: 10)
-        loadingLabel.text           = "LOADING"
-        loadingLabel.frame          = CGRect(x: 0, y: 5, width: 140, height: 30)
-        loadingLabel.center         = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot + 20)
-        
-        spinner.style               = .medium
-        spinner.color               = UIColor(named: "AccentColor")
-        spinner.frame               = CGRect(x: 0, y: 0, width: 50, height: 50)
-        spinner.center              = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2 - heighTot)
-        
-        loadingView.insertSubview(loadingLabel, at: 1)
-        loadingView.insertSubview(spinner, at: 1)
-        
-        tableView.addSubview(loadingView)
-        tableView.isUserInteractionEnabled = false
-        
-        spinner.hidesWhenStopped = true
-        spinner.startAnimating()
-        
-    }
-    
-    private func removeLoadingScreen() {
-        
-        tableView.isUserInteractionEnabled = true
-        loadingView.removeFromSuperview()
-        spinner.removeFromSuperview()
-        
-    }
     
     func getMonthlyData(){
         
         APIRequest.fetchMonthlyEnergyData(url: Constant.GET_MONTHLY_ENERGY_LIST,showLoader: true) { response in
             
             // handle response and store it to the data model
-            self.monthlyDataList = response
+            self.monthlyDataList = []
+            for i in 0...response.count - 1 {
+                if response[i].monthly_power != 0.0 && response[i].monthly_budget != 0.0 {
+                    self.monthlyDataList.append(response[i])
+                }
+            }
             
             DispatchQueue.main.async {
-                
                 self.tableView.reloadData()
                 self.removeLoadingScreen()
             }
             
         } failCompletion: { message in
-            
             print(message)
         }
     }
@@ -244,6 +206,11 @@ class ReportTableViewController: UITableViewController {
         self.getMonthlyData()
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
+    }
+    
+    func setPullToRequest(){
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.refreshControl?.attributedTitle = .none
     }
     
 }

@@ -23,7 +23,7 @@ class SettingTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.isScrollEnabled = false
         
-        self.title = "Setting"
+        self.title = "Settings"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +81,7 @@ class SettingTableViewController: UITableViewController {
         } else {
             
             cell3.accessoryType = .disclosureIndicator
+            cell3.selectionStyle = .none
             return cell3
         }
             
@@ -121,5 +122,6 @@ class SettingTableViewController: UITableViewController {
         }
 
     }
+    
     
 }

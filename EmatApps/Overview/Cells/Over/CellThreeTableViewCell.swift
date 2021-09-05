@@ -31,6 +31,7 @@ class CellThreeTableViewCell: UITableViewCell {
         viewBg.addGradientBackground2(firstColor: UIColor(named: "PrimaryGrad") ?? .blue, secondColor: UIColor(named: "PrGrad") ?? .white)
         viewBg.layer.cornerRadius = 8
         
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,63 +40,79 @@ class CellThreeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-}
-
-extension UIView{
-    func addGradientBackground(firstColor: UIColor, secondColor: UIColor){
-        clipsToBounds = true
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor]
-        gradientLayer.locations = [0.5, 0.5]
-        gradientLayer.frame = self.bounds
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+    
+    func setupAccessbility(duit: Int) {
+        var elemets = [UIAccessibilityElement]()
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.spellOut
+        formatter.locale = Locale(identifier: "en_ID")
+        formatter.maximumFractionDigits = 0
         
-        self.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let kwhElemetn = UIAccessibilityElement(accessibilityContainer: self)
+        kwhElemetn.accessibilityLabel = "Current spending, \(formatter.string(from: NSNumber(value: duit)) ?? "0")Rupiah"
+        kwhElemetn.accessibilityFrameInContainerSpace = viewBg.frame
+        elemets.append(kwhElemetn)
+        
+        self.accessibilityElements = elemets
     }
     
-    func addGradientBackground2(firstColor: UIColor, secondColor: UIColor){
-        clipsToBounds = true
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor]
-        gradientLayer.frame = self.bounds
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+    func setup() {
         
-        self.layer.insertSublayer(gradientLayer, at: 0)
-    }
-}
-
-
-extension UnitEnergy {
+        var kwhTot:Float = 0
+        var power:Float = 0
     
-    static let wattHours = UnitEnergy(symbol: "Wh", converter: UnitConverterLinear(coefficient:3600))
+        if EnergiesLoad.daily_energy.isEmpty == false {
     
-    static let megaWattHours = UnitEnergy(symbol: "mWh", converter: UnitConverterLinear(coefficient:3600000000))
-    
-    static let gigaWattHours = UnitEnergy(symbol: "gWh", converter: UnitConverterLinear(coefficient:3600000000000))
-    
-    
-    
-}
-
-extension Measurement where UnitType: Dimension {
-    
-    func scaled (scales:[UnitType], target: Double) -> Measurement {
-        guard !scales.isEmpty else {
-            return self
-        }
-        var returnMeasure = self.converted(to: scales.first!)
-        if returnMeasure.value.magnitude > target {
             
-            for unit in scales {
-                returnMeasure.convert(to: unit)
-                if returnMeasure.value.magnitude < target {
-                    break
-                }
+            let state = UserData.user[0].power
+        
+            let formatter = DateFormatter()
+            var result: [Daily_Energies] = []
+            
+            let lastIndex = EnergiesLoad.daily_energy.count - 1
+            let date = Date()
+
+            if date == date.startOfMonth {
+                kwhTot = 0
             }
+            
+            formatter.dateFormat = "yyyy-MM-"
+            formatter.timeZone = .current
+
+            let itu = formatter.string(from: date)
+            result = EnergiesLoad.daily_energy.filter { ($0.created_at ?? "").contains(itu) }
+            
+            for i in 0..<result.count {
+                let tryv = result.indices.contains((lastIndex+1) - i)
+                if tryv == true  {
+                    power = result[lastIndex - i].energy ?? 0
+                    kwhTot += power
+                    power  = 0
+                }
+                
+            }
+            
+            var harga: Float = 0
+            if state >= 399.0 && state <= 1000.0 {
+                harga = 1352
+            }else {
+                harga = 1440.70
+            }
+
+            let duit = "\(Float(Float(kwhTot) * harga))"
+            let formatterNumber = NumberFormatter()
+            formatterNumber.numberStyle = NumberFormatter.Style.currency
+            formatterNumber.locale = Locale(identifier: "id_ID")
+            let numberFromField = (NSString(string: duit).integerValue)
+            currentSpen.text = formatterNumber.string(from: numberFromField as NSNumber)
+            
+            setupAccessbility(duit: Int(Float(kwhTot) * harga))
         }
-        return returnMeasure
+        
+       
     }
+    
 }
+
 

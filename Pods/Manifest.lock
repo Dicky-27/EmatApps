@@ -2,21 +2,25 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - FSCalendar (2.8.2)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
   - Charts
+  - FSCalendar
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
     - Charts
+    - FSCalendar
     - TinyConstraints
 
 SPEC CHECKSUMS:
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 540c5936505b82a188b22ddcf584a5539e526d23
+PODFILE CHECKSUM: 8f8f1e6592ad9dde5017c63b671c5d6a6bd6ee9a
 
 COCOAPODS: 1.10.1

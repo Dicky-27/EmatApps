@@ -24,6 +24,7 @@ class TitleView: UIStackView {
         axis = .horizontal
         alignment = .center
         addArrangedSubview(titleLabel)
+        titleLabel.isAccessibilityElement = false
         }
 
     lazy var titleLabel: UILabel = {
@@ -34,6 +35,8 @@ class TitleView: UIStackView {
         label.textColor = UIColor(named: "AccentColor")
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = false
+        
         return label
     }()
     

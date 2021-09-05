@@ -18,14 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         /*
-        let firstSetupStoryBoard = UIStoryboard.init(name: "Setting", bundle: nil)
-        let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "setting") as! SettingViewController
+        let firstSetupStoryBoard = UIStoryboard.init(name: "MonthlyData", bundle: nil)
+        let firstSetupViewController = firstSetupStoryBoard.instantiateViewController(withIdentifier: "monthlyReport") as! MonthlyReportViewController
         
         self.window?.rootViewController = firstSetupViewController
         self.window?.makeKeyAndVisible()
         */
         
         guard let _ = (scene as? UIWindowScene) else { return }
+ 
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
